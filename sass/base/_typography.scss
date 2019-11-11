@@ -1,0 +1,39 @@
+body {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+%heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+}
+
+.h1 {
+    @extend %heading;
+
+    font-size: 4rem;
+    font-weight: 600;
+    color: color(secondary);
+
+    &--orange {
+        color: color(primary-dark);
+    }
+}
+
+.h2 {
+    @extend %heading;
+}
+
+.h3 {
+    @extend %heading;
+}
+
+.h4 {
+    @extend %heading;
+}
+
+
+.input {
+    font-size: 1.3rem;
+}

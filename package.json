@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "portfolio about NearHuscarl",
+  "repository": "git@github.com:NearHuscarl/Portfolio.git",
+  "author": "NearHuscarl <near.huscarl@gmail.com>",
+  "license": "MIT",
+  "main": "index.html",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

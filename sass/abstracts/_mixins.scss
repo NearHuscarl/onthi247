@@ -1,0 +1,45 @@
+@mixin centerAbsolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// TODO: remove
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px / 16
+$bp-large: 62.5em; // 1000px / 16
+$bp-medium: 50em; // 800px / 16
+$bp-small: 37.5em; // 600px / 16
+
+/*
+$breakpoint argument
+- phone 0-600px
+- tab-port 600-900px
+- tab-land 900-1200px
+- big-desktop 1800px+
+
+1em = 16px
+*/
+@mixin response($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: $phone-breakpoint) {
+            @content;
+        } // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: $tab-port-breakpoint) {
+            @content;
+        } // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) {
+            @content;
+        } // 1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            @content;
+        } // 1800px
+    }
+}

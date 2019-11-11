@@ -1,0 +1,56 @@
+.header {
+    // prevent container's border-radius from being clipped
+    overflow: hidden;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background-color: color(grey-light-1);
+        padding: 0.7rem 1.25rem;
+
+        .support {
+            &--time {
+                color: color(grey-dark-1);
+            }
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+
+            &__img {
+                border-radius: 50%;
+                width: 2rem;
+                height: 2rem;
+                object-fit: cover;
+
+                margin-right: 0.7rem;
+                cursor: pointer;
+            }
+
+            &__name {
+                margin-right: 2rem;
+                font-weight: 600;
+            }
+        }
+
+        .notification {
+            cursor: pointer;
+        }
+    }
+
+    &__main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 3rem;
+    }
+    &__search {
+        width: 20rem;
+        font-size: 5rem;
+    }
+}
