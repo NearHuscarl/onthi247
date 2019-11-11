@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "on-thi-247",
   "version": "1.0.0",
-  "description": "portfolio about NearHuscarl",
-  "repository": "git@github.com:NearHuscarl/Portfolio.git",
+  "description": "OnThi247 - where you can learn online 24h/7",
+  "repository": "git@github.com:NearHuscarl/OnThi247.git",
   "author": "NearHuscarl <near.huscarl@gmail.com>",
   "license": "MIT",
   "main": "index.html",
