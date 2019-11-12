@@ -1,0 +1,34 @@
+import React, { Suspense, lazy } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import NotFoundPage from '../pages/NotFoundPage';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+
+// Need react-router-dom 4.4.0-beta.5 (yarn add -D react-router-dom@next)
+// https://github.com/ReactTraining/react-router/issues/6420#issuecomment-435171740
+const HomePage = lazy(() => import(/*
+	webpackChunkName: "home",
+  */ '../pages/HomePage'));
+const NewsPage = lazy(() => import(/*
+	webpackChunkName: "news",
+	webpackPrefetch: true
+	*/ '../pages/NewsPage'));
+
+export const history = createBrowserHistory();
+
+const AppRouter = () => (
+	<Router history={history}>
+		<Route path="/" component={Header} />
+		<Suspense fallback={null}>
+			<Switch>
+				<Route path="/" component={HomePage} exact />
+				<Route path="/news" component={NewsPage} exact />
+				<Route component={NotFoundPage} />
+			</Switch>
+			<Footer />
+		</Suspense>
+	</Router>
+);
+
+export default AppRouter;

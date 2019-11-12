@@ -1,0 +1,30 @@
+// Color
+$colors: (
+    primary: #ffc600,
+    primary-dark: #fc9e31,
+    primary-light: #FFE8CC,
+    secondary: #2e293b,
+    tertiary: #c9e167,
+    grey-light-1: #f5f5f5,
+    grey-light-2: #eee,
+    grey-dark-1: #999,
+    grey-dark-2: #777,
+    grey-dark-3: #585858,
+    'white': #fff,
+    'black': #000
+);
+$project-root: './../../';
+$image-path: $project-root + 'public/images/';
+
+:root {
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+
+    --shadow-dark: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+    // Font
+    --font-primary: "OpenSans", sans-serif;
+    --font-display: "NotoSans", sans-serif;
+}

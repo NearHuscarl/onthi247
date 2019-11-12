@@ -1,0 +1,49 @@
+.content {
+    padding: 2rem;
+}
+
+.subject {
+}
+
+.result-summary {
+    padding-top: 1.5rem;
+}
+
+.result-text {
+    background-blend-mode: screen;
+    background-image: linear-gradient(
+            to right bottom,
+            transparentize(map-get($colors, primary-dark), 0.4),
+            transparentize(map-get($colors, primary-dark), 0.4)
+        ),
+        url($image-path + "congrats.jpg");
+    background-size: cover;
+    background-position: center;
+    color: color('white');
+
+    height: 50vh;
+    border-radius: 0.5rem;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__score {
+        font-size: 4.2rem;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    &__time {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.result-details {
+    padding-top: 1.5rem;
+
+    display: grid;
+}
