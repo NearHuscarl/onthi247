@@ -13,7 +13,7 @@
 		"lint": "eslint . --ext=js,jsx --ignore-path .eslintignore",
 		"build:dev": "webpack",
 		"build:prod": "webpack -p --env production",
-		"predeploy": "yarn run build:prod",
+		"predeploy": "yarn run build:dev",
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {

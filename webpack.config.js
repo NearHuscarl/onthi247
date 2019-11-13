@@ -1,8 +1,9 @@
 // https://thesoftwaresimpleton.com/blog/2019/03/15/ts-code-splitting
 
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -14,15 +15,18 @@ module.exports = (env) => {
 		entry: ['@babel/polyfill', './src/app.js'],
 		output: {
 			path: path.join(__dirname, 'dist'),
-			filename: isProduction ? 'js/[name].[chunkhash:8].chunk.js' : 'js/[name].chunk.js',
-			chunkFilename: isProduction ? 'js/[name].[chunkhash:8].chunk.js' : 'js/[name].chunk.js',
-			publicPath: '/',
+			filename: isProduction
+				? '[name].[chunkhash:8].chunk.js'
+				: '[name].chunk.js',
+			chunkFilename: isProduction
+				? '[name].[chunkhash:8].chunk.js'
+				: '[name].chunk.js',
 		},
 		module: {
 			rules: [
 				{
 					loader: 'babel-loader',
-					test:  /\.(js|jsx)$/,
+					test: /\.(js|jsx)$/,
 					exclude: /node_modules/,
 				},
 				{
@@ -48,7 +52,7 @@ module.exports = (env) => {
 								sourceMap: true,
 							},
 						},
-					]
+					],
 				},
 				{
 					test: /\.(ttf|otf|eot|svg|woff|woff2)$/,
@@ -76,14 +80,32 @@ module.exports = (env) => {
 				},
 			],
 		},
-		plugins: (isProduction ? [] : [/* new BundleAnalyzerPlugin() */]).concat([
+		plugins: (isProduction
+			? []
+			: [
+					/* new BundleAnalyzerPlugin() */
+			  ]
+		).concat([
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				template: 'public/index.html',
+				favicon: 'public/images/favicon.png',
 			}),
 			new MiniCssExtractPlugin({
-				filename: isProduction ? 'css/[name].[chunkhash:8].chunk.css' : 'css/[name].chunk.css',
-				chunkFilename: isProduction ? 'css/[name].[chunkhash:8].chunk.css' : 'css/[name].chunk.css',
+				filename: isProduction
+					? '[name].[chunkhash:8].chunk.css'
+					: '[name].chunk.css',
+				chunkFilename: isProduction
+					? '[name].[chunkhash:8].chunk.css'
+					: '[name].chunk.css',
+			}),
+			new webpack.DefinePlugin({
+				'process.env.COMMIT_SHA': JSON.stringify(
+					require('child_process')
+						.execSync('git rev-parse HEAD')
+						.toString()
+						.trim(),
+				),
 			}),
 		]),
 		devtool: isProduction ? 'source-map' : 'inline-source-map',

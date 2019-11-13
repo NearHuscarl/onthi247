@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
 	<React.Fragment>
@@ -24,7 +25,9 @@ const HomePage = () => (
 				<div className='card'>
 					<div className='h3'>Câu hỏi 01</div>
 					<span>Chưa trả lời</span>
-					<button type='button' className='btn-outline'>Lưu lại</button>
+					<button type='button' className='btn-outline'>
+						Lưu lại
+					</button>
 				</div>
 				<div className='card'>
 					<div className='h3'>
@@ -33,13 +36,15 @@ const HomePage = () => (
 					</div>
 					<div className='answer'>
 						<div className='answer__text'>axit β-aminopropionic</div>
-						<div className='answer__stats'>25% người tham gia lựa chọn</div>
+						<div className='answer__stats'>
+							25% người tham gia lựa chọn
+						</div>
 					</div>
 				</div>
 				<div className='card'>
 					<div className='h3'>Lời giải chi tiết</div>
 					<div>
-						<p>X làm mất màu Br2 => X chứa nối đôi C=C</p>
+						<p>X làm mất màu Br2 &#8594; X chứa nối đôi C=C</p>
 						<p>&#8594; X là CH2=CHCOONH4 (Amoni acrylat)</p>
 						<p>CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4</p>
 						<p>&#8594; Đáp án D</p>
@@ -50,6 +55,9 @@ const HomePage = () => (
 			<section className='suggested-exams'>Suggested exams</section>
 			<section className='featured-exams'>Featured exams</section>
 			<section className='newest-exams'>Newest exams</section>
+			<div>
+				404 - <Link to='/news/'>News</Link>
+			</div>
 		</main>
 	</React.Fragment>
 );

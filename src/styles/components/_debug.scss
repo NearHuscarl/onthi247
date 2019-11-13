@@ -1,0 +1,11 @@
+.commit-hash {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: color(primary);
+
+    &:hover {
+        color: color('white');
+    }
+}
