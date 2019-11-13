@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const childprocess = require('child_process');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -82,10 +83,7 @@ module.exports = (env) => {
 		},
 		plugins: (isProduction
 			? []
-			: [
-					/* new BundleAnalyzerPlugin() */
-			  ]
-		).concat([
+			: [ /* new BundleAnalyzerPlugin() */ ]).concat([
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				template: 'public/index.html',
@@ -101,8 +99,8 @@ module.exports = (env) => {
 			}),
 			new webpack.DefinePlugin({
 				'process.env.COMMIT_SHA': JSON.stringify(
-					require('child_process')
-						.execSync('git rev-parse HEAD')
+					childprocess
+						.execSync('git rev-parse origin/gh-pages')
 						.toString()
 						.trim(),
 				),
