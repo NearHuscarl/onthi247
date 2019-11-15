@@ -1,0 +1,66 @@
+.answer {
+	position: relative;
+
+    // the white circle at top left
+	&::before {
+		// Color
+		background-color: color('white');
+
+		// Display & Box Model
+		width: 1.7rem;
+		height: 1.7rem;
+		border-radius: 50%;
+
+		// Position
+		position: absolute;
+		top: 0.7rem;
+		left: 0.7rem;
+
+		// Misc
+		content: '';
+        z-index: 2;
+    }
+
+    // answer percentage overlay of this answer
+    // because react do not support styling psuedo-element in jsx
+    // https://stackoverflow.com/a/28269950/9449426
+	.answer-after {
+		// Color
+        background-color: color(primary-dark);
+
+		// Display & Box Model
+        width: 25%;
+        height: 100%;
+        border-radius: inherit;
+
+		// Position
+		position: absolute;
+		top: 0;
+        left: 0;
+
+        // Misc
+        z-index: 1;
+		content: '';
+	}
+
+	background-color: color(primary-light);
+	border-radius: var(--border-round);
+    padding: 0 3.5rem;
+
+	&__text {
+        position: relative;
+
+        font-size: 1.7rem;
+		color: color(grey-dark-3);
+        z-index: 2;
+	}
+
+	&__stats {
+        position: relative;
+
+		font-size: 1.4rem;
+		color: color('white');
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+	}
+}

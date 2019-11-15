@@ -2,7 +2,7 @@
 $colors: (
     primary: #ffc600,
     primary-dark: #fc9e31,
-    primary-light: #FFE8CC,
+    primary-light: #ffd099,
     secondary: #2e293b,
     tertiary: #c9e167,
     grey-light-1: #f5f5f5,
@@ -23,8 +23,10 @@ $image-path: $project-root + 'public/images/';
 
     --shadow-dark: 0 2rem 4rem rgba(0, 0, 0, 0.3);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --border-round: .6rem;
 
     // Font
+    --page-container-width: 99rem;
     --font-primary: "OpenSans", sans-serif;
     --font-display: "NotoSans", sans-serif;
 }

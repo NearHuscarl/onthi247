@@ -9,17 +9,21 @@
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/ads";
 @import "components/answer";
 @import "components/button";
 @import "components/card";
+@import "components/comment-section";
 @import "components/debug";
 @import "components/input";
 @import "components/line";
 @import "components/nav";
+@import "components/pagination";
+@import "components/question-grid";
 
 @import "layout/footer";
 @import "layout/header";
-@import "layout/page-container";
+@import "layout/content-container";
 
 @import "pages/exam-result";
 

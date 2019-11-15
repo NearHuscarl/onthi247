@@ -1,0 +1,16 @@
+.question-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 3.3rem);
+    grid-template-rows: repeat(auto-fit, 3.3rem) min-content;
+    gap: .4rem;
+
+    padding: 2rem 1.3rem;
+
+    &__btn {
+        padding: .7rem 1.5rem;
+        margin-top: 2.2rem;
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+}

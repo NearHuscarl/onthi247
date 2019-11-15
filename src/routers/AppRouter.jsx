@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFoundPage from '../pages/NotFoundPage';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import HomePage from '../pages/HomePage';
+import ExamResult from '../pages/ExamResult';
 import NewsPage from '../pages/NewsPage';
 import constants from '../constants';
 
@@ -13,7 +13,7 @@ const AppRouter = () => (
 	<BrowserRouter basename={`/${constants.repoName}/`}>
 		<Route path='/' component={Header} />
 		<Switch>
-			<Route path='/' component={HomePage} exact />
+			<Route path='/' component={ExamResult} exact />
 			<Route path='/news/' component={NewsPage} exact />
 			<Route component={NotFoundPage} />
 		</Switch>

@@ -1,0 +1,82 @@
+.comment-section {
+    display: flex;
+
+	&__filters {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 1rem 0;
+	}
+
+	&__filter {
+		width: 14rem;
+
+		// override react-select
+		& [class*='singleValue'] {
+			color: color(grey-dark-2);
+		}
+    }
+
+    &__submit {
+        width: 8.4rem;
+        align-self: end;
+    }
+}
+
+.comment-container {
+	display: grid;
+	row-gap: 1rem;
+
+	.comment-wrapper {
+		display: flex;
+	}
+
+	.comment-padding {
+		width: 5.5rem;
+	}
+
+	.comment {
+		display: flex;
+		// override bs
+		flex-direction: row;
+		flex: 1;
+
+		&__profile {
+			width: 3.6rem;
+			height: 3.6rem;
+			border-radius: 50%;
+			object-fit: cover;
+			object-position: center;
+			margin-right: 1.2rem;
+		}
+
+		&__top {
+			display: flex;
+			align-items: baseline;
+		}
+
+		&__user {
+			color: color(grey-dark-3);
+			font-weight: 600;
+			font-size: 1.3rem;
+			margin-right: 1.2rem;
+		}
+
+		&__date {
+			font-size: 1rem;
+		}
+
+		&__content {
+			margin-bottom: 0.2rem;
+		}
+		&__content[reply='true'] {
+			margin-right: 5.5rem;
+		}
+
+		&__action {
+			display: grid;
+			grid-template-columns: repeat(2, max-content);
+			column-gap: 0.8rem;
+		}
+	}
+}

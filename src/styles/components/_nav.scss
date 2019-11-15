@@ -1,48 +1,78 @@
+.nav-bg {
+	background-color: transparentize(map-get($colors, primary-light), 0.5);
+	margin-bottom: 1rem;
+}
+
 .nav {
-    &__list {
-        display: flex;
-        width: 100%;
-    }
+	max-width: var(--page-container-width);
+	margin: 0 auto;
 
-    &__item {
-        flex: 1;
-        text-align: center;
-        background-color: color(primary-light);
-        color: color(grey-dark-3);
-        // TODO: remove to .btn-link
-        text-transform: uppercase;
+	ul {
+		// override bootstrap margin-bottom: 1rem;
+		margin-bottom: 0;
+	}
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 0.4rem;
+	&__list {
+		display: flex;
+		width: 100%;
+	}
 
-        cursor: pointer;
-        transition: all 0.15s;
+	&__item {
+		text-align: center;
+		color: color(grey-dark-3);
+		// TODO: remove to .btn-link
+		text-transform: uppercase;
 
-        &:hover {
-            background-color: color(primary-dark);
-            color: color("white");
-            font-weight: 600;
-        }
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 2rem;
 
-        &--home {
-            flex: 0;
-            background-color: color(grey-dark-3);
-            padding: 0.5rem 1rem;
-            color: color("white");
-        }
+		cursor: pointer;
+		transition: all 0.15s;
 
-        &--primary {
-            background-color: color(primary);
-            color: color("white");
-            font-weight: 600;
-        }
-    }
+		&:hover {
+			background-color: color(primary-dark);
+			color: color('white');
+			font-weight: 600;
+		}
 
-    &__link:link,
-    &__link:visited {
-        color: inherit;
-        font-weight: inherit;
-    }
+		&--home {
+			flex: 0;
+			background-color: color(grey-dark-3);
+			padding: 0.5rem 1rem;
+			color: color('white');
+		}
+
+		&--primary {
+			background-color: color(primary);
+			color: color('white');
+			font-weight: 600;
+		}
+	}
+
+	&__link {
+		// https://stackoverflow.com/a/20249560/9449426
+		//
+		// normal text becomes bold text when hovered, but bold text is more
+		// densed so hovering will make the container width shrinking.
+		// Workaround is to define a::after psuedo element to reserve extra
+		// space by adding more space than both bold and normal text in the
+		// ::after's content)
+		&::after {
+			display: block;
+			content: attr(title);
+			font-weight: 600;
+			height: 0;
+			overflow: hidden;
+			visibility: hidden;
+			text-transform: uppercase;
+		}
+	}
+
+	&__link:link,
+	&__link:visited {
+		color: inherit;
+		font-weight: inherit;
+	}
 }

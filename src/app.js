@@ -8,16 +8,16 @@ import './styles/main.scss';
 
 const commitHash = (
 	<div className='commit-hash'>
-		{process.env.COMMIT_SHA}
+		{`commit hash: ${process.env.COMMIT_SHA}`}
 	</div>
 );
 
 const renderApp = () => {
 	ReactDOM.render(
-		<div className='page-container'>
+		<React.Fragment>
 			<AppRouter />
 			{commitHash}
-		</div>,
+		</React.Fragment>,
 		document.getElementById('app'),
 	);
 };
