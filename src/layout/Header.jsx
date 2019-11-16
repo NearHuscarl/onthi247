@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../components/Nav';
+import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
 
 function Header() {
@@ -25,9 +26,7 @@ function Header() {
 				</div>
 			</div>
 			<div className='header__main'>
-				<h1 className='h1'>
-					OnThi<span className='h1 h1--orange'>247</span>
-				</h1>
+				<Logo />
 				<div className='header__search input-group'>
 					<input
 						type='text'
@@ -42,10 +41,10 @@ function Header() {
 						</button>
 					</div>
 				</div>
-				<div className='cart'>
+				<button type='button' className='btn-text'>
 					<i className='fas fa-shopping-cart mr-tn' aria-hidden='true' />
 					<span className='cart__text'>Các khóa học đã chọn</span>
-				</div>
+				</button>
 			</div>
 			<Nav />
 		</header>

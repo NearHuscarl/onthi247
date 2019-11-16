@@ -2,7 +2,11 @@
     background-color: color(grey-light-1);
     border-color: color(grey-light-1);
 	border-radius: var(--border-round);
-    padding: 1.25rem 1.5rem;
+    padding: var(--card-padding);
+
+    &--no-padding {
+        padding: 0;
+    }
 
     &--white {
         background-color: color('white');

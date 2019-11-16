@@ -8,7 +8,7 @@
 	// // padding: 1rem 1.5rem;
 	// cursor: pointer;
 	// transition: all .2s;
-	font-size: 1.4rem;
+	font-size: 1.35rem;
 	// text-transform: uppercase;
 	color: color('white');
 	background-color: color(primary-dark);
@@ -48,11 +48,11 @@
 	}
 }
 
-.btn-text {
+.btn-link {
 	border: none;
 	background-color: transparent;
 	color: color(grey-dark-1);
-	font-size: 0.9rem;
+	font-size: inherit;
 	transition: all 0.2s;
 
 	display: flex;
@@ -60,11 +60,77 @@
 
 	@include underlineExpandAnimation(0.2s);
 
+	&:hover,
 	&:focus {
 		outline: none;
+		color: color(primary);
+		// override bs hover
+		text-decoration: none;
 	}
 
 	&:active {
 		transform: translateY(0.1rem);
+	}
+}
+
+.btn-text {
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	font-size: inherit;
+	padding: 0.5rem 1rem;
+	transition: all 0.2s;
+	outline: color(primary);
+
+	&:hover {
+		transform: translateY(-0.3rem);
+		background-color: color(primary);
+		color: color('white');
+	}
+
+	&:focus {
+		outline: color(primary) solid 0.1rem;
+	}
+
+	&:active {
+		transform: translateY(0.1rem);
+	}
+}
+
+.btn-facebook,
+.btn-youtube,
+.btn-twitter {
+	width: 3rem;
+	height: 3rem;
+	border: none;
+	border-radius: 50%;
+	color: color('white');
+	transition: all 0.4s;
+
+	&:hover {
+		background-color: color('white');
+		box-shadow: var(--shadow-dark);
+		@include applyScale() {
+			transform: scale(1.048) rotate(360deg);
+		}
+	}
+}
+
+.btn-facebook {
+	background-color: #4267b2;
+	&:hover {
+		color: #4267b2;
+	}
+}
+.btn-youtube {
+	background-color: #ff0000;
+	&:hover {
+		color: #ff0000;
+	}
+}
+.btn-twitter {
+	background-color: #1da1f2;
+	&:hover {
+		color: #1da1f2;
 	}
 }

@@ -38,10 +38,10 @@ function Comment({ comment }) {
 					</div>
 					<div className='comment__content'>{content}</div>
 					<div className='comment__action'>
-						<button type='button' className='btn-text'>
+						<button type='button' className='btn-link'>
 							Thích
 						</button>
-						<button type='button' className='btn-text'>
+						<button type='button' className='btn-link'>
 							Trả lời
 						</button>
 					</div>

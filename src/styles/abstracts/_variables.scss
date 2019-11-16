@@ -20,13 +20,15 @@ $image-path: $project-root + 'public/images/';
     @each $name, $color in $colors {
         --color-#{$name}: #{$color};
     }
+    --default-font-color: #{map-get($colors, grey-dark-2)};
 
     --shadow-dark: 0 2rem 4rem rgba(0, 0, 0, 0.3);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
     --border-round: .6rem;
+    --card-padding: 1.25rem 1.5rem;
 
     // Font
     --page-container-width: 99rem;
-    --font-primary: "OpenSans", sans-serif;
-    --font-display: "NotoSans", sans-serif;
+    --font-primary: "Open Sans", sans-serif;
+    --font-display: "Noto Sans", sans-serif;
 }

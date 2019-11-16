@@ -24,7 +24,7 @@ html {
 body {
 	// Color
 	background-color: color('white');
-	color: color(grey-dark-2);
+	color: var(--default-font-color);
 
 	// Display & Box model
 	min-height: 100vh;

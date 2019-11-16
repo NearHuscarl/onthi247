@@ -1,0 +1,72 @@
+.footer-top {
+	// Display & Box Model
+	margin: 0 auto;
+	margin-top: 7.3rem;
+	padding: 4.8rem calc((100vw - var(--page-container-width)) / 2);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	row-gap: 1.5rem;
+
+	// Color
+	background-color: color(grey-light-1);
+
+	a {
+		// fix .btn-link underline span 100% block width
+		display: inline-flex;
+		color: var(--default-font-color);
+	}
+
+	h4 {
+		margin-bottom: 1rem;
+	}
+
+	li:not(:last-child) {
+		margin-bottom: 0.75rem;
+	}
+
+	&__logo {
+		grid-column: 1 / -1;
+	}
+
+	.applink-img {
+		width: 18rem;
+		transition: box-shadow 0.2s, transform 0.2s;
+
+		&:hover {
+			box-shadow: var(--shadow-light);
+			@include applyScale() {
+				transform: scale(1.048);
+			}
+		}
+	}
+}
+
+.footer-bottom {
+	padding: 4rem;
+	background-color: color(secondary);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	&__medias {
+		display: grid;
+		grid-template-columns: repeat(3, min-content);
+		justify-content: center;
+		gap: 1rem;
+
+		width: 100%;
+		margin-bottom: 1.9rem;
+	}
+
+	&__copyright {
+		font-size: 1rem;
+		margin-bottom: 0.9rem;
+	}
+
+	&__license {
+		line-height: 0.25;
+		font-size: 0.8rem;
+	}
+}

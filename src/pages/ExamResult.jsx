@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AnswerCard from '../components/AnswerCard';
 import Card from '../components/Card';
@@ -8,6 +7,7 @@ import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
+import ExamCardList from '../components/ExamCardList';
 import exam from '../data/Exams';
 
 const HomePage = ({ selectedQuestion }) => (
@@ -63,14 +63,13 @@ const HomePage = ({ selectedQuestion }) => (
 						<Ads />
 					</div>
 				</div>
-				<Pagination className='mt-lg' />
+				<Pagination className='mt-lg mb-lg' />
 			</div>
-			<section className='suggested-exams'>Suggested exams</section>
-			<section className='featured-exams'>Featured exams</section>
-			<section className='newest-exams'>Newest exams</section>
-			<div>
-				404 - <Link to='/news/'>News</Link>
-			</div>
+			<ExamCardList title='Bạn có thể quan tâm' />
+			<div className='mb-md' />
+			<ExamCardList title='Các bài tập nổi bật' />
+			<div className='mb-md' />
+			<ExamCardList title='Các bài tập mới nhất' />
 		</main>
 	</React.Fragment>
 );
