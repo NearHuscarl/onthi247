@@ -46,10 +46,10 @@ const exam = [
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -72,10 +72,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -98,10 +98,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -124,10 +124,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -150,10 +150,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -176,10 +176,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -202,10 +202,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -228,10 +228,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -254,10 +254,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -280,10 +280,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -306,10 +306,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -332,10 +332,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -358,10 +358,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -384,10 +384,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -410,10 +410,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -436,10 +436,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -462,10 +462,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -488,10 +488,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -514,10 +514,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -540,10 +540,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -566,10 +566,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -592,10 +592,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -618,10 +618,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -644,10 +644,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -670,10 +670,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -696,10 +696,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -722,10 +722,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -748,10 +748,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -774,10 +774,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 	{
 		question:
@@ -800,10 +800,10 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 				percentage: randomAnswerPercentage(),
 			},
 		],
-		answerDetail: `X làm mất màu Br2 &#8594; X chứa nối đôi C=C
-&#8594; X là CH2=CHCOONH4 (Amoni acrylat)
+		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
+→ X là CH2=CHCOONH4 (Amoni acrylat)
 CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-&#8594; Đáp án D`,
+→ Đáp án D`,
 	},
 ];
 

@@ -6,8 +6,22 @@ export default function Ads() {
 	return (
 		<div className='notads'>
 			<h3 className='h3 mb-sm'>Quảng cáo</h3>
-			<img src={Ads1} alt='ads 1' className='notads__img mb-sm' />
-			<img src={Ads2} alt='ads 2' className='notads__img' />
+			<a
+				href='https://nearhuscarl.github.io/portfolio'
+				alt='notads'
+				target='_blank'
+				rel='noopener noreferrer'
+			>
+				<img src={Ads1} alt='ads 1' className='notads__img mb-sm' />
+			</a>
+			<a
+				href='https://nearhuscarl.github.io/portfolio'
+				alt='notads'
+				target='_blank'
+				rel='noopener noreferrer'
+			>
+				<img src={Ads2} alt='ads 2' className='notads__img' />
+			</a>
 		</div>
 	);
 }
