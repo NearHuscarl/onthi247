@@ -19,6 +19,15 @@
 		color: color('white');
 		background-color: color(primary);
 	}
+	&:focus {
+		box-shadow: none; // override bs
+	}
+
+	&--orange {
+		border-color: color(primary-dark);
+		background-color: color(primary-dark);
+		color: color('white');
+	}
 
 	&--white {
 		border: solid 1px color(grey-light-2);
@@ -46,31 +55,13 @@
 	font-size: 0.9rem;
 	transition: all 0.2s;
 
-	position: relative;
 	display: flex;
 	justify-content: center;
 
-	&::before {
-		content: '';
-		position: absolute;
-		display: block;
-		background-color: color(primary);
-		width: 0;
-		height: 0.1rem;
-		margin: 0 auto;
-
-		bottom: 0;
-		transition: all 0.2s;
-	}
+	@include underlineExpandAnimation(0.2s);
 
 	&:focus {
 		outline: none;
-	}
-	&:hover:before {
-		width: 100%;
-	}
-	&:focus:before {
-		width: 100%;
 	}
 
 	&:active {

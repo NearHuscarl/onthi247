@@ -18,7 +18,7 @@
     }
 
     &__submit {
-        width: 8.4rem;
+        min-width: 8.4rem;
         align-self: end;
     }
 }
@@ -48,6 +48,7 @@
 			object-fit: cover;
 			object-position: center;
 			margin-right: 1.2rem;
+			cursor: pointer;
 		}
 
 		&__top {

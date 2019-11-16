@@ -29,7 +29,7 @@
         background-color: color(primary-dark);
 
 		// Display & Box Model
-        width: 25%;
+        width: 0%;
         height: 100%;
         border-radius: inherit;
 
@@ -41,6 +41,7 @@
         // Misc
         z-index: 1;
 		content: '';
+		transition: width .25s $ease-out-back;
 	}
 
 	background-color: color(primary-light);

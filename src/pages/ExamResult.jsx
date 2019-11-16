@@ -1,34 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import AnswerCard from '../components/AnswerCard';
 import Card from '../components/Card';
 import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
+import exam from '../data/Exams';
 
-const question =
-	'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là';
-const answers = [
-	{
-		text: 'axit β-aminopropionic',
-		percentage: 25,
-	},
-	{
-		text: 'mety aminoaxetat',
-		percentage: 9,
-	},
-	{
-		text: 'axit α-aminopropionic',
-		percentage: 16,
-	},
-	{
-		text: 'amoni acrylat',
-		percentage: 50,
-	},
-];
-
-const HomePage = () => (
+const HomePage = ({ selectedQuestion }) => (
 	<React.Fragment>
 		<main className='content-container'>
 			<h2 className='h2 mt-md'>
@@ -37,7 +19,7 @@ const HomePage = () => (
 			</h2>
 			<div className='line' />
 			<div className='result-summary'>
-				<h2 className='h2'>Kết quả tổng quan</h2>
+				<h2 className='h2 mb-sm'>Kết quả tổng quan</h2>
 				<div className='result-text'>
 					<div className='result-text__score'>20/30</div>
 					<div className='result-text__time'>10 phút 56 giây</div>
@@ -48,7 +30,7 @@ const HomePage = () => (
 				</div>
 			</div>
 			<div className='result-details'>
-				<h2 className='h2'>Đáp án và lời giải chi tiết</h2>
+				<h2 className='h2 mb-sm'>Đáp án và lời giải chi tiết</h2>
 				<div className='result-details__content'>
 					<div className='result-details__col-1'>
 						<div className='card question-card'>
@@ -60,20 +42,24 @@ const HomePage = () => (
 						</div>
 					</div>
 					<div className='result-details__col-2'>
-						<AnswerCard question={question} answers={answers} />
+						<AnswerCard
+							question={exam[selectedQuestion].question}
+							answers={exam[selectedQuestion].answers}
+						/>
 						<Card className='ans-detail-card'>
 							<div className='h3'>Lời giải chi tiết</div>
 							<div>
-								<p>X làm mất màu Br2 &#8594; X chứa nối đôi C=C</p>
-								<p>&#8594; X là CH2=CHCOONH4 (Amoni acrylat)</p>
-								<p>CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4</p>
-								<p>&#8594; Đáp án D</p>
+								{exam[selectedQuestion].answerDetail
+									.split('\n')
+									.map((s) => (
+										<p key={s}>{s}</p>
+									))}
 							</div>
 						</Card>
 						<CommentSection />
 					</div>
 					<div className='result-details__col-3'>
-						<QuestionGrid questionCount={30} />
+						<QuestionGrid questionCount={exam.length} />
 						<Ads />
 					</div>
 				</div>
@@ -89,4 +75,15 @@ const HomePage = () => (
 	</React.Fragment>
 );
 
-export default HomePage;
+HomePage.propTypes = {
+	selectedQuestion: PropTypes.number.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	selectedQuestion: state.examResult.question,
+});
+
+export default connect(
+	mapStateToProps,
+	null,
+)(HomePage);

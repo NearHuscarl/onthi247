@@ -10,7 +10,7 @@
             "name": "Launch new Chrome",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceRoot}",
-            "runtimeExecutable": "/usr/bin/chromium"
+            "runtimeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
         },
         {
             "type": "chrome",

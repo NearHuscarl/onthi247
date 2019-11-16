@@ -1,6 +1,8 @@
-// https://codepen.io/jakealbaugh/post/css4-variables-and-sass
-// Use SASS variable and convert to CSS variable when built because CSS variable
-// is known at runtime -> cannot pass to SASS color functions
+// Get the CSS custom property using SASS color key
+//
+// Why use both css and sass to store color value?
+// SASS variable is known at compile time, CSS custom property is only known
+// when used at runtime -> cannot pass to SASS color functions
 //
 // For this to work, store all SASS colors in a map
 //
@@ -12,8 +14,8 @@
 // then put these lines in :root psuedo element
 //
 //  @each $name, $color in $colors {
-//    --color-#{$name}: $color;
+//    --color-#{$name}: #{$color};
 //  }
 @function color($color-name) {
-    @return var(--color-#{$color-name});
+	@return var(--color-#{$color-name});
 }

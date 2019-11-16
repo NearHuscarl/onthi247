@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 export function AnswerDetail({ answer }) {
+	const chance = (answer.percentage * 100).toFixed(0);
 	return (
 		<div className='answer'>
 			<div className='answer__text'>{answer.text}</div>
-			<div className='answer__stats'>{`${
-				answer.percentage
-			}% người tham gia lựa chọn`}</div>
+			<div className='answer__stats'>{`${chance}% người tham gia lựa chọn`}</div>
 			{/* https://stackoverflow.com/a/28269950/9449426 */}
-			<div
-				className='answer-after'
-				style={{ width: `${answer.percentage}%` }}
-			/>
+			<div className='answer-after' style={{ width: `${chance}%` }} />
 		</div>
 	);
 }
