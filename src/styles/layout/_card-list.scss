@@ -1,5 +1,14 @@
-.card-list {
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+.slick-slide {
+	// dont know why carousel item is not centered by default
+	text-align: center;
+	padding-top: 1.5rem;
+	padding-bottom: 2.5rem;
+}
+
+.arrow-left,
+.arrow-right {
+	&::before {
+		transition: transform 0.2s ease-out;
+		color: color(grey-dark-1);
+	}
 }

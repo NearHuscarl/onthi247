@@ -1,16 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Slider from 'react-slick';
 import range from 'lodash/range';
 import ExamCard from './ExamCard';
 import exam1 from '../../public/images/exam-preview-01.png';
 import exam2 from '../../public/images/exam-preview-02.png';
 
+function PreviousButton({ className, onClick }) {
+	return (
+		<div
+			className={className + ' arrow-right'}
+			aria-hidden='true'
+			onClick={onClick}
+		/>
+	);
+}
+function NextButton({ className, onClick }) {
+	return (
+		<div
+			className={className + ' arrow-left'}
+			aria-hidden='true'
+			onClick={onClick}
+		/>
+	);
+}
+PreviousButton.propTypes = {
+	className: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
+NextButton.propTypes = {
+	className: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
+
+
 export default function ExamCardList({ title }) {
 	return (
 		<section>
-			<h3 className='h3 mb-sm'>{title}</h3>
-			<div className='card-list'>
-				{range(4).map((i) => (
+			<h3 className='h3 mb-0'>{title}</h3>
+			<Slider
+				slidesToShow={4}
+				slidesToScroll={1}
+				infinite={false}
+				nextArrow={<NextButton/>}
+				prevArrow={<PreviousButton/>}
+			>
+				{range(12).map((i) => (
 					<ExamCard
 						key={i}
 						image={i % 2 ? exam1 : exam2}
@@ -19,7 +54,7 @@ export default function ExamCardList({ title }) {
 						date='31/10/2019'
 					/>
 				))}
-			</div>
+			</Slider>
 		</section>
 	);
 }

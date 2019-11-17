@@ -22,7 +22,7 @@
 		@include applyScale() {
 			transform: scale(1.075);
 		}
-		box-shadow: var(--shadow-light);
+		box-shadow: 0 .25rem 1rem rgba(0,0,0,.1);
 	}
 
 	p {
