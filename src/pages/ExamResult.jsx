@@ -8,9 +8,9 @@ import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
 import ExamCardList from '../components/ExamCardList';
-import exam from '../data/Exams';
+import { examQuestionProps } from '../utilities/proptypes';
 
-const HomePage = ({ selectedQuestion }) => (
+const ExamResult = ({ exam, selectedQuestion }) => (
 	<React.Fragment>
 		<main className='content-container'>
 			<h2 className='h2 mt-md'>
@@ -74,15 +74,17 @@ const HomePage = ({ selectedQuestion }) => (
 	</React.Fragment>
 );
 
-HomePage.propTypes = {
+ExamResult.propTypes = {
 	selectedQuestion: PropTypes.number.isRequired,
+	exam: PropTypes.arrayOf(examQuestionProps).isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	selectedQuestion: state.examResult.question,
+	exam: state.exam.testExam,
 });
 
 export default connect(
 	mapStateToProps,
 	null,
-)(HomePage);
+)(ExamResult);

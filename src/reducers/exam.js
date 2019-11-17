@@ -1,4 +1,7 @@
-const examDefaultState = {};
+import exam from '../data/Exams';
+
+// const examDefaultState = {};
+const examDefaultState = { testExam: [...exam] };
 
 const examReducer = (state = examDefaultState, action) => {
 	switch (action.type) {

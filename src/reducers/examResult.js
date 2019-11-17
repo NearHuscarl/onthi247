@@ -1,6 +1,12 @@
+import comments from '../data/Comments';
+
+// const examResultDefaultState = {
+// 	question: 0,
+// 	comments: [],
+// };
 const examResultDefaultState = {
 	question: 0,
-	comments: [],
+	comments: [...comments],
 };
 
 const examResultReducer = (state = examResultDefaultState, action) => {

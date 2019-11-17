@@ -1,31 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Select from 'react-select';
 import Card from './Card';
-import profile from '../../public/images/profile.png';
-import profile2 from '../../public/images/profile-bitchin.jpg';
+import { setExamResultComment } from '../actions/examResult';
+import { commentProps } from '../utilities/proptypes';
 
-const commentLabel = 'Nhập nội dung bình luận...';
-const comments = [
-	{
-		avatar: profile,
-		user: 'bé dủng',
-		date: '30 phút trước',
-		content: 'Lời giải hết sức thuyết phục',
-		isReply: false,
-	},
-	{
-		avatar: profile2,
-		user: 'bé bi',
-		date: '31 phút trước',
-		content: 'Lời giải không hết sức thuyết phục',
-		isReply: true,
-	},
-];
-
-function Comment({ comment }) {
-	const { avatar, user, date, content, isReply } = comment;
+function Comment({ comment, isReply }) {
+	const { avatar, user, date, content } = comment;
 	return (
 		<div className='comment-wrapper'>
 			{isReply && <div className='comment-padding' />}
@@ -52,12 +35,8 @@ function Comment({ comment }) {
 }
 
 Comment.propTypes = {
-	comment: PropTypes.shape({
-		avatar: PropTypes.string,
-		user: PropTypes.string,
-		date: PropTypes.string,
-		content: PropTypes.string,
-	}).isRequired,
+	comment: commentProps.isRequired,
+	isReply: PropTypes.bool.isRequired,
 };
 
 const options = [
@@ -65,8 +44,18 @@ const options = [
 	{ value: 'newest', label: 'Mới nhất' },
 ];
 
-export default function CommentSection() {
+function getCommentCount(comments) {
+	const commentCount = comments.length;
+	const replyCount = comments
+		.map((c) => c.replies.length)
+		.reduce((a, b) => a + b, 0);
+
+	return commentCount + replyCount;
+}
+
+function CommentSection({ comments }) {
 	const [filter, setFilter] = useState(0);
+	const commentLabel = 'Nhập nội dung bình luận...';
 
 	return (
 		<Card className='comment-section'>
@@ -82,7 +71,7 @@ export default function CommentSection() {
 				Bình luận
 			</button>
 			<div className='comment-section__filters'>
-				<h3 className='h3'>{`${comments.length} bình luận`}</h3>
+				<h3 className='h3'>{`${getCommentCount(comments)} bình luận`}</h3>
 				<Select
 					className='comment-section__filter'
 					value={filter || options[0]}
@@ -91,10 +80,39 @@ export default function CommentSection() {
 				/>
 			</div>
 			<div className='comment-container'>
-				{comments.map((c) => (
-					<Comment key={c.user + c.date} comment={c} />
-				))}
+				{comments.map((c) => {
+					const commentComponents = [];
+
+					commentComponents.push(
+						<Comment key={c.user + c.date} comment={c} isReply={false} />,
+					);
+
+					c.replies.forEach((r) =>
+						commentComponents.push(
+							<Comment key={r.user + r.date} comment={r} isReply />,
+						),
+					);
+
+					return commentComponents;
+				})}
 			</div>
 		</Card>
 	);
 }
+
+CommentSection.propTypes = {
+	comments: PropTypes.arrayOf(commentProps).isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	comments: state.examResult.comments,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	setExamResultComment: (comment) => dispatch(setExamResultComment(comment)),
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(CommentSection);

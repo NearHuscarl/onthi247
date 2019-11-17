@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import { answerProps } from '../utilities/proptypes';
 
 export function AnswerDetail({ answer }) {
 	const chance = (answer.percentage * 100).toFixed(0);
@@ -14,13 +15,8 @@ export function AnswerDetail({ answer }) {
 	);
 }
 
-const answerPropTypes = PropTypes.shape({
-	text: PropTypes.string.isRequired,
-	percentage: PropTypes.number.isRequired,
-});
-
 AnswerDetail.propTypes = {
-	answer: answerPropTypes.isRequired,
+	answer: answerProps.isRequired,
 };
 
 export default function AnswerCard({ question, answers }) {
@@ -40,5 +36,5 @@ export default function AnswerCard({ question, answers }) {
 
 AnswerCard.propTypes = {
 	question: PropTypes.string.isRequired,
-	answers: PropTypes.arrayOf(answerPropTypes).isRequired,
+	answers: PropTypes.arrayOf(answerProps).isRequired,
 };
