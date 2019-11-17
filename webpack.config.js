@@ -22,6 +22,10 @@ module.exports = (env) => {
 			chunkFilename: isProduction
 				? '[name].[chunkhash:8].chunk.js'
 				: '[name].chunk.js',
+			// add this line alongside with dev-server.historyApiFallback = true
+			// to make dev-server reload when on nested root
+			// see https://github.com/ReactTraining/react-router/issues/676#issuecomment-174073981
+			publicPath: '/',
 		},
 		module: {
 			rules: [
