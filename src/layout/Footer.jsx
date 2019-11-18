@@ -13,24 +13,60 @@ export default function Footer() {
 					<h4 className='h4'>Về OnThi247</h4>
 					<ul>
 						<li>
-							<a href='#' className='btn-link'>
+							<a href='#' className='footer-top__link btn-link'>
 								Giới thiệu
 							</a>
 						</li>
-						<li><a href='#' className='btn-link'>Giáo viên nổi tiếng</a></li>
-						<li><a href='#' className='btn-link'>Điều khoản sử dụng</a></li>
-						<li><a href='#' className='btn-link'>Quy chế hoạt động</a></li>
-						<li><a href='#' className='btn-link'>Chính sách bảo mật</a></li>
-						<li><a href='#' className='btn-link'>Tuyển dụng</a></li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Giáo viên nổi tiếng
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Điều khoản sử dụng
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Quy chế hoạt động
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Chính sách bảo mật
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Tuyển dụng
+							</a>
+						</li>
 					</ul>
 				</div>
 				<div className='footer-top__service'>
 					<h4 className='h4'>Dịch vụ</h4>
 					<ul>
-						<li><a href='#' className='btn-link'>Kho bài tập</a></li>
-						<li><a href='#' className='btn-link'>Kho đề thi thử</a></li>
-						<li><a href='#' className='btn-link'>Kho tài liệu</a></li>
-						<li><a href='#' className='btn-link'>Hỏi đáp</a></li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Kho bài tập
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Kho đề thi thử
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Kho tài liệu
+							</a>
+						</li>
+						<li>
+							<a href='#' className='footer-top__link btn-link'>
+								Hỏi đáp
+							</a>
+						</li>
 					</ul>
 				</div>
 				<div className='footer-top__client'>
@@ -63,9 +99,9 @@ export default function Footer() {
 				</div>
 				<div className='footer-top__app'>
 					<h4 className='h4'>Tải ứng dụng OnThi247</h4>
-					<a href='#' className='mb-sm'>
+					<a href='#'>
 						<img
-							className='applink-img'
+							className='applink-img mb-sm'
 							src={googlePlay}
 							alt='google play'
 						/>

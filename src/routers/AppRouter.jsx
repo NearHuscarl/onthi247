@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFoundPage from '../pages/NotFoundPage';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import ExamResult from '../pages/ExamResult';
-import NewsPage from '../pages/NewsPage';
+import ExamResultPage from '../pages/ExamResultPage';
+import ExamPage from '../pages/ExamPage';
 import constants from '../constants';
 
 const AppRouter = () => (
@@ -13,8 +13,8 @@ const AppRouter = () => (
 	<BrowserRouter basename={`/${constants.repoName}/`}>
 		<Route path='/' component={Header} />
 		<Switch>
-			<Route path='/' component={ExamResult} exact />
-			<Route path='/news/' component={NewsPage} exact />
+			<Route path='/' component={ExamResultPage} exact />
+			<Route path='/exams/' component={ExamPage} exact />
 			<Route component={NotFoundPage} />
 		</Switch>
 		<Footer />

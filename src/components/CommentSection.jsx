@@ -54,7 +54,7 @@ function getCommentCount(comments) {
 }
 
 function CommentSection({ comments }) {
-	const [filter, setFilter] = useState(0);
+	const [filter, setFilter] = useState(options[0]);
 	const commentLabel = 'Nhập nội dung bình luận...';
 
 	return (
@@ -74,7 +74,7 @@ function CommentSection({ comments }) {
 				<h3 className='h3'>{`${getCommentCount(comments)} bình luận`}</h3>
 				<Select
 					className='comment-section__filter'
-					value={filter || options[0]}
+					value={filter}
 					onChange={(selectedValue) => setFilter(() => selectedValue)}
 					options={options}
 				/>

@@ -14,7 +14,7 @@ function QuestionGrid({ questionCount, selectedQuestion, setExamResultQuestion }
 					key={i}
 					type='button'
 					className={
-						'btn ' +
+						'btn btn--padding-sm ' +
 						(selectedQuestion === i ? 'btn--orange' : 'btn--white')
 					}
 					onClick={() => setExamResultQuestion(i)}

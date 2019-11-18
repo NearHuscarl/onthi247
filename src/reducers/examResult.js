@@ -1,4 +1,4 @@
-import comments from '../data/Comments';
+import comments from '../data/comments';
 
 // const examResultDefaultState = {
 // 	question: 0,

@@ -1,6 +1,5 @@
 .nav-bg {
 	background-color: transparentize(map-get($colors, primary-light), 0.5);
-	margin-bottom: 1rem;
 }
 
 .nav {
@@ -26,16 +25,18 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 0 2rem;
+		padding: 0.6rem 2rem;
 
 		cursor: pointer;
 		transition: all 0.15s;
 
-		&:hover {
+		@mixin highlightedItem() {
 			background-color: color(primary-dark);
 			color: color('white');
 			font-weight: 600;
 		}
+		&:hover { @include highlightedItem(); }
+		&--highlight { @include highlightedItem(); }
 
 		&--home {
 			flex: 0;

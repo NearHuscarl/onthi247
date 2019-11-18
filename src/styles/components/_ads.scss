@@ -2,6 +2,7 @@
 .notads {
     display: grid;
     grid-auto-rows: min-content;
+    justify-content: center;
 
     &__img {
         width: 21rem;

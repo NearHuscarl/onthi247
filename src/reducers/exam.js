@@ -1,4 +1,4 @@
-import exam from '../data/Exams';
+import exam from '../data/exams';
 
 // const examDefaultState = {};
 const examDefaultState = { testExam: [...exam] };

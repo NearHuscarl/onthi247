@@ -36,7 +36,7 @@ function Header() {
 						aria-describedby='basic-addon1'
 					/>
 					<div className='input-group-append'>
-						<button className='btn' type='button'>
+						<button className='btn btn--padding-sm' type='button'>
 							<i className='fas fa-search' aria-hidden='true' />
 						</button>
 					</div>

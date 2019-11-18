@@ -10,12 +10,6 @@
 	// Color
 	background-color: color(grey-light-1);
 
-	a {
-		// fix .btn-link underline span 100% block width
-		display: inline-flex;
-		color: var(--default-font-color);
-	}
-
 	h4 {
 		margin-bottom: 1rem;
 	}
@@ -26,6 +20,12 @@
 
 	&__logo {
 		grid-column: 1 / -1;
+	}
+
+	&__link {
+		// fix .btn-link underline span 100% block width
+		display: inline-flex;
+		color: var(--default-font-color);
 	}
 
 	.applink-img {
