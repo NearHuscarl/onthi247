@@ -11,6 +11,14 @@ const examQuestionProps = PropTypes.shape({
 	answerDetail: PropTypes.string,
 });
 
+const examProps = PropTypes.shape({
+	title: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	questionCount: PropTypes.number.isRequired,
+	difficulty: PropTypes.string.isRequired,
+	questions: PropTypes.arrayOf(examQuestionProps),
+});
+
 const answerProps = PropTypes.shape({
 	text: PropTypes.string.isRequired,
 	percentage: PropTypes.number.isRequired,
@@ -23,4 +31,18 @@ const commentProps = PropTypes.shape({
 	content: PropTypes.string.isRequired,
 });
 
-export { examQuestionProps, answerProps, commentProps };
+const standingProps = PropTypes.arrayOf(
+	PropTypes.shape({
+		avatar: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		level: PropTypes.number.isRequired,
+	}),
+);
+
+export {
+	examQuestionProps,
+	examProps,
+	answerProps,
+	commentProps,
+	standingProps,
+};

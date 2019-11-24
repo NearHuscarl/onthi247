@@ -23,6 +23,7 @@
 @import "components/nav";
 @import "components/pagination";
 @import "components/question-grid";
+@import "components/standing";
 
 @import "layout/content-container";
 @import "layout/filters";
@@ -30,6 +31,7 @@
 @import "layout/header";
 
 @import "pages/exam-result";
+@import "pages/exams";
 
 // css property order: by type
 // Example:

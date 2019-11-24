@@ -1,10 +1,10 @@
-const setExamQuestions = (id, questions = []) => ({
-	type: 'SET_EXAM_QUESTIONS',
+const setExam = (id, exam = {}) => ({
+	type: 'SET_EXAM',
 	payload: {
 		id,
-		questions,
+		exam,
 	},
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export { setExamQuestions };
+export { setExam };

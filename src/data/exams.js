@@ -1,3 +1,6 @@
+import chemistry1 from '../../public/images/chemistry-1.jpg';
+import chemistry2 from '../../public/images/chemistry-2.jpg';
+
 const answersPerQuestion = 4;
 let currentAnswer = 1;
 let percentChanceLeft = 1;
@@ -24,7 +27,7 @@ function randomAnswerPercentage() {
 	return clamp(answerPercentChance, 0, 1);
 }
 
-const exam = [
+const questions = [
 	{
 		question:
 			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
@@ -807,4 +810,137 @@ CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
 	},
 ];
 
-export default exam;
+const exams = [
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+	{
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: 1200,
+		attempts: 600,
+		questions,
+	},
+];
+
+export default exams;

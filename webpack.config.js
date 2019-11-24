@@ -17,15 +17,15 @@ module.exports = (env) => {
 		output: {
 			path: path.join(__dirname, 'dist'),
 			filename: isProduction
-				? '[name].[chunkhash:8].chunk.js'
+				? '[name].[contenthash:8].chunk.js'
 				: '[name].chunk.js',
 			chunkFilename: isProduction
-				? '[name].[chunkhash:8].chunk.js'
+				? '[name].[contenthash:8].chunk.js'
 				: '[name].chunk.js',
 			// add this line alongside with dev-server.historyApiFallback = true
 			// to make dev-server reload when on nested root
 			// see https://github.com/ReactTraining/react-router/issues/676#issuecomment-174073981
-			publicPath: '/',
+			publicPath: isProduction ? '' : '/',
 		},
 		module: {
 			rules: [
@@ -95,10 +95,10 @@ module.exports = (env) => {
 			}),
 			new MiniCssExtractPlugin({
 				filename: isProduction
-					? '[name].[chunkhash:8].chunk.css'
+					? '[name].[contenthash:8].chunk.css'
 					: '[name].chunk.css',
 				chunkFilename: isProduction
-					? '[name].[chunkhash:8].chunk.css'
+					? '[name].[contenthash:8].chunk.css'
 					: '[name].chunk.css',
 			}),
 			new webpack.DefinePlugin({
