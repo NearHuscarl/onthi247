@@ -12,7 +12,7 @@ function Comment({ comment, isReply }) {
 	return (
 		<div className='comment-wrapper'>
 			{isReply && <div className='comment-padding' />}
-			<Card className='card--white comment'>
+			<Card className='comment' background='white'>
 				<img className='comment__profile' src={avatar} alt='user avatar' />
 				<div className='comment__detail'>
 					<div className='comment__top'>

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const navItems = {
 	khoaHoc: 'Khóa học',
@@ -56,7 +58,7 @@ export default function Nav() {
 				<ul className='nav__list'>
 					<li className='nav__item nav__item--home'>
 						<a href='/' className='nav__link'>
-							<i className='fas fa-home' aria-hidden='true' />
+							<FontAwesomeIcon icon={faHome} />
 						</a>
 					</li>
 					<li className='nav__item nav__item--primary'>
@@ -66,43 +68,43 @@ export default function Nav() {
 					</li>
 					<NavItem
 						name={navItems.gioiThieu}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.giaoVien}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.bangXepHang}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.baiTap}
-						route="/exams"
+						route='/exams'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.thiThu}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.taiLieu}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
 						name={navItems.hoiDap}
-						route="/"
+						route='/'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

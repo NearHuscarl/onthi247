@@ -1,946 +1,291 @@
+import exam1 from '../../public/images/exam-preview-01.png';
+import exam2 from '../../public/images/exam-preview-02.png';
 import chemistry1 from '../../public/images/chemistry-1.jpg';
 import chemistry2 from '../../public/images/chemistry-2.jpg';
+import questions from './questions';
+import { randomBetween } from '../utilities/random';
 
-const answersPerQuestion = 4;
-let currentAnswer = 1;
-let percentChanceLeft = 1;
-
-function randomBetween(min, max) {
-	return Math.random() * (max - min + 1) + min;
+function randomViews() {
+	return Math.floor(randomBetween(0, 50000));
 }
-function clamp(n, min, max) {
-	return Math.min(Math.max(n, min), max);
+function randomAttempts() {
+	return Math.floor(randomBetween(0, 10000));
 }
 
-function randomAnswerPercentage() {
-	if (currentAnswer % answersPerQuestion === 0) {
-		const answerPercentChance = percentChanceLeft;
-		percentChanceLeft = 1;
-		currentAnswer = 1;
-		return clamp(answerPercentChance, 0, 1);
-	}
-
-	const answerPercentChance = randomBetween(0, percentChanceLeft * 100) / 100;
-	percentChanceLeft -= answerPercentChance;
-	currentAnswer += 1;
-
-	return clamp(answerPercentChance, 0, 1);
-}
-
-const questions = [
+const chemistryExams = [
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0001',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0002',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0003',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0004',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0005',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0006',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0007',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0008',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0009',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry1,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
-	},
-	{
-		question:
-			'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-		answers: [
-			{
-				text: 'axit β-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'mety aminoaxetat',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'axit α-aminopropionic',
-				percentage: randomAnswerPercentage(),
-			},
-			{
-				text: 'amoni acrylat',
-				percentage: randomAnswerPercentage(),
-			},
-		],
-		answerDetail: `X làm mất màu Br2 → X chứa nối đôi C=C
-→ X là CH2=CHCOONH4 (Amoni acrylat)
-CH2=CHCOONH4 + Br2 là CH2BrCHBrCOONH4
-→ Đáp án D`,
+		id: '0010',
+		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
+		image: chemistry2,
+		subject: 'Hóa học',
+		questionCount: 30,
+		difficulty: 'cơ bản',
+		description:
+			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		publish: '31/10/2019',
+		views: randomViews(),
+		attempts: randomAttempts(),
+		questions,
 	},
 ];
 
 const exams = [
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry1,
-		subject: 'Hóa học',
+		id: 'N0001',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam1,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry2,
-		subject: 'Hóa học',
+		id: 'N0002',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam2,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry1,
-		subject: 'Hóa học',
+		id: 'N0003',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam1,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry2,
-		subject: 'Hóa học',
+		id: 'N0004',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam2,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry1,
-		subject: 'Hóa học',
+		id: 'N0005',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam1,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry2,
-		subject: 'Hóa học',
+		id: 'N0006',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam2,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry1,
-		subject: 'Hóa học',
+		id: 'N0007',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam1,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry2,
-		subject: 'Hóa học',
+		id: 'N0008',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam2,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry1,
-		subject: 'Hóa học',
+		id: 'N0009',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam1,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 	{
-		title: 'Bài tập Amin - Amino Axit - Peptit - Protein',
-		image: chemistry2,
-		subject: 'Hóa học',
+		id: 'N0010',
+		title: 'Tổng ôn tập thi THPT QG 2020 môn Địa lý',
+		image: exam2,
+		subject: 'Địa lý',
 		questionCount: 30,
 		difficulty: 'cơ bản',
-		description:
-			'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+		description: 'Joe mama',
 		publish: '31/10/2019',
-		views: 1200,
-		attempts: 600,
+		views: randomViews(),
+		attempts: randomAttempts(),
 		questions,
 	},
 ];
 
-export default exams;
+export { chemistryExams, exams };

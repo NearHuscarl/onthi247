@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+	faSearch,
+	faBell,
+	faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
@@ -21,7 +27,7 @@ function Header() {
 							className='profile__img'
 						/>
 						<span className='profile__name'>Xin chào, bé dủng</span>
-						<i className='notification fas fa-bell' aria-hidden='true' />
+						<FontAwesomeIcon className='notification' icon={faBell} />
 					</div>
 				</div>
 			</div>
@@ -37,12 +43,12 @@ function Header() {
 					/>
 					<div className='input-group-append'>
 						<button className='btn btn--padding-sm' type='button'>
-							<i className='fas fa-search' aria-hidden='true' />
+							<FontAwesomeIcon icon={faSearch} />
 						</button>
 					</div>
 				</div>
 				<button type='button' className='btn-text'>
-					<i className='fas fa-shopping-cart mr-tn' aria-hidden='true' />
+					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
 					<span className='cart__text'>Các khóa học đã chọn</span>
 				</button>
 			</div>

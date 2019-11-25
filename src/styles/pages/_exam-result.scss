@@ -3,11 +3,11 @@
 }
 
 .result-text {
-	background-blend-mode: screen;
+	background-blend-mode: darken;
 	background-image: linear-gradient(
 			to right bottom,
-			transparentize(map-get($colors, primary-dark), 0.4),
-			transparentize(map-get($colors, primary-dark), 0.4)
+			transparentize(map-get($colors, grey-light-1), 0.4),
+			transparentize(map-get($colors, grey-light-2), 0.4)
 		),
 		url($image-path+'congrats.jpg');
 	background-size: cover;

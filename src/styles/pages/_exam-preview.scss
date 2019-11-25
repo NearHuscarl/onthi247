@@ -1,0 +1,14 @@
+.preview {
+	&__content {
+		display: flex;
+	}
+
+	&__col-left {
+		margin-right: 4.5rem;
+		max-width: 67rem;
+	}
+
+	&__col-right {
+		// width: 21rem;
+	}
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import Ads1 from '../../public/images/notads-1.jpg';
-import Ads2 from '../../public/images/notads-2.jpg';
+import Ads1 from '../../public/images/notads-1.png';
+import Ads2 from '../../public/images/notads-2.png';
 
 export default function Ads() {
 	return (

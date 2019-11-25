@@ -18,7 +18,7 @@ const comments = [
 				avatar: profile.bitching,
 				user: 'bé bi',
 				date: '33 phút trước',
-				content: 'lorem islum',
+				content: 'Anh yêu em Ung Như Cát Huỳnh',
 				isReply: true,
 			},
 		],
@@ -26,24 +26,9 @@ const comments = [
 	{
 		avatar: profile.plain,
 		user: 'bé dủng',
-		date: '30 phút trước',
-		content: 'Lời giải hết sức thuyết phục',
+		date: '35 phút trước',
+		content: 'lorem islum',
 		replies: [],
-	},
-	{
-		avatar: profile.plain,
-		user: 'bé dủng',
-		date: '30 phút trước',
-		content: 'Lời giải hết sức thuyết phục',
-		replies: [
-			{
-				avatar: profile.plain,
-				user: 'bé dủng',
-				date: '30 phút trước',
-				content: 'Lời giải hết sức thuyết phục',
-				replies: [],
-			},
-		],
 	},
 ];
 

@@ -93,6 +93,11 @@ module.exports = (env) => {
 				template: 'public/index.html',
 				favicon: 'public/images/favicon.png',
 			}),
+			new HtmlWebpackPlugin({
+				filename: '404.html',
+				template: 'public/404.html',
+				inject: false,
+			}),
 			new MiniCssExtractPlugin({
 				filename: isProduction
 					? '[name].[contenthash:8].chunk.css'

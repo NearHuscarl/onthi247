@@ -1,21 +1,27 @@
 import React from 'react';
-import { objectOf } from 'prop-types';
+import PropTypes, { objectOf } from 'prop-types';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import Standing from '../components/Standing';
+import { Standing } from '../components/Standing';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
 import ExamCardList from '../components/ExamCardList';
-import { examProps, standingProps } from '../utilities/proptypes';
+import { examProps, rankProps } from '../utilities/proptypes';
 
-const ExamPage = ({ exams, standing, monthlyStanding, weeklyStanding }) => (
+const ExamPage = ({
+	chemistryExams,
+	nationalExams,
+	standing,
+	monthlyStanding,
+	weeklyStanding,
+}) => (
 	<main className='exams'>
 		<Filters />
 		<div className='content-container'>
 			<div className='exams__content'>
 				<div className='exams__col-left'>
-					<ExamPreviewList exams={Object.values(exams)} />
+					<ExamPreviewList exams={chemistryExams} />
 				</div>
 				<div className='exams__col-right'>
 					<Standing standing={standing} title='Bảng xếp hạng chung' />
@@ -29,26 +35,28 @@ const ExamPage = ({ exams, standing, monthlyStanding, weeklyStanding }) => (
 			</div>
 			<Pagination />
 			<div className='recommend'>
-				<ExamCardList title='Các bài tập nổi bật' />
+				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' e />
 				<div className='mb-md' />
-				<ExamCardList title='Các bài tập mới nhất' />
+				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
 			</div>
 		</div>
 	</main>
 );
 
 ExamPage.propTypes = {
-	standing: standingProps.isRequired,
-	monthlyStanding: standingProps.isRequired,
-	weeklyStanding: standingProps.isRequired,
-	exams: objectOf(examProps).isRequired,
+	standing: PropTypes.arrayOf(rankProps).isRequired,
+	monthlyStanding: PropTypes.arrayOf(rankProps).isRequired,
+	weeklyStanding: PropTypes.arrayOf(rankProps).isRequired,
+	chemistryExams: PropTypes.arrayOf(examProps).isRequired,
+	nationalExams: PropTypes.arrayOf(examProps).isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	standing: state.standings.standing,
 	monthlyStanding: state.standings.monthlyStanding,
 	weeklyStanding: state.standings.weeklyStanding,
-	exams: state.exam,
+	chemistryExams: Object.values(state.exams.chemistry),
+	nationalExams: Object.values(state.exams.national),
 });
 
 export default connect(

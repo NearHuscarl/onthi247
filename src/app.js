@@ -8,6 +8,7 @@ import AppRouter from './routers/AppRouter';
 import 'normalize.css/normalize.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'react-tabs/style/react-tabs.css';
 import './styles/main.scss';
 
 const commitHash = (

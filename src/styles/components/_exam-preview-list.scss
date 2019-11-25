@@ -1,0 +1,39 @@
+.exam-preview-list {
+	& > :not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+.exam-preview-item {
+	display: grid;
+	grid-template-columns: min-content minmax(20rem, 1fr);
+	grid-template-rows: repeat(4, min-content);
+	column-gap: 2.1rem;
+
+	&__img {
+		width: 18.9rem;
+		height: 11rem;
+		border-radius: var(--border-round);
+		grid-row: 1 / -1;
+	}
+
+	&__title {
+		transition: color 0.15s;
+
+		&:hover {
+			color: color(primary);
+		}
+	}
+
+	&__info {
+		font-weight: 600;
+	}
+
+	&__desc {
+		font-size: 1.2rem;
+	}
+
+	&__stats {
+		font-size: 1.1rem;
+	}
+}

@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import range from 'lodash/range';
 import ExamCard from './ExamCard';
-import exam1 from '../../public/images/exam-preview-01.png';
-import exam2 from '../../public/images/exam-preview-02.png';
+import { examProps } from '../utilities/proptypes';
 
 function PreviousButton({ className, onClick }) {
 	return (
@@ -64,12 +62,12 @@ const resonsiveSettings = [
 	},
 ];
 
-export default function ExamCardList({ title }) {
+export default function ExamCardList({ title, exams, slidesToShow }) {
 	return (
 		<section>
 			<h3 className='h3 mb-0'>{title}</h3>
 			<Slider
-				slidesToShow={4}
+				slidesToShow={slidesToShow}
 				slidesToScroll={1}
 				infinite={false}
 				nextArrow={<NextButton />}
@@ -77,13 +75,15 @@ export default function ExamCardList({ title }) {
 				draggable={false}
 				responsive={resonsiveSettings}
 			>
-				{range(12).map((i) => (
+				{exams.map((e) => (
 					<ExamCard
-						key={i}
-						image={i % 2 ? exam1 : exam2}
-						title='Tổng ôn tập thi THPT QG 2020 môn Địa lý'
-						description='30 câu hỏi - Trình độ cơ bản'
-						date='31/10/2019'
+						key={e.id}
+						image={e.image}
+						title={e.title}
+						description={`${e.questionCount} câu hỏi - Trình độ ${
+							e.difficulty
+						}`}
+						date={e.publish}
 					/>
 				))}
 			</Slider>
@@ -93,4 +93,10 @@ export default function ExamCardList({ title }) {
 
 ExamCardList.propTypes = {
 	title: PropTypes.string.isRequired,
+	exams: PropTypes.arrayOf(examProps).isRequired,
+	slidesToShow: PropTypes.number,
+};
+
+ExamCardList.defaultProps = {
+	slidesToShow: 4,
 };

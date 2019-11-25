@@ -9,14 +9,14 @@ import Ads from '../components/Ads';
 import ExamCardList from '../components/ExamCardList';
 import { examProps } from '../utilities/proptypes';
 
-const ExamResultPage = ({ exam, selectedQuestion }) => {
-	const { questions } = exam;
+const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
+	const { title, questionCount, difficulty, questions } = exam;
 
 	return (
 		<main className='content-container'>
 			<h2 className='h2 mt-md'>
-				Bài tập Amin - Amino Axit - Peptit - Protein
-				<div className='h2 h2--sub'>30 câu hỏi - Trình độ cơ bản</div>
+				{title}
+				<div className='h2 h2--sub'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
 			</h2>
 			<div className='line' />
 			<div className='result-summary'>
@@ -66,11 +66,11 @@ const ExamResultPage = ({ exam, selectedQuestion }) => {
 				</div>
 			</div>
 			<div className='recommend'>
-				<ExamCardList title='Bạn có thể quan tâm' />
+				<ExamCardList exams={nationalExams} title='Bạn có thể quan tâm' />
 				<div className='mb-md' />
-				<ExamCardList title='Các bài tập nổi bật' />
+				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' />
 				<div className='mb-md' />
-				<ExamCardList title='Các bài tập mới nhất' />
+				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
 			</div>
 		</main>
 	);
@@ -78,12 +78,13 @@ const ExamResultPage = ({ exam, selectedQuestion }) => {
 
 ExamResultPage.propTypes = {
 	selectedQuestion: PropTypes.number.isRequired,
-	exam: PropTypes.arrayOf(examProps).isRequired,
+	exam: examProps.isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	selectedQuestion: state.examResult.question,
-	exam: state.exam.testExam1,
+	exam: state.exams.chemistry['0001'],
+	nationalExams: Object.values(state.exams.national),
 });
 
 export default connect(

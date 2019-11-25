@@ -31,18 +31,24 @@ const commentProps = PropTypes.shape({
 	content: PropTypes.string.isRequired,
 });
 
-const standingProps = PropTypes.arrayOf(
-	PropTypes.shape({
-		avatar: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired,
-		level: PropTypes.number.isRequired,
-	}),
-);
+const rankProps = PropTypes.shape({
+	avatar: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	level: PropTypes.number.isRequired,
+});
+
+const examRankProps = PropTypes.shape({
+	avatar: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	score: PropTypes.number.isRequired,
+	time: PropTypes.string.isRequired,
+});
 
 export {
 	examQuestionProps,
 	examProps,
 	answerProps,
 	commentProps,
-	standingProps,
+	rankProps,
+	examRankProps,
 };

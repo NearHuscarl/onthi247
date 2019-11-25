@@ -4,7 +4,7 @@ import Card from './Card';
 
 export default function ExamCard({ image, title, description, date }) {
 	return (
-		<Card className='card--white card--no-padding exam-card'>
+		<Card className='exam-card' background='white' noPadding>
 			<img className='exam-card__img' src={image} alt='exam preview' />
 			<div className='exam-card__content'>
 				{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

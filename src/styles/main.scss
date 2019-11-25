@@ -17,19 +17,23 @@
 @import "components/comment-section";
 @import "components/debug";
 @import "components/exam-card";
+@import "components/exam-preview-list";
 @import "components/exam-preview";
 @import "components/input";
 @import "components/line";
 @import "components/nav";
 @import "components/pagination";
 @import "components/question-grid";
+@import "components/score-card";
 @import "components/standing";
+@import "components/tab";
 
 @import "layout/content-container";
 @import "layout/filters";
 @import "layout/footer";
 @import "layout/header";
 
+@import "pages/exam-preview";
 @import "pages/exam-result";
 @import "pages/exams";
 
