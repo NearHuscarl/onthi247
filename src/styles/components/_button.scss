@@ -49,9 +49,9 @@
 		color: color(grey-dark-1);
 	}
 	&--white:hover {
-		border-color: color(primary);
-		background-color: color(primary);
-		color: color('white');
+		border-color: color(grey-light-1);
+		background-color: color(grey-light-1);
+		color: currentColor;
 	}
 	&--white:active,
 	&--white:focus {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,15 @@ import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import { ExamStanding, ExamRank } from '../components/Standing';
 
+const init = () => {
+	window.scrollTo(0, 0);
+};
+
 function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
+	useEffect(() => {
+		init();
+	}, []);
+
 	return (
 		<main className='content-container'>
 			<div className='preview__content mt-lg'>
@@ -52,7 +60,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 
 						<TabPanel>
 							{standing.slice(0, 2).map((u, index) => (
-								<React.Fragment>
+								<React.Fragment key={u.name}>
 									<ExamRank info={u} />
 									{index !== 2 - 1 ? <div className='line' /> : null}
 								</React.Fragment>
