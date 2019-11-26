@@ -47,7 +47,7 @@ function Header() {
 						</button>
 					</div>
 				</div>
-				<button type='button' className='btn-text'>
+				<button type='button' className='btn-text btn-text--highlight'>
 					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
 					<span className='cart__text'>Các khóa học đã chọn</span>
 				</button>

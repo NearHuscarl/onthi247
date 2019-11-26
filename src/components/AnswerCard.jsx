@@ -10,7 +10,7 @@ export function AnswerDetail({ answer }) {
 			<div className='answer__text'>{answer.text}</div>
 			<div className='answer__stats'>{`${chance}% người tham gia lựa chọn`}</div>
 			{/* https://stackoverflow.com/a/28269950/9449426 */}
-			<div className='answer-after' style={{ width: `${chance}%` }} />
+			<div className='answer--after' style={{ width: `${chance}%` }} />
 		</div>
 	);
 }

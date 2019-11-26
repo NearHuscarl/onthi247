@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,6 +17,8 @@ const init = () => {
 };
 
 function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
+	const history = useHistory();
+
 	useEffect(() => {
 		init();
 	}, []);
@@ -40,7 +43,13 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							} - Lượt xem: ${exam.views.toLocaleString()} - Lượt làm bài: ${exam.attempts.toLocaleString()}`}
 						</div>
 						<div className='exam-preview__actions'>
-							<button type='button' className='btn mr-sm'>
+							<button
+								type='button'
+								className='btn btn--bold mr-sm'
+								onClick={() =>
+									history.push(`/exams/${exam.id}/questions`)
+								}
+							>
 								<FontAwesomeIcon className='btn__icon' icon={faPlay} />
 								Bắt đầu làm bài
 							</button>

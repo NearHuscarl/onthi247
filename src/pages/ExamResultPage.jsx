@@ -10,7 +10,7 @@ import ExamCardList from '../components/ExamCardList';
 import { examProps } from '../utilities/proptypes';
 
 const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
-	const { title, questionCount, difficulty, questions } = exam;
+	const { id, title, questionCount, difficulty, questions } = exam;
 
 	return (
 		<main className='content-container'>
@@ -34,13 +34,13 @@ const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
 				<h2 className='h2 mb-sm'>Đáp án và lời giải chi tiết</h2>
 				<div className='result-details__content'>
 					<div className='result-details__col-1'>
-						<div className='card question-card'>
-							<div className='h3'>Câu hỏi 01</div>
+						<Card>
+							<h4 className='h4 mb-0'>Câu hỏi 01</h4>
 							<span className='mb-sm'>Chưa trả lời</span>
 							<button type='button' className='btn btn--white'>
 								Lưu lại
 							</button>
-						</div>
+						</Card>
 					</div>
 					<div className='result-details__col-2'>
 						<AnswerCard
@@ -60,7 +60,10 @@ const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
 						<CommentSection />
 					</div>
 					<div className='result-details__col-3'>
-						<QuestionGrid questionCount={questions.length} />
+						<QuestionGrid
+							questionCount={questions.length}
+							examId={id}
+						/>
 						<Ads />
 					</div>
 				</div>
@@ -79,15 +82,13 @@ const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
 ExamResultPage.propTypes = {
 	selectedQuestion: PropTypes.number.isRequired,
 	exam: examProps.isRequired,
+	nationalExams: PropTypes.arrayOf(examProps).isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
 	selectedQuestion: state.examResult.question,
-	exam: state.exams.chemistry['0001'],
+	exam: state.exams.chemistry[props.match.params.id],
 	nationalExams: Object.values(state.exams.national),
 });
 
-export default connect(
-	mapStateToProps,
-	null,
-)(ExamResultPage);
+export default connect(mapStateToProps, null)(ExamResultPage);

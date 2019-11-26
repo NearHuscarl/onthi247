@@ -10,6 +10,8 @@
 	grid-template-rows: repeat(4, min-content);
 	column-gap: 2.1rem;
 
+	position: relative;
+
 	&__img {
 		width: 18.9rem;
 		height: 11rem;
@@ -35,5 +37,11 @@
 
 	&__stats {
 		font-size: 1.1rem;
+	}
+
+	&__more {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 }

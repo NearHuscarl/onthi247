@@ -1,0 +1,21 @@
+.exam-question-page {
+    display: flex;
+    margin-top: 2.5rem;
+
+    &__left {
+        margin-right: 1.6rem;
+
+        display: grid;
+        grid-template-columns: max-content minmax(min-content, 51rem);
+        column-gap: 1.4rem;
+        row-gap: 1.7rem;
+
+        .question-flag-card {
+            align-self: flex-start;
+        }
+    }
+
+    &__right {
+
+    }
+}

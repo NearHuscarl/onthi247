@@ -1,6 +1,7 @@
 $ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
 $ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
-$ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 /// [underlineExpandAnimation] will expand the underline from
 /// the center to 2 ends when the element is hovered or focused

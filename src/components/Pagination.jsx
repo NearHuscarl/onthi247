@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import range from 'lodash/range';
+import classNames from 'classnames';
 
 const buttonClassName = (currentPage, btnPage) =>
 	'btn btn--padding-sm' + (btnPage === currentPage ? '' : ' btn--white');
@@ -9,7 +10,12 @@ export default function Pagination({ className }) {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	return (
-		<div className={'pagination ' + className}>
+		<div
+			className={classNames({
+				pagination: true,
+				[className]: className !== '',
+			})}
+		>
 			<button type='button' className='btn btn--padding-sm btn--white'>
 				đầu
 			</button>

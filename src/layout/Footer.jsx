@@ -1,5 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import {
+	faFacebookF,
+	faYoutube,
+	faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../components/Logo';
 import googlePlay from '../../public/images/google-play.png';
 import appStore from '../../public/images/app-store.png';
@@ -114,13 +120,13 @@ export default function Footer() {
 			<div className='footer-bottom'>
 				<div className='footer-bottom__medias'>
 					<button type='button' className='btn-facebook'>
-						<i className='fab fa-facebook-f' aria-hidden='true' />
+						<FontAwesomeIcon icon={faFacebookF} />
 					</button>
 					<button type='button' className='btn-youtube'>
-						<i className='fab fa-youtube' aria-hidden='true' />
+						<FontAwesomeIcon icon={faYoutube} />
 					</button>
 					<button type='button' className='btn-twitter'>
-						<i className='fab fa-twitter' aria-hidden='true' />
+						<FontAwesomeIcon icon={faTwitter} />
 					</button>
 				</div>
 				<div className='footer-bottom__copyright'>

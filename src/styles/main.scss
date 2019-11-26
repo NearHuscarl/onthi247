@@ -23,7 +23,10 @@
 @import "components/line";
 @import "components/nav";
 @import "components/pagination";
+@import "components/question-card";
+@import "components/question-flag-card";
 @import "components/question-grid";
+@import "components/question-progress";
 @import "components/score-card";
 @import "components/standing";
 @import "components/tab";
@@ -34,6 +37,7 @@
 @import "layout/header";
 
 @import "pages/exam-preview";
+@import "pages/exam-question";
 @import "pages/exam-result";
 @import "pages/exams";
 

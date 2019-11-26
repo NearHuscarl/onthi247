@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { objectOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';

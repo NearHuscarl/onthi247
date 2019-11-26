@@ -1,0 +1,37 @@
+.question-flag-card {
+	position: relative;
+
+	.btn {
+		width: 11.2rem;
+	}
+
+	&__flag {
+		$flagSize: 2.3rem;
+
+		position: absolute;
+		top: -($flagSize / 4);
+		right: -($flagSize / 4);
+
+		border-radius: 50%;
+		background-color: color(primary-dark);
+		color: color('white');
+
+		width: $flagSize;
+		height: $flagSize;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		transition: opacity 0.6s, transform 0.3s $easeInBack;
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	&--flag {
+		&__flag {
+			opacity: 1;
+			transform: scale(1);
+			transition: opacity 0.3s, transform 0.3s $easeOutBack;
+		}
+	}
+}
