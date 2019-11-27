@@ -8,7 +8,7 @@ import Card from './Card';
 import { setExamQuestionFlag } from '../actions/examQuestions';
 
 // eslint-disable-next-line no-shadow
-function QuestionFlagCard({ id, index, flag, setExamQuestionFlag }) {
+function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
 	return (
 		<Card
 			className={classNames({
@@ -17,7 +17,7 @@ function QuestionFlagCard({ id, index, flag, setExamQuestionFlag }) {
 			})}
 		>
 			<h4 className='h4 mb-0'>Câu hỏi {index + 1}</h4>
-			<span className='mb-sm'>Chưa trả lời</span>
+			<span className='mb-sm'>{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}</span>
 			<button
 				type='button'
 				className='btn btn--white'
@@ -43,6 +43,7 @@ QuestionFlagCard.propTypes = {
 	id: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
 	flag: PropTypes.bool.isRequired,
+	answer: PropTypes.bool.isRequired,
 	setExamQuestionFlag: PropTypes.func.isRequired,
 };
 

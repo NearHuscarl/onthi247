@@ -50,7 +50,7 @@ QuestionGrid.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-	selectedQuestion: state.examResult.question,
+	selectedQuestion: state.examResult.selectedQuestion,
 });
 
 const mapDispatchToProps = (dispatch) => ({

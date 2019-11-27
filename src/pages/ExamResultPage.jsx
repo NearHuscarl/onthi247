@@ -9,7 +9,13 @@ import Ads from '../components/Ads';
 import ExamCardList from '../components/ExamCardList';
 import { examProps } from '../utilities/proptypes';
 
-const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
+const ExamResultPage = ({
+	exam,
+	nationalExams,
+	selectedQuestion,
+	timeTaken,
+	score,
+}) => {
 	const { id, title, questionCount, difficulty, questions } = exam;
 
 	return (
@@ -22,8 +28,8 @@ const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
 			<div className='result-summary'>
 				<h2 className='h2 mb-sm'>Kết quả tổng quan</h2>
 				<div className='result-text'>
-					<div className='result-text__score'>20/30</div>
-					<div className='result-text__time'>10 phút 56 giây</div>
+					<div className='result-text__score'>{`${score}/${questions.length}`}</div>
+					<div className='result-text__time'>{`${timeTaken.minutes} phút ${timeTaken.seconds} giây`}</div>
 					<div className='result-text__exp'>+600 exp</div>
 					<div className='result-text__rank'>
 						Xếp hạng 120 trên tổng số 360 người tham gia làm bài
@@ -60,10 +66,7 @@ const ExamResultPage = ({ exam, nationalExams, selectedQuestion }) => {
 						<CommentSection />
 					</div>
 					<div className='result-details__col-3'>
-						<QuestionGrid
-							questionCount={questions.length}
-							examId={id}
-						/>
+						<QuestionGrid questionCount={questions.length} examId={id} />
 						<Ads />
 					</div>
 				</div>
@@ -83,12 +86,19 @@ ExamResultPage.propTypes = {
 	selectedQuestion: PropTypes.number.isRequired,
 	exam: examProps.isRequired,
 	nationalExams: PropTypes.arrayOf(examProps).isRequired,
+	timeTaken: PropTypes.shape({
+		minutes: PropTypes.number,
+		seconds: PropTypes.number,
+	}).isRequired,
+	score: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-	selectedQuestion: state.examResult.question,
+	selectedQuestion: state.examResult.selectedQuestion,
 	exam: state.exams.chemistry[props.match.params.id],
 	nationalExams: Object.values(state.exams.national),
+	timeTaken: state.examResult.timeTaken,
+	score: state.examResult.score,
 });
 
 export default connect(mapStateToProps, null)(ExamResultPage);

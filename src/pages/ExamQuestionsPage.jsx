@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
+import Ads from '../components/Ads';
+import Pagination from '../components/Pagination';
 import QuestionCard from '../components/QuestionCard';
 import QuestionFlagCard from '../components/QuestionFlagCard';
-import Pagination from '../components/Pagination';
-import { examProps } from '../utilities/proptypes';
-import Ads from '../components/Ads';
-import { setExamQuestions } from '../actions/examQuestions';
 import QuestionProgress from '../components/QuestionProgress';
+import { examProps } from '../utilities/proptypes';
+import { setExamQuestions } from '../actions/examQuestions';
 
 // eslint-disable-next-line no-shadow
 function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
@@ -33,10 +33,12 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 								id={q.id}
 								index={index}
 								flag={get(questions[q.id], 'flag', false)}
+								answer={get(questions[q.id], 'answer', -1)}
 							/>
 							<QuestionCard
 								id={q.id}
 								question={q.question}
+								answer={get(questions[q.id], 'answer', -1)}
 								answers={q.answers.map((a) => a.text)}
 							/>
 						</React.Fragment>

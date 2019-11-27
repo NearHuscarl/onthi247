@@ -16,13 +16,17 @@ const theme = createMuiTheme({
 	},
 });
 
-function QuestionCard({ id, question, answers, setExamQuestionAnswer }) {
-	const [value, setValue] = React.useState(-1);
-
+function QuestionCard({
+	id,
+	question,
+	answers,
+	answer,
+	// eslint-disable-next-line no-shadow
+	setExamQuestionAnswer,
+}) {
 	const handleChange = (event) => {
-        const value = parseInt(event.target.value, 10);
-        setValue(value);
-        setExamQuestionAnswer(id, value);
+		const val = parseInt(event.target.value, 10);
+		setExamQuestionAnswer(id, val);
 	};
 
 	return (
@@ -36,7 +40,7 @@ function QuestionCard({ id, question, answers, setExamQuestionAnswer }) {
 					<RadioGroup
 						aria-label='answer'
 						name='answer'
-						value={value}
+						value={answer}
 						onChange={handleChange}
 						row
 					>
@@ -60,6 +64,8 @@ QuestionCard.propTypes = {
 	id: PropTypes.string.isRequired,
 	question: PropTypes.string.isRequired,
 	answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+	answer: PropTypes.number.isRequired,
+	setExamQuestionAnswer: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
