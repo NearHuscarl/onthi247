@@ -14,6 +14,7 @@
 @import "components/button";
 @import "components/card-carousel";
 @import "components/card";
+@import "components/chip";
 @import "components/comment-section";
 @import "components/debug";
 @import "components/exam-card";
@@ -26,6 +27,8 @@
 @import "components/question-card";
 @import "components/question-flag-card";
 @import "components/question-grid";
+@import "components/question-list";
+@import "components/question-preview-list";
 @import "components/question-progress";
 @import "components/score-card";
 @import "components/standing";
@@ -40,6 +43,7 @@
 @import "pages/exam-question";
 @import "pages/exam-result";
 @import "pages/exams";
+@import "pages/questions";
 
 // css property order: by type
 // Example:

@@ -104,7 +104,7 @@ export default function Nav() {
 					/>
 					<NavItem
 						name={navItems.hoiDap}
-						route='/'
+						route='/questions'
 						selectedItem={selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

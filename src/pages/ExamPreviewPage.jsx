@@ -34,9 +34,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							alt='exam preview'
 						/>
 						<h2 className='exam-preview__heading h2'>{exam.title}</h2>
-						<div className='exam-preview__heading--sub'>{`${
-							exam.questionCount
-						} câu hỏi - Trình độ ${exam.difficulty}`}</div>
+						<div className='exam-preview__heading--sub'>{`${exam.questionCount} câu hỏi - Trình độ ${exam.difficulty}`}</div>
 						<div className='exam-preview__stats'>
 							{`Phát hành: ${
 								exam.publish
@@ -45,7 +43,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 						<div className='exam-preview__actions'>
 							<button
 								type='button'
-								className='btn btn--bold mr-sm'
+								className='btn bold mr-sm'
 								onClick={() =>
 									history.push(`/exams/${exam.id}/questions`)
 								}
@@ -127,7 +125,4 @@ const mapStateToProps = (state, props) => ({
 	nationalExams: Object.values(state.exams.national),
 });
 
-export default connect(
-	mapStateToProps,
-	null,
-)(ExamPreviewPage);
+export default connect(mapStateToProps, null)(ExamPreviewPage);

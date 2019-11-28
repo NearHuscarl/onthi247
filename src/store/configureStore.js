@@ -6,6 +6,7 @@ import examsReducer from '../reducers/exams';
 import examQuestionsReducer from '../reducers/examQuestions';
 import standingReducer from '../reducers/standing';
 import examStandingReducer from '../reducers/examStanding';
+import questionsReducer from '../reducers/questions';
 
 const store = createStore(
 	combineReducers({
@@ -14,6 +15,7 @@ const store = createStore(
 		examQuestions: examQuestionsReducer,
 		standings: standingReducer,
 		examStanding: examStandingReducer,
+		questions: questionsReducer,
 	}),
 	composeWithDevTools(applyMiddleware(thunk)),
 );

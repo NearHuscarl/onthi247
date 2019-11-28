@@ -20,9 +20,7 @@ export default function ExamPreviewList({ exams }) {
 							<h4 className='exam-preview-item__title h4'>{e.title}</h4>
 						</Link>
 						<div className='exam-preview-item__info'>
-							{`Môn ${e.subject} - ${
-								e.questionCount
-							} câu hỏi - Trình độ ${e.difficulty}`}
+							{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
 						</div>
 						<div className='exam-preview-item__desc'>{e.description}</div>
 						<div className='exam-preview-item__stats'>

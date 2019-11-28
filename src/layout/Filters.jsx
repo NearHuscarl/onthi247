@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
-import Chip from '../components/Chip';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ButtonChip from '../components/ButtonChip';
 
 const filterOptions = [
 	{ value: 'difficulty', label: 'Độ khó' },
@@ -11,7 +14,7 @@ const sortOptions = [
 	{ value: 'newest', label: 'Mới nhất' },
 ];
 
-export default function Filters() {
+export default function Filters({ title, subTitle }) {
 	const [filter, setFilter] = useState(null);
 	const [sort, setSort] = useState(null);
 
@@ -19,8 +22,8 @@ export default function Filters() {
 		<div className='filters-bg'>
 			<div className='filters'>
 				<div className='filters__title'>
-					<h2 className='h2'>Danh sách bài tập</h2>
-					<p>Có tất cả 300 bài tập trong danh sách</p>
+					<h2 className='h2'>{title}</h2>
+					<p>{subTitle}</p>
 				</div>
 				<div className='filters__item'>
 					<Select
@@ -45,10 +48,13 @@ export default function Filters() {
 						className='form-control'
 						placeholder='Nhập từ khóa cần tìm kiếm...'
 					/>
+					<button type='button' className='filters__search-btn btn-text'>
+						<FontAwesomeIcon icon={faTimes} />
+					</button>
 				</div>
 				<div className='filters__chip'>
-					<Chip name='Hóa học' onClick={() => {}} />
-					<Chip name='Sinh học' onClick={() => {}} />
+					<ButtonChip name='Hóa học' onClick={() => {}} />
+					<ButtonChip name='Sinh học' onClick={() => {}} />
 					<button type='button' className='btn btn--grey'>
 						Xóa bộ lọc
 					</button>
@@ -57,3 +63,8 @@ export default function Filters() {
 		</div>
 	);
 }
+
+Filters.propTypes = {
+	title: PropTypes.string.isRequired,
+	subTitle: PropTypes.string.isRequired,
+};

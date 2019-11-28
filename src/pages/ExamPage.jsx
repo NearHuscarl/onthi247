@@ -17,7 +17,10 @@ const ExamPage = ({
 	weeklyStanding,
 }) => (
 	<main className='exams'>
-		<Filters />
+		<Filters
+			title='Danh sách bài tập'
+			subTitle='Có tất cả 300 bài tập trong danh sách'
+		/>
 		<div className='content-container'>
 			<div className='exams__content'>
 				<div className='exams__col-left'>
@@ -59,7 +62,4 @@ const mapStateToProps = (state) => ({
 	nationalExams: Object.values(state.exams.national),
 });
 
-export default connect(
-	mapStateToProps,
-	null,
-)(ExamPage);
+export default connect(mapStateToProps, null)(ExamPage);

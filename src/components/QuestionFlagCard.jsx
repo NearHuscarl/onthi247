@@ -43,7 +43,7 @@ QuestionFlagCard.propTypes = {
 	id: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
 	flag: PropTypes.bool.isRequired,
-	answer: PropTypes.bool.isRequired,
+	answer: PropTypes.number.isRequired,
 	setExamQuestionFlag: PropTypes.func.isRequired,
 };
 

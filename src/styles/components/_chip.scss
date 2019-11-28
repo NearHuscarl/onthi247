@@ -1,0 +1,15 @@
+.chip {
+    padding: .3rem .6rem;
+
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-radius: var(--border-round);
+    font-size: 1rem;
+
+    transition: background-color .2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(#e1ecf4, 7.5%);
+    }
+}

@@ -44,6 +44,26 @@ const examRankProps = PropTypes.shape({
 	time: PropTypes.string.isRequired,
 });
 
+const userProps = PropTypes.shape({
+	name: PropTypes.string.isRequired,
+	level: PropTypes.number.isRequired,
+	avatar: PropTypes.string.isRequired,
+});
+
+const questionProps = PropTypes.shape({
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+	date: PropTypes.string.isRequired,
+	votes: PropTypes.number.isRequired,
+	views: PropTypes.number.isRequired,
+	answers: PropTypes.number.isRequired,
+	acceptedAnswer: PropTypes.bool.isRequired,
+	user: userProps.isRequired,
+});
+
 export {
 	examQuestionProps,
 	examProps,
@@ -51,4 +71,6 @@ export {
 	commentProps,
 	rankProps,
 	examRankProps,
+	userProps,
+	questionProps,
 };

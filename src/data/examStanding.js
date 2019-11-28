@@ -1,4 +1,4 @@
-import * as profile from './avatars';
+import * as profile from './users';
 
 const examStanding = {
 	examId: '0001',

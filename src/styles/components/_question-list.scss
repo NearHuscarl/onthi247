@@ -1,0 +1,39 @@
+.qs-list {
+    & > :not(:last-child) {
+        margin-bottom: .8rem;
+    }
+}
+
+.qs-item {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	grid-template-rows: repeat(2, min-content);
+	align-items: flex-start;
+	column-gap: 0.9rem;
+
+	&__score {
+		grid-row: 1 / -1;
+
+		background-color: #eff0f1;
+		color: inherit;
+		border-radius: 0.2rem;
+		width: 2.8rem;
+		padding: 0.2rem 0;
+
+		font-size: 0.9rem;
+		text-align: center;
+
+		&--green {
+			background-color: #5fba7d;
+			color: color('white');
+		}
+	}
+
+	&__title {
+		color: #005999;
+	}
+
+	&__date {
+		font-size: 1rem;
+	}
+}
