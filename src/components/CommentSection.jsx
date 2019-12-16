@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Select from 'react-select';
 import Card from './Card';
+import Selector from './Selector';
 import { setExamResultComment } from '../actions/examResult';
 import { commentProps } from '../utilities/proptypes';
 
@@ -72,7 +72,7 @@ function CommentSection({ comments }) {
 			</button>
 			<div className='comment-section__filters'>
 				<h3 className='h3'>{`${getCommentCount(comments)} bình luận`}</h3>
-				<Select
+				<Selector
 					className='comment-section__filter'
 					value={filter}
 					onChange={(selectedValue) => setFilter(() => selectedValue)}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Filters from '../layout/Filters';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
@@ -10,6 +11,8 @@ import Chip from '../components/Chip';
 import { questionProps } from '../utilities/proptypes';
 
 function QuestionsPage({ questions, hotQuestions, newQuestions }) {
+	const history = useHistory();
+
 	return (
 		<main className='questions-page'>
 			<Filters
@@ -22,7 +25,11 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 						<QuestionPreviewList questions={questions} />
 					</div>
 					<div className='questions-page__col-right'>
-						<button type='button' className='btn bold mb-md'>
+						<button
+							type='button'
+							className='btn bold mb-md'
+							onClick={() => history.push('/questions/ask')}
+						>
 							Đặt câu hỏi mới
 						</button>
 						<h3 className='h3'>Thẻ nổi bật</h3>

@@ -22,7 +22,7 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 		<main className='content-container'>
 			<h2 className='h2 mt-md'>
 				{title}
-				<div className='h2 h2--sub'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
+				<div className='h2 h2--sub mt-tn'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
 			</h2>
 			<div className='line' />
 			<div className='exam-question-page'>

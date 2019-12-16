@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ButtonChip from '../components/ButtonChip';
+import Selector from '../components/Selector';
 
 const filterOptions = [
 	{ value: 'difficulty', label: 'Độ khó' },
@@ -26,14 +26,14 @@ export default function Filters({ title, subTitle }) {
 					<p>{subTitle}</p>
 				</div>
 				<div className='filters__item'>
-					<Select
+					<Selector
 						className='filters__filter'
 						value={filter}
 						placeholder='Bộ lọc'
 						onChange={(selectedValue) => setFilter(() => selectedValue)}
 						options={filterOptions}
 					/>
-					<Select
+					<Selector
 						className='filters__sort'
 						value={sort}
 						placeholder='Sắp xếp theo'

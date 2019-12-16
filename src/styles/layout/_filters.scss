@@ -20,6 +20,7 @@
 	&__item {
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
 		// grid-column: -1;
 
 		& > :not(:last-child) {
