@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import styled from 'styled-components';
 import {
 	faFacebookF,
 	faYoutube,
@@ -9,74 +10,139 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../components/Logo';
 import googlePlay from '../../public/images/google-play.png';
 import appStore from '../../public/images/app-store.png';
+import { appColors, theme, mixins } from '../constants';
+
+const FooterTop = styled.div`
+	margin: 0 auto;
+	margin-top: 7.3rem;
+	padding: 4.8rem calc(((100vw - ${theme.pageContainerWidth}) / 2));
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	row-gap: 1.5rem;
+
+	background-color: ${appColors.greyLight1};
+
+	h4 {
+		margin-bottom: 1rem;
+	}
+
+	li:not(:last-child) {
+		margin-bottom: 0.75rem;
+	}
+`;
+
+const TopLogo = styled(Logo)`
+	grid-column: 1 / -1;
+`;
+const TopLink = styled.a`
+	// fix .btn-link underline span 100% block width
+	display: inline-flex;
+	color: ${theme.fontColor};
+`;
+const TopAppImage = styled.img`
+	width: 18rem;
+	transition: box-shadow 0.2s, transform 0.2s;
+
+	&:hover {
+		box-shadow: ${theme.shadowLight};
+		${mixins.applyScale('transform: scale(1.048);')}
+	}
+`;
+
+const FooterBottom = styled.div`
+	padding: 4rem;
+	background-color: ${appColors.secondary};
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+`;
+const BottomMedias = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, min-content);
+	justify-content: center;
+	gap: 1rem;
+
+	width: 100%;
+	margin-bottom: 1.9rem;
+`;
+const BottomCopyright = styled.div`
+	font-size: 1rem;
+	margin-bottom: 0.9rem;
+`;
+const BottomLicense = styled.div`
+	line-height: 0.25;
+	font-size: 0.8rem;
+`;
 
 export default function Footer() {
 	return (
-		<footer className='footer'>
-			<div className='footer-top'>
-				<Logo small className='footer-top__logo' />
-				<div className='footer-top__about'>
+		<footer>
+			<FooterTop>
+				<TopLogo small />
+				<div>
 					<h4 className='h4'>Về OnThi247</h4>
 					<ul>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Giới thiệu
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Giáo viên nổi tiếng
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Điều khoản sử dụng
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Quy chế hoạt động
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Chính sách bảo mật
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Tuyển dụng
-							</a>
+							</TopLink>
 						</li>
 					</ul>
 				</div>
-				<div className='footer-top__service'>
+				<div>
 					<h4 className='h4'>Dịch vụ</h4>
 					<ul>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Kho bài tập
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Kho đề thi thử
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Kho tài liệu
-							</a>
+							</TopLink>
 						</li>
 						<li>
-							<a href='#' className='footer-top__link btn-link'>
+							<TopLink href='#' className='btn-link'>
 								Hỏi đáp
-							</a>
+							</TopLink>
 						</li>
 					</ul>
 				</div>
-				<div className='footer-top__client'>
-					<div className='footer-top__support mb-md'>
+				<div>
+					<div className='mb-md'>
 						<h4 className='h4'>Hỗ trợ khách hàng</h4>
 						<ul>
 							<li>Trung tâm hỗ trợ</li>
@@ -88,7 +154,7 @@ export default function Footer() {
 							</li>
 						</ul>
 					</div>
-					<div className='footer-top__contact'>
+					<div>
 						<h4 className='h4'>Dành cho đối tác</h4>
 						<ul>
 							<li>
@@ -103,22 +169,22 @@ export default function Footer() {
 						</ul>
 					</div>
 				</div>
-				<div className='footer-top__app'>
+				<div>
 					<h4 className='h4'>Tải ứng dụng OnThi247</h4>
 					<a href='#'>
-						<img
-							className='applink-img mb-sm'
+						<TopAppImage
+							className='mb-sm'
 							src={googlePlay}
 							alt='google play'
 						/>
 					</a>
 					<a href='#'>
-						<img className='applink-img' src={appStore} alt='app store' />
+						<TopAppImage src={appStore} alt='app store' />
 					</a>
 				</div>
-			</div>
-			<div className='footer-bottom'>
-				<div className='footer-bottom__medias'>
+			</FooterTop>
+			<FooterBottom>
+				<BottomMedias>
 					<button type='button' className='btn-facebook'>
 						<FontAwesomeIcon icon={faFacebookF} />
 					</button>
@@ -128,11 +194,11 @@ export default function Footer() {
 					<button type='button' className='btn-twitter'>
 						<FontAwesomeIcon icon={faTwitter} />
 					</button>
-				</div>
-				<div className='footer-bottom__copyright'>
+				</BottomMedias>
+				<BottomCopyright>
 					© 2019 - Bản quyền website thuộc về OnThi247.vn
-				</div>
-				<div className='footer-bottom__license'>
+				</BottomCopyright>
+				<BottomLicense>
 					<p>
 						Giấy phép cung cấp dịch vụ mạng xã hội trực tuyến số
 						000/GP-BTTTT do Bộ Thông tin và Truyền thông cấp ngày
@@ -142,8 +208,8 @@ export default function Footer() {
 						Giấy phép kinh doanh giáo dục: MST-0000000000 do Sở Kế hoạch
 						và Đầu tư cấp ngày 02/09/2019
 					</p>
-				</div>
-			</div>
+				</BottomLicense>
+			</FooterBottom>
 		</footer>
 	);
 }

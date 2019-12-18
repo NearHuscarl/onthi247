@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
@@ -8,6 +9,20 @@ import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
 import ExamCardList from '../components/ExamCardList';
 import { examProps, rankProps } from '../utilities/proptypes';
+import ContentContainer from '../layout/ContentContainer';
+
+const Content = styled.div`
+	display: flex;
+	margin-top: 3.6rem;
+	margin-bottom: 4.1rem;
+`;
+const ColLeft = styled.div`
+	width: 64.7rem;
+	margin-right: 3.3rem;
+`;
+const ColRight = styled.div`
+	flex: 0 1;
+`;
 
 const ExamPage = ({
 	chemistryExams,
@@ -21,12 +36,12 @@ const ExamPage = ({
 			title='Danh sách bài tập'
 			subTitle='Có tất cả 300 bài tập trong danh sách'
 		/>
-		<div className='content-container'>
-			<div className='exams__content'>
-				<div className='exams__col-left'>
+		<ContentContainer>
+			<Content>
+				<ColLeft>
 					<ExamPreviewList exams={chemistryExams} />
-				</div>
-				<div className='exams__col-right'>
+				</ColLeft>
+				<ColRight>
 					<Standing standing={standing} title='Bảng xếp hạng chung' />
 					<Standing
 						standing={monthlyStanding}
@@ -34,15 +49,15 @@ const ExamPage = ({
 					/>
 					<Standing standing={weeklyStanding} title='Bảng xếp hạng tuần' />
 					<Ads />
-				</div>
-			</div>
+				</ColRight>
+			</Content>
 			<Pagination />
 			<div className='recommend'>
 				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' e />
 				<div className='mb-md' />
 				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
 			</div>
-		</div>
+		</ContentContainer>
 	</main>
 );
 

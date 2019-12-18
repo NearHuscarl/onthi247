@@ -11,7 +11,6 @@
 
 @import "components/ads";
 @import "components/answer";
-@import "components/ask-form";
 @import "components/button";
 @import "components/card-carousel";
 @import "components/card";
@@ -22,7 +21,6 @@
 @import "components/exam-preview-list";
 @import "components/exam-preview";
 @import "components/input";
-@import "components/line";
 @import "components/nav";
 @import "components/pagination";
 @import "components/question-card";
@@ -34,17 +32,6 @@
 @import "components/score-card";
 @import "components/standing";
 @import "components/tab";
-
-@import "layout/content-container";
-@import "layout/filters";
-@import "layout/footer";
-@import "layout/header";
-
-@import "pages/exam-preview";
-@import "pages/exam-question";
-@import "pages/exam-result";
-@import "pages/exams";
-@import "pages/questions";
 
 // css property order: by type
 // Example:

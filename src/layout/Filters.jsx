@@ -1,9 +1,78 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ButtonChip from '../components/ButtonChip';
 import Selector from '../components/Selector';
+import { appColors, theme } from '../constants';
+
+const FilterBackground = styled.div`
+	background-color: ${appColors.greyLight1};
+`;
+const FilterContainer = styled.div`
+	max-width: ${theme.pageContainerWidth};
+	padding: 2.8rem 0;
+	margin: 0 auto;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: min-content;
+	gap: 1.8rem;
+
+	// override bs's reboot
+	p {
+		margin-bottom: 0;
+	}
+
+	// override bs right border-radius
+	.input-group > .form-control:not(:last-child) {
+		border-radius: var(--border-round);
+	}
+`;
+const FilterGroup = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	& > :not(:last-child) {
+		margin-right: 1.5rem;
+	}
+`;
+const FilterOption = styled(Selector)`
+	width: 10rem;
+`;
+const FilterSort = styled(Selector)`
+	width: 14rem;
+`;
+const Search = styled.div`
+	grid-column: 1 / -1;
+	position: relative;
+`;
+const buttonSize = '2rem';
+const ClearButton = styled.button`
+	position: absolute;
+	top: calc(((100% - ${buttonSize}) / 2));
+	right: 1rem;
+	width: ${buttonSize};
+	height: ${buttonSize};
+	background-color: ${appColors.greyLight3};
+	color: ${appColors.greyDark2};
+	border-radius: 50%;
+	z-index: 100; // not sure what bs do to input z-index when focused
+
+	&:hover {
+		color: ${appColors.white};
+	}
+`;
+const ChipGroup = styled.div`
+	display: flex;
+	align-items: center;
+
+	& > :not(:last-child) {
+		margin-right: 0.8rem;
+	}
+`;
 
 const filterOptions = [
 	{ value: 'difficulty', label: 'Độ khó' },
@@ -19,48 +88,46 @@ export default function Filters({ title, subTitle }) {
 	const [sort, setSort] = useState(null);
 
 	return (
-		<div className='filters-bg'>
-			<div className='filters'>
-				<div className='filters__title'>
+		<FilterBackground>
+			<FilterContainer>
+				<div>
 					<h2 className='h2'>{title}</h2>
 					<p>{subTitle}</p>
 				</div>
-				<div className='filters__item'>
-					<Selector
-						className='filters__filter'
+				<FilterGroup>
+					<FilterOption
 						value={filter}
 						placeholder='Bộ lọc'
 						onChange={(selectedValue) => setFilter(() => selectedValue)}
 						options={filterOptions}
 					/>
-					<Selector
-						className='filters__sort'
+					<FilterSort
 						value={sort}
 						placeholder='Sắp xếp theo'
 						onChange={(selectedValue) => setSort(() => selectedValue)}
 						options={sortOptions}
 					/>
-				</div>
+				</FilterGroup>
 
-				<div className='filters__search input-group'>
+				<Search className='input-group'>
 					<input
 						type='text'
 						className='form-control'
 						placeholder='Nhập từ khóa cần tìm kiếm...'
 					/>
-					<button type='button' className='filters__search-btn btn-text'>
+					<ClearButton type='button' className='btn-text'>
 						<FontAwesomeIcon icon={faTimes} />
-					</button>
-				</div>
-				<div className='filters__chip'>
+					</ClearButton>
+				</Search>
+				<ChipGroup>
 					<ButtonChip name='Hóa học' onClick={() => {}} />
 					<ButtonChip name='Sinh học' onClick={() => {}} />
 					<button type='button' className='btn btn--grey'>
 						Xóa bộ lọc
 					</button>
-				</div>
-			</div>
-		</div>
+				</ChipGroup>
+			</FilterContainer>
+		</FilterBackground>
 	);
 }
 

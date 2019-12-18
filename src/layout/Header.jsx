@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {
 	faSearch,
 	faBell,
@@ -8,32 +9,84 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
+import { appColors, theme } from '../constants';
+
+const HeaderContainer = styled.header`
+	margin: 0 auto;
+`;
+const TopBackground = styled.div`
+	background-color: ${appColors.greyLight1};
+`;
+const Top = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: ${theme.pageContainerWidth};
+	margin: 0 auto;
+	padding: 0.7rem 0;
+`;
+
+const Support = styled.span`
+	color: ${appColors.greyDark1};
+`;
+
+const Profile = styled.div`
+	display: flex;
+	align-items: center;
+`;
+const ProfileImage = styled.img`
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	object-fit: cover;
+
+	margin-right: 0.7rem;
+	cursor: pointer;
+`;
+const ProfileName = styled.span`
+	margin-right: 2rem;
+	font-weight: 600;
+`;
+
+const Notification = styled(FontAwesomeIcon)`
+	cursor: pointer;
+`;
+
+const Main = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 0;
+	max-width: ${theme.pageContainerWidth};
+	margin: 0 auto;
+`;
+const Search = styled.div`
+	width: 35rem;
+`;
 
 function Header() {
 	return (
-		<header className='header'>
-			<div className='header__top-bg'>
-				<div className='header__top'>
-					<div className='support'>
+		<HeaderContainer>
+			<TopBackground>
+				<Top>
+					<div>
 						Hotline: 1900-0000{' '}
-						<span className='support support--time'>
-							(Thời gian hỗ trợ từ 7h - 22h)
-						</span>
+						<Support>(Thời gian hỗ trợ từ 7h - 22h)</Support>
 					</div>
-					<div className='profile'>
-						<img
+					<Profile>
+						<ProfileImage
 							src={profile}
 							alt='profile avatar'
 							className='profile__img'
 						/>
-						<span className='profile__name'>Xin chào, bé dủng</span>
-						<FontAwesomeIcon className='notification' icon={faBell} />
-					</div>
-				</div>
-			</div>
-			<div className='header__main'>
+						<ProfileName>Xin chào, bé dủng</ProfileName>
+						<Notification className='notification' icon={faBell} />
+					</Profile>
+				</Top>
+			</TopBackground>
+			<Main>
 				<Logo />
-				<div className='header__search input-group'>
+				<Search className='input-group'>
 					<input
 						type='text'
 						className='form-control'
@@ -46,14 +99,14 @@ function Header() {
 							<FontAwesomeIcon icon={faSearch} />
 						</button>
 					</div>
-				</div>
+				</Search>
 				<button type='button' className='btn-text btn-text--highlight'>
 					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
 					<span className='cart__text'>Các khóa học đã chọn</span>
 				</button>
-			</div>
+			</Main>
 			<Nav />
-		</header>
+		</HeaderContainer>
 	);
 }
 

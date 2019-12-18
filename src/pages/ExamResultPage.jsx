@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import AnswerCard from '../components/AnswerCard';
 import Card from '../components/Card';
@@ -7,7 +8,76 @@ import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import ExamCardList from '../components/ExamCardList';
+import Line from '../components/Line';
 import { examProps } from '../utilities/proptypes';
+import ContentContainer from '../layout/ContentContainer';
+import { appColors, theme } from '../constants';
+import congratsImg from '../../public/images/congrats.jpg';
+
+const ResultSummary = styled.div`
+	padding-top: 1.5rem;
+`;
+const SummaryDescription = styled.div`
+	background-blend-mode: darken;
+	background-image: url(${congratsImg});
+	background-size: cover;
+	background-position: center;
+	color: ${appColors.white};
+
+	height: 18.3rem;
+	border-radius: ${theme.borderRound};
+
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+const SummaryScore = styled.div`
+	font-size: 3.6rem;
+	font-weight: 600;
+	line-height: 1;
+`;
+const SummaryExp = styled.div`
+	margin: 1.6rem 0;
+	font-weight: 600;
+	font-size: 1.5rem;
+`;
+const SummaryRank = styled.div`
+	text-align: center;
+	width: 23rem;
+`;
+
+const gutter = '1.4rem';
+const Detail = styled.div`
+	padding-top: 1.5rem;
+`;
+const DetailContent = styled.div`
+	& > :not(:last-child) {
+		margin-right: ${gutter};
+	}
+	display: flex;
+`;
+const DetailCol = styled.div`
+	display: flex;
+	flex-direction: column;
+
+	& > :not(:last-child) {
+		margin-bottom: ${gutter};
+	}
+`;
+const DetailCol1 = styled(DetailCol)`
+	width: 16rem;
+`;
+const DetailCol2 = styled(DetailCol)``;
+const DetailCol3 = styled(DetailCol)`
+	width: 21rem;
+`;
+
+const Recommend = styled(DetailCol)`
+	padding-top: 3rem;
+`;
 
 const ExamResultPage = ({
 	exam,
@@ -19,27 +89,27 @@ const ExamResultPage = ({
 	const { id, title, questionCount, difficulty, questions } = exam;
 
 	return (
-		<main className='content-container'>
+		<ContentContainer mainTag>
 			<h2 className='h2 mt-md'>
 				{title}
 				<div className='h2 h2--sub mt-tn'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
 			</h2>
-			<div className='line' />
-			<div className='result-summary'>
+			<Line />
+			<ResultSummary>
 				<h2 className='h2 mb-sm'>Kết quả tổng quan</h2>
-				<div className='result-text'>
-					<div className='result-text__score'>{`${score}/${questions.length}`}</div>
-					<div className='result-text__time'>{`${timeTaken.minutes} phút ${timeTaken.seconds} giây`}</div>
-					<div className='result-text__exp'>+600 exp</div>
-					<div className='result-text__rank'>
+				<SummaryDescription>
+					<SummaryScore>{`${score}/${questions.length}`}</SummaryScore>
+					<div>{`${timeTaken.minutes} phút ${timeTaken.seconds} giây`}</div>
+					<SummaryExp>+600 exp</SummaryExp>
+					<SummaryRank>
 						Xếp hạng 120 trên tổng số 360 người tham gia làm bài
-					</div>
-				</div>
-			</div>
-			<div className='result-details'>
+					</SummaryRank>
+				</SummaryDescription>
+			</ResultSummary>
+			<Detail>
 				<h2 className='h2 mb-sm'>Đáp án và lời giải chi tiết</h2>
-				<div className='result-details__content'>
-					<div className='result-details__col-1'>
+				<DetailContent>
+					<DetailCol1>
 						<Card>
 							<h4 className='h4 mb-0'>Câu hỏi 01</h4>
 							<span className='mb-sm'>Chưa trả lời</span>
@@ -47,8 +117,8 @@ const ExamResultPage = ({
 								Lưu lại
 							</button>
 						</Card>
-					</div>
-					<div className='result-details__col-2'>
+					</DetailCol1>
+					<DetailCol2>
 						<AnswerCard
 							question={questions[selectedQuestion].question}
 							answers={questions[selectedQuestion].answers}
@@ -64,21 +134,21 @@ const ExamResultPage = ({
 							</div>
 						</Card>
 						<CommentSection />
-					</div>
-					<div className='result-details__col-3'>
+					</DetailCol2>
+					<DetailCol3>
 						<QuestionGrid questionCount={questions.length} examId={id} />
 						<Ads />
-					</div>
-				</div>
-			</div>
-			<div className='recommend'>
+					</DetailCol3>
+				</DetailContent>
+			</Detail>
+			<Recommend>
 				<ExamCardList exams={nationalExams} title='Bạn có thể quan tâm' />
 				<div className='mb-md' />
 				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' />
 				<div className='mb-md' />
 				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
-			</div>
-		</main>
+			</Recommend>
+		</ContentContainer>
 	);
 };
 

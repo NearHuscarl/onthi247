@@ -1,12 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
 import QuestionList from '../components/QuestionList';
 import Selector from '../components/Selector';
+import Line from '../components/Line';
 import { questionProps } from '../utilities/proptypes';
+import ContentContainer from '../layout/ContentContainer';
+
+const AskForm = styled(ColumnLeft)`
+	display: flex;
+	flex-direction: column;
+
+	button {
+		align-self: end;
+	}
+`
 
 const options = [
 	{ value: 'toan', label: 'Toán' },
@@ -24,7 +37,7 @@ function AskPage({ hotQuestions, newQuestions }) {
 	const [filter, setFilter] = React.useState(null);
 
 	return (
-		<main className='content-container questions-page'>
+		<ContentContainer mainTag>
 			<h2 className='h2 mt-md'>
 				Đặt câu hỏi mới
 				<div className='h2 h2--sub mt-tn'>
@@ -32,9 +45,9 @@ function AskPage({ hotQuestions, newQuestions }) {
 					OnThi247
 				</div>
 			</h2>
-			<div className='line' />
-			<div className='questions-page__content'>
-				<div className='questions-page__col-left ask-form'>
+			<Line />
+			<Content>
+				<AskForm>
 					<div className='bold mb-sm'>Tiêu đề câu hỏi</div>
 					<div className='input-group mb-sm'>
 						<input
@@ -68,8 +81,8 @@ function AskPage({ hotQuestions, newQuestions }) {
 					>
 						Đăng câu hỏi
 					</button>
-				</div>
-				<div className='questions-page__col-right'>
+				</AskForm>
+				<ColumnRight>
 					<QuestionList
 						title='Câu hỏi nổi bật'
 						questions={hotQuestions}
@@ -81,10 +94,10 @@ function AskPage({ hotQuestions, newQuestions }) {
 						className='mb-md'
 					/>
 					<Ads />
-				</div>
-			</div>
+				</ColumnRight>
+			</Content>
 			<Pagination />
-		</main>
+		</ContentContainer>
 	);
 }
 

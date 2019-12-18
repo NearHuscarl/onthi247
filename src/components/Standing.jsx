@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { rankProps, examRankProps } from '../utilities/proptypes';
+import Line from './Line';
 
 export function Rank({ info }) {
 	return (
@@ -53,7 +54,7 @@ function createStanding(getRank) {
 					<React.Fragment key={u.name}>
 						{getRank(u)}
 						{index !== standing.length - 1 ? (
-							<div className='line' />
+							<Line />
 						) : null}
 					</React.Fragment>
 				))}

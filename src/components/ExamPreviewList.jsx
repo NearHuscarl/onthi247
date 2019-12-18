@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
+import Line from './Line';
 
 export default function ExamPreviewList({ exams }) {
 	return (
@@ -34,7 +35,7 @@ export default function ExamPreviewList({ exams }) {
 							</button>
 						</div>
 					</article>
-					{index !== exams.length - 1 ? <div className='line' /> : null}
+					{index !== exams.length - 1 ? <Line /> : null}
 				</React.Fragment>
 			))}
 		</section>

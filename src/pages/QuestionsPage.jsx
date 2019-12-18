@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Filters from '../layout/Filters';
@@ -8,23 +9,61 @@ import Pagination from '../components/Pagination';
 import QuestionPreviewList from '../components/QuestionPreviewList';
 import QuestionList from '../components/QuestionList';
 import Chip from '../components/Chip';
+import ContentContainer from '../layout/ContentContainer';
 import { questionProps } from '../utilities/proptypes';
+import { helperStyles } from '../constants';
+
+const QuestionPage = styled.main``;
+
+export const Content = styled.div`
+	display: flex;
+	margin-top: 2.7rem;
+	margin-bottom: 4.4rem;
+`;
+
+export const ColumnLeft = styled.div`
+	margin-right: 2.6rem;
+	width: 100%;
+`;
+
+export const ColumnRight = styled.div`
+	flex: 0 1;
+
+	button {
+		width: 100%;
+		margin-bottom: 1.7rem;
+	}
+`;
+
+const Tags = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+
+	& > :not(:last-child) {
+		margin-right: 0.8rem;
+	}
+	& > * {
+		margin-top: 0.8rem;
+	}
+
+	${helperStyles.marginBottomMedium}
+`;
 
 function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 	const history = useHistory();
 
 	return (
-		<main className='questions-page'>
+		<QuestionPage>
 			<Filters
 				title='Danh sách câu hỏi'
 				subTitle='Có tất cả 300 câu hỏi trong danh sách'
 			/>
-			<div className='content-container'>
-				<div className='questions-page__content'>
-					<div className='questions-page__col-left'>
+			<ContentContainer>
+				<Content>
+					<ColumnLeft>
 						<QuestionPreviewList questions={questions} />
-					</div>
-					<div className='questions-page__col-right'>
+					</ColumnLeft>
+					<ColumnRight>
 						<button
 							type='button'
 							className='btn bold mb-md'
@@ -33,7 +72,7 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 							Đặt câu hỏi mới
 						</button>
 						<h3 className='h3'>Thẻ nổi bật</h3>
-						<div className='questions-page__tags mb-md'>
+						<Tags>
 							<Chip>Hàm số</Chip>
 							<Chip>Tính số mol</Chip>
 							<Chip>Hệ tọa độ Oxyz</Chip>
@@ -41,7 +80,7 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 							<Chip>Đạo hàm</Chip>
 							<Chip>Hóa hữu cơ</Chip>
 							<Chip>Điện trở</Chip>
-						</div>
+						</Tags>
 						<QuestionList
 							title='Câu hỏi nổi bật'
 							questions={hotQuestions}
@@ -53,11 +92,11 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 							className='mb-md'
 						/>
 						<Ads />
-					</div>
-				</div>
+					</ColumnRight>
+				</Content>
 				<Pagination />
-			</div>
-		</main>
+			</ContentContainer>
+		</QuestionPage>
 	);
 }
 

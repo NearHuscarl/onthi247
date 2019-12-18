@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Chip from './Chip';
+import Line from './Line';
 import { questionProps } from '../utilities/proptypes';
 import timeSince from '../utilities/timeSince';
 
@@ -68,7 +69,7 @@ export default function QuestionPreviewList({ questions }) {
 					<React.Fragment key={q.id}>
 						<QuestionPreviewListItem question={q} />
 						{index !== questions.length - 1 ? (
-							<div className='line' />
+							<Line medium />
 						) : null}
 					</React.Fragment>
 				);

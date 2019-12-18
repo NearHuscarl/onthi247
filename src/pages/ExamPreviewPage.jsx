@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +11,22 @@ import ExamCardList from '../components/ExamCardList';
 import { examProps, examRankProps } from '../utilities/proptypes';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
+import Line from '../components/Line';
 import { ExamStanding, ExamRank } from '../components/Standing';
+import ContentContainer from '../layout/ContentContainer';
+import { helperStyles } from '../constants';
+
+const Content = styled.div`
+	display: flex;
+	${helperStyles.marginTopLarge}
+`;
+const ColumnLeft = styled.div`
+	margin-right: 4.5rem;
+	max-width: 67rem;
+`;
+const ColumnRight = styled.div`
+	flex: 0 1;
+`;
 
 const init = () => {
 	window.scrollTo(0, 0);
@@ -24,9 +40,9 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 	}, []);
 
 	return (
-		<main className='content-container'>
-			<div className='preview__content mt-lg'>
-				<div className='preview__col-left'>
+		<ContentContainer mainTag>
+			<Content>
+				<ColumnLeft>
 					<div className='exam-preview__main'>
 						<img
 							src={exam.image}
@@ -69,7 +85,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							{standing.slice(0, 2).map((u, index) => (
 								<React.Fragment key={u.name}>
 									<ExamRank info={u} />
-									{index !== 2 - 1 ? <div className='line' /> : null}
+									{index !== 2 - 1 ? <Line small /> : null}
 								</React.Fragment>
 							))}
 						</TabPanel>
@@ -96,8 +112,8 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							title='Các bài tập mới nhất'
 						/>
 					</div>
-				</div>
-				<div className='preview__col-right'>
+				</ColumnLeft>
+				<ColumnRight>
 					<ScoreCard className='mb-md' />
 					<ExamStanding
 						className='mb-md'
@@ -105,9 +121,9 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 						title='Bảng xếp hạng top 10'
 					/>
 					<Ads />
-				</div>
-			</div>
-		</main>
+				</ColumnRight>
+			</Content>
+		</ContentContainer>
 	);
 }
 
