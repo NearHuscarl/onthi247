@@ -1,23 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import { faFlag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from './Card';
 import { setExamQuestionFlag } from '../actions/examQuestions';
+import { appColors, curves, helperStyles } from '../constants';
+
+const Container = styled(Card)`
+	position: relative;
+
+	h4 {
+		margin-bottom: 0;
+	}
+
+	h4 + span {
+		${helperStyles.marginBottomSmall}
+	}
+
+	button {
+		width: 11.2rem;
+	}
+`;
+
+const flagSize = '2.3rem';
+const Flag = styled.div`
+	position: absolute;
+	top: calc(-${flagSize} / 4);
+	right: calc(-${flagSize} / 4);
+
+	border-radius: 50%;
+	background-color: ${appColors.primaryDark};
+	color: ${appColors.white};
+
+	width: ${flagSize};
+	height: ${flagSize};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: opacity 0.6s, transform 0.3s ${curves.easeInBack};
+	transform: scale(0);
+	opacity: 0;
+
+	${(props) =>
+		props.flagged
+			? `
+		opacity: 1;
+		transform: scale(1);
+		transition: opacity 0.3s, transform 0.3s ${curves.easeOutBack};`
+			: `
+		opacity: 0;
+		transition: opacity 0.6s, transform 0.3s ${curves.easeInBack};
+		transform: scale(0);`}
+`;
 
 // eslint-disable-next-line no-shadow
 function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
 	return (
-		<Card
-			className={classNames({
-				'question-flag-card': true,
-				'question-flag-card--flag': flag,
-			})}
-		>
-			<h4 className='h4 mb-0'>Câu hỏi {index + 1}</h4>
-			<span className='mb-sm'>{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}</span>
+		<Container>
+			<h4 className='h4'>Câu hỏi {index + 1}</h4>
+			<span>
+				{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}
+			</span>
 			<button
 				type='button'
 				className='btn btn--white'
@@ -27,15 +73,10 @@ function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
 			>
 				{flag ? 'Bỏ đặt cờ' : 'Đặt cờ'}
 			</button>
-			<div
-				className={classNames({
-					'question-flag-card__flag': true,
-					'question-flag-card--flag__flag': flag,
-				})}
-			>
+			<Flag flagged={flag}>
 				<FontAwesomeIcon icon={faFlag} />
-			</div>
-		</Card>
+			</Flag>
+		</Container>
 	);
 }
 

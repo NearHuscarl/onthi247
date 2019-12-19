@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ExamCardList from '../components/ExamCardList';
+import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, examRankProps } from '../utilities/proptypes';
+import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import Line from '../components/Line';
@@ -19,6 +16,10 @@ import { helperStyles } from '../constants';
 const Content = styled.div`
 	display: flex;
 	${helperStyles.marginTopLarge}
+
+	.tabs {
+		margin-top: 2rem;
+	}
 `;
 const ColumnLeft = styled.div`
 	margin-right: 4.5rem;
@@ -26,6 +27,14 @@ const ColumnLeft = styled.div`
 `;
 const ColumnRight = styled.div`
 	flex: 0 1;
+
+	& > :first-child {
+		${helperStyles.marginBottomMedium}
+	}
+`;
+const SubHeader = styled.h4`
+	flex: 0 0 100%;
+	margin-top: 1.6rem;
 `;
 
 const init = () => {
@@ -33,8 +42,6 @@ const init = () => {
 };
 
 function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
-	const history = useHistory();
-
 	useEffect(() => {
 		init();
 	}, []);
@@ -43,39 +50,10 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 		<ContentContainer mainTag>
 			<Content>
 				<ColumnLeft>
-					<div className='exam-preview__main'>
-						<img
-							src={exam.image}
-							className='exam-preview__img'
-							alt='exam preview'
-						/>
-						<h2 className='exam-preview__heading h2'>{exam.title}</h2>
-						<div className='exam-preview__heading--sub'>{`${exam.questionCount} câu hỏi - Trình độ ${exam.difficulty}`}</div>
-						<div className='exam-preview__stats'>
-							{`Phát hành: ${
-								exam.publish
-							} - Lượt xem: ${exam.views.toLocaleString()} - Lượt làm bài: ${exam.attempts.toLocaleString()}`}
-						</div>
-						<div className='exam-preview__actions'>
-							<button
-								type='button'
-								className='btn bold mr-sm'
-								onClick={() =>
-									history.push(`/exams/${exam.id}/questions`)
-								}
-							>
-								<FontAwesomeIcon className='btn__icon' icon={faPlay} />
-								Bắt đầu làm bài
-							</button>
-							<button type='button' className='btn btn--white'>
-								<FontAwesomeIcon className='btn__icon' icon={faHeart} />
-								Lưu vào danh sách yêu thích
-							</button>
-						</div>
-					</div>
-					<h4 className='exam-preview__intro-h h4'>Giới thiệu chung</h4>
-					<div className='exam-preview__desc'>{exam.description}</div>{' '}
-					<Tabs className='exam-preview__tabs'>
+					<ExamPreviewSection exam={exam} />
+					<SubHeader className='h4'>Giới thiệu chung</SubHeader>
+					<div>{exam.description}</div>{' '}
+					<Tabs className='tabs'>
 						<TabList>
 							<Tab>Bảng xếp hạng</Tab>
 							<Tab>Lịch sử làm bài</Tab>
@@ -93,7 +71,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							<h2>The entire history of u</h2>
 						</TabPanel>
 					</Tabs>
-					<div className='recommend'>
+					<Recommend>
 						<ExamCardList
 							slidesToShow={3}
 							exams={chemistryExams}
@@ -111,10 +89,10 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							exams={nationalExams}
 							title='Các bài tập mới nhất'
 						/>
-					</div>
+					</Recommend>
 				</ColumnLeft>
 				<ColumnRight>
-					<ScoreCard className='mb-md' />
+					<ScoreCard/>
 					<ExamStanding
 						className='mb-md'
 						standing={standing}

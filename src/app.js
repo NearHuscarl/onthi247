@@ -11,18 +11,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'react-tabs/style/react-tabs.css';
 import './styles/main.scss';
 
-const commitHash = (
-	<div className='commit-hash'>{`commit hash: ${process.env.COMMIT_SHA}`}</div>
-);
-
 const renderApp = () => {
 	ReactDOM.render(
-		<>
-			<Provider store={store}>
-				<AppRouter />
-			</Provider>
-			{commitHash}
-		</>,
+		<Provider store={store}>
+			<AppRouter />
+		</Provider>,
 		document.getElementById('app'),
 	);
 };

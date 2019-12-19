@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -8,6 +9,54 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Card from './Card';
 import { setExamQuestionAnswer } from '../actions/examQuestions';
+import { appColors } from '../constants';
+
+const Container = styled(Card)`
+	/* yarn add @material-ui/core */
+
+	/* radio button group */
+	.MuiFormGroup-root {
+		display: grid;
+		justify-content: flex-start;
+	}
+
+	/* radio button { */
+	.MuiFormControlLabel-root {
+		margin-bottom: 0;
+	}
+
+	/* radio nipple */
+	.MuiRadio-root {
+		padding: 0.5rem;
+		margin-left: 0.5rem;
+	}
+
+	/* radio nipple icon */
+	.MuiSvgIcon-root {
+		font-size: 1.75rem; /* a bit bigger than normal */
+	}
+
+	/* radio button text */
+	.MuiFormControlLabel-label {
+		font-size: inherit;
+		font-family: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		letter-spacing: inherit;
+	}
+`;
+
+const OptionText = styled.div`
+	color: ${appColors.greyDark1};
+	margin-top: 1rem;
+	margin-bottom: 0.7rem;
+
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+`;
 
 const theme = createMuiTheme({
 	palette: {
@@ -30,12 +79,12 @@ function QuestionCard({
 	};
 
 	return (
-		<Card className='question-card'>
+		<Container>
 			<h4 className='h4'>{question}</h4>
 			<MuiThemeProvider theme={theme}>
-				<div className='question-card__opt-text'>
+				<OptionText>
 					Chọn phương án trả lời đúng:
-				</div>
+				</OptionText>
 				<FormControl component='fieldset'>
 					<RadioGroup
 						aria-label='answer'
@@ -56,7 +105,7 @@ function QuestionCard({
 					</RadioGroup>
 				</FormControl>
 			</MuiThemeProvider>
-		</Card>
+		</Container>
 	);
 }
 

@@ -1,12 +1,72 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Countdown, { zeroPad } from 'react-countdown-now';
 import classNames from 'classnames';
 import Card from './Card';
 import { setTimeTaken, startSetScore } from '../actions/examResult';
+import { appColors } from '../constants';
 
+const gutter = '.4rem';
+const Container = styled(Card)`
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, 3rem);
+	gap: ${gutter};
+
+	padding: 2rem;
+	padding-top: 1.3rem;
+`;
+const TextSpan = styled.div`
+	grid-column: 1 / -1;
+	text-align: center;
+`;
+const Time = styled(TextSpan)`
+	font-size: 3.6rem;
+	font-weight: 600;
+	color: ${appColors.greyDark3};
+`;
+const Stats = styled(TextSpan)`
+	text-align: left;
+	font-size: 0.9rem;
+`;
+const ProgressBar = styled(TextSpan)`
+	position: relative;
+	background-color: ${appColors.primaryLight};
+	height: 0.5rem;
+	border-radius: 9.9rem;
+	margin-bottom: calc(1.6rem - ${gutter});
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: ${(props) => props.progress}%;
+		height: 100%;
+
+		border-radius: inherit;
+		background-color: ${appColors.primaryDark};
+		transition: width 0.25s;
+	}
+`;
+const QButton = styled.button`
+	width: 3rem;
+	height: 3rem;
+	padding: 0;
+	font-size: 1.3rem;
+`;
+const Actions = styled(TextSpan)`
+	display: flex;
+	margin-top: calc(2.2rem - ${gutter});
+	justify-content: center;
+
+	& > :not(:last-child) {
+		margin-right: 1rem;
+	}
+`;
 
 const timeTaken = {
 	minutes: 0,
@@ -17,9 +77,11 @@ const Counter = (
 		renderer={({ minutes, seconds }) => {
 			timeTaken.minutes = minutes;
 			timeTaken.seconds = seconds;
-			return (<span>
-				{zeroPad(minutes)}:{zeroPad(seconds)}
-			</span>);
+			return (
+				<span>
+					{zeroPad(minutes)}:{zeroPad(seconds)}
+				</span>
+			);
 		}}
 		date={Date.now() + (10 * 60 + 56) * 1000}
 	/>
@@ -47,35 +109,30 @@ function QuestionProgress({
 	);
 
 	return (
-		<Card className='question-progress'>
-			<div className='question-progress__time-lbl'>Thời gian làm bài</div>
-			<div className='question-progress__time'>{Counter}</div>
-			<div className='question-progress__stats'>
+		<Container>
+			<TextSpan>Thời gian làm bài</TextSpan>
+			<Time>{Counter}</Time>
+			<Stats>
 				{`Đã trả lời ${questionsAnswered}/${questionArray.length} câu (${progress}%)`}
-			</div>
-			<div className='question-progress__bar'>
-				<div
-					className='question-progress__bar--before'
-					style={{ width: `${progress}%` }}
-				/>
-			</div>
+			</Stats>
+			<ProgressBar progress={progress} />
 			{questionArray.map(({ answer }, index) => {
 				const key = index + 1;
 				return (
-					<button
+					<QButton
 						key={key}
 						type='button'
 						className={classNames({
-							'btn question-progress__index': true,
+							'btn': true,
 							'btn--orange': answer !== -1,
 							'btn--white': answer === -1,
 						})}
 					>
 						{key}
-					</button>
+					</QButton>
 				);
 			})}
-			<div className='question-progress__actions'>
+			<Actions>
 				<button
 					className='btn btn--white'
 					type='button'
@@ -94,8 +151,8 @@ function QuestionProgress({
 				>
 					Nộp bài
 				</button>
-			</div>
-		</Card>
+			</Actions>
+		</Container>
 	);
 }
 

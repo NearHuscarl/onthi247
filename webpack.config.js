@@ -1,8 +1,6 @@
 // https://thesoftwaresimpleton.com/blog/2019/03/15/ts-code-splitting
 
 const path = require('path');
-const webpack = require('webpack');
-const childprocess = require('child_process');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -105,14 +103,6 @@ module.exports = (env) => {
 				chunkFilename: isProduction
 					? '[name].[contenthash:8].chunk.css'
 					: '[name].chunk.css',
-			}),
-			new webpack.DefinePlugin({
-				'process.env.COMMIT_SHA': JSON.stringify(
-					childprocess
-						.execSync('git rev-parse origin/gh-pages')
-						.toString()
-						.trim(),
-				),
 			}),
 		]),
 		devtool: isProduction ? 'source-map' : 'inline-source-map',

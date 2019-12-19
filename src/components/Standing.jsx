@@ -1,21 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { rankProps, examRankProps } from '../utilities/proptypes';
 import Line from './Line';
 
+const List = styled.ul`
+	& > :not(:last-child) {
+		margin-bottom: 1.2rem;
+	}
+`;
+const ListItem = styled.li`
+	display: flex;
+
+	img {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		margin-right: 1.5rem;
+	}
+`;
+const Content = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	> * {
+		// override bs
+		margin-bottom: 0;
+	}
+`;
+
 export function Rank({ info }) {
 	return (
-		<li className='standing__rank'>
-			<img
-				className='standing__avatar'
-				src={info.avatar}
-				alt='user avatar'
-			/>
-			<div className='standing__info'>
-				<h4 className='h4 standing__name'>{info.name}</h4>
-				<p className='standing__stats'>{`Level: ${info.level}`}</p>
-			</div>
-		</li>
+		<ListItem>
+			<img src={info.avatar} alt='user avatar' />
+			<Content>
+				<h4 className='h4'>{info.name}</h4>
+				<p>{`Level: ${info.level}`}</p>
+			</Content>
+		</ListItem>
 	);
 }
 
@@ -25,19 +48,13 @@ Rank.propTypes = {
 
 export function ExamRank({ info }) {
 	return (
-		<li className='standing__rank'>
-			<img
-				className='standing__avatar'
-				src={info.avatar}
-				alt='user avatar'
-			/>
-			<div className='standing__info'>
-				<h4 className='h4 standing__name'>{info.name}</h4>
-				<p className='standing__stats'>{`${info.score}/30 - ${
-					info.time
-				}`}</p>
-			</div>
-		</li>
+		<ListItem>
+			<img src={info.avatar} alt='user avatar' />
+			<Content>
+				<h4 className='h4'>{info.name}</h4>
+				<p>{`${info.score}/30 - ${info.time}`}</p>
+			</Content>
+		</ListItem>
 	);
 }
 
@@ -49,16 +66,14 @@ function createStanding(getRank) {
 	const Standing = ({ className, title, standing }) => (
 		<section className={className}>
 			<h3 className='h3 mb-sm'>{title}</h3>
-			<ul className='standing'>
+			<List>
 				{standing.map((u, index) => (
 					<React.Fragment key={u.name}>
 						{getRank(u)}
-						{index !== standing.length - 1 ? (
-							<Line />
-						) : null}
+						{index !== standing.length - 1 ? <Line /> : null}
 					</React.Fragment>
 				))}
-			</ul>
+			</List>
 		</section>
 	);
 	Standing.propTypes = {

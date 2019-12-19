@@ -7,7 +7,7 @@ import Filters from '../layout/Filters';
 import { Standing } from '../components/Standing';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
-import ExamCardList from '../components/ExamCardList';
+import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, rankProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
 
@@ -52,11 +52,11 @@ const ExamPage = ({
 				</ColRight>
 			</Content>
 			<Pagination />
-			<div className='recommend'>
+			<Recommend>
 				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' e />
 				<div className='mb-md' />
 				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
-			</div>
+			</Recommend>
 		</ContentContainer>
 	</main>
 );

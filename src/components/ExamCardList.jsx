@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Slider from 'react-slick';
 import ExamCard from './ExamCard';
 import { examProps } from '../utilities/proptypes';
+
+export const Recommend = styled.div`
+	padding-top: 3rem;
+`;
 
 function PreviousButton({ className, onClick }) {
 	return (

@@ -1,7 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import range from 'lodash/range';
 import classNames from 'classnames';
+
+const Container = styled.div`
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(2, min-content) repeat(7, 3.3rem) repeat(
+			2,
+			min-content
+		);
+	grid-template-rows: repeat(auto-fit, 3.3rem);
+	column-gap: 0.4rem;
+`;
+const DotDotDot = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
 
 const buttonClassName = (currentPage, btnPage) =>
 	'btn btn--padding-sm' + (btnPage === currentPage ? '' : ' btn--white');
@@ -10,12 +27,7 @@ export default function Pagination({ className }) {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	return (
-		<div
-			className={classNames({
-				pagination: true,
-				[className]: className !== '',
-			})}
-		>
+		<Container className={classNames({ [className]: className !== '' })}>
 			<button type='button' className='btn btn--padding-sm btn--white'>
 				đầu
 			</button>
@@ -32,7 +44,7 @@ export default function Pagination({ className }) {
 					{i}
 				</button>
 			))}
-			<div className='pagination__3dot'>...</div>
+			<DotDotDot>...</DotDotDot>
 			<button
 				type='button'
 				className={buttonClassName(currentPage, 30)}
@@ -46,7 +58,7 @@ export default function Pagination({ className }) {
 			<button type='button' className='btn btn--padding-sm btn--white'>
 				cuối
 			</button>
-		</div>
+		</Container>
 	);
 }
 

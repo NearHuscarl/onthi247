@@ -25,7 +25,8 @@ const ColumnLeft = styled.section`
 	column-gap: 1.4rem;
 	row-gap: 1.7rem;
 
-	.question-flag-card {
+	/* select Flag Card */
+	& > :nth-child(2n+1) {
 		align-self: flex-start;
 	}
 `;

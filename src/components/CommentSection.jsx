@@ -1,36 +1,86 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Card from './Card';
 import Selector from './Selector';
 import { setExamResultComment } from '../actions/examResult';
 import { commentProps } from '../utilities/proptypes';
+import { appColors, helperStyles } from '../constants';
+
+const CommentContainer = styled.div`
+	display: flex;
+`;
+const CommentPadding = styled.div`
+	width: 5.5rem;
+`;
+
+const CommentContent = styled(Card)`
+	display: flex;
+	/* override bs */
+	flex-direction: row;
+	flex: 1;
+`;
+const CommentProfile = styled.img`
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	margin-right: 1.2rem;
+	cursor: pointer;
+`;
+const CommentTop = styled.div`
+	display: flex;
+	align-items: baseline;
+`;
+const CommentUser = styled.div`
+	color: ${appColors.greyDark3};
+	font-weight: 600;
+	font-size: 1.3rem;
+	margin-right: 1.2rem;
+`;
+const CommentDate = styled.div`
+	font-size: 1rem;
+`;
+const CommentBody = styled.div`
+	margin-bottom: 0.2rem;
+	[reply='true'] {
+		margin-right: 5.5rem;
+	}
+`;
+const CommentAction = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	column-gap: 0.8rem;
+	font-size: 0.9rem;
+`;
 
 function Comment({ comment, isReply }) {
 	const { avatar, user, date, content } = comment;
 	return (
-		<div className='comment-wrapper'>
-			{isReply && <div className='comment-padding' />}
-			<Card className='comment' background='white'>
-				<img className='comment__profile' src={avatar} alt='user avatar' />
-				<div className='comment__detail'>
-					<div className='comment__top'>
-						<div className='comment__user'>{user}</div>
-						<div className='comment__date'>{date}</div>
-					</div>
-					<div className='comment__content'>{content}</div>
-					<div className='comment__action'>
+		<CommentContainer>
+			{isReply && <CommentPadding />}
+			<CommentContent background='white'>
+				<CommentProfile src={avatar} alt='user avatar' />
+				<div>
+					<CommentTop>
+						<CommentUser>{user}</CommentUser>
+						<CommentDate>{date}</CommentDate>
+					</CommentTop>
+					<CommentBody>{content}</CommentBody>
+					<CommentAction>
 						<button type='button' className='btn-link'>
 							Thích
 						</button>
 						<button type='button' className='btn-link'>
 							Trả lời
 						</button>
-					</div>
+					</CommentAction>
 				</div>
-			</Card>
-		</div>
+			</CommentContent>
+		</CommentContainer>
 	);
 }
 
@@ -38,6 +88,33 @@ Comment.propTypes = {
 	comment: commentProps.isRequired,
 	isReply: PropTypes.bool.isRequired,
 };
+
+const CommentSectionContainer = styled(Card)`
+	display: flex;
+`;
+const CommentFilterGroup = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1rem 0;
+`;
+const CommentFilter = styled(Selector)`
+	width: 14rem;
+
+	/* override react-select */
+	[class*='singleValue'] {
+		color: ${appColors.greyDark2};
+	}
+`;
+const SubmitButton = styled.button`
+	min-width: 8.4rem;
+	align-self: end;
+	${helperStyles.marginBottomTiny}
+`;
+const CommentGroup = styled.div`
+	display: grid;
+	row-gap: 1rem;
+`;
 
 const options = [
 	{ value: 'most_related', label: 'Phù hợp nhất' },
@@ -58,7 +135,7 @@ function CommentSection({ comments }) {
 	const commentLabel = 'Nhập nội dung bình luận...';
 
 	return (
-		<Card className='comment-section'>
+		<CommentSectionContainer>
 			<div className='input-group mb-sm'>
 				<textarea
 					type='text'
@@ -67,19 +144,18 @@ function CommentSection({ comments }) {
 					aria-label={commentLabel}
 				/>
 			</div>
-			<button className='btn comment-section__submit mb-tn' type='button'>
+			<SubmitButton className='btn' type='button'>
 				Bình luận
-			</button>
-			<div className='comment-section__filters'>
+			</SubmitButton>
+			<CommentFilterGroup>
 				<h3 className='h3'>{`${getCommentCount(comments)} bình luận`}</h3>
-				<Selector
-					className='comment-section__filter'
+				<CommentFilter
 					value={filter}
 					onChange={(selectedValue) => setFilter(() => selectedValue)}
 					options={options}
 				/>
-			</div>
-			<div className='comment-container'>
+			</CommentFilterGroup>
+			<CommentGroup>
 				{comments.map((c) => {
 					const commentComponents = [];
 
@@ -95,8 +171,8 @@ function CommentSection({ comments }) {
 
 					return commentComponents;
 				})}
-			</div>
-		</Card>
+			</CommentGroup>
+		</CommentSectionContainer>
 	);
 }
 
@@ -112,7 +188,4 @@ const mapDispatchToProps = (dispatch) => ({
 	setExamResultComment: (comment) => dispatch(setExamResultComment(comment)),
 });
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps,
-)(CommentSection);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

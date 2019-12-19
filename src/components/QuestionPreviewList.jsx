@@ -1,59 +1,131 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Chip from './Chip';
 import Line from './Line';
 import { questionProps } from '../utilities/proptypes';
 import timeSince from '../utilities/timeSince';
+import { helperStyles } from '../constants';
+
+const ListItem = styled.article`
+	display: flex;
+	position: relative;
+
+	h3 {
+		color: #005999;
+	}
+`;
+const Side = styled.div`
+	text-align: center;
+	flex: 0 0 7rem;
+	margin-right: 1.9rem;
+`;
+const SideNumber = styled.div`
+	font-size: 1.6rem;
+`;
+const SideText = styled.div`
+	font-size: 1rem;
+`;
+const SideSubtext = styled.div`
+	font-size: 0.8rem;
+`;
+
+const Subject = styled.div`
+	font-weight: 600;
+	${helperStyles.marginBottomTiny}
+`;
+const Description = styled.div`
+	${helperStyles.marginBottomSmall}
+`;
+
+const Bottom = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+const TagGroup = styled.div`
+	display: flex;
+	align-items: flex-start;
+
+	& > :not(:last-child) {
+		margin-right: 0.7rem;
+	}
+`;
+const User = styled.div`
+	display: grid;
+	grid-template-columns: min-content 1fr;
+	column-gap: 0.7rem;
+
+	width: 12rem;
+
+	& > :first-child {
+		grid-column: 1 / -1;
+		font-size: 0.9rem;
+	}
+
+	img {
+		grid-row: 2 / 4;
+
+		margin-top: 0.58rem;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
+	}
+
+	.name {
+		margin-top: 0.58rem;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.level {
+		font-size: 1rem;
+	}
+`;
+
+const More = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
+`;
 
 function QuestionPreviewListItem({ question }) {
 	const q = question;
 	return (
-		<article className='qs-preview-item'>
-			<div className='qs-preview-item__side'>
-				<div className='qs-preview-item__side__number'>
-					{q.votes.toLocaleString()}
-				</div>
-				<div className='qs-preview-item__side__text'>bình chọn</div>
-				<div className='qs-preview-item__side__number'>{q.answers}</div>
-				<div className='qs-preview-item__side__text'>câu trả lời</div>
-				<div className='qs-preview-item__side__subtext'>{`${q.views.toLocaleString()} lượt xem`}</div>
-			</div>
-			<div className='qs-preview-item__content'>
-				<h3 className='qs-preview-item__title h3'>{q.title}</h3>
-				<div className='qs-preview-item__subject mb-tn'>{`Môn ${q.subject}`}</div>
-				<div className='qs-preview-item__desc mb-sm'>{q.description}</div>
-				<div className='qs-preview-item__bottom'>
-					<div className='qs-preview-item__tags'>
+		<ListItem>
+			<Side>
+				<SideNumber>{q.votes.toLocaleString()}</SideNumber>
+				<SideText>bình chọn</SideText>
+				<SideNumber>{q.answers}</SideNumber>
+				<SideText>câu trả lời</SideText>
+				<SideSubtext>{`${q.views.toLocaleString()} lượt xem`}</SideSubtext>
+			</Side>
+			<div>
+				<h3 className='h3'>{q.title}</h3>
+				<Subject>{`Môn ${q.subject}`}</Subject>
+				<Description>{q.description}</Description>
+				<Bottom>
+					<TagGroup>
 						{q.tags.map((t) => (
 							<Chip key={t}>{t}</Chip>
 						))}
-					</div>
-					<div className='qs-preview-item__user'>
-						<div className='qs-preview-item__date'>
-							{`đã hỏi cách đây ${timeSince(new Date(q.date))}`}
-						</div>
-						<img
-							className='qs-preview-item__user-avatar'
-							src={q.user.avatar}
-							alt='user profile'
-						/>
-						<div className='qs-preview-item__user-name'>
-							{q.user.name}
-						</div>
-						<div className='qs-preview-item__user-level'>
-							{`Level: ${q.user.level}`}
-						</div>
-					</div>
-				</div>
+					</TagGroup>
+					<User>
+						<div>{`đã hỏi cách đây ${timeSince(new Date(q.date))}`}</div>
+						<img src={q.user.avatar} alt='user profile' />
+						<div className='name'>{q.user.name}</div>
+						<div className='level'>{`Level: ${q.user.level}`}</div>
+					</User>
+				</Bottom>
 			</div>
-			<div className='qs-preview-item__more'>
+			<More>
 				<button type='button' className='btn-text'>
 					<FontAwesomeIcon icon={faEllipsisH} />
 				</button>
-			</div>
-		</article>
+			</More>
+		</ListItem>
 	);
 }
 
@@ -63,14 +135,12 @@ QuestionPreviewListItem.propTypes = {
 
 export default function QuestionPreviewList({ questions }) {
 	return (
-		<section className='qs-preview-list'>
+		<section>
 			{questions.map((q, index) => {
 				return (
 					<React.Fragment key={q.id}>
 						<QuestionPreviewListItem question={q} />
-						{index !== questions.length - 1 ? (
-							<Line medium />
-						) : null}
+						{index !== questions.length - 1 ? <Line medium /> : null}
 					</React.Fragment>
 				);
 			})}

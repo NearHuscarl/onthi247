@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
-import ExamCardList from '../components/ExamCardList';
+import ExamCardList, { Recommend } from '../components/ExamCardList';
 import Line from '../components/Line';
 import { examProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
@@ -75,10 +75,6 @@ const DetailCol3 = styled(DetailCol)`
 	width: 21rem;
 `;
 
-const Recommend = styled(DetailCol)`
-	padding-top: 3rem;
-`;
-
 const ExamResultPage = ({
 	exam,
 	nationalExams,
@@ -123,7 +119,7 @@ const ExamResultPage = ({
 							question={questions[selectedQuestion].question}
 							answers={questions[selectedQuestion].answers}
 						/>
-						<Card className='ans-detail-card'>
+						<Card>
 							<div className='h3'>Lời giải chi tiết</div>
 							<div>
 								{questions[selectedQuestion].answerDetail

@@ -1,42 +1,85 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import styled from 'styled-components';
 import Line from './Line';
+import { appColors, theme } from '../constants';
+import { tranparentize } from '../utilities/colors';
+import congratsImg from '../../public/images/congrats.jpg';
 
-export default function ScoreCard({ className }) {
+const borderColor = appColors.greyLight3;
+const Container = styled.div`
+	border: solid 0.1rem ${borderColor};
+	border-radius: ${theme.borderRound};
+
+	background-image: url(${congratsImg});
+	background-color: ${tranparentize(appColors.white, 0.1)};
+	background-blend-mode: overlay;
+	background-size: cover;
+
+	text-align: center;
+
+	h4 {
+		margin-top: 0.9rem;
+		/* .line's vertical margin is .5rem */
+		margin-bottom: 0.3rem; // override bs heading default;
+	}
+`;
+const Content = styled.div`
+	padding-bottom: 0.5rem;
+
+	.score {
+		font-size: 3.6rem;
+		font-weight: 600;
+	}
+
+	.date {
+		font-size: 0.9rem;
+	}
+`;
+const Bottom = styled.div`
+	display: flex;
+
+	& > * {
+		padding: 0.8rem 0.5rem;
+		padding-bottom: 0.5rem;
+		flex: 1;
+	}
+
+	& > :first-child {
+		border-right: solid 0.1rem ${borderColor};
+	}
+
+	.label {
+		font-size: 1rem;
+	}
+
+	.value {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+`;
+
+export default function ScoreCard() {
 	return (
-		<div
-			className={classNames({
-				'score-card': true,
-				[className]: className !== '',
-			})}
-		>
-			<h4 className='score-card__heading h4'>Thành tích cá nhân</h4>
+		<Container>
+			<h4 className='h4'>Thành tích cá nhân</h4>
 			<Line dark />
-			<div className='score-card__content'>
+			<Content>
 				<div>Kết quả cao nhất</div>
-				<div className='score-card__score'>30/30</div>
-				<div className='score-card__time'>10 phút 56 giây</div>
-				<div className='score-card__date'>31/10/2019</div>
-			</div>
+				<div className='score'>30/30</div>
+				<div>10 phút 56 giây</div>
+				<div className='date'>31/10/2019</div>
+			</Content>
 			<Line dark noMargin />
-			<div className='score-card__bottom'>
+			<Bottom>
 				<div>
-					<div className='score-card__bottom__label'>Số lần làm bài</div>
-					<div className='score-card__bottom__value'>10</div>
+					<div className='label'>Số lần làm bài</div>
+					<div className='value'>10</div>
 				</div>
 				<div>
-					<div className='score-card__bottom__label'>Điểm kinh nghiệm</div>
-					<div className='score-card__bottom__value'>600</div>
+					<div className='label'>Điểm kinh nghiệm</div>
+					<div className='value'>600</div>
 				</div>
-			</div>
-		</div>
+			</Bottom>
+		</Container>
 	);
 }
-
-ScoreCard.propTypes = {
-	className: PropTypes.string,
-};
-ScoreCard.defaultProps = {
-	className: '',
-};
