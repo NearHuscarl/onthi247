@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { theme } from '../constants';
+import styled, { theme } from '../styles';
 
-const ChipWrapper = styled.div`
+const ChipContainer = styled.div`
 	padding: 0.3rem 0.6rem;
 
 	background-color: #e1ecf4;
@@ -20,7 +19,7 @@ const ChipWrapper = styled.div`
 `;
 
 export default function Chip({ children }) {
-	return <ChipWrapper>{children}</ChipWrapper>;
+	return <ChipContainer>{children}</ChipContainer>;
 }
 
 Chip.propTypes = {

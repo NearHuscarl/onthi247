@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Chip from './Chip';
 import Line from './Line';
+import { H3 } from './Headings';
+import { ButtonText } from './Buttons';
 import { questionProps } from '../utilities/proptypes';
 import timeSince from '../utilities/timeSince';
-import { helperStyles } from '../constants';
+import styled, { helperStyles } from '../styles';
 
 const ListItem = styled.article`
 	display: flex;
@@ -103,7 +104,7 @@ function QuestionPreviewListItem({ question }) {
 				<SideSubtext>{`${q.views.toLocaleString()} lượt xem`}</SideSubtext>
 			</Side>
 			<div>
-				<h3 className='h3'>{q.title}</h3>
+				<H3>{q.title}</H3>
 				<Subject>{`Môn ${q.subject}`}</Subject>
 				<Description>{q.description}</Description>
 				<Bottom>
@@ -121,9 +122,9 @@ function QuestionPreviewListItem({ question }) {
 				</Bottom>
 			</div>
 			<More>
-				<button type='button' className='btn-text'>
+				<ButtonText type='button'>
 					<FontAwesomeIcon icon={faEllipsisH} />
-				</button>
+				</ButtonText>
 			</More>
 		</ListItem>
 	);

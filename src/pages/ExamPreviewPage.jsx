@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, examRankProps } from '../utilities/proptypes';
 import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import Line from '../components/Line';
+import { H2 } from '../components/Headings';
 import { ExamStanding, ExamRank } from '../components/Standing';
 import ContentContainer from '../layout/ContentContainer';
-import { helperStyles } from '../constants';
+import styled, { helperStyles } from '../styles';
 
 const Content = styled.div`
 	display: flex;
@@ -47,7 +47,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 	}, []);
 
 	return (
-		<ContentContainer mainTag>
+		<ContentContainer as='main'>
 			<Content>
 				<ColumnLeft>
 					<ExamPreviewSection exam={exam} />
@@ -68,7 +68,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							))}
 						</TabPanel>
 						<TabPanel>
-							<h2>The entire history of u</h2>
+							<H2>The entire history of u</H2>
 						</TabPanel>
 					</Tabs>
 					<Recommend>
@@ -92,7 +92,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 					</Recommend>
 				</ColumnLeft>
 				<ColumnRight>
-					<ScoreCard/>
+					<ScoreCard />
 					<ExamStanding
 						className='mb-md'
 						standing={standing}

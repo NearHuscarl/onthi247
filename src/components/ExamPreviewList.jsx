@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
 import Line from './Line';
-import { appColors, theme } from '../constants';
+import { ButtonText } from './Buttons';
+import { H4 } from './Headings';
+import styled, { appColors, theme } from '../styles';
 
 const List = styled.section`
 	& > :not(:last-child) {
@@ -60,7 +61,7 @@ export default function ExamPreviewList({ exams }) {
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
 						<Link to={`/exams/${e.id}/preview`}>
-							<h4 className='h4'>{e.title}</h4>
+							<H4>{e.title}</H4>
 						</Link>
 						<Info>
 							{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
@@ -72,9 +73,9 @@ export default function ExamPreviewList({ exams }) {
 							} - Lượt xem: ${e.views.toLocaleString()} - Lượt làm bài: ${e.attempts.toLocaleString()}`}
 						</Stats>
 						<More>
-							<button type='button' className='btn-text'>
+							<ButtonText type='button'>
 								<FontAwesomeIcon icon={faEllipsisH} />
-							</button>
+							</ButtonText>
 						</More>
 					</ListItem>
 					{index !== exams.length - 1 ? <Line /> : null}

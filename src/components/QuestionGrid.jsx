@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
 import range from 'lodash/range';
 import { setExamResultQuestion } from '../actions/examResult';
 import Card from './Card';
-import { helperStyles } from '../constants';
+import Button, { PrimaryWhiteButton } from './Buttons';
+import styled, { helperStyles } from '../styles';
 
 const Container = styled(Card)`
 	display: grid;
@@ -18,13 +17,13 @@ const Container = styled(Card)`
 
 	padding: 2rem;
 `;
-const QButton = styled.button`
+const QButton = styled(PrimaryWhiteButton)`
 	width: 3rem;
 	height: 3rem;
 	padding: 0;
 	font-size: 1.3rem;
 `;
-const SubmitButton = styled.button`
+const SubmitButton = styled(Button)`
 	padding: 0.7rem 1.5rem;
 	margin-top: 2.2rem;
 	grid-column: 1 / -1;
@@ -34,29 +33,24 @@ const SubmitButton = styled.button`
 function QuestionGrid({
 	questionCount,
 	examId,
-	selectedQuestion,
 	// eslint-disable-next-line no-shadow
 	setExamResultQuestion,
 }) {
 	const history = useHistory();
 	return (
 		<Container>
-			{range(0, questionCount).map((i) => (
-				<QButton
-					key={i}
-					type='button'
-					className={classNames({
-						btn: true,
-						'btn--orange': selectedQuestion === i,
-						'btn--white': selectedQuestion !== i,
-					})}
-					onClick={() => setExamResultQuestion(i)}
-				>
-					{i + 1}
-				</QButton>
-			))}
+			{range(0, questionCount).map((i) => {
+				return (
+					<QButton
+						key={i}
+						type='button'
+						onClick={() => setExamResultQuestion(i)}
+					>
+						{i + 1}
+					</QButton>
+				);
+			})}
 			<SubmitButton
-				className='btn'
 				type='button'
 				onClick={() => history.push(`/exams/${examId}/questions`)}
 			>
@@ -69,17 +63,12 @@ function QuestionGrid({
 QuestionGrid.propTypes = {
 	questionCount: PropTypes.number.isRequired,
 	examId: PropTypes.string.isRequired,
-	selectedQuestion: PropTypes.number.isRequired,
 	setExamResultQuestion: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-	selectedQuestion: state.examResult.selectedQuestion,
-});
 
 const mapDispatchToProps = (dispatch) => ({
 	setExamResultQuestion: (question) =>
 		dispatch(setExamResultQuestion(question)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionGrid);
+export default connect(null, mapDispatchToProps)(QuestionGrid);

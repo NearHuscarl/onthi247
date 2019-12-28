@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Countdown, { zeroPad } from 'react-countdown-now';
-import classNames from 'classnames';
+import Button, { PrimaryWhiteButton, WhiteButton } from './Buttons';
 import Card from './Card';
 import { setTimeTaken, startSetScore } from '../actions/examResult';
-import { appColors } from '../constants';
+import styled, { appColors } from '../styles';
 
 const gutter = '.4rem';
 const Container = styled(Card)`
@@ -52,7 +51,7 @@ const ProgressBar = styled(TextSpan)`
 		transition: width 0.25s;
 	}
 `;
-const QButton = styled.button`
+const QButton = styled(PrimaryWhiteButton)`
 	width: 3rem;
 	height: 3rem;
 	padding: 0;
@@ -119,29 +118,16 @@ function QuestionProgress({
 			{questionArray.map(({ answer }, index) => {
 				const key = index + 1;
 				return (
-					<QButton
-						key={key}
-						type='button'
-						className={classNames({
-							'btn': true,
-							'btn--orange': answer !== -1,
-							'btn--white': answer === -1,
-						})}
-					>
+					<QButton key={key} type='button' active={answer !== -1}>
 						{key}
 					</QButton>
 				);
 			})}
 			<Actions>
-				<button
-					className='btn btn--white'
-					type='button'
-					onClick={resetExam}
-				>
+				<WhiteButton type='button' onClick={resetExam}>
 					Làm lại
-				</button>
-				<button
-					className='btn'
+				</WhiteButton>
+				<Button
 					type='button'
 					onClick={() => {
 						startSetScore(examId);
@@ -150,7 +136,7 @@ function QuestionProgress({
 					}}
 				>
 					Nộp bài
-				</button>
+				</Button>
 			</Actions>
 		</Container>
 	);

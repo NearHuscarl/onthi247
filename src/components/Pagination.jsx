@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import range from 'lodash/range';
 import classNames from 'classnames';
+import { PrimaryWhiteButton } from './Buttons';
+import styled from '../styles';
 
 const Container = styled.div`
 	display: grid;
@@ -20,44 +21,41 @@ const DotDotDot = styled.div`
 	align-items: center;
 `;
 
-const buttonClassName = (currentPage, btnPage) =>
-	'btn btn--padding-sm' + (btnPage === currentPage ? '' : ' btn--white');
+function getButton(index, currentPage, setCurrentPage) {
+	const selectedPage = currentPage === index;
+	return (
+		<PrimaryWhiteButton
+			key={index}
+			type='button'
+			dense
+			active={selectedPage}
+			onClick={() => setCurrentPage(() => index)}
+		>
+			{index}
+		</PrimaryWhiteButton>
+	);
+}
 
 export default function Pagination({ className }) {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	return (
 		<Container className={classNames({ [className]: className !== '' })}>
-			<button type='button' className='btn btn--padding-sm btn--white'>
+			<PrimaryWhiteButton type='button' dense>
 				đầu
-			</button>
-			<button type='button' className='btn btn--padding-sm btn--white'>
+			</PrimaryWhiteButton>
+			<PrimaryWhiteButton type='button' dense>
 				trước
-			</button>
-			{range(1, 6).map((i) => (
-				<button
-					key={i}
-					type='button'
-					className={buttonClassName(currentPage, i)}
-					onClick={() => setCurrentPage(() => i)}
-				>
-					{i}
-				</button>
-			))}
+			</PrimaryWhiteButton>
+			{range(1, 6).map((i) => getButton(i, currentPage, setCurrentPage))}
 			<DotDotDot>...</DotDotDot>
-			<button
-				type='button'
-				className={buttonClassName(currentPage, 30)}
-				onClick={() => setCurrentPage(() => 30)}
-			>
-				30
-			</button>
-			<button type='button' className='btn btn--padding-sm btn--white'>
+			{getButton(30, currentPage, setCurrentPage)}
+			<PrimaryWhiteButton type='button' dense>
 				tiếp
-			</button>
-			<button type='button' className='btn btn--padding-sm btn--white'>
+			</PrimaryWhiteButton>
+			<PrimaryWhiteButton type='button' dense>
 				cuối
-			</button>
+			</PrimaryWhiteButton>
 		</Container>
 	);
 }

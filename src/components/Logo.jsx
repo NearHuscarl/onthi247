@@ -1,18 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { H1, H2 } from './Headings';
 
 export default function Logo({ small, className }) {
 	return (
 		<Link to='/' className={className}>
 			{small ? (
-				<h2 className='h2'>
-					OnThi<span className='h2 h2--orange'>247</span>
-				</h2>
+				<H2>
+					OnThi
+					<H2 as='span' primary>
+						247
+					</H2>
+				</H2>
 			) : (
-				<h1 className='h1'>
-					OnThi<span className='h1 h1--orange'>247</span>
-				</h1>
+				<H1>
+					OnThi
+					<H1 as='span' primary>
+						247
+					</H1>
+				</H1>
 			)}
 		</Link>
 	);

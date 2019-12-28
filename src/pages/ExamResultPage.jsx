@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import AnswerCard from '../components/AnswerCard';
 import Card from '../components/Card';
@@ -9,9 +8,11 @@ import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import Line from '../components/Line';
+import { H2, H3, H4 } from '../components/Headings';
+import { WhiteButton } from '../components/Buttons';
 import { examProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
-import { appColors, theme } from '../constants';
+import styled, { appColors, theme } from '../styles';
 import congratsImg from '../../public/images/congrats.jpg';
 
 const ResultSummary = styled.div`
@@ -85,14 +86,17 @@ const ExamResultPage = ({
 	const { id, title, questionCount, difficulty, questions } = exam;
 
 	return (
-		<ContentContainer mainTag>
-			<h2 className='h2 mt-md'>
+		<ContentContainer as='main'>
+			<H2 className='mt-md'>
 				{title}
-				<div className='h2 h2--sub mt-tn'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
-			</h2>
+				<H2
+					sub
+					className='mt-tn'
+				>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</H2>
+			</H2>
 			<Line />
 			<ResultSummary>
-				<h2 className='h2 mb-sm'>Kết quả tổng quan</h2>
+				<H2 className='mb-sm'>Kết quả tổng quan</H2>
 				<SummaryDescription>
 					<SummaryScore>{`${score}/${questions.length}`}</SummaryScore>
 					<div>{`${timeTaken.minutes} phút ${timeTaken.seconds} giây`}</div>
@@ -103,15 +107,13 @@ const ExamResultPage = ({
 				</SummaryDescription>
 			</ResultSummary>
 			<Detail>
-				<h2 className='h2 mb-sm'>Đáp án và lời giải chi tiết</h2>
+				<H2 className='mb-sm'>Đáp án và lời giải chi tiết</H2>
 				<DetailContent>
 					<DetailCol1>
 						<Card>
-							<h4 className='h4 mb-0'>Câu hỏi 01</h4>
+							<H4 className='mb-0'>Câu hỏi 01</H4>
 							<span className='mb-sm'>Chưa trả lời</span>
-							<button type='button' className='btn btn--white'>
-								Lưu lại
-							</button>
+							<WhiteButton type='button'>Lưu lại</WhiteButton>
 						</Card>
 					</DetailCol1>
 					<DetailCol2>
@@ -120,7 +122,7 @@ const ExamResultPage = ({
 							answers={questions[selectedQuestion].answers}
 						/>
 						<Card>
-							<div className='h3'>Lời giải chi tiết</div>
+							<H3>Lời giải chi tiết</H3>
 							<div>
 								{questions[selectedQuestion].answerDetail
 									.split('\n')

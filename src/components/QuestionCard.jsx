@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -8,8 +7,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Card from './Card';
+import { H4 } from './Headings';
 import { setExamQuestionAnswer } from '../actions/examQuestions';
-import { appColors } from '../constants';
+import styled, { appColors } from '../styles';
 
 const Container = styled(Card)`
 	/* yarn add @material-ui/core */
@@ -80,7 +80,7 @@ function QuestionCard({
 
 	return (
 		<Container>
-			<h4 className='h4'>{question}</h4>
+			<H4>{question}</H4>
 			<MuiThemeProvider theme={theme}>
 				<OptionText>
 					Chọn phương án trả lời đúng:

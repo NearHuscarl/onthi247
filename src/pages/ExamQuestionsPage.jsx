@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
 import Ads from '../components/Ads';
@@ -9,9 +8,11 @@ import QuestionCard from '../components/QuestionCard';
 import QuestionFlagCard from '../components/QuestionFlagCard';
 import QuestionProgress from '../components/QuestionProgress';
 import Line from '../components/Line';
+import { H2 } from '../components/Headings';
 import { examProps } from '../utilities/proptypes';
 import { setExamQuestions } from '../actions/examQuestions';
 import ContentContainer from '../layout/ContentContainer';
+import styled from '../styles';
 
 const Content = styled.div`
 	display: flex;
@@ -26,7 +27,7 @@ const ColumnLeft = styled.section`
 	row-gap: 1.7rem;
 
 	/* select Flag Card */
-	& > :nth-child(2n+1) {
+	& > :nth-child(2n + 1) {
 		align-self: flex-start;
 	}
 `;
@@ -45,11 +46,14 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 	}, []);
 
 	return (
-		<ContentContainer mainTag>
-			<h2 className='h2 mt-md'>
+		<ContentContainer as='main'>
+			<H2 className='mt-md'>
 				{title}
-				<div className='h2 h2--sub mt-tn'>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</div>
-			</h2>
+				<H2
+					sub
+					className='mt-tn'
+				>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</H2>
+			</H2>
 			<Line />
 			<Content>
 				<ColumnLeft>

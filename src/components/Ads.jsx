@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import Ads1 from '../../public/images/notads-1.png';
 import Ads2 from '../../public/images/notads-2.png';
-import { theme, helperStyles } from '../constants';
+import { H3 } from './Headings';
+import styled, { theme, helperStyles } from '../styles';
 
 const AdsContainer = styled.div`
 	display: grid;
@@ -25,7 +25,7 @@ const AdsContainer = styled.div`
 export default function Ads() {
 	return (
 		<AdsContainer>
-			<h3 className='h3 mb-sm'>Quảng cáo</h3>
+			<H3 className='mb-sm'>Quảng cáo</H3>
 			<a
 				href='https://nearhuscarl.github.io/portfolio'
 				alt='notads'

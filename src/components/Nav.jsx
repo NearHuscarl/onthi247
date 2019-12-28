@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { transparentize } from '../utilities/colors';
+import styled, { appColors, theme } from '../styles';
 
 const navItems = {
 	khoaHoc: 'Khóa học',
@@ -16,100 +18,168 @@ const navItems = {
 	hoiDap: 'Hỏi đáp',
 };
 
-export function NavItem({ name, route, selectedItem, setSelectedItem }) {
+const NavBackground = styled.div`
+	background-color: ${transparentize(appColors.primaryLight, 0.5)};
+`;
+
+const StyledNav = styled.nav`
+	max-width: ${theme.pageContainerWidth};
+	margin: 0 auto;
+
+	ul {
+		// override bootstrap margin-bottom: 1rem;
+		margin-bottom: 0;
+
+		display: flex;
+		width: 100%;
+	}
+`;
+
+const NavLink = styled(Link)`
+	&::after {
+		display: block;
+		content: attr(title);
+		font-weight: 600;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+		text-transform: uppercase;
+	}
+
+	&:link,
+	&:visited {
+		color: inherit;
+		font-weight: inherit;
+	}
+`;
+
+function NavItem({ name, className, route, setSelectedItem, children }) {
 	return (
-		<li
-			className={
-				name === selectedItem
-					? 'nav__item nav__item--highlight'
-					: 'nav__item'
-			}
-		>
-			<Link
+		<li className={className}>
+			<NavLink
 				to={route}
-				className='nav__link'
 				// https://stackoverflow.com/a/20249560/9449426
 				// normal text becomes bold text when hovered, but bold text is more densed
 				// so hovering will make the container width shrinking. Workaround is to define
 				// a::after psuedo element to reserve extra space by adding ' |' character
 				// after the title tag (which will be passed to ::after's content)
-				title={name + '|'}
+				title={name ? name + '|' : ''}
 				onClick={() => setSelectedItem(() => name)}
 			>
-				{name}
-			</Link>
+				{name || children}
+			</NavLink>
 		</li>
 	);
 }
 
 NavItem.propTypes = {
-	name: PropTypes.string.isRequired,
+	name: PropTypes.string,
 	route: PropTypes.string.isRequired,
-	selectedItem: PropTypes.string.isRequired,
 	setSelectedItem: PropTypes.func.isRequired,
+	className: PropTypes.string,
+	children: PropTypes.node,
 };
+
+NavItem.defaultProps = {
+	name: '',
+	className: '',
+	children: null,
+};
+
+const StyledNavItem = styled(NavItem)`
+	text-align: center;
+	color: ${appColors.greyDark3};
+	text-transform: uppercase;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.6rem 2rem;
+
+	cursor: pointer;
+	transition: all 0.15s;
+
+	${(props) => (props.highlight ? '&, &:hover' : '&:hover')} {
+		background-color: ${appColors.primaryDark};
+		color: ${appColors.white};
+		font-weight: 600;
+	}
+
+	${(props) => {
+		if (props.home) {
+			return `
+				flex: 0;
+				background-color: ${appColors.greyDark3};
+				padding: 0.5rem 1rem;
+				color: ${appColors.white};
+			`;
+		}
+		if (props.primary) {
+			return `
+				background-color: ${appColors.primary};
+				color: ${appColors.white};
+				font-weight: 600;
+			`;
+		}
+		return '';
+	}}
+`;
 
 export default function Nav() {
 	const [selectedItem, setSelectedItem] = useState(navItems.khoaHoc);
 
 	return (
-		<div className='nav-bg'>
-			<nav className='nav'>
-				<ul className='nav__list'>
-					<li className='nav__item nav__item--home'>
-						<a href='/' className='nav__link'>
-							<FontAwesomeIcon icon={faHome} />
-						</a>
-					</li>
-					<li className='nav__item nav__item--primary'>
-						<a href='/' className='nav__link'>
-							Khóa học
-						</a>
-					</li>
-					<NavItem
+		<NavBackground>
+			<StyledNav>
+				<ul>
+					<StyledNavItem route='/' home>
+						<FontAwesomeIcon icon={faHome} />
+					</StyledNavItem>
+					<StyledNavItem name='Khóa học' route='/' primary />
+					<StyledNavItem
 						name={navItems.gioiThieu}
 						route='/'
-						selectedItem={selectedItem}
+						highlight={navItems.gioiThieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.giaoVien}
 						route='/'
-						selectedItem={selectedItem}
+						highlight={navItems.giaoVien === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.bangXepHang}
 						route='/'
-						selectedItem={selectedItem}
+						highlight={navItems.bangXepHang === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.baiTap}
 						route='/exams'
-						selectedItem={selectedItem}
+						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.thiThu}
 						route='/'
-						selectedItem={selectedItem}
+						highlight={navItems.thiThu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.taiLieu}
 						route='/'
-						selectedItem={selectedItem}
+						highlight={navItems.taiLieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<NavItem
+					<StyledNavItem
 						name={navItems.hoiDap}
 						route='/questions'
-						selectedItem={selectedItem}
+						highlight={navItems.hoiDap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 				</ul>
-			</nav>
-		</div>
+			</StyledNav>
+		</NavBackground>
 	);
 }

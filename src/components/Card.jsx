@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { theme, appColors } from '../constants';
+import styled, { theme, appColors } from '../styles';
 
 const Card = styled.div`
 	/* bs code copied here to make this not break since we don't

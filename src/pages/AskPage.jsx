@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
@@ -9,8 +8,12 @@ import Pagination from '../components/Pagination';
 import QuestionList from '../components/QuestionList';
 import Selector from '../components/Selector';
 import Line from '../components/Line';
-import { questionProps } from '../utilities/proptypes';
+import Input, { InputGroup } from '../components/Input';
+import Button from '../components/Buttons';
+import { H2 } from '../components/Headings';
 import ContentContainer from '../layout/ContentContainer';
+import { questionProps } from '../utilities/proptypes';
+import styled from '../styles';
 
 const AskForm = styled(ColumnLeft)`
 	display: flex;
@@ -19,7 +22,7 @@ const AskForm = styled(ColumnLeft)`
 	button {
 		align-self: end;
 	}
-`
+`;
 
 const options = [
 	{ value: 'toan', label: 'Toán' },
@@ -37,36 +40,34 @@ function AskPage({ hotQuestions, newQuestions }) {
 	const [filter, setFilter] = React.useState(null);
 
 	return (
-		<ContentContainer mainTag>
-			<h2 className='h2 mt-md'>
+		<ContentContainer as='main'>
+			<H2 className='mt-md'>
 				Đặt câu hỏi mới
-				<div className='h2 h2--sub mt-tn'>
+				<H2 sub className='mt-tn'>
 					Đặt câu hỏi để nhận được sự hỗ trợ từ cộng đồng học sinh của
 					OnThi247
-				</div>
-			</h2>
+				</H2>
+			</H2>
 			<Line />
 			<Content>
 				<AskForm>
 					<div className='bold mb-sm'>Tiêu đề câu hỏi</div>
-					<div className='input-group mb-sm'>
-						<input
+					<InputGroup className='mb-sm'>
+						<Input
 							type='text'
-							className='form-control'
 							placeholder={questionTitle}
 							aria-label={questionTitle}
 						/>
-					</div>
+					</InputGroup>
 					<div className='bold mb-sm'>Nội dung câu hỏi</div>
-					<div className='input-group mb-sm'>
+					<InputGroup className='mb-sm'>
 						<textarea
 							type='text'
-							className='form-control'
 							placeholder={questionBody}
 							aria-label={questionBody}
 							rows={10}
 						/>
-					</div>
+					</InputGroup>
 					<div className='bold mb-sm'>Môn học</div>
 					<Selector
 						placeholder='Chọn môn học từ danh sách'
@@ -74,13 +75,13 @@ function AskPage({ hotQuestions, newQuestions }) {
 						onChange={(selectedValue) => setFilter(() => selectedValue)}
 						options={options}
 					/>
-					<button
+					<Button
 						type='button'
-						className='btn bold mt-md ask-form__btn'
+						className='bold mt-md'
 						onClick={() => history.push('/questions')}
 					>
 						Đăng câu hỏi
-					</button>
+					</Button>
 				</AskForm>
 				<ColumnRight>
 					<QuestionList

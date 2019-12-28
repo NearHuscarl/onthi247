@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Card from './Card';
-import { theme, mixins } from '../constants';
+import { H4 } from './Headings';
+import styled, { theme, mixins } from '../styles';
 
 const Container = styled(Card)`
 	display: inline-flex;
@@ -47,7 +47,7 @@ export default function ExamCard({ image, title, description, date }) {
 			<div>
 				{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 				<a href=''>
-					<h4 className='h4'>{title}</h4>
+					<H4>{title}</H4>
 				</a>
 				<Description>{description}</Description>
 				<Date>{`Phát hành: ${date}`}</Date>

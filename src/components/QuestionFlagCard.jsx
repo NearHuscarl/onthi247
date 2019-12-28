@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { faFlag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from './Card';
+import { WhiteButton } from './Buttons';
+import { H4 } from './Headings';
 import { setExamQuestionFlag } from '../actions/examQuestions';
-import { appColors, curves, helperStyles } from '../constants';
+import styled, { appColors, curves, helperStyles } from '../styles';
 
 const Container = styled(Card)`
 	position: relative;
@@ -60,19 +61,16 @@ const Flag = styled.div`
 function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
 	return (
 		<Container>
-			<h4 className='h4'>Câu hỏi {index + 1}</h4>
-			<span>
-				{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}
-			</span>
-			<button
+			<H4>Câu hỏi {index + 1}</H4>
+			<span>{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}</span>
+			<WhiteButton
 				type='button'
-				className='btn btn--white'
 				onClick={() => {
 					setExamQuestionFlag(id, !flag);
 				}}
 			>
 				{flag ? 'Bỏ đặt cờ' : 'Đặt cờ'}
-			</button>
+			</WhiteButton>
 			<Flag flagged={flag}>
 				<FontAwesomeIcon icon={faFlag} />
 			</Flag>

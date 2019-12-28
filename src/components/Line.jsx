@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { appColors } from '../constants';
+import styled, { appColors } from '../styles';
 
 const Line = styled.div`
 	display: block;

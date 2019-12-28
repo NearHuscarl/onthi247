@@ -1,11 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
-import { theme, helperStyles } from '../constants';
+import Button, { WhiteButton } from './Buttons';
+import { H2 } from './Headings';
+import styled, { theme, helperStyles } from '../styles';
 
 const Container = styled.div`
 	display: grid;
@@ -27,12 +28,12 @@ const Container = styled.div`
 	h2 + div {
 		font-weight: 600;
 		margin-bottom: 0.25rem;
-    }
+	}
 
-    button:first-child {
-        ${helperStyles.marginRightSmall}
-        ${helperStyles.bold}
-    }
+	button:first-child {
+		${helperStyles.marginRightSmall}
+		${helperStyles.bold}
+	}
 `;
 const Stats = styled.div`
 	font-size: 1.2rem;
@@ -44,11 +45,8 @@ export default function ExamPreviewSection({ exam }) {
 
 	return (
 		<Container>
-			<img
-				src={exam.image}
-				alt='exam preview'
-			/>
-			<h2 className='h2'>{exam.title}</h2>
+			<img src={exam.image} alt='exam preview' />
+			<H2>{exam.title}</H2>
 			<div>{`${exam.questionCount} câu hỏi - Trình độ ${exam.difficulty}`}</div>
 			<Stats>
 				{`Phát hành: ${
@@ -56,18 +54,17 @@ export default function ExamPreviewSection({ exam }) {
 				} - Lượt xem: ${exam.views.toLocaleString()} - Lượt làm bài: ${exam.attempts.toLocaleString()}`}
 			</Stats>
 			<div>
-				<button
+				<Button
 					type='button'
-					className='btn'
 					onClick={() => history.push(`/exams/${exam.id}/questions`)}
 				>
-					<FontAwesomeIcon className='btn__icon' icon={faPlay} />
-					Bắt đầu làm bài
-				</button>
-				<button type='button' className='btn btn--white'>
-					<FontAwesomeIcon className='btn__icon' icon={faHeart} />
-					Lưu vào danh sách yêu thích
-				</button>
+					<FontAwesomeIcon icon={faPlay} />
+					<span>Bắt đầu làm bài</span>
+				</Button>
+				<WhiteButton type='button'>
+					<FontAwesomeIcon icon={faHeart} />
+					<span>Lưu vào danh sách yêu thích</span>
+				</WhiteButton>
 			</div>
 		</Container>
 	);

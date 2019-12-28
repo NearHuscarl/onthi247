@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import styled from 'styled-components';
-import {
-	faFacebookF,
-	faYoutube,
-	faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../components/Logo';
+import {
+	FacebookButton,
+	YoutubeButton,
+	TwitterButton,
+	ButtonLink,
+} from '../components/Buttons';
+import { H4 } from '../components/Headings';
 import googlePlay from '../../public/images/google-play.png';
 import appStore from '../../public/images/app-store.png';
-import { appColors, theme, mixins } from '../constants';
+import styled, { appColors, theme, mixins } from '../styles';
 
 const FooterTop = styled.div`
 	margin: 0 auto;
@@ -34,8 +34,8 @@ const FooterTop = styled.div`
 const TopLogo = styled(Logo)`
 	grid-column: 1 / -1;
 `;
-const TopLink = styled.a`
-	// fix .btn-link underline span 100% block width
+const TopLink = styled(ButtonLink)`
+	/* fix ButtonLink underline span 100% block width */
 	display: inline-flex;
 	color: ${theme.fontColor};
 `;
@@ -82,60 +82,60 @@ export default function Footer() {
 			<FooterTop>
 				<TopLogo small />
 				<div>
-					<h4 className='h4'>Về OnThi247</h4>
+					<H4>Về OnThi247</H4>
 					<ul>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Giới thiệu
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Giáo viên nổi tiếng
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Điều khoản sử dụng
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Quy chế hoạt động
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Chính sách bảo mật
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Tuyển dụng
 							</TopLink>
 						</li>
 					</ul>
 				</div>
 				<div>
-					<h4 className='h4'>Dịch vụ</h4>
+					<H4>Dịch vụ</H4>
 					<ul>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Kho bài tập
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Kho đề thi thử
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Kho tài liệu
 							</TopLink>
 						</li>
 						<li>
-							<TopLink href='#' className='btn-link'>
+							<TopLink>
 								Hỏi đáp
 							</TopLink>
 						</li>
@@ -143,7 +143,7 @@ export default function Footer() {
 				</div>
 				<div>
 					<div className='mb-md'>
-						<h4 className='h4'>Hỗ trợ khách hàng</h4>
+						<H4>Hỗ trợ khách hàng</H4>
 						<ul>
 							<li>Trung tâm hỗ trợ</li>
 							<li>
@@ -155,7 +155,7 @@ export default function Footer() {
 						</ul>
 					</div>
 					<div>
-						<h4 className='h4'>Dành cho đối tác</h4>
+						<H4>Dành cho đối tác</H4>
 						<ul>
 							<li>
 								<span className='bold'>Email</span>: info@onthi247.vn
@@ -170,7 +170,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<div>
-					<h4 className='h4'>Tải ứng dụng OnThi247</h4>
+					<H4>Tải ứng dụng OnThi247</H4>
 					<a href='#'>
 						<TopAppImage
 							className='mb-sm'
@@ -185,15 +185,9 @@ export default function Footer() {
 			</FooterTop>
 			<FooterBottom>
 				<BottomMedias>
-					<button type='button' className='btn-facebook'>
-						<FontAwesomeIcon icon={faFacebookF} />
-					</button>
-					<button type='button' className='btn-youtube'>
-						<FontAwesomeIcon icon={faYoutube} />
-					</button>
-					<button type='button' className='btn-twitter'>
-						<FontAwesomeIcon icon={faTwitter} />
-					</button>
+					<FacebookButton />
+					<YoutubeButton />
+					<TwitterButton />
 				</BottomMedias>
 				<BottomCopyright>
 					© 2019 - Bản quyền website thuộc về OnThi247.vn

@@ -12,10 +12,10 @@ function darken(color) {
 		.toString();
 }
 
-function tranparentize(color, value) {
+function transparentize(color, value) {
 	const tnColor = Tinycolor(color);
 	tnColor.setAlpha(1 - value);
 	return tnColor.toString();
 }
 
-export { lighten, darken, tranparentize };
+export { lighten, darken, transparentize };

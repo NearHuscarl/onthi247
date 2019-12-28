@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Filters from '../layout/Filters';
@@ -10,8 +9,10 @@ import QuestionPreviewList from '../components/QuestionPreviewList';
 import QuestionList from '../components/QuestionList';
 import Chip from '../components/Chip';
 import ContentContainer from '../layout/ContentContainer';
+import Button from '../components/Buttons';
+import { H3 } from '../components/Headings';
 import { questionProps } from '../utilities/proptypes';
-import { helperStyles } from '../constants';
+import styled, { helperStyles } from '../styles';
 
 const QuestionPage = styled.main``;
 
@@ -64,14 +65,14 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 						<QuestionPreviewList questions={questions} />
 					</ColumnLeft>
 					<ColumnRight>
-						<button
+						<Button
 							type='button'
-							className='btn bold mb-md'
+							className='bold mb-md'
 							onClick={() => history.push('/questions/ask')}
 						>
 							Đặt câu hỏi mới
-						</button>
-						<h3 className='h3'>Thẻ nổi bật</h3>
+						</Button>
+						<H3>Thẻ nổi bật</H3>
 						<Tags>
 							<Chip>Hàm số</Chip>
 							<Chip>Tính số mol</Chip>

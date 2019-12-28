@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { rankProps, examRankProps } from '../utilities/proptypes';
 import Line from './Line';
+import { H3, H4 } from './Headings';
+import styled from '../styles';
 
 const List = styled.ul`
 	& > :not(:last-child) {
@@ -35,7 +36,7 @@ export function Rank({ info }) {
 		<ListItem>
 			<img src={info.avatar} alt='user avatar' />
 			<Content>
-				<h4 className='h4'>{info.name}</h4>
+				<H4>{info.name}</H4>
 				<p>{`Level: ${info.level}`}</p>
 			</Content>
 		</ListItem>
@@ -51,7 +52,7 @@ export function ExamRank({ info }) {
 		<ListItem>
 			<img src={info.avatar} alt='user avatar' />
 			<Content>
-				<h4 className='h4'>{info.name}</h4>
+				<H4>{info.name}</H4>
 				<p>{`${info.score}/30 - ${info.time}`}</p>
 			</Content>
 		</ListItem>
@@ -65,7 +66,7 @@ ExamRank.propTypes = {
 function createStanding(getRank) {
 	const Standing = ({ className, title, standing }) => (
 		<section className={className}>
-			<h3 className='h3 mb-sm'>{title}</h3>
+			<H3 className='mb-sm'>{title}</H3>
 			<List>
 				{standing.map((u, index) => (
 					<React.Fragment key={u.name}>

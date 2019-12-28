@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import Line from './Line';
-import { appColors, theme } from '../constants';
-import { tranparentize } from '../utilities/colors';
+import styled, { appColors, theme } from '../styles';
+import { transparentize } from '../utilities/colors';
 import congratsImg from '../../public/images/congrats.jpg';
+import { H4 } from './Headings';
 
 const borderColor = appColors.greyLight3;
 const Container = styled.div`
@@ -11,7 +11,7 @@ const Container = styled.div`
 	border-radius: ${theme.borderRound};
 
 	background-image: url(${congratsImg});
-	background-color: ${tranparentize(appColors.white, 0.1)};
+	background-color: ${transparentize(appColors.white, 0.1)};
 	background-blend-mode: overlay;
 	background-size: cover;
 
@@ -61,7 +61,7 @@ const Bottom = styled.div`
 export default function ScoreCard() {
 	return (
 		<Container>
-			<h4 className='h4'>Thành tích cá nhân</h4>
+			<H4>Thành tích cá nhân</H4>
 			<Line dark />
 			<Content>
 				<div>Kết quả cao nhất</div>

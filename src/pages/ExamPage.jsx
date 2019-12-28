@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
 import { Standing } from '../components/Standing';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
+import SizedBox from '../components/SizedBox';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, rankProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
+import styled from '../styles';
 
 const Content = styled.div`
 	display: flex;
@@ -43,11 +44,14 @@ const ExamPage = ({
 				</ColLeft>
 				<ColRight>
 					<Standing standing={standing} title='Bảng xếp hạng chung' />
+					<SizedBox height={1} />
 					<Standing
 						standing={monthlyStanding}
 						title='Bảng xếp hạng tháng'
 					/>
+					<SizedBox height={1} />
 					<Standing standing={weeklyStanding} title='Bảng xếp hạng tuần' />
+					<SizedBox height={1} />
 					<Ads />
 				</ColRight>
 			</Content>

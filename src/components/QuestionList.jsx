@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { questionProps } from '../utilities/proptypes';
-import { appColors } from '../constants';
+import styled, { appColors } from '../styles';
+import { H3 } from './Headings';
 
 const List = styled.ul`
 	& > :not(:last-child) {
@@ -45,7 +45,7 @@ const formatISOString = (iSOString) => {
 export default function QuestionList({ className, title, questions }) {
 	return (
 		<div className={className}>
-			<h3 className='h3 mb-sm'>{title}</h3>
+			<H3 className='mb-sm'>{title}</H3>
 			<List>
 				{questions.map((q) => (
 					<ListItem key={q.id}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {
 	faSearch,
 	faBell,
@@ -9,7 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
-import { appColors, theme } from '../constants';
+import styled, { appColors, theme } from '../styles';
+import Input, { InputGroup, InputSuffixButton } from '../components/Input';
+import { ButtonText } from '../components/Buttons';
 
 const HeaderContainer = styled.header`
 	margin: 0 auto;
@@ -60,7 +61,7 @@ const Main = styled.div`
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 `;
-const Search = styled.div`
+const Search = styled(InputGroup)`
 	width: 35rem;
 `;
 
@@ -86,24 +87,21 @@ function Header() {
 			</TopBackground>
 			<Main>
 				<Logo />
-				<Search className='input-group'>
-					<input
+				<Search>
+					<Input
 						type='text'
-						className='form-control'
 						placeholder='Nhập ID của câu hỏi cần xem đáp án và lời giải...'
 						aria-label='Username'
 						aria-describedby='basic-addon1'
 					/>
-					<div className='input-group-append'>
-						<button className='btn btn--padding-sm' type='button'>
-							<FontAwesomeIcon icon={faSearch} />
-						</button>
-					</div>
+					<InputSuffixButton dense type='button'>
+						<FontAwesomeIcon icon={faSearch} />
+					</InputSuffixButton>
 				</Search>
-				<button type='button' className='btn-text btn-text--highlight'>
+				<ButtonText type='button' highlight>
 					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
 					<span className='cart__text'>Các khóa học đã chọn</span>
-				</button>
+				</ButtonText>
 			</Main>
 			<Nav />
 		</HeaderContainer>

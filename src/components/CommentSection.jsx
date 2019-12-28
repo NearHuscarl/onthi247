@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Card from './Card';
 import Selector from './Selector';
 import { setExamResultComment } from '../actions/examResult';
 import { commentProps } from '../utilities/proptypes';
-import { appColors, helperStyles } from '../constants';
+import styled, { appColors, helperStyles } from '../styles';
+import { InputGroup } from './Input';
+import { H3 } from './Headings';
+import Button, { ButtonLink } from './Buttons';
 
 const CommentContainer = styled.div`
 	display: flex;
@@ -71,12 +73,12 @@ function Comment({ comment, isReply }) {
 					</CommentTop>
 					<CommentBody>{content}</CommentBody>
 					<CommentAction>
-						<button type='button' className='btn-link'>
+						<ButtonLink type='button'>
 							Thích
-						</button>
-						<button type='button' className='btn-link'>
+						</ButtonLink>
+						<ButtonLink type='button'>
 							Trả lời
-						</button>
+						</ButtonLink>
 					</CommentAction>
 				</div>
 			</CommentContent>
@@ -106,7 +108,7 @@ const CommentFilter = styled(Selector)`
 		color: ${appColors.greyDark2};
 	}
 `;
-const SubmitButton = styled.button`
+const SubmitButton = styled(Button)`
 	min-width: 8.4rem;
 	align-self: end;
 	${helperStyles.marginBottomTiny}
@@ -136,19 +138,18 @@ function CommentSection({ comments }) {
 
 	return (
 		<CommentSectionContainer>
-			<div className='input-group mb-sm'>
+			<InputGroup className='mb-sm'>
 				<textarea
 					type='text'
-					className='form-control'
 					placeholder={commentLabel}
 					aria-label={commentLabel}
 				/>
-			</div>
-			<SubmitButton className='btn' type='button'>
+			</InputGroup>
+			<SubmitButton type='button'>
 				Bình luận
 			</SubmitButton>
 			<CommentFilterGroup>
-				<h3 className='h3'>{`${getCommentCount(comments)} bình luận`}</h3>
+				<H3>{`${getCommentCount(comments)} bình luận`}</H3>
 				<CommentFilter
 					value={filter}
 					onChange={(selectedValue) => setFilter(() => selectedValue)}

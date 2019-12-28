@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ButtonChip from '../components/ButtonChip';
 import Selector from '../components/Selector';
-import { appColors, theme } from '../constants';
+import styled, { appColors, theme } from '../styles';
+import Input, { InputGroupFloatingButton } from '../components/Input';
+import { H2 } from '../components/Headings';
+import { GreyButton, ButtonChip, ButtonText } from '../components/Buttons';
 
 const FilterBackground = styled.div`
 	background-color: ${appColors.greyLight1};
@@ -20,14 +21,9 @@ const FilterContainer = styled.div`
 	grid-auto-rows: min-content;
 	gap: 1.8rem;
 
-	// override bs's reboot
+	/* override bs's reboot */
 	p {
 		margin-bottom: 0;
-	}
-
-	// override bs right border-radius
-	.input-group > .form-control:not(:last-child) {
-		border-radius: var(--border-round);
 	}
 `;
 const FilterGroup = styled.div`
@@ -45,12 +41,12 @@ const FilterOption = styled(Selector)`
 const FilterSort = styled(Selector)`
 	width: 14rem;
 `;
-const Search = styled.div`
+const Search = styled(InputGroupFloatingButton)`
 	grid-column: 1 / -1;
 	position: relative;
 `;
 const buttonSize = '2rem';
-const ClearButton = styled.button`
+const ClearButton = styled(ButtonText)`
 	position: absolute;
 	top: calc(((100% - ${buttonSize}) / 2));
 	right: 1rem;
@@ -59,7 +55,7 @@ const ClearButton = styled.button`
 	background-color: ${appColors.greyLight3};
 	color: ${appColors.greyDark2};
 	border-radius: 50%;
-	z-index: 100; // not sure what bs do to input z-index when focused
+	z-index: 3; /* not sure what bs do to input z-index when focused */
 
 	&:hover {
 		color: ${appColors.white};
@@ -91,7 +87,7 @@ export default function Filters({ title, subTitle }) {
 		<FilterBackground>
 			<FilterContainer>
 				<div>
-					<h2 className='h2'>{title}</h2>
+					<H2>{title}</H2>
 					<p>{subTitle}</p>
 				</div>
 				<FilterGroup>
@@ -109,22 +105,21 @@ export default function Filters({ title, subTitle }) {
 					/>
 				</FilterGroup>
 
-				<Search className='input-group'>
-					<input
+				<Search>
+					<Input
 						type='text'
-						className='form-control'
 						placeholder='Nhập từ khóa cần tìm kiếm...'
 					/>
-					<ClearButton type='button' className='btn-text'>
+					<ClearButton type='button'>
 						<FontAwesomeIcon icon={faTimes} />
 					</ClearButton>
 				</Search>
 				<ChipGroup>
 					<ButtonChip name='Hóa học' onClick={() => {}} />
 					<ButtonChip name='Sinh học' onClick={() => {}} />
-					<button type='button' className='btn btn--grey'>
+					<GreyButton type='button'>
 						Xóa bộ lọc
-					</button>
+					</GreyButton>
 				</ChipGroup>
 			</FilterContainer>
 		</FilterBackground>

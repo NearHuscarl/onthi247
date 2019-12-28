@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Card from './Card';
 import { answerProps } from '../utilities/proptypes';
-import { appColors, curves, theme } from '../constants';
+import styled, { appColors, curves, theme } from '../styles';
 
 const AnswerContainer = styled.div`
 	position: relative;
