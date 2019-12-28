@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
+import styled, { appColors } from '../styles';
 
 const height = '3.3rem';
 const customStyles = {
@@ -25,10 +26,23 @@ const customStyles = {
 	}),
 };
 
-export default function Selector({ className, placeholder, value, onChange, options }) {
+const StyledSelector = styled(Select)`
+	/* override react-select */
+	[class*='singleValue'] {
+		color: ${appColors.greyDark2};
+	}
+`;
+
+export default function Selector({
+	className,
+	placeholder,
+	value,
+	onChange,
+	options,
+}) {
 	return (
 		<>
-			<Select
+			<StyledSelector
 				styles={customStyles}
 				className={className}
 				placeholder={placeholder}

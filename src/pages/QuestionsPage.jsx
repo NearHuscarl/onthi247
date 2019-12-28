@@ -7,7 +7,7 @@ import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
 import QuestionPreviewList from '../components/QuestionPreviewList';
 import QuestionList from '../components/QuestionList';
-import Chip from '../components/Chip';
+import Tag from '../components/Tag';
 import ContentContainer from '../layout/ContentContainer';
 import Button from '../components/Buttons';
 import { H3 } from '../components/Headings';
@@ -74,13 +74,13 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 						</Button>
 						<H3>Thẻ nổi bật</H3>
 						<Tags>
-							<Chip>Hàm số</Chip>
-							<Chip>Tính số mol</Chip>
-							<Chip>Hệ tọa độ Oxyz</Chip>
-							<Chip>Hình học không gian</Chip>
-							<Chip>Đạo hàm</Chip>
-							<Chip>Hóa hữu cơ</Chip>
-							<Chip>Điện trở</Chip>
+							<Tag>Hàm số</Tag>
+							<Tag>Tính số mol</Tag>
+							<Tag>Hệ tọa độ Oxyz</Tag>
+							<Tag>Hình học không gian</Tag>
+							<Tag>Đạo hàm</Tag>
+							<Tag>Hóa hữu cơ</Tag>
+							<Tag>Điện trở</Tag>
 						</Tags>
 						<QuestionList
 							title='Câu hỏi nổi bật'

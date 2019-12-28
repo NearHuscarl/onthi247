@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { theme } from '../styles';
 
-const ChipContainer = styled.div`
+const Tag = styled.div`
 	padding: 0.3rem 0.6rem;
 
 	background-color: #e1ecf4;
@@ -18,10 +16,13 @@ const ChipContainer = styled.div`
 	}
 `;
 
-export default function Chip({ children }) {
-	return <ChipContainer>{children}</ChipContainer>;
-}
+export const TagGroup = styled.div`
+	display: flex;
+	align-items: flex-start;
 
-Chip.propTypes = {
-	children: PropTypes.node.isRequired,
-};
+	& > :not(:last-child) {
+		margin-right: 0.7rem;
+	}
+`;
+
+export default Tag;

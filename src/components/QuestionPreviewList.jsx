@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Chip from './Chip';
+import Tag, { TagGroup } from './Tag';
 import Line from './Line';
+import QaProfile from './QaProfile';
 import { H3 } from './Headings';
 import { ButtonText } from './Buttons';
 import { questionProps } from '../utilities/proptypes';
-import timeSince from '../utilities/timeSince';
-import styled, { helperStyles } from '../styles';
+import styled, { helperStyles, mixins } from '../styles';
 
 const ListItem = styled.article`
 	display: flex;
@@ -16,6 +17,13 @@ const ListItem = styled.article`
 
 	h3 {
 		color: #005999;
+		transition: color ease .25s;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: ${mixins.lighten('#005999')};
+		}
 	}
 `;
 const Side = styled.div`
@@ -45,46 +53,6 @@ const Bottom = styled.div`
 	display: flex;
 	justify-content: space-between;
 `;
-const TagGroup = styled.div`
-	display: flex;
-	align-items: flex-start;
-
-	& > :not(:last-child) {
-		margin-right: 0.7rem;
-	}
-`;
-const User = styled.div`
-	display: grid;
-	grid-template-columns: min-content 1fr;
-	column-gap: 0.7rem;
-
-	width: 12rem;
-
-	& > :first-child {
-		grid-column: 1 / -1;
-		font-size: 0.9rem;
-	}
-
-	img {
-		grid-row: 2 / 4;
-
-		margin-top: 0.58rem;
-		width: 3rem;
-		height: 3rem;
-		border-radius: 50%;
-		box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
-	}
-
-	.name {
-		margin-top: 0.58rem;
-		font-size: 1rem;
-		font-weight: 600;
-	}
-
-	.level {
-		font-size: 1rem;
-	}
-`;
 
 const More = styled.div`
 	position: absolute;
@@ -93,32 +61,39 @@ const More = styled.div`
 `;
 
 function QuestionPreviewListItem({ question }) {
-	const q = question;
+	const {
+		votes,
+		answers,
+		views,
+		title,
+		subject,
+		description,
+		tags,
+		date,
+		user,
+	} = question;
 	return (
 		<ListItem>
 			<Side>
-				<SideNumber>{q.votes.toLocaleString()}</SideNumber>
+				<SideNumber>{votes.toLocaleString()}</SideNumber>
 				<SideText>bình chọn</SideText>
-				<SideNumber>{q.answers}</SideNumber>
+				<SideNumber>{answers}</SideNumber>
 				<SideText>câu trả lời</SideText>
-				<SideSubtext>{`${q.views.toLocaleString()} lượt xem`}</SideSubtext>
+				<SideSubtext>{`${views.toLocaleString()} lượt xem`}</SideSubtext>
 			</Side>
 			<div>
-				<H3>{q.title}</H3>
-				<Subject>{`Môn ${q.subject}`}</Subject>
-				<Description>{q.description}</Description>
+				<Link to='/questions/001'>
+					<H3>{title}</H3>
+				</Link>
+				<Subject>{`Môn ${subject}`}</Subject>
+				<Description>{description}</Description>
 				<Bottom>
 					<TagGroup>
-						{q.tags.map((t) => (
-							<Chip key={t}>{t}</Chip>
+						{tags.map((t) => (
+							<Tag key={t}>{t}</Tag>
 						))}
 					</TagGroup>
-					<User>
-						<div>{`đã hỏi cách đây ${timeSince(new Date(q.date))}`}</div>
-						<img src={q.user.avatar} alt='user profile' />
-						<div className='name'>{q.user.name}</div>
-						<div className='level'>{`Level: ${q.user.level}`}</div>
-					</User>
+					<QaProfile user={user} date={date} />
 				</Bottom>
 			</div>
 			<More>

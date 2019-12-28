@@ -102,11 +102,6 @@ const CommentFilterGroup = styled.div`
 `;
 const CommentFilter = styled(Selector)`
 	width: 14rem;
-
-	/* override react-select */
-	[class*='singleValue'] {
-		color: ${appColors.greyDark2};
-	}
 `;
 const SubmitButton = styled(Button)`
 	min-width: 8.4rem;

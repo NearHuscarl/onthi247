@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
 import Ads from '../components/Ads';
-import Pagination from '../components/Pagination';
 import QuestionList from '../components/QuestionList';
 import Selector from '../components/Selector';
 import Line from '../components/Line';
@@ -97,7 +96,6 @@ function AskPage({ hotQuestions, newQuestions }) {
 					<Ads />
 				</ColumnRight>
 			</Content>
-			<Pagination />
 		</ContentContainer>
 	);
 }

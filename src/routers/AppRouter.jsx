@@ -9,6 +9,7 @@ import constants from '../constants';
 import ExamPreviewPage from '../pages/ExamPreviewPage';
 import ExamQuestionsPage from '../pages/ExamQuestionsPage';
 import QuestionsPage from '../pages/QuestionsPage';
+import AnswerPage from '../pages/AnswerPage';
 import AskPage from '../pages/AskPage';
 
 const AppRouter = () => (
@@ -24,6 +25,7 @@ const AppRouter = () => (
 			<Route path='/exams/:id/result' component={ExamResultPage} exact />
 			<Route path='/questions' component={QuestionsPage} exact />
 			<Route path='/questions/ask' component={AskPage} exact />
+			<Route path='/questions/001' component={AnswerPage} exact />
 			<Route component={NotFoundPage} />
 		</Switch>
 		<Footer />
