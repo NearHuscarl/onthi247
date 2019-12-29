@@ -32,10 +32,13 @@ const StyledNav = styled.nav`
 
 		display: flex;
 		width: 100%;
+		height: 3.5rem;
 	}
 `;
 
 const NavLink = styled(Link)`
+	padding: 0 2rem;
+
 	&::after {
 		display: block;
 		content: attr(title);
@@ -66,7 +69,7 @@ function NavItem({ name, className, route, setSelectedItem, children }) {
 				title={name ? name + '|' : ''}
 				onClick={() => setSelectedItem(() => name)}
 			>
-				{name || children}
+				<span>{name || children}</span>
 			</NavLink>
 		</li>
 	);
@@ -93,13 +96,19 @@ const StyledNavItem = styled(NavItem)`
 
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	padding: 0.6rem 2rem;
-
+	align-items: stretch;
+	height: auto;
 	cursor: pointer;
 	transition: all 0.15s;
 
-	${(props) => (props.highlight ? '&, &:hover' : '&:hover')} {
+	span {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	${(props) => props.highlight && '&,'}
+	&:hover {
 		background-color: ${appColors.primaryDark};
 		color: ${appColors.white};
 		font-weight: 600;
