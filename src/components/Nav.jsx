@@ -132,10 +132,15 @@ export default function Nav() {
 		<NavBackground>
 			<StyledNav>
 				<ul>
-					<StyledNavItem route='/' home>
+					<StyledNavItem route='/' home setSelectedItem={setSelectedItem}>
 						<FontAwesomeIcon icon={faHome} />
 					</StyledNavItem>
-					<StyledNavItem name='Khóa học' route='/' primary />
+					<StyledNavItem
+						name='Khóa học'
+						route='/'
+						primary
+						setSelectedItem={setSelectedItem}
+					/>
 					<StyledNavItem
 						name={navItems.gioiThieu}
 						route='/'
@@ -156,13 +161,13 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.baiTap}
-						route='/exams'
+						route='/exercises'
 						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.thiThu}
-						route='/'
+						route='/exams'
 						highlight={navItems.thiThu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

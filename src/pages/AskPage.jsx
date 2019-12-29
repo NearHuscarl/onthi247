@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
 import Ads from '../components/Ads';
-import QuestionList from '../components/QuestionList';
+import QuestionListSideBar from '../components/QuestionListSideBar';
 import Selector from '../components/Selector';
 import Line from '../components/Line';
 import Input, { InputGroup } from '../components/Input';
@@ -83,12 +83,12 @@ function AskPage({ hotQuestions, newQuestions }) {
 					</Button>
 				</AskForm>
 				<ColumnRight>
-					<QuestionList
+					<QuestionListSideBar
 						title='Câu hỏi nổi bật'
 						questions={hotQuestions}
 						className='mb-md'
 					/>
-					<QuestionList
+					<QuestionListSideBar
 						title='Câu hỏi mới nhất'
 						questions={newQuestions}
 						className='mb-md'

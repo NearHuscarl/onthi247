@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
-import QuestionList from '../components/QuestionList';
+import QuestionListSideBar from '../components/QuestionListSideBar';
 import Tag, { TagGroup } from '../components/Tag';
 import ContentContainer from '../layout/ContentContainer';
 import QaProfile from '../components/QaProfile';
-import SizedBox from '../components/SizedBox';
+import { SizedBox } from '../components/Common';
 import Button, { ButtonText } from '../components/Buttons';
 import Line from '../components/Line';
 import { H2, H3 } from '../components/Headings';
@@ -34,6 +34,7 @@ const Content = styled.div`
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: -1rem;
 
 	button {
 		align-self: center;
@@ -97,7 +98,7 @@ const AnswerFilter = styled(Selector)`
 `;
 
 const UserTag = styled(Tag)`
-	color: #0077cc;
+	color: ${appColors.lightBlue};
 `;
 
 const Comment = styled.div`
@@ -119,15 +120,15 @@ const CommentButton = styled(QaButtonText)`
 
 const RichEditor = styled(RichTextEditor)`
 	.DraftEditor-root {
-        min-height: 12rem;
-        font-family: ${theme.primaryFont};
-        font-size: 1.2rem;
-    }
+		min-height: 12rem;
+		font-family: ${theme.primaryFont};
+		font-size: 1.2rem;
+	}
 
-    [class*='IconButton__icon'] {
-        /* change button background image from hard black to grey */
-        filter: opacity(60%);
-    }
+	[class*='IconButton__icon'] {
+		/* change button background image from hard black to grey */
+		filter: opacity(60%);
+	}
 `;
 
 const options = [
@@ -247,17 +248,17 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 					/>
 				</ColumnLeft>
 				<ColumnRight>
-					<QuestionList
+					<QuestionListSideBar
 						title='Bạn có thể quan tâm'
 						questions={hotQuestions}
 						className='mb-md'
 					/>
-					<QuestionList
+					<QuestionListSideBar
 						title='Câu hỏi nổi bật'
 						questions={hotQuestions}
 						className='mb-md'
 					/>
-					<QuestionList
+					<QuestionListSideBar
 						title='Câu hỏi mới nhất'
 						questions={newQuestions}
 						className='mb-md'

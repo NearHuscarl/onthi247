@@ -16,6 +16,8 @@ export const appColors = {
 	primaryLight: '#ffd099',
 	secondary: '#2e293b',
 	tertiary: '#c9e167',
+	blue: '#005999',
+	lightBlue: '#0077cc',
 	greyLight1: '#f5f5f5',
 	greyLight2: '#eee',
 	greyLight3: '#dddddd',

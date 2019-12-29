@@ -29,7 +29,7 @@ const Score = styled.div`
 	text-align: center;
 `;
 const Title = styled.div`
-	color: #005999;
+	color: ${appColors.blue};
 `;
 const Small = styled.div`
 	font-size: 1rem;
@@ -42,7 +42,7 @@ const formatISOString = (iSOString) => {
 	);
 };
 
-export default function QuestionList({ className, title, questions }) {
+export default function QuestionListSideBar({ className, title, questions }) {
 	return (
 		<div className={className}>
 			<H3 className='mb-sm'>{title}</H3>
@@ -59,12 +59,12 @@ export default function QuestionList({ className, title, questions }) {
 	);
 }
 
-QuestionList.propTypes = {
+QuestionListSideBar.propTypes = {
 	className: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	questions: PropTypes.arrayOf(questionProps).isRequired,
 };
 
-QuestionList.defaultProps = {
+QuestionListSideBar.defaultProps = {
 	className: '',
 };

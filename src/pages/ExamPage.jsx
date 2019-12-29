@@ -6,7 +6,7 @@ import Filters from '../layout/Filters';
 import { Standing } from '../components/Standing';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
-import SizedBox from '../components/SizedBox';
+import { SizedBox } from '../components/Common';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, rankProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';

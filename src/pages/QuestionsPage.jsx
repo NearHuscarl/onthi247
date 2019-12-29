@@ -6,7 +6,7 @@ import Filters from '../layout/Filters';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
 import QuestionPreviewList from '../components/QuestionPreviewList';
-import QuestionList from '../components/QuestionList';
+import QuestionListSideBar from '../components/QuestionListSideBar';
 import Tag from '../components/Tag';
 import ContentContainer from '../layout/ContentContainer';
 import Button from '../components/Buttons';
@@ -82,12 +82,12 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 							<Tag>Hóa hữu cơ</Tag>
 							<Tag>Điện trở</Tag>
 						</Tags>
-						<QuestionList
+						<QuestionListSideBar
 							title='Câu hỏi nổi bật'
 							questions={hotQuestions}
 							className='mb-md'
 						/>
-						<QuestionList
+						<QuestionListSideBar
 							title='Câu hỏi mới nhất'
 							questions={newQuestions}
 							className='mb-md'

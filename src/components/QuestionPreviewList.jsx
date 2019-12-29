@@ -9,20 +9,20 @@ import QaProfile from './QaProfile';
 import { H3 } from './Headings';
 import { ButtonText } from './Buttons';
 import { questionProps } from '../utilities/proptypes';
-import styled, { helperStyles, mixins } from '../styles';
+import styled, { appColors, helperStyles, mixins } from '../styles';
 
 const ListItem = styled.article`
 	display: flex;
 	position: relative;
 
 	h3 {
-		color: #005999;
-		transition: color ease .25s;
+		color: ${appColors.blue};
+		transition: color ease 0.25s;
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: ${mixins.lighten('#005999')};
+			color: ${mixins.lighten(appColors.blue)};
 		}
 	}
 `;

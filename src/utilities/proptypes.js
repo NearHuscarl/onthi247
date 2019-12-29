@@ -19,6 +19,18 @@ const examProps = PropTypes.shape({
 	questions: PropTypes.arrayOf(examQuestionProps),
 });
 
+const exerciseProps = PropTypes.shape({
+	id: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	publishDate: PropTypes.string.isRequired,
+	views: PropTypes.number.isRequired,
+	downloads: PropTypes.number.isRequired,
+	tags: PropTypes.arrayOf(PropTypes.string),
+});
+
 const answerProps = PropTypes.shape({
 	text: PropTypes.string.isRequired,
 	percentage: PropTypes.number.isRequired,
@@ -73,4 +85,5 @@ export {
 	examRankProps,
 	userProps,
 	questionProps,
+	exerciseProps,
 };
