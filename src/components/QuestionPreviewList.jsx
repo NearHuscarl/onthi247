@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tag, { TagGroup } from './Tag';
-import Line from './Line';
+import { Line } from './Common';
 import QaProfile from './QaProfile';
 import { H3 } from './Headings';
 import { ButtonText } from './Buttons';

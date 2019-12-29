@@ -1,5 +1,5 @@
 import React from 'react';
-import Line from './Line';
+import { Line } from './Common';
 import styled, { appColors, theme } from '../styles';
 import { transparentize } from '../utilities/colors';
 import congratsImg from '../../public/images/congrats.jpg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { rankProps, examRankProps } from '../utilities/proptypes';
-import Line from './Line';
+import { Line } from './Common';
 import { H3, H4 } from './Headings';
 import styled from '../styles';
 

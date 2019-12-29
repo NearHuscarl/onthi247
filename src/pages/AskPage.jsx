@@ -6,7 +6,7 @@ import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
 import Ads from '../components/Ads';
 import QuestionListSideBar from '../components/QuestionListSideBar';
 import Selector from '../components/Selector';
-import Line from '../components/Line';
+import { Line } from '../components/Common';
 import Input, { InputGroup } from '../components/Input';
 import Button from '../components/Buttons';
 import { H2 } from '../components/Headings';

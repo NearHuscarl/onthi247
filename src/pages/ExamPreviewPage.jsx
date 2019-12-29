@@ -7,7 +7,7 @@ import { examProps, examRankProps } from '../utilities/proptypes';
 import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
-import Line from '../components/Line';
+import { Line } from '../components/Common';
 import { H2 } from '../components/Headings';
 import { ExamStanding, ExamRank } from '../components/Standing';
 import ContentContainer from '../layout/ContentContainer';

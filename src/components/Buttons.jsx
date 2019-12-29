@@ -150,6 +150,18 @@ export const OrangeButton = styled(Button)`
 	color: ${appColors.white};
 `;
 
+export const YellowButton = styled(Button)`
+	border-color: ${appColors.primary};
+	background-color: ${appColors.primary};
+	color: ${appColors.white};
+`;
+
+export const OpaqueButton = styled(Button)`
+	border-color: transparent;
+	background-color: ${mixins.opacity(appColors.primaryDark, 0.5)};
+	color: ${appColors.greyDark2};
+`;
+
 export const GreyButton = styled(Button)`
 	background-color: ${appColors.greyLight3};
 	color: ${appColors.greyDark2};

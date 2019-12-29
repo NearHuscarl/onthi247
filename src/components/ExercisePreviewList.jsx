@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { exerciseProps } from '../utilities/proptypes';
-import Line from './Line';
 import Tag, { TagGroup } from './Tag';
 import { ButtonText } from './Buttons';
 import { H4 } from './Headings';
-import { Bold } from './Common';
+import { Bold, Line } from './Common';
 import styled, { appColors, theme, mixins } from '../styles';
 
 const List = styled.section`
@@ -22,7 +21,7 @@ const ListItem = styled.article`
 	grid-template-columns: min-content minmax(20rem, 1fr);
 	grid-template-rows: repeat(5, min-content);
 	column-gap: 2.1rem;
-	row-gap: .35rem;
+	row-gap: 0.35rem;
 
 	position: relative;
 
@@ -68,7 +67,7 @@ export default function ExercisePreviewList({ exercises }) {
 				<React.Fragment key={e.id}>
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
-						<Link to={`/exams/${e.id}/preview`}>
+						<Link to='/exercises/001'>
 							<H4>{e.title}</H4>
 						</Link>
 						<Info>{`Môn ${e.subject}`}</Info>

@@ -27,7 +27,7 @@ const StyledNav = styled.nav`
 	margin: 0 auto;
 
 	ul {
-		// override bootstrap margin-bottom: 1rem;
+		/* override bootstrap margin-bottom: 1rem; */
 		margin-bottom: 0;
 
 		display: flex;
@@ -38,6 +38,13 @@ const StyledNav = styled.nav`
 
 const NavLink = styled(Link)`
 	padding: 0 2rem;
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
 
 	&::after {
 		display: block;
@@ -101,12 +108,6 @@ const StyledNavItem = styled(NavItem)`
 	cursor: pointer;
 	transition: all 0.15s;
 
-	span {
-		display: flex;
-		align-items: center;
-		height: 100%;
-	}
-
 	${(props) => props.highlight && '&,'}
 	&:hover {
 		background-color: ${appColors.primaryDark};
@@ -121,6 +122,10 @@ const StyledNavItem = styled(NavItem)`
 				background-color: ${appColors.greyDark3};
 				padding: 0.5rem 1rem;
 				color: ${appColors.white};
+
+				a {
+					padding: 0;
+				}
 			`;
 		}
 		if (props.primary) {

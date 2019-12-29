@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { darken, lighten, transparentize } from './utilities/colors';
+import { darken, lighten, transparentize, opacity } from './utilities/colors';
 
 export { createGlobalStyle };
 
@@ -32,6 +32,7 @@ export const mixins = {
 	darken,
 	lighten,
 	transparentize,
+	opacity,
 
 	// https://stackoverflow.com/a/16878602/9449426
 	// somewhat mitigate blurried text when applying scaling transform

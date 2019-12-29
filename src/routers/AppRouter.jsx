@@ -12,6 +12,7 @@ import QuestionsPage from '../pages/QuestionsPage';
 import AnswerPage from '../pages/AnswerPage';
 import AskPage from '../pages/AskPage';
 import ExercisesPage from '../pages/ExercisesPage';
+import ExercisePreviewPage from '../pages/ExercisePreviewPage';
 
 const AppRouter = () => (
 	// path='/' would match https://nearhuscarl.github.io
@@ -28,6 +29,7 @@ const AppRouter = () => (
 			<Route path='/questions/ask' component={AskPage} exact />
 			<Route path='/questions/001' component={AnswerPage} exact />
 			<Route path='/exercises' component={ExercisesPage} exact />
+			<Route path='/exercises/001' component={ExercisePreviewPage} exact />
 			<Route component={NotFoundPage} />
 		</Switch>
 		<Footer />

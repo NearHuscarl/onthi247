@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { exerciseProps } from '../utilities/proptypes';
 import styled, { appColors, theme } from '../styles';
 import { H3 } from './Headings';
@@ -39,14 +40,16 @@ export default function ExerciseListSideBar({ className, title, exercises }) {
 			<SizedBox height={1} />
 			<List>
 				{exercises.map(({ id, publishDate, title: t, image }, index) => (
-					<>
-						<ListItem key={id}>
+					<React.Fragment key={id}>
+						<ListItem>
 							<Image src={image} alt='exercise preview' />
-							<Title>{t}</Title>
+							<Link to='/exercises/001'>
+								<Title>{t}</Title>
+							</Link>
 							<Small>{publishDate}</Small>
 						</ListItem>
-						{index !== exercises.length - 1 && <SizedBox height={.5} />}
-					</>
+						{index !== exercises.length - 1 && <SizedBox height={0.5} />}
+					</React.Fragment>
 				))}
 			</List>
 		</div>

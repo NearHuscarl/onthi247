@@ -33,4 +33,15 @@ function transparentize(color, value) {
 	return tnColor.toString();
 }
 
-export { lighten, darken, transparentize };
+/**
+ *
+ * @param {*} color color to modify
+ * @param {*} amount alpha value from 0 to 1
+ */
+function opacity(color, value) {
+	const tnColor = Tinycolor(color);
+	tnColor.setAlpha(value);
+	return tnColor.toString();
+}
+
+export { lighten, darken, transparentize, opacity };

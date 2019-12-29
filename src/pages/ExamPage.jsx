@@ -32,7 +32,7 @@ const ExamPage = ({
 	monthlyStanding,
 	weeklyStanding,
 }) => (
-	<main className='exams'>
+	<main>
 		<Filters
 			title='Danh sách bài tập'
 			subTitle='Có tất cả 300 bài tập trong danh sách'

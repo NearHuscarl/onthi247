@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
-import Line from './Line';
+import { Line } from './Common';
 import { ButtonText } from './Buttons';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
