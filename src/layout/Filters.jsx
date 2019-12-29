@@ -80,8 +80,8 @@ const sortOptions = [
 ];
 
 export default function Filters({ title, subTitle }) {
-	const [filter, setFilter] = useState(null);
-	const [sort, setSort] = useState(null);
+	const [filter, setFilter] = useState('');
+	const [sort, setSort] = useState('');
 
 	return (
 		<FilterBackground>
@@ -94,13 +94,13 @@ export default function Filters({ title, subTitle }) {
 					<FilterOption
 						value={filter}
 						placeholder='Bộ lọc'
-						onChange={(selectedValue) => setFilter(() => selectedValue)}
+						onChange={(value) => setFilter(() => value)}
 						options={filterOptions}
 					/>
 					<FilterSort
 						value={sort}
 						placeholder='Sắp xếp theo'
-						onChange={(selectedValue) => setSort(() => selectedValue)}
+						onChange={(value) => setSort(() => value)}
 						options={sortOptions}
 					/>
 				</FilterGroup>

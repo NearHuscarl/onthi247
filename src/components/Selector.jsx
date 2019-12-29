@@ -60,7 +60,7 @@ Selector.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	value: PropTypes.any.isRequired,
 	onChange: PropTypes.func.isRequired,
-	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	options: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Selector.defaultProps = {
