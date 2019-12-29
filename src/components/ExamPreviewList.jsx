@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
-import { Line } from './Common';
+import { Line, Bold } from './Common';
 import { ButtonText } from './Buttons';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
@@ -38,9 +38,6 @@ const ListItem = styled.article`
 		}
 	}
 `;
-const Info = styled.div`
-	font-weight: 600;
-`;
 const Description = styled.div`
 	font-size: 1.2rem;
 `;
@@ -63,9 +60,9 @@ export default function ExamPreviewList({ exams }) {
 						<Link to={`/exams/${e.id}/preview`}>
 							<H4>{e.title}</H4>
 						</Link>
-						<Info>
+						<Bold>
 							{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
-						</Info>
+						</Bold>
 						<Description>{e.description}</Description>
 						<Stats>
 							{`Phát hành: ${

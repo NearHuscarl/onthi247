@@ -31,6 +31,21 @@ const exerciseProps = PropTypes.shape({
 	tags: PropTypes.arrayOf(PropTypes.string),
 });
 
+const courseProps = PropTypes.shape({
+	id: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	teacher: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	rating: PropTypes.number.isRequired,
+	ratingCount: PropTypes.number.isRequired,
+	price: PropTypes.number.isRequired,
+	publishDate: PropTypes.string.isRequired,
+	students: PropTypes.number.isRequired,
+	tags: PropTypes.arrayOf(PropTypes.string),
+});
+
 const answerProps = PropTypes.shape({
 	text: PropTypes.string.isRequired,
 	percentage: PropTypes.number.isRequired,
@@ -86,4 +101,5 @@ export {
 	userProps,
 	questionProps,
 	exerciseProps,
+	courseProps,
 };

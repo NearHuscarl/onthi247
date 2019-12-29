@@ -13,6 +13,7 @@ import AnswerPage from './pages/AnswerPage';
 import AskPage from './pages/AskPage';
 import ExercisesPage from './pages/ExercisesPage';
 import ExercisePreviewPage from './pages/ExercisePreviewPage';
+import CoursesPage from './pages/CoursesPage';
 
 const AppRouter = () => (
 	// path='/' would match https://nearhuscarl.github.io
@@ -20,7 +21,8 @@ const AppRouter = () => (
 	<BrowserRouter basename={`/${constants.repoName}/`}>
 		<Route path='/' component={Header} />
 		<Switch>
-			<Route path='/' component={ExamPage} exact />
+			<Route path='/' component={CoursesPage} exact />
+			<Route path='/courses' component={CoursesPage} exact />
 			<Route path='/exams' component={ExamPage} exact />
 			<Route path='/exams/:id/preview' component={ExamPreviewPage} exact />
 			<Route path='/exams/:id/questions' component={ExamQuestionsPage} exact />

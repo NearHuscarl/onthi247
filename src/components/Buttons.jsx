@@ -158,7 +158,7 @@ export const YellowButton = styled(Button)`
 
 export const OpaqueButton = styled(Button)`
 	border-color: transparent;
-	background-color: ${mixins.opacity(appColors.primaryDark, 0.5)};
+	background-color: ${mixins.opacity(appColors.primaryLight, 0.5)};
 	color: ${appColors.greyDark2};
 `;
 

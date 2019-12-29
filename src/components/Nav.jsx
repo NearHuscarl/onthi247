@@ -151,7 +151,7 @@ export default function Nav() {
 					</StyledNavItem>
 					<StyledNavItem
 						name='Khóa học'
-						route='/'
+						route='/courses'
 						primary
 						setSelectedItem={setSelectedItem}
 					/>

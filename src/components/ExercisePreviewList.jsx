@@ -45,9 +45,6 @@ const ListItem = styled.article`
 		}
 	}
 `;
-const Info = styled.div`
-	font-weight: 600;
-`;
 const Description = styled.div`
 	font-size: 1.3rem;
 `;
@@ -70,7 +67,7 @@ export default function ExercisePreviewList({ exercises }) {
 						<Link to='/exercises/001'>
 							<H4>{e.title}</H4>
 						</Link>
-						<Info>{`Môn ${e.subject}`}</Info>
+						<Bold>{`Môn ${e.subject}`}</Bold>
 						<Description>{e.description}</Description>
 						<Stats>
 							<span>Phát hành: </span>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import LogoImage from '../../public/images/logo.png';
 import { H1, H2 } from './Headings';
 import styled from '../styles';
@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
 
 export default function Logo({ small, className }) {
 	return (
-		<StyledLink to='/' className={className} small={small}>
+		<StyledLink to='/' className={className} small={small ? 1 : 0}>
 			<img src={LogoImage} alt='logo' />
 			{small ? (
 				<H2>
