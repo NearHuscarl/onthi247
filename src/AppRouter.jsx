@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NotFoundPage from '../pages/NotFoundPage';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-import ExamResultPage from '../pages/ExamResultPage';
-import ExamPage from '../pages/ExamPage';
-import constants from '../constants';
-import ExamPreviewPage from '../pages/ExamPreviewPage';
-import ExamQuestionsPage from '../pages/ExamQuestionsPage';
-import QuestionsPage from '../pages/QuestionsPage';
-import AnswerPage from '../pages/AnswerPage';
-import AskPage from '../pages/AskPage';
-import ExercisesPage from '../pages/ExercisesPage';
-import ExercisePreviewPage from '../pages/ExercisePreviewPage';
+import NotFoundPage from './pages/NotFoundPage';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import ExamResultPage from './pages/ExamResultPage';
+import ExamPage from './pages/ExamPage';
+import constants from './constants';
+import ExamPreviewPage from './pages/ExamPreviewPage';
+import ExamQuestionsPage from './pages/ExamQuestionsPage';
+import QuestionsPage from './pages/QuestionsPage';
+import AnswerPage from './pages/AnswerPage';
+import AskPage from './pages/AskPage';
+import ExercisesPage from './pages/ExercisesPage';
+import ExercisePreviewPage from './pages/ExercisePreviewPage';
 
 const AppRouter = () => (
 	// path='/' would match https://nearhuscarl.github.io
