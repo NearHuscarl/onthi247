@@ -183,7 +183,7 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 							</Bottom>
 						</Main>
 					</FlexContainer>
-					<SizedBox height={4} />
+					<SizedBox height={3} />
 					<FilterGroup>
 						<H3>2 câu trả lời</H3>
 						<AnswerFilter
@@ -215,7 +215,7 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 									</Bottom>
 									{a.comments.length > 0 && (
 										<>
-											<SizedBox height={2} />
+											<SizedBox height={1} />
 											<Line />
 										</>
 									)}
@@ -234,7 +234,7 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 									<CommentButton>Thêm bình luận mới</CommentButton>
 								</Main>
 							</FlexContainer>
-							{index !== answers.length - 1 && <Line medium />}
+							{index !== answers.length - 1 && <Line small />}
 						</>
 					))}
 					<SizedBox height={4} />
@@ -265,7 +265,6 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 					<Ads />
 				</ColumnRight>
 			</Content>
-			<Pagination />
 		</ContentContainer>
 	);
 }
