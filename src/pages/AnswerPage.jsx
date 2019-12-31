@@ -27,7 +27,7 @@ const FlexContainer = styled.div`
 const Content = styled.div`
 	display: flex;
 	margin-top: 2.7rem;
-	margin-bottom: 4.4rem;
+	margin-bottom: 7rem;
 `;
 
 const Header = styled.div`

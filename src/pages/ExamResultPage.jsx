@@ -7,7 +7,7 @@ import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
-import { Line } from '../components/Common';
+import { Line, SizedBox } from '../components/Common';
 import { H2, H3, H4 } from '../components/Headings';
 import { WhiteButton } from '../components/Buttons';
 import { examProps } from '../utilities/proptypes';
@@ -146,6 +146,7 @@ const ExamResultPage = ({
 				<div className='mb-md' />
 				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
 			</Recommend>
+			<SizedBox height={7} />
 		</ContentContainer>
 	);
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SizedBox } from '../components/Common';
 import VideoPlayImage from '../../public/images/video-play-icon.jpg';
 import ThumbnailImage from '../../public/images/video-thumbnail.jpg';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
@@ -46,7 +45,7 @@ const StyledTabs = styled(Tabs)`
 	}
 `;
 
-const ExercisesPage = () => {
+const CourseDetailPage = () => {
 	return (
 		<>
 			<CourseHeader title={courseDetail.title} />
@@ -85,4 +84,4 @@ const ExercisesPage = () => {
 	);
 };
 
-export default ExercisesPage;
+export default CourseDetailPage;

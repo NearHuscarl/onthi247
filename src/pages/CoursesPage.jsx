@@ -6,6 +6,10 @@ import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
 import courses from '../data/courses';
 
+const Main = styled.main`
+	margin-bottom: 7rem;
+`;
+
 const Content = styled.div`
 	display: flex;
 	margin-top: 3.6rem;
@@ -13,7 +17,7 @@ const Content = styled.div`
 `;
 
 const CoursesPage = () => (
-	<main>
+	<Main>
 		<Filters
 			title='Danh sách khóa học'
 			subTitle='Có tất cả 300 bài tập trong danh sách'
@@ -24,7 +28,7 @@ const CoursesPage = () => (
 			</Content>
 			<Pagination />
 		</ContentContainer>
-	</main>
+	</Main>
 );
 
 export default CoursesPage;

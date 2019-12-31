@@ -14,12 +14,14 @@ import { H3 } from '../components/Headings';
 import { questionProps } from '../utilities/proptypes';
 import styled, { helperStyles } from '../styles';
 
-const QuestionPage = styled.main``;
+const QuestionPage = styled.main`
+	margin-bottom: 7rem;
+`;
 
 export const Content = styled.div`
 	display: flex;
 	margin-top: 2.7rem;
-	margin-bottom: 4.4rem;
+	margin-bottom: 7rem;
 `;
 
 export const ColumnLeft = styled.div`

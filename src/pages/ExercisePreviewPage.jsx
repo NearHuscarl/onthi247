@@ -17,7 +17,7 @@ import CommentSection from '../components/CommentSection';
 const Content = styled.div`
 	display: flex;
 	margin-top: 3.6rem;
-	margin-bottom: 4.1rem;
+	margin-bottom: 7rem;
 `;
 const ColLeft = styled.div`
 	width: 64.7rem;

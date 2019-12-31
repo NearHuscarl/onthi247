@@ -48,6 +48,7 @@ const ExercisesPage = () => (
 				</ColRight>
 			</Content>
 			<Pagination />
+			<SizedBox height={7} />
 		</ContentContainer>
 	</main>
 );

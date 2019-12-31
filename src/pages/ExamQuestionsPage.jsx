@@ -7,7 +7,7 @@ import Pagination from '../components/Pagination';
 import QuestionCard from '../components/QuestionCard';
 import QuestionFlagCard from '../components/QuestionFlagCard';
 import QuestionProgress from '../components/QuestionProgress';
-import { Line } from '../components/Common';
+import { SizedBox, Line } from '../components/Common';
 import { H2 } from '../components/Headings';
 import { examProps } from '../utilities/proptypes';
 import { setExamQuestions } from '../actions/examQuestions';
@@ -84,6 +84,7 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 				</ColumnRight>
 			</Content>
 			<Pagination className='mt-lg' />
+			<SizedBox height={7} />
 		</ContentContainer>
 	);
 }

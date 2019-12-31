@@ -14,7 +14,6 @@ import styled, { appColors, theme, mixins } from '../styles';
 
 const FooterTop = styled.div`
 	margin: 0 auto;
-	margin-top: 7.3rem;
 	padding: 4.8rem calc(((100vw - ${theme.pageContainerWidth}) / 2));
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));

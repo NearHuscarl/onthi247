@@ -20,6 +20,8 @@ const Content = styled.div`
 	.tabs {
 		margin-top: 2rem;
 	}
+
+	margin-bottom: 7rem;
 `;
 const ColumnLeft = styled.div`
 	margin-right: 4.5rem;

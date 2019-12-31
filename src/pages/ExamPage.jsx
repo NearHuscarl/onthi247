@@ -12,6 +12,9 @@ import { examProps, rankProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
 
+const Main = styled.main`
+	margin-bottom: 7rem;
+`;
 const Content = styled.div`
 	display: flex;
 	margin-top: 3.6rem;
@@ -32,7 +35,7 @@ const ExamPage = ({
 	monthlyStanding,
 	weeklyStanding,
 }) => (
-	<main>
+	<Main>
 		<Filters
 			title='Danh sách bài tập'
 			subTitle='Có tất cả 300 bài tập trong danh sách'
@@ -62,7 +65,7 @@ const ExamPage = ({
 				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
 			</Recommend>
 		</ContentContainer>
-	</main>
+	</Main>
 );
 
 ExamPage.propTypes = {

@@ -1,9 +1,10 @@
 import GiaoVien from '../../public/images/giao-vien.png';
+import BiologyTeacher from '../../public/images/teacher-biology.jpg';
 
 const biologyTeacher = {
 	name: 'Thịnh Văn Nam',
 	role: 'Giáo viên phụ trách môn Sinh học tại OnThi247',
-	image: GiaoVien,
+	image: BiologyTeacher,
 	bio: [
 		'[6] năm kinh nghiệm',
 		'[5/5] sao đánh giá',
