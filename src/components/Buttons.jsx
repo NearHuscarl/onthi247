@@ -4,6 +4,7 @@ import {
 	faFacebookF,
 	faYoutube,
 	faTwitter,
+	faGoogle,
 } from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,29 +20,35 @@ const MediaButton = styled.button`
 
 	&:hover {
 		background-color: ${appColors.white};
-		box-shadow: ${theme.shadowDark};
 		${mixins.applyScale('transform: scale(1.048) rotate(360deg);')}
 	}
 `;
 
-export const FacebookButtonContainer = styled(MediaButton)`
+const FacebookButtonContainer = styled(MediaButton)`
 	background-color: #4267b2;
 	&:hover {
 		color: #4267b2;
 	}
 `;
 
-export const YoutubeButtonContainer = styled(MediaButton)`
+const YoutubeButtonContainer = styled(MediaButton)`
 	background-color: #ff0000;
 	&:hover {
 		color: #ff0000;
 	}
 `;
 
-export const TwitterButtonContainer = styled(MediaButton)`
+const TwitterButtonContainer = styled(MediaButton)`
 	background-color: #1da1f2;
 	&:hover {
 		color: #1da1f2;
+	}
+`;
+
+const GoogleButtonContainer = styled(MediaButton)`
+	background-color: #ea4848;
+	&:hover {
+		color: #ea4848;
 	}
 `;
 
@@ -66,6 +73,14 @@ export function TwitterButton() {
 		<TwitterButtonContainer type='button'>
 			<FontAwesomeIcon icon={faTwitter} />
 		</TwitterButtonContainer>
+	);
+}
+
+export function GoogleButton() {
+	return (
+		<GoogleButtonContainer type='button'>
+			<FontAwesomeIcon icon={faGoogle} />
+		</GoogleButtonContainer>
 	);
 }
 
@@ -234,6 +249,11 @@ export const ButtonLink = styled.button`
 `;
 
 export const ButtonText = styled.button`
+	/* button fontawesome icon */
+	& > [class*='fa-']:not(:last-child) {
+		margin-right: 0.5rem;
+	}
+
 	border: none;
 	background-color: transparent;
 	color: inherit;

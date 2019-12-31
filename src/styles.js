@@ -26,8 +26,9 @@ export const appColors = {
 	greyDark1: '#999',
 	greyDark2: '#777',
 	greyDark3: '#585858',
+	darkBlue: '#29303b',
 	white: '#fff',
-	black: '#00',
+	black: '#000',
 };
 
 export const mixins = {
@@ -107,7 +108,7 @@ export const theme = {
 	cardPadding: '1.25rem 1.5rem',
 	pageContainerWidth: '99rem',
 	primaryFont: '"Open Sans", sans-serif',
-	displayFont: '"Noto Sans", sans-serif',
+	displayFont: '"Roboto", sans-serif',
 };
 
 export default styled;

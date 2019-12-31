@@ -8,7 +8,7 @@ import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import { Line } from '../components/Common';
-import { H2 } from '../components/Headings';
+import { H2, H4 } from '../components/Headings';
 import { ExamStanding, ExamRank } from '../components/Standing';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { helperStyles } from '../styles';
@@ -32,7 +32,7 @@ const ColumnRight = styled.div`
 		${helperStyles.marginBottomMedium}
 	}
 `;
-const SubHeader = styled.h4`
+const SubHeader = styled(H4)`
 	flex: 0 0 100%;
 	margin-top: 1.6rem;
 `;
@@ -51,14 +51,13 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 			<Content>
 				<ColumnLeft>
 					<ExamPreviewSection exam={exam} />
-					<SubHeader className='h4'>Giới thiệu chung</SubHeader>
+					<SubHeader>Giới thiệu chung</SubHeader>
 					<div>{exam.description}</div>{' '}
 					<Tabs className='tabs'>
 						<TabList>
 							<Tab>Bảng xếp hạng</Tab>
 							<Tab>Lịch sử làm bài</Tab>
 						</TabList>
-
 						<TabPanel>
 							{standing.slice(0, 2).map((u, index) => (
 								<React.Fragment key={u.name}>

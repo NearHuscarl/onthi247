@@ -65,7 +65,7 @@ export default function CoursePreviewList({ courses }) {
 				<React.Fragment key={c.id}>
 					<ListItem>
 						<img src={c.image} alt='course preview' />
-						<Link to='/'>
+						<Link to='/course/001'>
 							<H4>{c.title}</H4>
 						</Link>
 						<Bold>{`Môn ${c.subject}`}</Bold>

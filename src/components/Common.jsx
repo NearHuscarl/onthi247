@@ -1,6 +1,8 @@
+import MaterialCheckbox from '@material-ui/core/Checkbox';
 import styled, { appColors } from '../styles';
 
-const SizedBox = styled.div`
+const SizedBox = styled.span`
+	display: inline-block;
 	height: ${(props) => props.height || '0'}rem;
 	width: ${(props) => props.width || '0'}rem;
 `;
@@ -22,4 +24,10 @@ const Line = styled.div`
 	}};
 `;
 
-export { Bold, SizedBox, Line };
+const Checkbox = styled(MaterialCheckbox)`
+	&.Mui-checked {
+		color: ${appColors.blue} !important;
+	}
+`;
+
+export { Bold, SizedBox, Line, Checkbox };
