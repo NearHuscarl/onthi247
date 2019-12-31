@@ -46,6 +46,18 @@ const courseProps = PropTypes.shape({
 	tags: PropTypes.arrayOf(PropTypes.string),
 });
 
+const courseSummary = PropTypes.arrayOf(
+	PropTypes.shape({
+		title: PropTypes.string.isRequired,
+		length: PropTypes.string.isRequired,
+		videos: PropTypes.arrayOf(
+			PropTypes.shape({
+				title: PropTypes.string.isRequired,
+				length: PropTypes.string.isRequired,
+			}),
+		),
+	}),
+);
 const courseDetailProps = PropTypes.shape({
 	id: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
@@ -60,7 +72,7 @@ const courseDetailProps = PropTypes.shape({
 	students: PropTypes.number.isRequired,
 	tags: PropTypes.arrayOf(PropTypes.string),
 
-	summary: PropTypes.string.isRequired,
+	summary: courseSummary.isRequired,
 	features: PropTypes.arrayOf(PropTypes.string),
 	requirements: PropTypes.arrayOf(PropTypes.string),
 	courseDescription: PropTypes.string.isRequired,
@@ -131,5 +143,6 @@ export {
 	exerciseProps,
 	courseProps,
 	courseDetailProps,
+	courseSummary,
 	teacherProps,
 };

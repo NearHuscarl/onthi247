@@ -12,6 +12,7 @@ import { ButtonText } from './Buttons';
 import { Checkbox } from './Common';
 import { H4 } from './Headings';
 import styled, { appColors } from '../styles';
+import { courseSummary } from '../utilities/proptypes';
 
 const ListItemContent = styled.div`
 	border: 1px solid ${appColors.greyLight3};
@@ -88,18 +89,21 @@ const Length = styled.span`
 function getFoldedContentComponent(content) {
 	return (
 		<ul>
-			{content.map((c) => (
-				<FoldedContent>
-					<Title>
-						<Checkbox />
-						{c.title}
-					</Title>
-					<Length>
-						<FontAwesomeIcon icon={faPlayCircle} />
-						<span>{c.length}</span>
-					</Length>
-				</FoldedContent>
-			))}
+			{content.map((c, i) => {
+				const key = i;
+				return (
+					<FoldedContent key={key}>
+						<Title>
+							<Checkbox />
+							{c.title}
+						</Title>
+						<Length>
+							<FontAwesomeIcon icon={faPlayCircle} />
+							<span>{c.length}</span>
+						</Length>
+					</FoldedContent>
+				);
+			})}
 		</ul>
 	);
 }
@@ -132,18 +136,26 @@ export default function CourseProgressList({ courseProgress }) {
 				<FontAwesomeIcon icon={faTimes} />
 			</ListHeader>
 			<List>
-				{courseProgress.map((c, i) => (
-					<FoldableListItem
-						startOpen={i === 0}
-						foldedContent={getFoldedContentComponent(c.videos)}
-					>
-						<H4>{c.title}</H4>
-						<Stats>
-							<span>{`0/${c.videos.length} | ${c.length}`}</span>
-						</Stats>
-					</FoldableListItem>
-				))}
+				{courseProgress.map((c, i) => {
+					const key = i + 1;
+					return (
+						<FoldableListItem
+							key={key}
+							startOpen={i === 0}
+							foldedContent={getFoldedContentComponent(c.videos)}
+						>
+							<H4>{c.title}</H4>
+							<Stats>
+								<span>{`0/${c.videos.length} | ${c.length}`}</span>
+							</Stats>
+						</FoldableListItem>
+					);
+				})}
 			</List>
 		</Container>
 	);
 }
+
+CourseProgressList.propTypes = {
+	courseProgress: courseSummary.isRequired,
+};

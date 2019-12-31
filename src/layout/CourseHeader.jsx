@@ -5,12 +5,11 @@ import {
 	faChevronLeft,
 	faStar,
 	faTrophy,
-	faEllipsisH,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { ButtonText } from '../components/Buttons';
-import { SizedBox } from '../components/Common';
+import { SizedBox, EllipsisButton } from '../components/Common';
 import styled, { appColors } from '../styles';
 
 const Header = styled.header`
@@ -66,10 +65,7 @@ export default function CourseHeader({ title }) {
 	const history = useHistory();
 	return (
 		<Header>
-			<ButtonText
-				type='button'
-				onClick={() => history.push(`/courses`)}
-			>
+			<ButtonText type='button' onClick={() => history.push(`/courses`)}>
 				<FontAwesomeIcon icon={faChevronLeft} size='lg' />
 			</ButtonText>
 			<SizedBox width={0.75} />
@@ -99,9 +95,7 @@ export default function CourseHeader({ title }) {
 				<span>Tiến độ xem bài giảng</span>
 			</ButtonText>
 			<SizedBox width={1} />
-			<ButtonText type='button'>
-				<FontAwesomeIcon icon={faEllipsisH} />
-			</ButtonText>
+			<EllipsisButton />
 		</Header>
 	);
 }

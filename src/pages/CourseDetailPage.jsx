@@ -7,6 +7,9 @@ import CourseHeader from '../layout/CourseHeader';
 import CourseProgressList from '../components/CourseProgressList';
 import { courseDetail } from '../data/courses';
 import CourseDetailPageSummary from './CourseDetailPage_Summary';
+import CourseDetailPageComment from './CourseDetailPage_Comment';
+import CourseDetailPageAnnouncement from './CourseDetailPage_Announcement';
+import CourseDetailPageFlag from './CourseDetailPage_Flag';
 
 const Content = styled.main`
 	display: flex;
@@ -66,13 +69,13 @@ const CourseDetailPage = () => {
 							<CourseDetailPageSummary course={courseDetail} />
 						</TabPanel>
 						<TabPanel>
-							<div>The entire history of u</div>
+							<CourseDetailPageComment />
 						</TabPanel>
 						<TabPanel>
-							<div>The entire history of u</div>
+							<CourseDetailPageFlag />
 						</TabPanel>
 						<TabPanel>
-							<div>The entire history of u</div>
+							<CourseDetailPageAnnouncement />
 						</TabPanel>
 					</StyledTabs>
 				</ColLeft>

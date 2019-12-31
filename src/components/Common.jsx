@@ -1,17 +1,60 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import MaterialCheckbox from '@material-ui/core/Checkbox';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ButtonText } from './Buttons';
 import styled, { appColors } from '../styles';
 
-const SizedBox = styled.span`
-	display: inline-block;
+const SizedBoxContainer = styled.div`
+	display: ${(props) => props.display || 'block'};
 	height: ${(props) => props.height || '0'}rem;
 	width: ${(props) => props.width || '0'}rem;
 `;
 
-const Bold = styled.div`
+export function SizedBox({ className, width, height }) {
+	if (width !== 0 && height === 0) {
+		return (
+			<SizedBoxContainer
+				display='inline'
+				width={width}
+				height={height}
+				className={className}
+			/>
+		);
+	}
+	if (width !== 0 && height !== 0) {
+		return (
+			<SizedBoxContainer
+				width={width}
+				height={height}
+				display='inline-block'
+				className={className}
+			/>
+		);
+	}
+	return (
+		<SizedBoxContainer width={width} height={height} className={className} />
+	);
+}
+
+SizedBox.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	className: PropTypes.string,
+};
+
+SizedBox.defaultProps = {
+	width: 0,
+	height: 0,
+	className: '',
+};
+
+export const Bold = styled.div`
 	font-weight: 600;
 `;
 
-const Line = styled.div`
+export const Line = styled.div`
 	display: block;
 	background-color: ${(props) =>
 		props.dark ? appColors.greyLight3 : appColors.greyLight2};
@@ -24,10 +67,16 @@ const Line = styled.div`
 	}};
 `;
 
-const Checkbox = styled(MaterialCheckbox)`
+export const Checkbox = styled(MaterialCheckbox)`
 	&.Mui-checked {
 		color: ${appColors.blue} !important;
 	}
 `;
 
-export { Bold, SizedBox, Line, Checkbox };
+export function EllipsisButton() {
+	return (
+		<ButtonText type='button'>
+			<FontAwesomeIcon icon={faEllipsisH} />
+		</ButtonText>
+	);
+}

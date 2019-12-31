@@ -50,6 +50,16 @@ const Paragraph = styled.div`
 	line-height: 1.7;
 `;
 
+function getBioListItem(bioItem) {
+	return bioItem.split(/(\[.*\])/).map((p, i) => {
+		const key = i;
+		if (p.startsWith('[')) {
+			return <Bold key={key} as='span'>{p.replace(/[[\]]/g, '')}</Bold>;
+		}
+		return <span key={key}>{p}</span>;
+	});
+}
+
 export default function TeacherDetail({ teacher }) {
 	return (
 		<>
@@ -58,20 +68,12 @@ export default function TeacherDetail({ teacher }) {
 				<ColLeft>
 					<Avatar src={teacher.image} alt='teacher' />
 					<ul>
-						{teacher.bio.map((b) => (
-							<BioListItem>
-								{b.split(/(\[.*\])/).map((p) => {
-									if (p.startsWith('[')) {
-										return (
-											<Bold as='span'>
-												{p.replace(/[[\]]/g, '')}
-											</Bold>
-										);
-									}
-									return <span>{p}</span>;
-								})}
-							</BioListItem>
-						))}
+						{teacher.bio.map((b, i) => {
+							const key = i;
+							return (
+								<BioListItem key={key}>{getBioListItem(b)}</BioListItem>
+							);
+						})}
 					</ul>
 				</ColLeft>
 				<ColRight>
@@ -95,5 +97,5 @@ export default function TeacherDetail({ teacher }) {
 }
 
 TeacherDetail.propTypes = {
-	teacher: PropTypes.arrayOf(teacherProps).isRequired,
+	teacher: teacherProps.isRequired,
 };

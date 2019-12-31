@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tag, { TagGroup } from './Tag';
-import { Line } from './Common';
+import { Line, EllipsisButton } from './Common';
 import QaProfile from './QaProfile';
 import { H3 } from './Headings';
-import { ButtonText } from './Buttons';
 import { questionProps } from '../utilities/proptypes';
 import styled, { appColors, helperStyles, mixins } from '../styles';
 
@@ -97,9 +94,7 @@ function QuestionPreviewListItem({ question }) {
 				</Bottom>
 			</div>
 			<More>
-				<ButtonText type='button'>
-					<FontAwesomeIcon icon={faEllipsisH} />
-				</ButtonText>
+				<EllipsisButton />
 			</More>
 		</ListItem>
 	);

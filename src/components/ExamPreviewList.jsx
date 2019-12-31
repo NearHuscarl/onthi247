@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { examProps } from '../utilities/proptypes';
-import { Line, Bold } from './Common';
-import { ButtonText } from './Buttons';
+import { Line, Bold, EllipsisButton } from './Common';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
 
@@ -70,9 +67,7 @@ export default function ExamPreviewList({ exams }) {
 							} - Lượt xem: ${e.views.toLocaleString()} - Lượt làm bài: ${e.attempts.toLocaleString()}`}
 						</Stats>
 						<More>
-							<ButtonText type='button'>
-								<FontAwesomeIcon icon={faEllipsisH} />
-							</ButtonText>
+							<EllipsisButton />
 						</More>
 					</ListItem>
 					{index !== exams.length - 1 ? <Line /> : null}

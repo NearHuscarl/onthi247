@@ -1,8 +1,13 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styled, { theme, appColors } from '../styles';
 import Button from './Buttons';
 
+const inputHeight = '3.3rem';
 const Input = styled.input`
-	height: 3.3rem;
+	height: ${inputHeight};
 `;
 
 export const InputGroup = styled.div`
@@ -56,11 +61,38 @@ export const InputGroupFloatingButton = styled(InputGroup)`
 
 export const InputSuffixButton = styled(Button)`
 	margin-left: -1px;
+	height: ${inputHeight};
 
 	:not(:first-child) {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 `;
+
+export function SearchBar({ className, placeholder }) {
+	return (
+		<InputGroup className={className}>
+			<Input
+				type='text'
+				placeholder={placeholder}
+				aria-label='Username'
+				aria-describedby='basic-addon1'
+			/>
+			<InputSuffixButton dense type='button'>
+				<FontAwesomeIcon icon={faSearch} />
+			</InputSuffixButton>
+		</InputGroup>
+	);
+}
+
+SearchBar.propTypes = {
+	className: PropTypes.string,
+	placeholder: PropTypes.string,
+};
+
+SearchBar.defaultProps = {
+	className: '',
+	placeholder: '',
+};
 
 export default Input;

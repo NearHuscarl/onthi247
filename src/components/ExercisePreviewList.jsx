@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { exerciseProps } from '../utilities/proptypes';
 import Tag, { TagGroup } from './Tag';
-import { ButtonText } from './Buttons';
 import { H4 } from './Headings';
-import { Bold, Line } from './Common';
+import { Bold, Line, EllipsisButton } from './Common';
 import styled, { appColors, theme, mixins } from '../styles';
 
 const List = styled.section`
@@ -83,9 +80,7 @@ export default function ExercisePreviewList({ exercises }) {
 							))}
 						</TagGroup>
 						<More>
-							<ButtonText type='button'>
-								<FontAwesomeIcon icon={faEllipsisH} />
-							</ButtonText>
+							<EllipsisButton />
 						</More>
 					</ListItem>
 					{index !== exercises.length - 1 ? <Line /> : null}

@@ -81,31 +81,34 @@ export default function CourseDetailPageSummary({ course }) {
 			<Box>
 				<H2>Bạn sẽ được học những gì?</H2>
 				<Features>
-					{course.features.map((f) => (
-						<li>
+					{course.features.map((f, i) => {
+						const key = i;
+						return (<li key={key}>
 							<FontAwesomeIcon icon={faCheck} />
 							<SizedBox width={0.5} />
 							<span>{f}</span>
-						</li>
-					))}
+						</li>);
+					})}
 				</Features>
 			</Box>
 			<Requirements>
 				<H2>Yêu cầu</H2>
 				<ul>
-					{course.requirements.map((f) => (
-						<li>{f}</li>
-					))}
+					{course.requirements.map((f, i) => {
+						const key = i;
+						return (<li key={key}>{f}</li>);
+					})}
 				</ul>
 			</Requirements>
 			<div>
 				<H2>Mô tả khóa học</H2>
 				<Paragraph>
-					{course.courseDescription.split(/(\[.*\])/).map((p) => {
+					{course.courseDescription.split(/(\[.*\])/).map((p, i) => {
+						const key = i;
 						if (p.startsWith('[')) {
-							return <Bold as='span'>{p.replace(/[[\]]/g, '')}</Bold>;
+							return <Bold key={key} as='span'>{p.replace(/[[\]]/g, '')}</Bold>;
 						}
-						return <span>{p}</span>;
+						return <span key={key}>{p}</span>;
 					})}
 				</Paragraph>
 			</div>
