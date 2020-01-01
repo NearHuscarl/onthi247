@@ -1,7 +1,7 @@
 import React from 'react';
 import Filters from '../layout/Filters';
 import Pagination from '../components/Pagination';
-import CoursePreviewList from '../components/CoursePreviewList';
+import CourseList from '../components/CourseList';
 import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
 import courses from '../data/courses';
@@ -24,7 +24,7 @@ const CoursesPage = () => (
 		/>
 		<ContentContainer>
 			<Content>
-				<CoursePreviewList courses={courses} />
+				<CourseList courses={courses} />
 			</Content>
 			<Pagination />
 		</ContentContainer>

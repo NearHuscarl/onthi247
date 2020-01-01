@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { H2, H4 } from './Headings';
 import { Bold } from './Common';
 import {
@@ -15,7 +14,8 @@ const Container = styled.div`
 	display: flex;
 `;
 const ColLeft = styled.div`
-	flex: 0 0 16rem;
+	flex: 0 0 19rem;
+	padding-right: 3rem;
 `;
 const ColRight = styled.div`
 	flex: 1 0;

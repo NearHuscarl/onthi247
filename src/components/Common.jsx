@@ -13,17 +13,7 @@ const SizedBoxContainer = styled.div`
 `;
 
 export function SizedBox({ className, width, height }) {
-	if (width !== 0 && height === 0) {
-		return (
-			<SizedBoxContainer
-				display='inline'
-				width={width}
-				height={height}
-				className={className}
-			/>
-		);
-	}
-	if (width !== 0 && height !== 0) {
+	if (width !== 0) {
 		return (
 			<SizedBoxContainer
 				width={width}

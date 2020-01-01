@@ -46,8 +46,8 @@ const GlobalStyle = createGlobalStyle`
 		min-height: 100vh;
 
 		/* font */
-		font-family: ${theme.primaryFont};
-		font-size: 1.3rem;
+		font-family: ${theme.displayFont};
+		font-size: 1.4rem;
 		line-height: 1.5;
 	}
 

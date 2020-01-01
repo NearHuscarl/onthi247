@@ -14,7 +14,10 @@ import AskPage from './pages/AskPage';
 import ExercisesPage from './pages/ExercisesPage';
 import ExercisePreviewPage from './pages/ExercisePreviewPage';
 import CoursesPage from './pages/CoursesPage';
+import CoursePreviewPage from './pages/CoursePreviewPage';
 import CourseDetailPage from './pages/CourseDetailPage';
+
+const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
 const AppRouter = () => (
 	// path='/' would match https://nearhuscarl.github.io
@@ -23,12 +26,18 @@ const AppRouter = () => (
 		{/* https://stackoverflow.com/a/46824062/9449426 */}
 		<Route
 			render={({ location }) => {
-				return !location.pathname.startsWith('/course/') && <Header />;
+				const path = location.pathname;
+				return !isCourseDetail(path) && <Header />;
 			}}
 		/>
 		<Switch>
 			<Route path='/' component={CoursesPage} exact />
 			<Route path='/courses' component={CoursesPage} exact />
+			<Route
+				path='/course/001/preview'
+				component={CoursePreviewPage}
+				exact
+			/>
 			<Route path='/course/001' component={CourseDetailPage} exact />
 			<Route path='/exams' component={ExamPage} exact />
 			<Route path='/exams/:id/preview' component={ExamPreviewPage} exact />

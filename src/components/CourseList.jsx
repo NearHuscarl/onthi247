@@ -22,10 +22,6 @@ const ListItem = styled.article`
 
 	position: relative;
 
-	h4 {
-		margin-bottom: 0;
-	}
-
 	img {
 		width: 18.9rem;
 		border-radius: ${theme.borderRound};
@@ -33,6 +29,7 @@ const ListItem = styled.article`
 	}
 
 	h4 {
+		margin-bottom: 0;
 		transition: color 0.15s;
 		color: ${appColors.blue};
 
@@ -58,14 +55,15 @@ const Price = styled(Bold)`
 	margin-right: 1rem;
 `;
 
-export default function CoursePreviewList({ courses }) {
+export default function CourseList({ courses }) {
 	return (
 		<List>
-			{courses.map((c, index) => (
-				<React.Fragment key={c.id}>
+			{courses.map((c, index) => {
+				const key = c.id + index;
+				return (<React.Fragment key={key}>
 					<ListItem>
 						<img src={c.image} alt='course preview' />
-						<Link to='/course/001'>
+						<Link to='/course/001/preview'>
 							<H4>{c.title}</H4>
 						</Link>
 						<Bold>{`Môn ${c.subject}`}</Bold>
@@ -87,18 +85,16 @@ export default function CoursePreviewList({ courses }) {
 							<Bold as='span'>{c.students.toLocaleString()}</Bold>
 						</Stats>
 						<TagGroup>
-							{c.tags.map((t) => (
-								<Tag key={t}>{t}</Tag>
-							))}
+							{c.tags.map((t) => (<Tag key={t}>{t}</Tag>))}
 						</TagGroup>
 					</ListItem>
 					{index !== courses.length - 1 ? <Line /> : null}
-				</React.Fragment>
-			))}
+				</React.Fragment>);
+			})}
 		</List>
 	);
 }
 
-CoursePreviewList.propTypes = {
+CourseList.propTypes = {
 	courses: PropTypes.arrayOf(courseProps).isRequired,
 };

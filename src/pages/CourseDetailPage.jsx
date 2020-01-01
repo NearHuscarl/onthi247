@@ -1,15 +1,15 @@
 import React from 'react';
-import VideoPlayImage from '../../public/images/video-play-icon.jpg';
 import ThumbnailImage from '../../public/images/video-thumbnail.jpg';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
-import styled from '../styles';
 import CourseHeader from '../layout/CourseHeader';
+import VideoPlayer from '../components/VideoPlayer';
 import CourseProgressList from '../components/CourseProgressList';
-import { courseDetail } from '../data/courses';
 import CourseDetailPageSummary from './CourseDetailPage_Summary';
 import CourseDetailPageComment from './CourseDetailPage_Comment';
 import CourseDetailPageAnnouncement from './CourseDetailPage_Announcement';
 import CourseDetailPageFlag from './CourseDetailPage_Flag';
+import styled from '../styles';
+import { courseDetail } from '../data/courses';
 
 const Content = styled.main`
 	display: flex;
@@ -21,23 +21,6 @@ const ColRight = styled.div`
 	width: 35rem;
 	flex: 1 0 auto;
 	background-color: #dedfe0;
-`;
-
-const Video = styled.div`
-	position: relative;
-
-	[alt='play'] {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		height: 30%;
-	}
-
-	[alt='thumbnail'] {
-		width: 100%;
-		object-fit: cover;
-	}
 `;
 
 const StyledTabs = styled(Tabs)`
@@ -54,10 +37,7 @@ const CourseDetailPage = () => {
 			<CourseHeader title={courseDetail.title} />
 			<Content>
 				<ColLeft>
-					<Video>
-						<img src={ThumbnailImage} alt='thumbnail' />
-						<img src={VideoPlayImage} alt='play' />
-					</Video>
+					<VideoPlayer thumbnail={ThumbnailImage} />
 					<StyledTabs>
 						<TabList>
 							<Tab>Tổng quan</Tab>

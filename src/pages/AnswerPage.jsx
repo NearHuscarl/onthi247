@@ -120,7 +120,7 @@ const CommentButton = styled(QaButtonText)`
 const RichEditor = styled(RichTextEditor)`
 	.DraftEditor-root {
 		min-height: 12rem;
-		font-family: ${theme.primaryFont};
+		font-family: ${theme.displayFont};
 		font-size: 1.2rem;
 	}
 

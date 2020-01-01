@@ -33,5 +33,5 @@ export const H2 = styled(Heading2)`
 export const H3 = styled(Heading3)``;
 
 export const H4 = styled(Heading4)`
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 `;

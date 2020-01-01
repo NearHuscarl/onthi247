@@ -20,6 +20,7 @@ const navItems = {
 
 const NavBackground = styled.div`
 	background-color: ${transparentize(appColors.primaryLight, 0.5)};
+	font-family: ${theme.primaryFont};
 `;
 
 const StyledNav = styled.nav`
@@ -37,7 +38,7 @@ const StyledNav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-	padding: 0 2rem;
+	padding: 0 1.5rem;
 
 	span {
 		display: flex;

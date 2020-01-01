@@ -7,6 +7,7 @@ const Tag = styled.div`
 	color: #39739d;
 	border-radius: ${theme.borderRound};
 	font-size: 1rem;
+	font-weight: 600;
 
 	transition: background-color 0.2s;
 	cursor: pointer;
