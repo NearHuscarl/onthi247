@@ -1,6 +1,6 @@
 import React from 'react';
 import { H2, H4 } from './Headings';
-import { Bold } from './Common';
+import { Bold, FormattedText } from './Common';
 import {
 	FacebookButton,
 	TwitterButton,
@@ -50,16 +50,6 @@ const Paragraph = styled.div`
 	line-height: 1.7;
 `;
 
-function getBioListItem(bioItem) {
-	return bioItem.split(/(\[.*\])/).map((p, i) => {
-		const key = i;
-		if (p.startsWith('[')) {
-			return <Bold key={key} as='span'>{p.replace(/[[\]]/g, '')}</Bold>;
-		}
-		return <span key={key}>{p}</span>;
-	});
-}
-
 export default function TeacherDetail({ teacher }) {
 	return (
 		<>
@@ -71,7 +61,9 @@ export default function TeacherDetail({ teacher }) {
 						{teacher.bio.map((b, i) => {
 							const key = i;
 							return (
-								<BioListItem key={key}>{getBioListItem(b)}</BioListItem>
+								<BioListItem key={key}>
+									<FormattedText>{b}</FormattedText>
+								</BioListItem>
 							);
 						})}
 					</ul>

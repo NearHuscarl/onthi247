@@ -1,7 +1,7 @@
 import React from 'react';
 import { H1, H2 } from '../components/Headings';
 import StarRating from '../components/StarRating';
-import { SizedBox, Bold } from '../components/Common';
+import { SizedBox, FormattedText } from '../components/Common';
 import { courseDetailProps } from '../utilities/proptypes';
 import { biologyTeacher } from '../data/teachers';
 import TeacherDetail from '../components/TeacherDetail';
@@ -39,7 +39,7 @@ const Requirements = styled.div`
 		}
 	}
 `;
-const Paragraph = styled.div`
+const Paragraph = styled(FormattedText)`
 	white-space: pre-line;
 `;
 
@@ -74,19 +74,7 @@ export default function CourseDetailPageSummary({ course }) {
 			</Requirements>
 			<div>
 				<H2>Mô tả khóa học</H2>
-				<Paragraph>
-					{course.courseDescription.split(/(\[.*\])/).map((p, i) => {
-						const key = i;
-						if (p.startsWith('[')) {
-							return (
-								<Bold key={key} as='span'>
-									{p.replace(/[[\]]/g, '')}
-								</Bold>
-							);
-						}
-						return <span key={key}>{p}</span>;
-					})}
-				</Paragraph>
+				<Paragraph>{course.courseDescription}</Paragraph>
 			</div>
 			<TeacherDetail teacher={biologyTeacher} />
 		</Section>

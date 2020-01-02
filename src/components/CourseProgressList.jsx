@@ -1,76 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Collapsible from 'react-collapsible';
-import {
-	faChevronDown,
-	faChevronUp,
-	faPlayCircle,
-	faTimes,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ButtonText } from './Buttons';
 import { Checkbox } from './Common';
+import FoldableListItem, { ListItemVisible } from './FoldableListItem';
 import { H4 } from './Headings';
-import styled, { appColors } from '../styles';
 import { courseSummary } from '../utilities/proptypes';
+import styled, { appColors } from '../styles';
 
-const ListItemContent = styled.div`
+const Header = styled(ListItemVisible)`
 	border: 1px solid ${appColors.greyLight3};
-	border-top: none;
-	padding: 1.5rem;
-	display: flex;
+	border-bottom: none;
 `;
-const ListItemChild = styled.span`
-	margin-right: auto;
-`;
-const ListItemInner = styled.div`
-	border: 1px solid ${appColors.greyLight3};
-	border-top: none;
-`;
-
-function FoldableListItem({ children, foldedContent, startOpen }) {
-	const [isOpen, setIsOpen] = React.useState(startOpen);
-
-	return (
-		<li>
-			<Collapsible
-				transitionTime={250}
-				easing='ease'
-				open={startOpen}
-				onOpening={() => setIsOpen(true)}
-				onClosing={() => setIsOpen(false)}
-				trigger={
-					<ListItemContent>
-						<ListItemChild>{children}</ListItemChild>
-						<ButtonText type='button'>
-							{isOpen ? (
-								<FontAwesomeIcon icon={faChevronUp} />
-							) : (
-								<FontAwesomeIcon icon={faChevronDown} />
-							)}
-						</ButtonText>
-					</ListItemContent>
-				}
-			>
-				<ListItemInner>{foldedContent}</ListItemInner>
-			</Collapsible>
-		</li>
-	);
-}
-
-FoldableListItem.propTypes = {
-	children: PropTypes.node.isRequired,
-	foldedContent: PropTypes.node.isRequired,
-	startOpen: PropTypes.bool,
-};
-
-FoldableListItem.defaultProps = {
-	startOpen: false,
-};
-
 const FoldedContent = styled.li`
 	padding: 0.75rem 1.5rem;
 	padding-left: calc((1.5rem - 0.9rem));
+	transition: background-color 0.25s;
+
+	&:hover {
+		background-color: #e6f2f5;
+	}
 `;
 const Title = styled.div`
 	display: flex;
@@ -82,7 +30,20 @@ const Length = styled.span`
 		margin-right: 0.5rem;
 	}
 
+	display: block;
 	margin-left: 3rem;
+	margin-top: -0.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
+`;
+
+const Container = styled.div`
+	background-color: ${appColors.white};
+	h4 {
+		margin: 0;
+	}
+`;
+const Stats = styled.div`
 	font-size: 1.2rem;
 `;
 
@@ -95,7 +56,7 @@ function getFoldedContentComponent(content) {
 					<FoldedContent key={key}>
 						<Title>
 							<Checkbox />
-							{c.title}
+							{`${i + 1}. ${c.title}`}
 						</Title>
 						<Length>
 							<FontAwesomeIcon icon={faPlayCircle} />
@@ -108,34 +69,14 @@ function getFoldedContentComponent(content) {
 	);
 }
 
-const ListHeader = styled(ListItemContent)`
-	h4 {
-		margin: 0;
-		margin-right: auto;
-	}
-`;
-const List = styled.ul`
-	h4 {
-		margin: 0;
-		margin-right: 3rem;
-	}
-`;
-const Stats = styled.div`
-	font-size: 1.2rem;
-`;
-
-const Container = styled.div`
-	background-color: ${appColors.white};
-`;
-
 export default function CourseProgressList({ courseProgress }) {
 	return (
 		<Container>
-			<ListHeader>
+			<Header>
 				<H4>Nội dung khóa học</H4>
 				<FontAwesomeIcon icon={faTimes} />
-			</ListHeader>
-			<List>
+			</Header>
+			<ul>
 				{courseProgress.map((c, i) => {
 					const key = i + 1;
 					return (
@@ -144,14 +85,14 @@ export default function CourseProgressList({ courseProgress }) {
 							startOpen={i === 0}
 							foldedContent={getFoldedContentComponent(c.videos)}
 						>
-							<H4>{c.title}</H4>
+							<H4>{`Phần ${i + 1}: ${c.title}`}</H4>
 							<Stats>
 								<span>{`0/${c.videos.length} | ${c.length}`}</span>
 							</Stats>
 						</FoldableListItem>
 					);
 				})}
-			</List>
+			</ul>
 		</Container>
 	);
 }

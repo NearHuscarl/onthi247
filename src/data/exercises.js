@@ -53,10 +53,10 @@ Bản lĩnh tốt là vừa phục vụ được mục đích cá nhân vừa c�
 
 (Tuoitre.vn - Xây dựng bản lĩnh cá nhân)
 
-Câu 1. Xác định phương thức biểu đạt chính của đoạn trích?
-Câu 2. Theo tác giả, thế nào là người bản lĩnh?
-Câu 3. Tại sao tác giả cho rằng "Bản lĩnh tốt là vừa phục vụ được mục đích cá nhân vừa có được sự hài lòng từ những người xung quanh".
-Câu 4. Theo anh/chị, một người có bản lĩnh sống phải là người như thế nào?`,
+[Câu 1.] Xác định phương thức biểu đạt chính của đoạn trích?
+[Câu 2.] Theo tác giả, thế nào là người bản lĩnh?
+[Câu 3.] Tại sao tác giả cho rằng "Bản lĩnh tốt là vừa phục vụ được mục đích cá nhân vừa có được sự hài lòng từ những người xung quanh".
+[Câu 4.] Theo anh/chị, một người có bản lĩnh sống phải là người như thế nào?`,
 };
 
 export default exercises;

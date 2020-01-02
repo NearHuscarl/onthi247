@@ -36,9 +36,6 @@ const Header = styled.div`
 	align-items: center;
 	margin-bottom: 3rem;
 `;
-const Search = styled(SearchBar)`
-	width: 35rem;
-`;
 const FlagItem = styled.li`
 	display: flex;
 `;
@@ -56,7 +53,7 @@ export default function CourseDetailPageFlag() {
 		<div>
 			<Header>
 				<H1Small>{`Đánh dấu (${flags.length})`}</H1Small>
-				<Search placeholder='Tìm nội dung đánh dấu...' />
+				<SearchBar placeholder='Tìm nội dung đánh dấu...' width={35} />
 			</Header>
 			<ul>
 				{flags.map((f, i) => {
@@ -66,7 +63,7 @@ export default function CourseDetailPageFlag() {
 							<Bold>{f.time}</Bold>
 							<FlagBody>
 								<div>{f.date}</div>
-								<SizedBox height={.5} />
+								<SizedBox height={0.5} />
 								<div>{f.comment}</div>
 							</FlagBody>
 							<EllipsisButton />

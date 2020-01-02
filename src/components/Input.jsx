@@ -69,9 +69,13 @@ export const InputSuffixButton = styled(Button)`
 	}
 `;
 
-export function SearchBar({ className, placeholder }) {
+const SearchInputGroup = styled(InputGroup)`
+	width: ${(props) => `${props.width}rem` || 'auto'};
+`;
+
+export function SearchBar({ className, placeholder, width }) {
 	return (
-		<InputGroup className={className}>
+		<SearchInputGroup className={className} width={width}>
 			<Input
 				type='text'
 				placeholder={placeholder}
@@ -81,18 +85,20 @@ export function SearchBar({ className, placeholder }) {
 			<InputSuffixButton dense type='button'>
 				<FontAwesomeIcon icon={faSearch} />
 			</InputSuffixButton>
-		</InputGroup>
+		</SearchInputGroup>
 	);
 }
 
 SearchBar.propTypes = {
 	className: PropTypes.string,
 	placeholder: PropTypes.string,
+	width: PropTypes.number,
 };
 
 SearchBar.defaultProps = {
 	className: '',
 	placeholder: '',
+	width: null,
 };
 
 export default Input;

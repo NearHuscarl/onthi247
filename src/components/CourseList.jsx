@@ -5,8 +5,8 @@ import { courseProps } from '../utilities/proptypes';
 import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
 import { Bold, Line, SizedBox } from './Common';
-import styled, { appColors, theme, mixins } from '../styles';
 import StarRating from './StarRating';
+import styled, { appColors, theme, mixins } from '../styles';
 
 const List = styled.section`
 	& > :not(:last-child) {

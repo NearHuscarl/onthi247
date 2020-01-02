@@ -1,27 +1,36 @@
 import React from 'react';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Pagination from '../components/Pagination';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb from '../components/Breadcrumb';
 import StarRating from '../components/StarRating';
-import VideoPlayer from '../components/VideoPlayer';
-import Button, { PrimaryWhiteButton } from '../components/Buttons';
+import CourseBanner from '../components/CourseBanner';
+import { PrimaryWhiteButton } from '../components/Buttons';
 import FeatureBox from '../components/FeatureBox';
-import { Bold, SizedBox } from '../components/Common';
-import { H1, H2, H4 } from '../components/Headings';
-import styled, { appColors, theme } from '../styles';
-import { courseDetail as course } from '../data/courses';
+import CourseSummaryList from '../components/CourseSummaryList';
+import CourseList from '../components/CourseList';
+import TeacherDetail from '../components/TeacherDetail';
+import { SizedBox, FormattedText } from '../components/Common';
+import { H1, H2 } from '../components/Headings';
 import Ads from '../components/Ads';
+import { FeatureReviewCard } from '../components/ReviewCard';
+import styled, { appColors, theme } from '../styles';
+import courses, { courseDetail as course } from '../data/courses';
+import { biologyTeacher } from '../data/teachers';
+import review from '../data/courseReviews';
+import CourseReviewSection from '../components/CourseReviewSection';
 
+const colLeftWidth = 60;
+const colRightWidth = 28;
+const colGap = 3;
 const HeaderBg = styled.div`
 	background-color: ${appColors.darkBlue};
 	color: ${appColors.greyLight1};
 `;
 const MainLayout = styled(ContentContainer)`
 	display: grid;
-	grid-template-columns: minmax(min-content, 60rem) 28rem;
-	column-gap: 3rem;
+	grid-template-columns: minmax(min-content, ${colLeftWidth}rem) ${colRightWidth}rem;
+	column-gap: ${colGap}rem;
 `;
 const Header = styled(MainLayout)`
 	padding: 6rem 0;
@@ -40,12 +49,6 @@ const Stats = styled.div`
 	display: flex;
 	align-items: center;
 	margin: 1rem 0;
-`;
-const Video = styled(VideoPlayer)`
-	[alt='thumbnail'] {
-		width: 28rem;
-		height: 24rem;
-	}
 `;
 const HeaderRight = styled.div`
 	position: relative;
@@ -78,35 +81,6 @@ const HeaderRightContent = styled.div`
 		margin: 0.5rem 0;
 		font-size: 1.5rem;
 	}
-`;
-const Banner = styled.div`
-	box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1);
-	border-bottom-left-radius: ${theme.borderRound};
-	border-bottom-right-radius: ${theme.borderRound};
-
-	& > :not(:first-child) {
-		padding: 2rem 2.5rem;
-	}
-
-	.price {
-		display: flex;
-		align-items: center;
-	}
-
-	.discount {
-		font-size: 1.4rem;
-		margin-bottom: 0.5rem;
-	}
-
-	ul {
-		margin-left: 1rem;
-	}
-`;
-const Price = styled.span`
-	color: ${appColors.red};
-	margin-right: 1rem;
-	font-weight: 600;
-	font-size: 2.2rem;
 `;
 const BuyToday = styled.div`
 	display: flex;
@@ -163,41 +137,7 @@ function CoursePreviewHeader() {
 				</div>
 				<HeaderRight>
 					<HeaderRightContent>
-						<Banner>
-							<Video thumbnail={course.image} />
-							<div>
-								<div className='price'>
-									<Price>{`${course.price.toLocaleString()}đ`}</Price>
-									<strike>{`${course.originalPrice.toLocaleString()}đ`}</strike>
-								</div>
-								<div className='discount'>
-									<span>Ưu đãi còn </span>
-									<Bold as='span'>3 ngày </Bold>
-									<span>nữa</span>
-								</div>
-								<Button type='button'>Thêm vào giỏ hàng</Button>
-								<PrimaryWhiteButton type='button'>
-									Mua ngay
-								</PrimaryWhiteButton>
-								<SizedBox height={1} />
-								<div>
-									<H4>Môn học</H4>
-									<ul>
-										<li>🢒 Sinh học</li>
-									</ul>
-									<H4>Ngày hết hạn</H4>
-									<ul>
-										<li>🢒 00:00, 30-06-2020</li>
-									</ul>
-									<H4>Khóa học bao gồm</H4>
-									<ul>
-										<li>🢒 24 giờ xem bài giảng</li>
-										<li>🢒 18 bài viết</li>
-										<li>🢒 20 bài tập trắc nghiệm</li>
-									</ul>
-								</div>
-							</div>
-						</Banner>
+						<CourseBanner course={course} />
 						<PrimaryWhiteButton>Chia sẻ khóa học</PrimaryWhiteButton>
 						<BuyToday>
 							<div className='icon'>
@@ -218,12 +158,37 @@ function CoursePreviewHeader() {
 const Main = styled.main`
 	margin-bottom: 7rem;
 `;
-const Content = styled(MainLayout)`
+const TwoColumn = styled(MainLayout)`
 	margin-top: 3rem;
-	margin-bottom: 4.1rem;
+`;
+const OneColumn = styled.div`
+	margin-top: 3rem;
+	max-width: ${colLeftWidth + colGap + colRightWidth}rem;
+`;
+const ColumnLeft = styled.div`
+	& > :not(:first-child) {
+		margin-top: 3rem;
+	}
+`;
+const Section = styled.section`
+	&:not(:first-child) {
+		margin-top: 3rem;
+	}
+	& > h2 {
+		margin-bottom: 1.5rem;
+	}
+`;
+const RequirementSection = styled(Section)`
+	ul {
+		list-style: inside;
 
-	/* TODO: remove */
-	height: 120rem;
+		li:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+`;
+const Paragraph = styled(FormattedText)`
+	white-space: pre-line;
 `;
 
 const CoursePreviewPage = () => (
@@ -238,13 +203,46 @@ const CoursePreviewPage = () => (
 		<Main>
 			<CoursePreviewHeader />
 			<ContentContainer>
-				<Content>
-					<div>
+				<TwoColumn>
+					<ColumnLeft>
 						<FeatureBox features={course.features} />
-						{/* <Pagination /> */}
-					</div>
-					<div></div>
-				</Content>
+						<CourseSummaryList course={course} />
+						<RequirementSection>
+							<H2>Yêu cầu</H2>
+							<ul>
+								{course.requirements.map((f, i) => {
+									const key = i;
+									return <li key={key}>{f}</li>;
+								})}
+							</ul>
+						</RequirementSection>
+						<Section>
+							<H2>Mô tả khóa học</H2>
+							<Paragraph>{course.courseDescription}</Paragraph>
+						</Section>
+					</ColumnLeft>
+					<div />
+				</TwoColumn>
+				<OneColumn>
+					<Section>
+						<H2>Đánh giá nổi bật</H2>
+						<FeatureReviewCard review={review.reviews[0]} />
+					</Section>
+					<Section>
+						<H2>Thường được mua cùng</H2>
+						<CourseList courses={courses.slice(0, 2)} />
+					</Section>
+					<Section>
+						<TeacherDetail teacher={biologyTeacher} />
+					</Section>
+					<Section>
+						<H2>Cùng giáo viên</H2>
+						<CourseList courses={courses.slice(2, 4)} />
+					</Section>
+					<Section>
+						<CourseReviewSection review={review} />
+					</Section>
+				</OneColumn>
 			</ContentContainer>
 		</Main>
 	</>

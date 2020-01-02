@@ -30,6 +30,10 @@ export default function VideoPlayer({ className, thumbnail }) {
 }
 
 VideoPlayer.propTypes = {
-	className: PropTypes.string.isRequired,
+	className: PropTypes.string,
 	thumbnail: PropTypes.string.isRequired,
+};
+
+VideoPlayer.defaultProps = {
+	className: '',
 };

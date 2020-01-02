@@ -57,9 +57,6 @@ const Main = styled.div`
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 `;
-const Search = styled(SearchBar)`
-	width: 35rem;
-`;
 
 function Header() {
 	return (
@@ -83,7 +80,10 @@ function Header() {
 			</TopBackground>
 			<Main>
 				<Logo />
-				<Search placeholder='Nhập ID của câu hỏi cần xem đáp án và lời giải...' />
+				<SearchBar
+					placeholder='Nhập ID của câu hỏi cần xem đáp án và lời giải...'
+					width={35}
+				/>
 				<ButtonText type='button' highlight>
 					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
 					<span className='cart__text'>Các khóa học đã chọn</span>

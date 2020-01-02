@@ -113,55 +113,65 @@ const courses = [..._courses, ..._courses];
 export const courseDetail = {
 	..._courses[0],
 	lastUpdate: '10/12/2019',
+	totalVideo: 250,
+	videoLength: '24:00:00',
 	summary: [
 		{
-			title: 'Phần 1: Tổng quan về khóa học',
+			title: 'Tổng quan về khóa học',
 			length: '10:00',
 			videos: [
 				{
-					title: '1. Giới thiệu về khóa học',
+					title: 'Giới thiệu về khóa học',
+					summary: 'Giới thiệu tổng quan về nội dung của khóa học',
 					length: '06:00',
+					preview: true,
 				},
 				{
-					title: '2. Hướng dẫn tài tài liệu của khóa học',
+					title: 'Hướng dẫn tài tài liệu của khóa học',
 					length: '02:00',
+					preview: false,
 				},
 				{
-					title: '3. Hướng dẫn đăng câu hỏi thắc mắc',
+					title: 'Hướng dẫn đăng câu hỏi thắc mắc',
 					length: '02:00',
+					preview: false,
 				},
 			],
 		},
 		{
-			title: 'Phần 2: Phương pháp giải bài tập Sinh học nâng cao 12',
+			title: 'Phương pháp giải bài tập Sinh học nâng cao 12',
 			length: '08:00:00',
 			videos: range(0, 100).map((i) => ({
 				title: 'Giải bài tập sinh học ' + i,
 				length: '06:00',
+				preview: false,
 			})),
 		},
 		{
-			title: 'Phần 3: Phương pháp giải bài tập nâng cao trong đề thi',
+			title: 'Phương pháp giải bài tập nâng cao trong đề thi',
 			length: '08:00:00',
 			videos: range(0, 50).map((i) => ({
 				title: 'Giải bài tập sinh học ' + i,
 				length: '06:00',
+				preview: false,
 			})),
 		},
 		{
-			title: 'Phần 4: Phương pháp giải nhanh với máy tính casio',
+			title: 'Phương pháp giải nhanh với máy tính casio',
 			length: '04:00:00',
 			videos: range(0, 50).map((i) => ({
 				title: 'Giải bài tập sinh học ' + i,
 				length: '06:00',
+				preview: false,
 			})),
 		},
 		{
-			title: 'Phần 5: Luyện giải đề thi mẫu',
+			title: 'Luyện giải đề thi mẫu',
 			length: '03:50:00',
 			videos: range(0, 47).map((i) => ({
 				title: 'Giải bài tập sinh học ' + i,
 				length: '06:00',
+				preview: false,
 			})),
 		},
 	],

@@ -70,3 +70,31 @@ export function EllipsisButton() {
 		</ButtonText>
 	);
 }
+
+export function FormattedText({ className, children }) {
+	return (
+		<div className={className}>
+			{children.split(/(\[.*\])/).map((p, i) => {
+				const key = i;
+				if (p.startsWith('[')) {
+					return (
+						<Bold key={key} as='span'>
+							{p.replace(/[[\]]/g, '')}
+						</Bold>
+					);
+				}
+				return <span key={key}>{p}</span>;
+			})}
+		</div>
+	);
+}
+
+FormattedText.propTypes = {
+	children: PropTypes.string.isRequired,
+	className: PropTypes.string,
+};
+
+
+FormattedText.defaultProps = {
+	className: '',
+};

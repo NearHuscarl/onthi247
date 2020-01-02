@@ -3,7 +3,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import { Line, SizedBox, Bold } from '../components/Common';
+import { Line, SizedBox, Bold, FormattedText } from '../components/Common';
 import { H3, H4 } from '../components/Headings';
 import ExerciseListSideBar from '../components/ExerciseListSideBar';
 import Tag, { TagGroup } from '../components/Tag';
@@ -20,7 +20,7 @@ const Content = styled.div`
 	margin-bottom: 7rem;
 `;
 const ColLeft = styled.div`
-	width: 64.7rem;
+	max-width: 69rem;
 	margin-right: 3.3rem;
 
 	h3 {
@@ -29,15 +29,15 @@ const ColLeft = styled.div`
 	h3 + div {
 		margin-bottom: 2rem;
 	}
-    & > h3:last-of-type {
+	& > h3:last-of-type {
 		margin-bottom: 1rem;
-    }
+	}
 `;
 const ColRight = styled.div`
 	flex: 0 1;
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled(FormattedText)`
 	white-space: break-spaces;
 `;
 
@@ -70,19 +70,7 @@ const ExercisePreviewPage = () => {
 						<Paragraph>{exerciseDetail.summary}</Paragraph>
 						<H3>Trích dẫn từ tài liệu</H3>
 						<Line />
-						<Paragraph>
-							{paper.map((p, index) => {
-								const notIndex = index * 69;
-								if (p.startsWith('Câu ')) {
-									return (
-										<Bold key={notIndex} as='span'>
-											{p}
-										</Bold>
-									);
-								}
-								return <span key={notIndex}>{p}</span>;
-							})}
-						</Paragraph>
+						<Paragraph>{exerciseDetail.paper}</Paragraph>
 						<H3>Liên kết tải tài liệu</H3>
 						<Line />
 						<H4>Liên kết tải tài liệu chính thức</H4>

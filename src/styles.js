@@ -20,6 +20,7 @@ export const appColors = {
 	yellow: '#F1C40F',
 	blue: '#005999',
 	lightBlue: '#0077cc',
+	udemyBlue: '#007791',
 	greyLight1: '#f5f5f5',
 	greyLight2: '#eee',
 	greyLight3: '#dddddd',

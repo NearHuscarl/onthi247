@@ -41,6 +41,7 @@ const courseProps = PropTypes.shape({
 	rating: PropTypes.number.isRequired,
 	ratingCount: PropTypes.number.isRequired,
 	price: PropTypes.number.isRequired,
+	originalPrice: PropTypes.number.isRequired,
 	publishDate: PropTypes.string.isRequired,
 	students: PropTypes.number.isRequired,
 	tags: PropTypes.arrayOf(PropTypes.string),
@@ -54,6 +55,7 @@ const courseSummary = PropTypes.arrayOf(
 			PropTypes.shape({
 				title: PropTypes.string.isRequired,
 				length: PropTypes.string.isRequired,
+				preview: PropTypes.bool.isRequired,
 			}),
 		),
 	}),
@@ -68,10 +70,14 @@ const courseDetailProps = PropTypes.shape({
 	rating: PropTypes.number.isRequired,
 	ratingCount: PropTypes.number.isRequired,
 	price: PropTypes.number.isRequired,
+	originalPrice: PropTypes.number.isRequired,
 	publishDate: PropTypes.string.isRequired,
 	students: PropTypes.number.isRequired,
 	tags: PropTypes.arrayOf(PropTypes.string),
 
+	lastUpdate: PropTypes.string.isRequired,
+	totalVideo: PropTypes.number.isRequired,
+	videoLength: PropTypes.string.isRequired,
 	summary: courseSummary.isRequired,
 	features: PropTypes.arrayOf(PropTypes.string),
 	requirements: PropTypes.arrayOf(PropTypes.string),
@@ -84,6 +90,27 @@ const teacherProps = PropTypes.shape({
 	role: PropTypes.string.isRequired,
 	bio: PropTypes.arrayOf(PropTypes.string),
 	description: PropTypes.string.isRequired,
+});
+
+const courseUserReviewProps = PropTypes.shape({
+	avatar: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	rating: PropTypes.number.isRequired,
+	date: PropTypes.string.isRequired,
+	review: PropTypes.string.isRequired,
+});
+
+const courseReviewProps = PropTypes.shape({
+	rating: PropTypes.number.isRequired,
+	totalReview: PropTypes.number.isRequired,
+	ratio: PropTypes.shape({
+		one:PropTypes.number.isRequired,
+		two:PropTypes.number.isRequired,
+		three: PropTypes.number.isRequired,
+		four: PropTypes.number.isRequired,
+		five: PropTypes.number.isRequired,
+	}),
+	reviews: PropTypes.arrayOf(courseUserReviewProps),
 });
 
 const answerProps = PropTypes.shape({
@@ -145,4 +172,6 @@ export {
 	courseDetailProps,
 	courseSummary,
 	teacherProps,
+	courseReviewProps,
+	courseUserReviewProps,
 };

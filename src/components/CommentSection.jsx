@@ -48,6 +48,8 @@ const CommentDate = styled.div`
 `;
 const CommentBody = styled.div`
 	margin-bottom: 0.2rem;
+	font-size: 1.2rem;
+	color: ${appColors.greyDark2};
 	[reply='true'] {
 		margin-right: 5.5rem;
 	}
