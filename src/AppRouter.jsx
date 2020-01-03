@@ -18,11 +18,12 @@ import CoursesPage from './pages/CoursesPage';
 import CoursePreviewPage from './pages/CoursePreviewPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
 const AppRouter = () => {
-	const { home, courses, cart } = routes;
+	const { home, courses, cart, checkout } = routes;
 
 	return (<BrowserRouter basename={`/${constants.repoName}/`}>
 
@@ -36,6 +37,7 @@ const AppRouter = () => {
 			<Route path='/course/001/preview' component={CoursePreviewPage} exact />
 			<Route path='/course/001' component={CourseDetailPage} exact />
 			<Route path={cart.path} component={CartPage} exact />
+			<Route path={checkout.path} component={CheckoutPage} exact />
 			<Route path='/exams' component={ExamPage} exact />
 			<Route path='/exams/:id/preview' component={ExamPreviewPage} exact />
 			<Route path='/exams/:id/questions' component={ExamQuestionsPage} exact />

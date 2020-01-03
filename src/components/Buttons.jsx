@@ -102,6 +102,10 @@ const ButtonBase = styled.button`
 	background-color: ${appColors.primaryDark};
 	border-radius: ${theme.borderRound};
 	overflow: hidden;
+
+	&:focus {
+		outline: none;
+	}
 `;
 
 const Button = styled(ButtonBase)`

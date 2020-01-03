@@ -1,50 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import Radio, { RadioGroup } from './Radio';
 import Card from './Card';
 import { H4 } from './Headings';
 import { setExamQuestionAnswer } from '../actions/examQuestions';
 import styled, { appColors } from '../styles';
-
-const Container = styled(Card)`
-	/* yarn add @material-ui/core */
-
-	/* radio button group */
-	.MuiFormGroup-root {
-		display: grid;
-		justify-content: flex-start;
-	}
-
-	/* radio button { */
-	.MuiFormControlLabel-root {
-		margin-bottom: 0;
-	}
-
-	/* radio nipple */
-	.MuiRadio-root {
-		padding: 0.5rem;
-		margin-left: 0.5rem;
-	}
-
-	/* radio nipple icon */
-	.MuiSvgIcon-root {
-		font-size: 1.75rem; /* a bit bigger than normal */
-	}
-
-	/* radio button text */
-	.MuiFormControlLabel-label {
-		font-size: inherit;
-		font-family: inherit;
-		font-weight: inherit;
-		line-height: inherit;
-		letter-spacing: inherit;
-	}
-`;
 
 const OptionText = styled.div`
 	color: ${appColors.greyDark1};
@@ -57,13 +18,6 @@ const OptionText = styled.div`
 	line-height: inherit;
 	letter-spacing: inherit;
 `;
-
-const theme = createMuiTheme({
-	palette: {
-		primary: { main: '#fc9e31' },
-		secondary: { main: '#2e293b' },
-	},
-});
 
 function QuestionCard({
 	id,
@@ -79,33 +33,15 @@ function QuestionCard({
 	};
 
 	return (
-		<Container>
+		<Card>
 			<H4>{question}</H4>
-			<MuiThemeProvider theme={theme}>
-				<OptionText>
-					Chọn phương án trả lời đúng:
-				</OptionText>
-				<FormControl component='fieldset'>
-					<RadioGroup
-						aria-label='answer'
-						name='answer'
-						value={answer}
-						onChange={handleChange}
-						row
-					>
-						{answers.map((a, index) => (
-							<FormControlLabel
-								key={a}
-								value={index}
-								control={<Radio color='primary' />}
-								label={a}
-								labelPlacement='end'
-							/>
-						))}
-					</RadioGroup>
-				</FormControl>
-			</MuiThemeProvider>
-		</Container>
+			<OptionText>Chọn phương án trả lời đúng:</OptionText>
+			<RadioGroup value={answer} onChange={handleChange}>
+				{answers.map((a, index) => (
+					<Radio key={a} value={index} label={a} />
+				))}
+			</RadioGroup>
+		</Card>
 	);
 }
 

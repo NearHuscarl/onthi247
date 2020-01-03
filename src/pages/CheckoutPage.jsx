@@ -1,12 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import Radio, { RadioGroup } from '../components/Radio';
 import Breadcrumb, { routes } from '../components/Breadcrumb';
 import { H2 } from '../components/Headings';
 import { FormattedText, Line, SizedBox } from '../components/Common';
-import Button, { ButtonText } from '../components/Buttons';
-import { IconInput } from '../components/Input';
+import Button from '../components/Buttons';
 import { CartCourseList } from '../components/CourseList';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { appColors } from '../styles';
@@ -52,37 +49,46 @@ const DiscountHelp = styled.div`
 	}
 `;
 
-const CartPage = () => {
-	const history = useHistory();
+const CheckoutPage = () => {
+	const [checkoutMethod, setCheckoutMethod] = React.useState('banking');
+
 	return (
 		<Main>
-			<Breadcrumb path={[routes.home, routes.cart]} />
+			<Breadcrumb path={[routes.home, routes.checkout]} />
 			<ContentContainer>
 				<Content>
 					<div>
-						<H2>Giỏ hàng (5)</H2>
+						<H2>Chọn hình thức thanh toán</H2>
+						<SizedBox height={.5} />
+						<RadioGroup
+							value={checkoutMethod}
+							onChange={(e) => setCheckoutMethod(e.target.value)}
+						>
+							<Radio
+								value='visa'
+								label='Thanh toán thông qua thẻ VISA'
+							/>
+							<Radio
+								value='banking'
+								label='Thanh toán thông qua thẻ ATM nội địa / Internet Banking'
+							/>
+							<Radio value='momo' label='Thanh toán bằng ví MoMo' />
+						</RadioGroup>
+						<SizedBox height={2} />
+						<H2>Chi tiết đơn hàng (5)</H2>
 						<SizedBox height={1} />
-						<CartCourseList courses={courses.slice(0, 5)} actionButtons />
+						<CartCourseList courses={courses.slice(0, 5)} />
 					</div>
 					<Cart>
 						<H2>Thành tiền</H2>
 						<Price>6,800,000đ</Price>
 						<strike>7,900,000đ</strike>
 						<Small>Ưu đãi còn [3] ngày nữa</Small>
-						<Button
-							type='button'
-							onClick={() => history.push(routes.checkout.path)}
-						>
-							Đến bước thanh toán
-						</Button>
+						<Button type='button'>Thanh toán</Button>
 						<Line medium />
-						<IconInput placeholder='Mã giảm giá' icon='Áp dụng' />
 						<DiscountHelp>
-							<ButtonText type='button'>
-								<FontAwesomeIcon icon={faTimes} />
-							</ButtonText>
 							<FormattedText>
-								Mã giảm giá [HOCSINHMOI] đang được áp dụng
+								Áp dụng mã giảm giá [HOCSINHMOI]
 							</FormattedText>
 						</DiscountHelp>
 					</Cart>
@@ -92,4 +98,4 @@ const CartPage = () => {
 	);
 };
 
-export default CartPage;
+export default CheckoutPage;

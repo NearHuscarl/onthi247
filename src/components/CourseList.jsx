@@ -124,10 +124,14 @@ function CartCourseListItem({ course, actionButtons }) {
 				<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
 				<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
 			</Stats>
-			<Actions>
-				<WhiteButton type='button'>Để dành mua sau</WhiteButton>
-				<WhiteButton type='button'>Xóa</WhiteButton>
-			</Actions>
+			{actionButtons ? (
+				<Actions>
+					<WhiteButton type='button'>Để dành mua sau</WhiteButton>
+					<WhiteButton type='button'>Xóa</WhiteButton>
+				</Actions>
+			) : (
+				<SizedBox height={4} />
+			)}
 		</CartListItem>
 	);
 }

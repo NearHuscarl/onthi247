@@ -50,6 +50,7 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 			<H2 className='mt-md'>
 				{title}
 				<H2
+					as='div'
 					sub
 					className='mt-tn'
 				>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</H2>

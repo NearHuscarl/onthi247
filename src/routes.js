@@ -11,6 +11,10 @@ const routes = {
 		name: 'Giỏ hàng của bạn',
 		path: '/cart',
 	},
+	checkout: {
+		name: 'Thanh toán đơn hàng',
+		path: '/checkout',
+	},
 };
 
 export default routes;
