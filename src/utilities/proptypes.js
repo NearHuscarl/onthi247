@@ -41,6 +41,7 @@ const courseProps = PropTypes.shape({
 	rating: PropTypes.number.isRequired,
 	ratingCount: PropTypes.number.isRequired,
 	price: PropTypes.number.isRequired,
+	hasBought: PropTypes.bool.isRequired,
 	originalPrice: PropTypes.number.isRequired,
 	publishDate: PropTypes.string.isRequired,
 	students: PropTypes.number.isRequired,

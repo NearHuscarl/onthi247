@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { faBell, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
@@ -7,6 +8,7 @@ import profile from '../../public/images/profile.png';
 import styled, { appColors, theme } from '../styles';
 import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
+import routes from '../routes';
 
 const HeaderContainer = styled.header`
 	margin: 0 auto;
@@ -44,9 +46,23 @@ const ProfileName = styled.span`
 	margin-right: 2rem;
 	font-weight: 600;
 `;
-
 const Notification = styled(FontAwesomeIcon)`
 	cursor: pointer;
+`;
+const CartButtonText = styled(ButtonText)`
+	&:hover,
+	&:active,
+	&:focus {
+		.counter {
+			color: currentColor;
+		}
+	}
+
+	.counter {
+		color: ${appColors.red};
+		font-weight: 600;
+		transition: color 0.25s;
+	}
 `;
 
 const Main = styled.div`
@@ -59,6 +75,8 @@ const Main = styled.div`
 `;
 
 function Header() {
+	const history = useHistory();
+
 	return (
 		<HeaderContainer>
 			<TopBackground>
@@ -84,10 +102,14 @@ function Header() {
 					placeholder='Nhập ID của câu hỏi cần xem đáp án và lời giải...'
 					width={35}
 				/>
-				<ButtonText type='button' highlight>
-					<FontAwesomeIcon className='mr-tn' icon={faShoppingCart} />
-					<span className='cart__text'>Các khóa học đã chọn</span>
-				</ButtonText>
+				<CartButtonText
+					type='button'
+					onClick={() => history.push(routes.cart.path)}
+				>
+					<FontAwesomeIcon icon={faShoppingCart} />
+					<span>Các khóa học đã chọn </span>
+					<span className='counter'>(5)</span>
+				</CartButtonText>
 			</Main>
 			<Nav />
 		</HeaderContainer>

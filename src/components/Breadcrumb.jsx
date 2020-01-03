@@ -28,6 +28,7 @@ const BreadcrumbItem = styled.span`
 
 	a {
 		color: ${appColors.greyDark2};
+		transition: color .25s;
 
 		&:hover,
 		&:active,

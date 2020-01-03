@@ -51,7 +51,8 @@ export const Line = styled.div`
 	height: 1px;
 	margin: ${(props) => {
 		if (props.noMargin) return '0';
-		if (props.medium) return '3rem 0';
+		if (props.large) return '3rem 0';
+		if (props.medium) return '2rem 0';
 		if (props.small) return '1.2rem 0';
 		return '0.75rem 0';
 	}};

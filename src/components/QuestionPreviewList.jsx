@@ -111,7 +111,7 @@ export default function QuestionPreviewList({ questions }) {
 				return (
 					<React.Fragment key={q.id}>
 						<QuestionPreviewListItem question={q} />
-						{index !== questions.length - 1 ? <Line medium /> : null}
+						{index !== questions.length - 1 ? <Line large /> : null}
 					</React.Fragment>
 				);
 			})}

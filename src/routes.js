@@ -7,6 +7,10 @@ const routes = {
 		name: 'Khóa học',
 		path: '/courses',
 	},
+	cart: {
+		name: 'Giỏ hàng của bạn',
+		path: '/cart',
+	},
 };
 
 export default routes;

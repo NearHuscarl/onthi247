@@ -10,9 +10,7 @@ import courses from '../data/courses';
 const Main = styled.main`
 	margin-bottom: 7rem;
 `;
-
 const Content = styled.div`
-	display: flex;
 	margin-top: 3.6rem;
 	margin-bottom: 4.1rem;
 `;

@@ -75,17 +75,12 @@ const SearchInputGroup = styled(InputGroup)`
 
 export function SearchBar({ className, placeholder, width }) {
 	return (
-		<SearchInputGroup className={className} width={width}>
-			<Input
-				type='text'
-				placeholder={placeholder}
-				aria-label='Username'
-				aria-describedby='basic-addon1'
-			/>
-			<InputSuffixButton dense type='button'>
-				<FontAwesomeIcon icon={faSearch} />
-			</InputSuffixButton>
-		</SearchInputGroup>
+		<IconInput
+			className={className}
+			placeholder={placeholder}
+			width={width}
+			icon={<FontAwesomeIcon icon={faSearch} />}
+		/>
 	);
 }
 
@@ -96,6 +91,35 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
+	className: '',
+	placeholder: '',
+	width: null,
+};
+
+export function IconInput({ className, placeholder, width, icon }) {
+	return (
+		<SearchInputGroup className={className} width={width}>
+			<Input
+				type='text'
+				placeholder={placeholder}
+				aria-label='Username'
+				aria-describedby='basic-addon1'
+			/>
+			<InputSuffixButton dense type='button'>
+				{icon}
+			</InputSuffixButton>
+		</SearchInputGroup>
+	);
+}
+
+IconInput.propTypes = {
+	className: PropTypes.string,
+	icon: PropTypes.node.isRequired,
+	placeholder: PropTypes.string,
+	width: PropTypes.number,
+};
+
+IconInput.defaultProps = {
 	className: '',
 	placeholder: '',
 	width: null,

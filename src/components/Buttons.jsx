@@ -251,7 +251,7 @@ export const ButtonLink = styled.button`
 export const ButtonText = styled.button`
 	/* button fontawesome icon */
 	& > [class*='fa-']:not(:last-child) {
-		margin-right: 0.5rem;
+		margin-right: 0.75rem;
 	}
 
 	border: none;
@@ -259,36 +259,15 @@ export const ButtonText = styled.button`
 	color: inherit;
 	font-size: inherit;
 	transition: all 0.2s;
-	outline: ${appColors.primary};
+	outline: ${appColors.primaryDark};
 	padding: 0;
 
 	&:hover,
 	&:focus,
 	&:active {
 		outline: none;
-		color: ${appColors.primary};
+		color: ${appColors.primaryDark};
 	}
-
-	${(props) =>
-		props.highlight
-			? `
-		padding: 0.5rem 1rem;
-
-		&:hover {
-			transform: translateY(-0.3rem);
-			background-color: ${appColors.primary};
-			color: ${appColors.white};
-		}
-
-		&:focus {
-			outline: ${appColors.primary} solid 0.1rem;
-		}
-
-		&:active {
-			transform: translateY(0.1rem);
-		}
-	`
-			: ''}
 `;
 
 export default Button;

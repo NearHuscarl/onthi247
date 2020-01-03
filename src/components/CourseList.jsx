@@ -6,13 +6,8 @@ import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
 import { Bold, Line, SizedBox } from './Common';
 import StarRating from './StarRating';
+import { WhiteButton } from './Buttons';
 import styled, { appColors, theme, mixins } from '../styles';
-
-const List = styled.section`
-	& > :not(:last-child) {
-		margin-bottom: 2rem;
-	}
-`;
 
 const ListItem = styled.article`
 	display: grid;
@@ -55,46 +50,156 @@ const Price = styled(Bold)`
 	margin-right: 1rem;
 `;
 
-export default function CourseList({ courses }) {
+function CourseListItem({ course, alwaysShowPrice }) {
+	const c = course;
+
+	return (
+		<ListItem>
+			<img src={c.image} alt='course preview' />
+			<Link to='/course/001/preview'>
+				<H4>{c.title}</H4>
+			</Link>
+			<Bold>{`Môn ${c.subject}`}</Bold>
+			<Description>{c.description}</Description>
+			<Rating>
+				<StarRating score={c.rating} maxScore={5} />
+				<SizedBox width={1} />
+				<span>{`${c.rating}/5 (${c.ratingCount} lượt đánh giá)`}</span>
+			</Rating>
+			{c.hasBought && !alwaysShowPrice ? (
+				<Stats>
+					<Price>Khóa học đã được mua</Price>
+				</Stats>
+			) : (
+				<Stats>
+					<span>Học phí: </span>
+					<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
+					<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
+				</Stats>
+			)}
+			<Stats>
+				<span>Phát hành: </span>
+				<Bold as='span'>{c.publishDate}</Bold>
+				<span> - Lượt đăng ký học: </span>
+				<Bold as='span'>{c.students.toLocaleString()}</Bold>
+			</Stats>
+			<TagGroup>
+				{c.tags.map((t) => (
+					<Tag key={t}>{t}</Tag>
+				))}
+			</TagGroup>
+		</ListItem>
+	);
+}
+
+CourseListItem.propTypes = {
+	alwaysShowPrice: PropTypes.bool.isRequired,
+	course: courseProps.isRequired,
+};
+
+const CartListItem = styled(ListItem)`
+	grid-template-rows: repeat(5, min-content);
+`;
+const Actions = styled.div`
+	margin-top: 1rem;
+
+	& > :not(:last-child) {
+		margin-right: 1rem;
+	}
+`;
+
+function CartCourseListItem({ course, actionButtons }) {
+	const c = course;
+
+	return (
+		<CartListItem>
+			<img src={c.image} alt='course preview' />
+			<Link to='/course/001/preview'>
+				<H4>{c.title}</H4>
+			</Link>
+			<Bold>{`Môn ${c.subject}`}</Bold>
+			<Description>{c.description}</Description>
+			<Stats>
+				<span>Học phí: </span>
+				<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
+				<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
+			</Stats>
+			<Actions>
+				<WhiteButton type='button'>Để dành mua sau</WhiteButton>
+				<WhiteButton type='button'>Xóa</WhiteButton>
+			</Actions>
+		</CartListItem>
+	);
+}
+
+CartCourseListItem.propTypes = {
+	actionButtons: PropTypes.bool.isRequired,
+	course: courseProps.isRequired,
+};
+
+const List = styled.section`
+	& > :not(:last-child) {
+		margin-bottom: 2rem;
+	}
+`;
+
+function CourseListBase({ courses, childBuilder }) {
 	return (
 		<List>
 			{courses.map((c, index) => {
 				const key = c.id + index;
-				return (<React.Fragment key={key}>
-					<ListItem>
-						<img src={c.image} alt='course preview' />
-						<Link to='/course/001/preview'>
-							<H4>{c.title}</H4>
-						</Link>
-						<Bold>{`Môn ${c.subject}`}</Bold>
-						<Description>{c.description}</Description>
-						<Rating>
-							<StarRating score={c.rating} maxScore={5} />
-							<SizedBox width={1} />
-							<span>{`${c.rating}/5 (${c.ratingCount} lượt đánh giá)`}</span>
-						</Rating>
-						<Stats>
-							<span>Học phí: </span>
-							<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
-							<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
-						</Stats>
-						<Stats>
-							<span>Phát hành: </span>
-							<Bold as='span'>{c.publishDate}</Bold>
-							<span> - Lượt đăng ký học: </span>
-							<Bold as='span'>{c.students.toLocaleString()}</Bold>
-						</Stats>
-						<TagGroup>
-							{c.tags.map((t) => (<Tag key={t}>{t}</Tag>))}
-						</TagGroup>
-					</ListItem>
-					{index !== courses.length - 1 ? <Line /> : null}
-				</React.Fragment>);
+				return (
+					<React.Fragment key={key}>
+						{childBuilder(c)}
+						{index !== courses.length - 1 ? <Line /> : null}
+					</React.Fragment>
+				);
 			})}
 		</List>
 	);
 }
 
-CourseList.propTypes = {
+CourseListBase.propTypes = {
 	courses: PropTypes.arrayOf(courseProps).isRequired,
+	childBuilder: PropTypes.func.isRequired,
+};
+
+export default function CourseList({ courses, alwaysShowPrice }) {
+	return (
+		<CourseListBase
+			courses={courses}
+			childBuilder={(c) => (
+				<CourseListItem course={c} alwaysShowPrice={alwaysShowPrice} />
+			)}
+		/>
+	);
+}
+
+CourseList.propTypes = {
+	alwaysShowPrice: PropTypes.bool,
+	courses: PropTypes.arrayOf(courseProps).isRequired,
+};
+
+CourseList.defaultProps = {
+	alwaysShowPrice: false,
+};
+
+export function CartCourseList({ courses, actionButtons }) {
+	return (
+		<CourseListBase
+			courses={courses}
+			childBuilder={(c) => (
+				<CartCourseListItem course={c} actionButtons={actionButtons} />
+			)}
+		/>
+	);
+}
+
+CartCourseList.propTypes = {
+	actionButtons: PropTypes.bool,
+	courses: PropTypes.arrayOf(courseProps).isRequired,
+};
+
+CartCourseList.defaultProps = {
+	actionButtons: false,
 };

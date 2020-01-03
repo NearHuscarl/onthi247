@@ -230,14 +230,14 @@ const CoursePreviewPage = () => (
 					</Section>
 					<Section>
 						<H2>Thường được mua cùng</H2>
-						<CourseList courses={courses.slice(0, 2)} />
+						<CourseList courses={courses.slice(0, 2)} alwaysShowPrice />
 					</Section>
 					<Section>
 						<TeacherDetail teacher={biologyTeacher} />
 					</Section>
 					<Section>
 						<H2>Cùng giáo viên</H2>
-						<CourseList courses={courses.slice(2, 4)} />
+						<CourseList courses={courses.slice(2, 4)} alwaysShowPrice />
 					</Section>
 					<Section>
 						<CourseReviewSection review={review} />
