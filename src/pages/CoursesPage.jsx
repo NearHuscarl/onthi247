@@ -1,7 +1,8 @@
 import React from 'react';
 import Filters from '../layout/Filters';
-import Pagination from '../components/Pagination';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import CourseList from '../components/CourseList';
+import Pagination from '../components/Pagination';
 import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
 import courses from '../data/courses';
@@ -18,6 +19,7 @@ const Content = styled.div`
 
 const CoursesPage = () => (
 	<Main>
+		<Breadcrumb path={[routes.home, routes.courses]} />
 		<Filters
 			title='Danh sách khóa học'
 			subTitle='Có tất cả 300 bài tập trong danh sách'

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import routes from './routes';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
@@ -19,33 +20,23 @@ import CourseDetailPage from './pages/CourseDetailPage';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
-const AppRouter = () => (
-	// path='/' would match https://nearhuscarl.github.io
-	// but the gh-page is at https://nearhuscarl.github.io/<repoName>
-	<BrowserRouter basename={`/${constants.repoName}/`}>
-		{/* https://stackoverflow.com/a/46824062/9449426 */}
-		<Route
-			render={({ location }) => {
-				const path = location.pathname;
-				return !isCourseDetail(path) && <Header />;
-			}}
-		/>
+const AppRouter = () => {
+	const { home, courses } = routes;
+
+	return (<BrowserRouter basename={`/${constants.repoName}/`}>
+
+		<Route render={({ location }) => {
+			const path = location.pathname;
+			return !isCourseDetail(path) && <Header />;
+		} } />
 		<Switch>
-			<Route path='/' component={CoursesPage} exact />
-			<Route path='/courses' component={CoursesPage} exact />
-			<Route
-				path='/course/001/preview'
-				component={CoursePreviewPage}
-				exact
-			/>
+			<Route path={home.path} component={CoursesPage} exact />
+			<Route path={courses.path} component={CoursesPage} exact />
+			<Route path='/course/001/preview' component={CoursePreviewPage} exact />
 			<Route path='/course/001' component={CourseDetailPage} exact />
 			<Route path='/exams' component={ExamPage} exact />
 			<Route path='/exams/:id/preview' component={ExamPreviewPage} exact />
-			<Route
-				path='/exams/:id/questions'
-				component={ExamQuestionsPage}
-				exact
-			/>
+			<Route path='/exams/:id/questions' component={ExamQuestionsPage} exact />
 			<Route path='/exams/:id/result' component={ExamResultPage} exact />
 			<Route path='/questions' component={QuestionsPage} exact />
 			<Route path='/questions/ask' component={AskPage} exact />
@@ -55,7 +46,7 @@ const AppRouter = () => (
 			<Route component={NotFoundPage} />
 		</Switch>
 		<Footer />
-	</BrowserRouter>
-);
+	</BrowserRouter>);
+};
 
 export default AppRouter;

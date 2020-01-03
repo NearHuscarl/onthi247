@@ -2,7 +2,7 @@ import React from 'react';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ContentContainer from '../layout/ContentContainer';
-import Breadcrumb from '../components/Breadcrumb';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import StarRating from '../components/StarRating';
 import CourseBanner from '../components/CourseBanner';
 import { PrimaryWhiteButton } from '../components/Buttons';
@@ -14,11 +14,11 @@ import { SizedBox, FormattedText } from '../components/Common';
 import { H1, H2 } from '../components/Headings';
 import Ads from '../components/Ads';
 import { FeatureReviewCard } from '../components/ReviewCard';
+import CourseReviewSection from '../components/CourseReviewSection';
 import styled, { appColors, theme } from '../styles';
 import courses, { courseDetail as course } from '../data/courses';
 import { biologyTeacher } from '../data/teachers';
 import review from '../data/courseReviews';
-import CourseReviewSection from '../components/CourseReviewSection';
 
 const colLeftWidth = 60;
 const colRightWidth = 28;
@@ -195,8 +195,8 @@ const CoursePreviewPage = () => (
 	<>
 		<Breadcrumb
 			path={[
-				'Trang chủ',
-				'Khóa học',
+				routes.home,
+				routes.courses,
 				'Super Plus: Chinh phục bài tập nâng cao - Môn Sinh học',
 			]}
 		/>
