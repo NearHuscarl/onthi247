@@ -50,8 +50,7 @@
 		"redux-thunk": "^2.3.0",
 		"slick-carousel": "^1.8.1",
 		"styled-components": "^5.0.0-rc.2",
-		"tinycolor2": "^1.4.1",
-		"video-react": "^0.14.1"
+		"tinycolor2": "^1.4.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.7.4",

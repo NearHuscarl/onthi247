@@ -4,46 +4,21 @@ import { H2 } from './Headings';
 import Pagination from './Pagination';
 import StarRating from './StarRating';
 import ReviewCard from './ReviewCard';
+import PercentageBar, { PercentageBarText } from './PercentageBar';
 import { courseReviewProps } from '../utilities/proptypes';
-import styled, { appColors, theme } from '../styles';
+import styled, { appColors } from '../styles';
 import { SearchBar } from './Input';
 import { SizedBox } from './Common';
 
-const ReviewBarContainer = styled.div`
+const ReviewStatsContainer = styled.div`
 	display: grid;
 	grid-template-columns: minmax(min-content, 45rem) max-content 3rem;
 	column-gap: 1rem;
 	align-items: center;
 `;
-const RatioBar = styled.div`
-	flex: 1;
-	position: relative;
-	height: 2rem;
-	background-color: ${appColors.greyLight1};
-	border-radius: ${theme.borderRound};
-
+const ReviewBar = styled(PercentageBar)`
 	& > * {
-		z-index: 1;
-		position: relative;
-
 		font-size: 1.1rem;
-		color: ${appColors.white};
-		text-shadow: 0 0 1px 1px ${appColors.greyDark3};
-		text-shadow: 0 1px 1px ${appColors.greyDark3};
-
-		margin-left: 1rem;
-		display: flex;
-		align-items: center;
-		height: 100%;
-	}
-
-	&::before {
-		content: '';
-		position: absolute;
-		width: ${(props) => props.percent}%;
-		height: 100%;
-		background-color: #a1a7b3;
-		border-radius: inherit;
 	}
 `;
 const Percent = styled.div`
@@ -51,21 +26,20 @@ const Percent = styled.div`
 	font-size: 1.1rem;
 `;
 
-function ReviewBar({ percent, totalReview, star }) {
+function ReviewStats({ percent, totalReview, star }) {
+	const reviews = Math.round(totalReview * percent).toLocaleString();
 	return (
-		<ReviewBarContainer>
-			<RatioBar percent={percent * 100}>
-				<div>{`${Math.round(
-					totalReview * percent,
-				).toLocaleString()} lượt đánh giá`}</div>
-			</RatioBar>
+		<ReviewStatsContainer>
+			<ReviewBar value={percent * 100}>
+				<PercentageBarText>{`${reviews} lượt đánh giá`}</PercentageBarText>
+			</ReviewBar>
 			<StarRating score={star} maxScore={5} />
 			<Percent>{`${(percent * 100).toFixed(0)}%`}</Percent>
-		</ReviewBarContainer>
+		</ReviewStatsContainer>
 	);
 }
 
-ReviewBar.propTypes = {
+ReviewStats.propTypes = {
 	percent: PropTypes.number.isRequired,
 	totalReview: PropTypes.number.isRequired,
 	star: PropTypes.number.isRequired,
@@ -119,27 +93,27 @@ export default function CourseReviewSection({ review }) {
 					<div>Đánh giá</div>
 				</Score>
 				<Stats>
-					<ReviewBar
+					<ReviewStats
 						star={1}
 						percent={review.ratio.one}
 						totalReview={totalReview}
 					/>
-					<ReviewBar
+					<ReviewStats
 						star={2}
 						percent={review.ratio.two}
 						totalReview={totalReview}
 					/>
-					<ReviewBar
+					<ReviewStats
 						star={3}
 						percent={review.ratio.three}
 						totalReview={totalReview}
 					/>
-					<ReviewBar
+					<ReviewStats
 						star={4}
 						percent={review.ratio.four}
 						totalReview={totalReview}
 					/>
-					<ReviewBar
+					<ReviewStats
 						star={5}
 						percent={review.ratio.five}
 						totalReview={totalReview}

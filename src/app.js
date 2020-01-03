@@ -9,7 +9,6 @@ import 'normalize.css/normalize.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-tabs/style/react-tabs.css';
-import 'video-react/dist/video-react.css';
 import 'react-circular-progressbar/dist/styles.css';
 import './styles/main.scss';
 import { createGlobalStyle, appColors, theme } from './styles';
