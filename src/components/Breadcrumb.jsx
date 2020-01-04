@@ -13,6 +13,19 @@ export { routes };
 
 const Background = styled.div`
 	background-color: ${appColors.greyLight0};
+	/* border-bottom: solid 1px ${appColors.greyLight2}; */
+
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		width: 100%;
+		background-color: ${appColors.greyLight2};
+	}
 `;
 const Container = styled(ContentContainer)`
 	padding: 1.5rem 0;
@@ -28,7 +41,7 @@ const BreadcrumbItem = styled.span`
 
 	a {
 		color: ${appColors.greyDark2};
-		transition: color .25s;
+		transition: color 0.25s;
 
 		&:hover,
 		&:active,

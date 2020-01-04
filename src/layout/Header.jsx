@@ -5,10 +5,49 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
-import styled, { appColors, theme } from '../styles';
 import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
+import ProfileTooltip, { Tooltip } from '../components/ProfileTooltip';
+import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
+
+const ButtonWithCounter = styled(ButtonText)`
+	position: relative;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: currentcolor;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 10%;
+		left: 80%;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background-color: ${appColors.red};
+		opacity: ${(props) => (props.hasNotification ? '100%' : '0%')};
+	}
+`;
+
+function NotificationButton() {
+	const [hasNotification, setHasNottification] = React.useState(true);
+	return (
+		<ProfileTooltip>
+			<ButtonWithCounter
+				hasNotification={hasNotification}
+				onClick={() => {
+					setHasNottification(false);
+				}}
+			>
+				<FontAwesomeIcon icon={faBell} />
+			</ButtonWithCounter>
+		</ProfileTooltip>
+	);
+}
 
 const HeaderContainer = styled.header`
 	margin: 0 auto;
@@ -45,9 +84,6 @@ const ProfileImage = styled.img`
 const ProfileName = styled.span`
 	margin-right: 2rem;
 	font-weight: 600;
-`;
-const Notification = styled(FontAwesomeIcon)`
-	cursor: pointer;
 `;
 const CartButtonText = styled(ButtonText)`
 	&:hover,
@@ -92,7 +128,7 @@ function Header() {
 							className='profile__img'
 						/>
 						<ProfileName>Xin chào, bé dủng</ProfileName>
-						<Notification className='notification' icon={faBell} />
+						<NotificationButton />
 					</Profile>
 				</Top>
 			</TopBackground>

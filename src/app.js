@@ -10,6 +10,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-tabs/style/react-tabs.css';
 import 'react-circular-progressbar/dist/styles.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'tippy.js/dist/tippy.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'tippy.js/animations/shift-away.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'tippy.js/themes/light-border.css';
 import './styles/main.scss';
 import { createGlobalStyle, appColors, theme } from './styles';
 

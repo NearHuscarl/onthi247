@@ -42,7 +42,7 @@ const RadioForm = styled(FormControl)`
 
 	/* radio button when checked */
 	.MuiRadio-colorPrimary.Mui-checked {
-		color: ${appColors.primaryDark};
+		color: ${appColors.udemyBlue};
 	}
 `;
 

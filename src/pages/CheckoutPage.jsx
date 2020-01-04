@@ -50,7 +50,7 @@ const DiscountHelp = styled.div`
 `;
 
 const CheckoutPage = () => {
-	const [checkoutMethod, setCheckoutMethod] = React.useState('banking');
+	const [checkoutMethod, setCheckoutMethod] = React.useState('visa');
 
 	return (
 		<Main>
