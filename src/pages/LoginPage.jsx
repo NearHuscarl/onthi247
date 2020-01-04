@@ -72,7 +72,11 @@ export default function LoginPage() {
 				<InputGroup>
 					<Input type='password' placeholder='Mật khẩu của bạn' />
 				</InputGroup>
-				<Button className='submit' type='button'>
+				<Button
+					className='submit'
+					type='button'
+					onClick={() => history.push(routes.home.path)}
+				>
 					Đăng nhập
 				</Button>
 				<div>

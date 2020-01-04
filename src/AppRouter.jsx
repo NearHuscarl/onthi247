@@ -23,6 +23,7 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
+import StandingPage from './pages/StandingPage';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
@@ -36,6 +37,8 @@ const AppRouter = () => {
 		login,
 		forgotPassword,
 		changePassword,
+		standing,
+		exercise,
 	} = routes;
 
 	return (
@@ -61,6 +64,7 @@ const AppRouter = () => {
 					exact
 				/>
 				<Route path={courses.path} component={CoursesPage} exact />
+				<Route path={standing.path} component={StandingPage} exact />
 				<Route
 					path='/course/001/preview'
 					component={CoursePreviewPage}
@@ -84,9 +88,9 @@ const AppRouter = () => {
 				<Route path='/questions' component={QuestionsPage} exact />
 				<Route path='/questions/ask' component={AskPage} exact />
 				<Route path='/questions/001' component={AnswerPage} exact />
-				<Route path='/exercises' component={ExercisesPage} exact />
+				<Route path={exercise.path} component={ExercisesPage} exact />
 				<Route
-					path='/exercises/001'
+					path={`${exercise.path}/001`}
 					component={ExercisePreviewPage}
 					exact
 				/>

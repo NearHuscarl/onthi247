@@ -9,7 +9,7 @@ import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import { Line, SizedBox } from '../components/Common';
 import { H2, H4 } from '../components/Headings';
-import { ExamStanding, ExamRank } from '../components/Standing';
+import { ExamStanding, ExamRank } from '../components/StandingSideBar';
 import TeacherDetail from '../components/TeacherDetail';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { helperStyles } from '../styles';

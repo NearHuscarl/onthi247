@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import users from '../data/users';
 import { Bold, Line } from './Common';
 import { ButtonText } from './Buttons';
 import Tooltip from './Tooltip';
 import styled, { appColors } from '../styles';
+import routes from '../routes';
 
 const Content = styled.div`
 	li {
@@ -32,6 +34,7 @@ const Avatar = styled.img`
 `;
 
 function TooltipContent() {
+	const history = useHistory();
 	const user = users[3];
 	return (
 		<Content>
@@ -69,7 +72,9 @@ function TooltipContent() {
 					<ButtonText>Trợ giúp</ButtonText>
 				</li>
 				<li>
-					<ButtonText>Đăng xuất</ButtonText>
+					<ButtonText onClick={() => history.push(routes.login.path)}>
+						Đăng xuất
+					</ButtonText>
 				</li>
 			</ul>
 		</Content>

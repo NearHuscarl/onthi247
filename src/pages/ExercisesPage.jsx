@@ -6,6 +6,7 @@ import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
 import ExerciseListSideBar from '../components/ExerciseListSideBar';
 import ContentContainer from '../layout/ContentContainer';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import styled from '../styles';
 import exercises, { sidebarExercises } from '../data/exercises';
 
@@ -24,6 +25,7 @@ const ColRight = styled.div`
 
 const ExercisesPage = () => (
 	<main>
+		<Breadcrumb path={[routes.home, routes.exercise]} />
 		<Filters
 			title='Danh sách bài tập'
 			subTitle='Có tất cả 300 bài tập trong danh sách'

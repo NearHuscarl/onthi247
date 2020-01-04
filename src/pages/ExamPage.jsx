@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import { Standing } from '../components/Standing';
+import { Standing } from '../components/StandingSideBar';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
@@ -77,9 +77,9 @@ ExamPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-	standing: state.standings.standing,
-	monthlyStanding: state.standings.monthlyStanding,
-	weeklyStanding: state.standings.weeklyStanding,
+	standing: state.standings.standing.slice(0, 5),
+	monthlyStanding: state.standings.monthlyStanding.slice(0, 5),
+	weeklyStanding: state.standings.weeklyStanding.slice(0, 5),
 	chemistryExams: Object.values(state.exams.chemistry),
 	nationalExams: Object.values(state.exams.national),
 });

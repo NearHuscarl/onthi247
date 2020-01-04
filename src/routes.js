@@ -31,6 +31,14 @@ const routes = {
 		name: 'Thanh toán đơn hàng',
 		path: '/checkout',
 	},
+	standing: {
+		name: 'Bảng xếp hạng',
+		path: '/standing',
+	},
+	exercise: {
+		name: 'Bài tập',
+		path: '/exercises',
+	},
 };
 
 export default routes;

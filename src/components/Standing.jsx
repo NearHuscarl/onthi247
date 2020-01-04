@@ -1,44 +1,57 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { rankProps, examRankProps } from '../utilities/proptypes';
-import { Line } from './Common';
-import { H3, H4 } from './Headings';
-import styled from '../styles';
+import { Bold } from './Common';
+import { rankProps } from '../utilities/proptypes';
+import styled, { theme, appColors } from '../styles';
 
 const List = styled.ul`
-	& > :not(:last-child) {
-		margin-bottom: 1.2rem;
-	}
+	display: grid;
+	row-gap: 1rem;
 `;
 const ListItem = styled.li`
-	display: flex;
+	display: grid;
+	grid-template-columns:
+		4rem minmax(min-content, 12.5rem) minmax(10rem, max-content)
+		minmax(min-content, 22rem) minmax(min-content, 11rem) 10rem;
+	column-gap: 5rem;
+	align-items: center;
+
+	.rank,
+	.level {
+		text-align: center;
+	}
+
+	a {
+		color: ${appColors.udemyBlue};
+		font-weight: 600;
+	}
 
 	img {
-		width: 5rem;
-		height: 5rem;
-		border-radius: 50%;
-		margin-right: 1.5rem;
+		width: 3rem;
+		height: 3rem;
+		border-radius: ${theme.borderRound};
+		margin-right: 0.8rem;
+		box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 	}
 `;
-const Content = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-	> * {
-		// override bs
-		margin-bottom: 0;
-	}
+const Header = styled(ListItem)`
+	text-align: center;
+	margin-bottom: 1.3rem;
 `;
 
 export function Rank({ info }) {
 	return (
 		<ListItem>
-			<img src={info.avatar} alt='user avatar' />
-			<Content>
-				<H4>{info.name}</H4>
-				<p>{`Level: ${info.level}`}</p>
-			</Content>
+			<div className='rank'>{info.rank}</div>
+			<div>
+				<img src={info.avatar} alt='user avatar' />
+				<Link to='/'>{info.id}</Link>
+			</div>
+			<div>{info.name}</div>
+			<div>{info.school}</div>
+			<div>{info.province}</div>
+			<div className='level'>{info.level}</div>
 		</ListItem>
 	);
 }
@@ -47,49 +60,30 @@ Rank.propTypes = {
 	info: rankProps.isRequired,
 };
 
-export function ExamRank({ info }) {
+export default function Standing({ className, standing }) {
 	return (
-		<ListItem>
-			<img src={info.avatar} alt='user avatar' />
-			<Content>
-				<H4>{info.name}</H4>
-				<p>{`${info.score}/30 - ${info.time}`}</p>
-			</Content>
-		</ListItem>
-	);
-}
-
-ExamRank.propTypes = {
-	info: examRankProps.isRequired,
-};
-
-function createStanding(getRank) {
-	const Standing = ({ className, title, standing }) => (
-		<section className={className}>
-			<H3 className='mb-sm'>{title}</H3>
-			<List>
-				{standing.map((u, index) => (
-					<React.Fragment key={u.name}>
-						{getRank(u)}
-						{index !== standing.length - 1 ? <Line /> : null}
-					</React.Fragment>
+		<>
+			<Header>
+				<Bold>Vị thứ</Bold>
+				<Bold>Tài khoản</Bold>
+				<Bold>Họ và tên</Bold>
+				<Bold>Trường</Bold>
+				<Bold>Tỉnh/Thành phố</Bold>
+				<Bold>Level</Bold>
+			</Header>
+			<List className={className}>
+				{standing.map((u) => (
+					<Rank key={u.name} info={u} />
 				))}
 			</List>
-		</section>
+		</>
 	);
-	Standing.propTypes = {
-		className: PropTypes.string,
-		title: PropTypes.string.isRequired,
-		standing: PropTypes.arrayOf(PropTypes.object).isRequired,
-	};
-	Standing.defaultProps = {
-		className: '',
-	};
-
-	return Standing;
 }
 
-const Standing = createStanding((u) => <Rank info={u} />);
-const ExamStanding = createStanding((u) => <ExamRank info={u} />);
-
-export { Standing, ExamStanding };
+Standing.propTypes = {
+	className: PropTypes.string,
+	standing: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+Standing.defaultProps = {
+	className: '',
+};

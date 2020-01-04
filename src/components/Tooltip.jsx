@@ -2,8 +2,7 @@ import Tippy from '@tippy.js/react';
 import styled, { appColors, theme } from '../styles';
 
 const Tooltip = styled(Tippy)`
-	/* normal theme for tippy.
-	https://atomiks.github.io/tippyjs/themes/#creating-a-theme */
+	/* https://atomiks.github.io/tippyjs/themes/#creating-a-theme */
 	padding: 1rem 1.5rem;
 	padding-bottom: 0;
 

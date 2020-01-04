@@ -7,7 +7,7 @@ import Logo from '../components/Logo';
 import profile from '../../public/images/profile.png';
 import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
-import ProfileTooltip, { Tooltip } from '../components/ProfileTooltip';
+import ProfileTooltip from '../components/ProfileTooltip';
 import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
 

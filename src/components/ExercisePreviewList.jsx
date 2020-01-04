@@ -6,6 +6,7 @@ import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
 import { Bold, Line, EllipsisButton } from './Common';
 import styled, { appColors, theme, mixins } from '../styles';
+import routes from '../routes';
 
 const List = styled.section`
 	& > :not(:last-child) {
@@ -61,7 +62,7 @@ export default function ExercisePreviewList({ exercises }) {
 				<React.Fragment key={e.id}>
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
-						<Link to='/exercises/001'>
+						<Link to={`${routes.exercise.path}/001`}>
 							<H4>{e.title}</H4>
 						</Link>
 						<Bold>{`Môn ${e.subject}`}</Bold>

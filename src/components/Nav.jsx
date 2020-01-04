@@ -6,6 +6,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { transparentize } from '../utilities/colors';
 import styled, { appColors, theme } from '../styles';
+import routes from '../routes';
 
 const navItems = {
 	khoaHoc: 'Khóa học',
@@ -152,31 +153,31 @@ export default function Nav() {
 					</StyledNavItem>
 					<StyledNavItem
 						name='Khóa học'
-						route='/courses'
+						route={routes.courses.path}
 						primary
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.gioiThieu}
-						route='/'
+						route={routes.home.path}
 						highlight={navItems.gioiThieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.giaoVien}
-						route='/'
+						route={routes.home.path}
 						highlight={navItems.giaoVien === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.bangXepHang}
-						route='/'
+						route={routes.standing.path}
 						highlight={navItems.bangXepHang === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.baiTap}
-						route='/exercises'
+						route={routes.exercise.path}
 						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
@@ -188,7 +189,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.taiLieu}
-						route='/'
+						route={routes.home.path}
 						highlight={navItems.taiLieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

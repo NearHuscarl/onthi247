@@ -9,6 +9,7 @@ import ExerciseListSideBar from '../components/ExerciseListSideBar';
 import Tag, { TagGroup } from '../components/Tag';
 import Button from '../components/Buttons';
 import ContentContainer from '../layout/ContentContainer';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import styled, { appColors } from '../styles';
 import { sidebarExercises, exerciseDetail } from '../data/exercises';
 import ExercisePreviewSection from '../components/ExercisePreviewSection';
@@ -53,9 +54,9 @@ const Download = styled.div`
 `;
 
 const ExercisePreviewPage = () => {
-	const paper = exerciseDetail.paper.split(/(Câu \d\.)/);
 	return (
 		<main>
+			<Breadcrumb path={[routes.home, routes.exercise, 'Bài tập Amin - Amino Axit - Peptit - Protein']} />
 			<Filters
 				title='Danh sách bài tập'
 				subTitle='Có tất cả 300 bài tập trong danh sách'

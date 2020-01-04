@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { exerciseProps } from '../utilities/proptypes';
+import routes from '../routes';
 import styled, { appColors, theme } from '../styles';
 import { H3 } from './Headings';
 import { SizedBox } from './Common';
@@ -43,7 +44,7 @@ export default function ExerciseListSideBar({ className, title, exercises }) {
 					<React.Fragment key={id}>
 						<ListItem>
 							<Image src={image} alt='exercise preview' />
-							<Link to='/exercises/001'>
+							<Link to={`${routes.exercise.path}/001`}>
 								<Title>{t}</Title>
 							</Link>
 							<Small>{publishDate}</Small>

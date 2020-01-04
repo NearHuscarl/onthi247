@@ -127,9 +127,13 @@ const commentProps = PropTypes.shape({
 });
 
 const rankProps = PropTypes.shape({
+	rank: PropTypes.number.isRequired,
 	avatar: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	level: PropTypes.number.isRequired,
+	school: PropTypes.string.isRequired,
+	province: PropTypes.string.isRequired,
 });
 
 const examRankProps = PropTypes.shape({
@@ -143,6 +147,8 @@ const userProps = PropTypes.shape({
 	name: PropTypes.string.isRequired,
 	level: PropTypes.number.isRequired,
 	avatar: PropTypes.string.isRequired,
+	school: PropTypes.string.isRequired,
+	province: PropTypes.string.isRequired,
 });
 
 const questionProps = PropTypes.shape({

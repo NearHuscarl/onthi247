@@ -1,87 +1,162 @@
-import * as profile from './users';
-
-const standings = [
-	{
-		name: 'elon musk',
-		level: 143,
-		avatar: profile.elon,
-	},
-	{
-		name: 'bé bi',
-		level: 100,
-		avatar: profile.bitching,
-	},
-	{
-		name: 'bé dủng',
-		level: 69,
-		avatar: profile.plain,
-	},
-	{
-		name: 'mia khafila',
-		level: 54,
-		avatar: profile.miaKhafila,
-	},
-	{
-		name: 'no face',
-		level: 17,
-		avatar: profile.noface,
-	},
-];
+import users from './users';
 
 const weeklyStandings = [
 	{
-		name: 'elon musk',
+		...users[0],
 		level: 157,
-		avatar: profile.elon,
+		rank: 1,
 	},
 	{
-		name: 'bé bi',
+		...users[1],
 		level: 102,
-		avatar: profile.bitching,
+		rank: 2,
 	},
 	{
-		name: 'bé dủng',
+		...users[2],
 		level: 73,
-		avatar: profile.plain,
+		rank: 3,
 	},
 	{
-		name: 'mia khafila',
+		...users[3],
 		level: 66,
-		avatar: profile.miaKhafila,
+		rank: 4,
 	},
 	{
-		name: 'no face',
-		level: 19,
-		avatar: profile.noface,
+		...users[4],
+		level: 62,
+		rank: 5,
+	},
+	{
+		...users[5],
+		level: 60,
+		rank: 6,
+	},
+	{
+		...users[6],
+		level: 54,
+		rank: 7,
+	},
+	{
+		...users[7],
+		level: 53,
+		rank: 8,
+	},
+	{
+		...users[8],
+		level: 50,
+		rank: 9,
+	},
+	{
+		...users[9],
+		level: 50,
+		rank: 10,
 	},
 ];
 
 const monthlyStandings = [
 	{
-		name: 'elon musk',
+		...users[0],
 		level: 219,
-		avatar: profile.elon,
+		rank: 1,
 	},
 	{
-		name: 'bé bi',
+		...users[1],
 		level: 167,
-		avatar: profile.bitching,
+		rank: 2,
 	},
 	{
-		name: 'bé dủng',
+		...users[2],
 		level: 88,
-		avatar: profile.plain,
+		rank: 3,
 	},
 	{
-		name: 'mia khafila',
+		...users[3],
 		level: 64,
-		avatar: profile.miaKhafila,
+		rank: 4,
 	},
 	{
-		name: 'no face',
-		level: 23,
-		avatar: profile.noface,
+		...users[4],
+		level: 60,
+		rank: 5,
+	},
+	{
+		...users[5],
+		level: 59,
+		rank: 6,
+	},
+	{
+		...users[6],
+		level: 58,
+		rank: 7,
+	},
+	{
+		...users[7],
+		level: 53,
+		rank: 8,
+	},
+	{
+		...users[8],
+		level: 52,
+		rank: 9,
+	},
+	{
+		...users[9],
+		level: 51,
+		rank: 10,
 	},
 ];
 
-export { standings, weeklyStandings, monthlyStandings };
+const standings = [
+	{
+		...users[0],
+		level: 632,
+		rank: 1,
+	},
+	{
+		...users[1],
+		level: 609,
+		rank: 2,
+	},
+	{
+		...users[2],
+		level: 599,
+		rank: 3,
+	},
+	{
+		...users[3],
+		level: 592,
+		rank: 4,
+	},
+	{
+		...users[4],
+		level: 530,
+		rank: 5,
+	},
+	{
+		...users[5],
+		level: 519,
+		rank: 6,
+	},
+	{
+		...users[6],
+		level: 409,
+		rank: 7,
+	},
+	{
+		...users[7],
+		level: 401,
+		rank: 8,
+	},
+	{
+		...users[8],
+		level: 390,
+		rank: 9,
+	},
+	{
+		...users[9],
+		level: 69,
+		rank: 10,
+	},
+];
+
+export { weeklyStandings, monthlyStandings, standings };
