@@ -7,11 +7,13 @@ import { examProps, examRankProps } from '../utilities/proptypes';
 import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
-import { Line } from '../components/Common';
+import { Line, SizedBox } from '../components/Common';
 import { H2, H4 } from '../components/Headings';
 import { ExamStanding, ExamRank } from '../components/Standing';
+import TeacherDetail from '../components/TeacherDetail';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { helperStyles } from '../styles';
+import { chemistryTeacher } from '../data/teachers';
 
 const Content = styled.div`
 	display: flex;
@@ -72,6 +74,8 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							<H2>The entire history of u</H2>
 						</TabPanel>
 					</Tabs>
+					<SizedBox height={3} />
+					<TeacherDetail teacher={chemistryTeacher} />
 					<Recommend>
 						<ExamCardList
 							slidesToShow={3}

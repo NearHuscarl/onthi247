@@ -29,6 +29,7 @@ const Content = styled.div`
 	.score {
 		font-size: 3.6rem;
 		font-weight: 600;
+		color: ${appColors.red};
 	}
 
 	.date {

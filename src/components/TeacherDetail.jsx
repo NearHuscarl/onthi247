@@ -10,6 +10,9 @@ import {
 import { teacherProps } from '../utilities/proptypes';
 import styled, { appColors } from '../styles';
 
+const Heading = styled(H2)`
+	margin-bottom: 1.5rem;
+`;
 const Container = styled.div`
 	display: flex;
 `;
@@ -53,7 +56,7 @@ const Paragraph = styled.div`
 export default function TeacherDetail({ teacher }) {
 	return (
 		<>
-			<H2>Giới thiệu về giáo viên</H2>
+			<Heading>Giới thiệu về giáo viên</Heading>
 			<Container>
 				<ColLeft>
 					<Avatar src={teacher.image} alt='teacher' />
