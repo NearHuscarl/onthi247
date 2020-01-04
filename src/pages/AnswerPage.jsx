@@ -209,8 +209,8 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 											Chỉnh sửa lại nội dung của câu trả lời này
 										</QaButtonText>
 										<QaProfile
-											user={question.user}
-											date={question.date}
+											user={a.user}
+											date={a.date}
 										/>
 									</Bottom>
 									{a.comments.length > 0 && (
