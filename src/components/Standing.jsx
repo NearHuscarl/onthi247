@@ -13,7 +13,7 @@ const ListItem = styled.li`
 	display: grid;
 	grid-template-columns:
 		4rem minmax(min-content, 12.5rem) minmax(10rem, max-content)
-		minmax(min-content, 22rem) minmax(min-content, 11rem) 10rem;
+		minmax(min-content, 22rem) minmax(min-content, 11rem) 1.5rem;
 	column-gap: 5rem;
 	align-items: center;
 
@@ -36,7 +36,6 @@ const ListItem = styled.li`
 	}
 `;
 const Header = styled(ListItem)`
-	text-align: center;
 	margin-bottom: 1.3rem;
 `;
 
