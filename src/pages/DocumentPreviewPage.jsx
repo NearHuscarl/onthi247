@@ -5,14 +5,14 @@ import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
 import { Line, SizedBox, Bold, FormattedText } from '../components/Common';
 import { H3, H4 } from '../components/Headings';
-import ExerciseListSideBar from '../components/ExerciseListSideBar';
+import DocumentListSideBar from '../components/DocumentListSideBar';
 import Tag, { TagGroup } from '../components/Tag';
 import Button from '../components/Buttons';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb, { routes } from '../components/Breadcrumb';
 import styled, { appColors } from '../styles';
-import { sidebarExercises, exerciseDetail } from '../data/exercises';
-import ExercisePreviewSection from '../components/ExercisePreviewSection';
+import { sidebarDocuments, documentDetail } from '../data/documents';
+import DocumentPreviewSection from '../components/DocumentPreviewSection';
 import CommentSection from '../components/CommentSection';
 
 const Content = styled.div`
@@ -53,25 +53,25 @@ const Download = styled.div`
 	}
 `;
 
-const ExercisePreviewPage = () => {
+const DocumentPreviewPage = () => {
 	return (
 		<main>
-			<Breadcrumb path={[routes.home, routes.exercise, 'Bài tập Amin - Amino Axit - Peptit - Protein']} />
+			<Breadcrumb path={[routes.home, routes.document, 'Bài tập Amin - Amino Axit - Peptit - Protein']} />
 			<Filters
-				title='Danh sách bài tập'
-				subTitle='Có tất cả 300 bài tập trong danh sách'
+				title='Danh sách tài liệu'
+				subTitle='Có tất cả 300 tài liệu trong danh sách'
 			/>
 			<ContentContainer>
 				<Content>
 					<ColLeft>
-						<ExercisePreviewSection exercise={exerciseDetail} />
+						<DocumentPreviewSection document={documentDetail} />
 						<SizedBox height={0.5} />
 						<H3>Giới thiệu chung</H3>
 						<Line />
-						<Paragraph>{exerciseDetail.summary}</Paragraph>
+						<Paragraph>{documentDetail.summary}</Paragraph>
 						<H3>Trích dẫn từ tài liệu</H3>
 						<Line />
-						<Paragraph>{exerciseDetail.paper}</Paragraph>
+						<Paragraph>{documentDetail.paper}</Paragraph>
 						<H3>Liên kết tải tài liệu</H3>
 						<Line />
 						<H4>Liên kết tải tài liệu chính thức</H4>
@@ -97,7 +97,7 @@ const ExercisePreviewPage = () => {
 						<H3>Tìm thêm</H3>
 						<Line />
 						<TagGroup>
-							{exerciseDetail.tags.map((t) => (
+							{documentDetail.tags.map((t) => (
 								<Bold>
 									<Tag key={t}>{t}</Tag>
 								</Bold>
@@ -107,19 +107,19 @@ const ExercisePreviewPage = () => {
 						<CommentSection />
 					</ColLeft>
 					<ColRight>
-						<ExerciseListSideBar
+						<DocumentListSideBar
 							title='Tài liệu nổi bật'
-							exercises={sidebarExercises}
+							list={sidebarDocuments}
 						/>
 						<SizedBox height={1} />
-						<ExerciseListSideBar
+						<DocumentListSideBar
 							title='Tài liệu mới nhất'
-							exercises={sidebarExercises}
+							list={sidebarDocuments}
 						/>
 						<SizedBox height={1} />
-						<ExerciseListSideBar
+						<DocumentListSideBar
 							title='Có thể bạn quan tâm'
-							exercises={sidebarExercises}
+							list={sidebarDocuments}
 						/>
 						<SizedBox height={1} />
 						<Ads />
@@ -130,4 +130,4 @@ const ExercisePreviewPage = () => {
 	);
 };
 
-export default ExercisePreviewPage;
+export default DocumentPreviewPage;

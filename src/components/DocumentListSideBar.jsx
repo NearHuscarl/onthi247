@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { exerciseProps } from '../utilities/proptypes';
+import { documentProps } from '../utilities/proptypes';
 import routes from '../routes';
 import styled, { appColors, theme } from '../styles';
 import { H3 } from './Headings';
@@ -34,22 +34,22 @@ const Small = styled.div`
 	font-size: 1rem;
 `;
 
-export default function ExerciseListSideBar({ className, title, exercises }) {
+export default function DocumentListSideBar({ className, title, list }) {
 	return (
 		<div className={className}>
 			<H3>{title}</H3>
 			<SizedBox height={1} />
 			<List>
-				{exercises.map(({ id, publishDate, title: t, image }, index) => (
+				{list.map(({ id, publishDate, title: t, image }, index) => (
 					<React.Fragment key={id}>
 						<ListItem>
-							<Image src={image} alt='exercise preview' />
-							<Link to={`${routes.exercise.path}/001`}>
+							<Image src={image} alt='document preview' />
+							<Link to={`${routes.document.path}/001`}>
 								<Title>{t}</Title>
 							</Link>
 							<Small>{publishDate}</Small>
 						</ListItem>
-						{index !== exercises.length - 1 && <SizedBox height={0.5} />}
+						{index !== list.length - 1 && <SizedBox height={0.5} />}
 					</React.Fragment>
 				))}
 			</List>
@@ -57,12 +57,12 @@ export default function ExerciseListSideBar({ className, title, exercises }) {
 	);
 }
 
-ExerciseListSideBar.propTypes = {
+DocumentListSideBar.propTypes = {
 	className: PropTypes.string,
 	title: PropTypes.string.isRequired,
-	exercises: PropTypes.arrayOf(exerciseProps).isRequired,
+	list: PropTypes.arrayOf(documentProps).isRequired,
 };
 
-ExerciseListSideBar.defaultProps = {
+DocumentListSideBar.defaultProps = {
 	className: '',
 };

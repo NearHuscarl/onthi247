@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, examRankProps } from '../utilities/proptypes';
-import ExamPreviewSection from '../components/ExamPreviewSection';
+import DocumentPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import Ads from '../components/Ads';
 import { Line, SizedBox } from '../components/Common';
@@ -54,7 +54,7 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 		<ContentContainer as='main'>
 			<Content>
 				<ColumnLeft>
-					<ExamPreviewSection exam={exam} />
+					<DocumentPreviewSection exam={exam} />
 					<SubHeader>Giới thiệu chung</SubHeader>
 					<div>{exam.description}</div>{' '}
 					<Tabs className='tabs'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { exerciseProps } from '../utilities/proptypes';
+import { documentProps } from '../utilities/proptypes';
 import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
 import { Bold, Line, EllipsisButton } from './Common';
@@ -55,14 +55,14 @@ const More = styled.div`
 	right: 0;
 `;
 
-export default function ExercisePreviewList({ exercises }) {
+export default function DocumentList({ list }) {
 	return (
 		<List>
-			{exercises.map((e, index) => (
+			{list.map((e, index) => (
 				<React.Fragment key={e.id}>
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
-						<Link to={`${routes.exercise.path}/001`}>
+						<Link to={`${routes.document.path}/001`}>
 							<H4>{e.title}</H4>
 						</Link>
 						<Bold>{`Môn ${e.subject}`}</Bold>
@@ -84,13 +84,13 @@ export default function ExercisePreviewList({ exercises }) {
 							<EllipsisButton />
 						</More>
 					</ListItem>
-					{index !== exercises.length - 1 ? <Line /> : null}
+					{index !== list.length - 1 ? <Line /> : null}
 				</React.Fragment>
 			))}
 		</List>
 	);
 }
 
-ExercisePreviewList.propTypes = {
-	exercises: PropTypes.arrayOf(exerciseProps).isRequired,
+DocumentList.propTypes = {
+	list: PropTypes.arrayOf(documentProps).isRequired,
 };

@@ -20,7 +20,7 @@ const CoursesPage = () => (
 		<Breadcrumb path={[routes.home, routes.courses]} />
 		<Filters
 			title='Danh sách khóa học'
-			subTitle='Có tất cả 300 bài tập trong danh sách'
+			subTitle='Có tất cả 300 khóa học trong danh sách'
 		/>
 		<ContentContainer>
 			<Content>

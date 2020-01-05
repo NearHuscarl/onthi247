@@ -177,7 +177,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.baiTap}
-						route={routes.exercise.path}
+						route={routes.home.path}
 						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
@@ -189,7 +189,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.taiLieu}
-						route={routes.home.path}
+						route={routes.document.path}
 						highlight={navItems.taiLieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

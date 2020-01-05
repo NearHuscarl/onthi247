@@ -1,14 +1,14 @@
 import React from 'react';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import ExercisePreviewList from '../components/ExercisePreviewList';
+import DocumentList from '../components/DocumentList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
-import ExerciseListSideBar from '../components/ExerciseListSideBar';
+import DocumentListSideBar from '../components/DocumentListSideBar';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb, { routes } from '../components/Breadcrumb';
 import styled from '../styles';
-import exercises, { sidebarExercises } from '../data/exercises';
+import documents, { sidebarDocuments } from '../data/documents';
 
 const Content = styled.div`
 	display: flex;
@@ -23,27 +23,27 @@ const ColRight = styled.div`
 	flex: 0 1;
 `;
 
-const ExercisesPage = () => (
+const DocumentsPage = () => (
 	<main>
-		<Breadcrumb path={[routes.home, routes.exercise]} />
+		<Breadcrumb path={[routes.home, routes.document]} />
 		<Filters
-			title='Danh sách bài tập'
-			subTitle='Có tất cả 300 bài tập trong danh sách'
+			title='Danh sách tài liệu'
+			subTitle='Có tất cả 300 tài liệu trong danh sách'
 		/>
 		<ContentContainer>
 			<Content>
 				<ColLeft>
-					<ExercisePreviewList exercises={exercises} />
+					<DocumentList list={documents} />
 				</ColLeft>
 				<ColRight>
-					<ExerciseListSideBar
+					<DocumentListSideBar
 						title='Tài liệu nổi bật'
-						exercises={sidebarExercises}
+						list={sidebarDocuments}
 					/>
 					<SizedBox height={1} />
-					<ExerciseListSideBar
+					<DocumentListSideBar
 						title='Tài liệu mới nhất'
-						exercises={sidebarExercises}
+						list={sidebarDocuments}
 					/>
 					<SizedBox height={1} />
 					<Ads />
@@ -55,4 +55,4 @@ const ExercisesPage = () => (
 	</main>
 );
 
-export default ExercisesPage;
+export default DocumentsPage;

@@ -12,8 +12,8 @@ import ExamQuestionsPage from './pages/ExamQuestionsPage';
 import QuestionsPage from './pages/QuestionsPage';
 import AnswerPage from './pages/AnswerPage';
 import AskPage from './pages/AskPage';
-import ExercisesPage from './pages/ExercisesPage';
-import ExercisePreviewPage from './pages/ExercisePreviewPage';
+import DocumentsPage from './pages/DocumentsPage';
+import DocumentPreviewPage from './pages/DocumentPreviewPage';
 import CoursesPage from './pages/CoursesPage';
 import CoursePreviewPage from './pages/CoursePreviewPage';
 import CourseDetailPage from './pages/CourseDetailPage';
@@ -39,6 +39,7 @@ const AppRouter = () => {
 		changePassword,
 		standing,
 		exercise,
+		document,
 	} = routes;
 
 	return (
@@ -88,10 +89,10 @@ const AppRouter = () => {
 				<Route path='/questions' component={QuestionsPage} exact />
 				<Route path='/questions/ask' component={AskPage} exact />
 				<Route path='/questions/001' component={AnswerPage} exact />
-				<Route path={exercise.path} component={ExercisesPage} exact />
+				<Route path={document.path} component={DocumentsPage} exact />
 				<Route
-					path={`${exercise.path}/001`}
-					component={ExercisePreviewPage}
+					path={`${document.path}/001`}
+					component={DocumentPreviewPage}
 					exact
 				/>
 				<Route component={NotFoundPage} />

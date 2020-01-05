@@ -39,6 +39,10 @@ const routes = {
 		name: 'Bài tập',
 		path: '/exercises',
 	},
+	document: {
+		name: 'Tài liệu',
+		path: '/documents',
+	},
 };
 
 export default routes;

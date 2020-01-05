@@ -1,7 +1,7 @@
 import React from 'react';
 import { faPlay, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { exerciseProps } from '../utilities/proptypes';
+import { documentProps } from '../utilities/proptypes';
 import { YellowButton, OpaqueButton } from './Buttons';
 import { H2 } from './Headings';
 import styled, { theme, helperStyles } from '../styles';
@@ -38,19 +38,19 @@ const Stats = styled.div`
 	margin-bottom: 0.5rem;
 `;
 
-export default function ExercisePreviewSection({ exercise }) {
+export default function DocumentPreviewSection({ document }) {
 	return (
 		<Container>
-			<img src={exercise.image} alt='exercise preview' />
-			<H2>{exercise.title}</H2>
-			<Bold>{`Môn ${exercise.subject}`}</Bold>
+			<img src={document.image} alt='document preview' />
+			<H2>{document.title}</H2>
+			<Bold>{`Môn ${document.subject}`}</Bold>
 			<Stats>
 				<span>Phát hành: </span>
-				<Bold as='span'>{exercise.publishDate} </Bold>
+				<Bold as='span'>{document.publishDate} </Bold>
 				<span> - Lượt xem: </span>
-				<Bold as='span'>{exercise.views.toLocaleString()}</Bold>
+				<Bold as='span'>{document.views.toLocaleString()}</Bold>
 				<span> - Lượt tải: </span>
-				<Bold as='span'>{exercise.downloads.toLocaleString()}</Bold>
+				<Bold as='span'>{document.downloads.toLocaleString()}</Bold>
 			</Stats>
 			<div>
 				<YellowButton type='button'>
@@ -66,6 +66,6 @@ export default function ExercisePreviewSection({ exercise }) {
 	);
 }
 
-ExercisePreviewSection.propTypes = {
-	exercise: exerciseProps.isRequired,
+DocumentPreviewSection.propTypes = {
+	document: documentProps.isRequired,
 };

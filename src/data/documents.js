@@ -1,10 +1,10 @@
 import range from 'lodash/range';
-import preview1 from '../../public/images/exercise-preview-1.jpg';
-import preview2 from '../../public/images/exercise-preview-2.jpg';
+import preview1 from '../../public/images/document-preview-1.jpg';
+import preview2 from '../../public/images/document-preview-2.jpg';
 
 const getImage = (i) => (i % 2 === 0 ? preview1 : preview2);
 
-const exercises = range(0, 8).map((i) => ({
+const documents = range(0, 8).map((i) => ({
 	id: i,
 	title: '11 đề tham khảo môn Văn chốt thi THPT Quốc gia',
 	image: getImage(i),
@@ -21,7 +21,7 @@ const exercises = range(0, 8).map((i) => ({
 	],
 }));
 
-export const sidebarExercises = range(0, 5).map((i) => ({
+export const sidebarDocuments = range(0, 5).map((i) => ({
 	id: i,
 	title: 'Đề thi tham khảo THPT Quốc gia 2019 môn Địa Lý của Bộ GD&ĐT',
 	image: getImage(i),
@@ -38,8 +38,8 @@ export const sidebarExercises = range(0, 5).map((i) => ({
 	],
 }));
 
-export const exerciseDetail = {
-	...exercises[1],
+export const documentDetail = {
+	...documents[1],
 	summary: `      Kỳ thi THPT Quốc gia 2019 là 1 trong những kỳ thi lớn nhất của đời học sinh và có quyết định đến việc lựa chọn sự nghiệp sau này, chính vì vậy việc ôn luyện thi THPT Quốc gia luôn được các em học sinh cũng như phụ huynh quan tâm. Trước kỳ thi THPT Quốc Gia 2019 chúng ta cần phải tổng hợp, hệ thống lại toàn bộ kiến thức của mình thông qua các đề thi tham khảo THPT Quốc gia 2018 để có được cái nhìn tổng quát nhất.
 
 	Toàn bộ 11 đề thi tham khảo THPT Quốc gia được chúng tôi tổng hợp dưới đây đều có đáp án gợi ý, ngoài ra bạn cũng có thể luyện tập các môn học khác Toán, Địa lý, Sinh học, Tiếng Anh, Hóa Học, Vật lý, Lịch sử để có được sự chuẩn bị tốt nhất cho kỳ thi THPT Quốc Gia 2019.`,
@@ -59,4 +59,4 @@ Bản lĩnh tốt là vừa phục vụ được mục đích cá nhân vừa c�
 [Câu 4.] Theo anh/chị, một người có bản lĩnh sống phải là người như thế nào?`,
 };
 
-export default exercises;
+export default documents;

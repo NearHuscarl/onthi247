@@ -19,7 +19,7 @@ const examProps = PropTypes.shape({
 	questions: PropTypes.arrayOf(examQuestionProps),
 });
 
-const exerciseProps = PropTypes.shape({
+const documentProps = PropTypes.shape({
 	id: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired,
@@ -174,7 +174,7 @@ export {
 	examRankProps,
 	userProps,
 	questionProps,
-	exerciseProps,
+	documentProps,
 	courseProps,
 	courseDetailProps,
 	courseSummary,
