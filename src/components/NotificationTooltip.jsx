@@ -5,6 +5,8 @@ import Tooltip from './Tooltip';
 import { ButtonText } from './Buttons';
 import styled, { appColors } from '../styles';
 import notifications from '../data/notifications';
+import routes from '../routes';
+import { notificationProps } from '../utilities/proptypes';
 
 const Container = styled.div`
 	max-width: 38rem;
@@ -34,10 +36,6 @@ const ListItem = styled.li`
 		background-color: ${appColors.greyLight0};
 	}
 `;
-const Small = styled.div`
-	font-size: 1.1rem;
-	color: ${appColors.greyDark1};
-`;
 const UserInfo = styled.div`
 	display: grid;
 	grid-template-columns: min-content 100%;
@@ -56,6 +54,12 @@ const Avatar = styled.img`
 `;
 const Body = styled(FormattedText)`
 	width: 80%;
+	align-self: flex-end;
+`;
+const Small = styled.div`
+	font-size: 1.1rem;
+	color: ${appColors.greyDark1};
+	align-self: flex-start;
 `;
 const Bottom = styled.div`
 	color: #385898;
@@ -67,17 +71,25 @@ const Bottom = styled.div`
 	}
 `;
 
-function TooltipContent() {
+export function Notifications({ list }) {
+	const history = useHistory();
 	return (
-		<Container>
-			<Top>
-				<Bold>Thông báo</Bold>
-				<ButtonText>Đánh dấu tất cả là đã đọc</ButtonText>
-				<ButtonText>Cài đặt</ButtonText>
+		<>
+			<Top className='top'>
+				<Bold className='title'>Thông báo</Bold>
+				<ButtonText className='top-button'>
+					Đánh dấu tất cả là đã đọc
+				</ButtonText>
+				<ButtonText className='top-button'>Cài đặt</ButtonText>
 			</Top>
 			<ul>
-				{notifications.map((n) => (
-					<ListItem key={n.body} onClick={() => {}}>
+				{list.map((n) => (
+					<ListItem
+						key={n.body}
+						onClick={() =>
+							history.push(`${routes.notification.path}/001`)
+						}
+					>
 						<UserInfo>
 							<Avatar src={n.image} alt='avatar' />
 							<Body>{n.body}</Body>
@@ -86,8 +98,23 @@ function TooltipContent() {
 					</ListItem>
 				))}
 			</ul>
+		</>
+	);
+}
+
+Notifications.propTypes = {
+	list: notificationProps.isRequired,
+};
+
+function TooltipContent() {
+	const history = useHistory();
+	return (
+		<Container>
+			<Notifications list={notifications.slice(0, 3)} />
 			<Bottom>
-				<ButtonText>Xem tất cả</ButtonText>
+				<ButtonText onClick={() => history.push(routes.notification.path)}>
+					Xem tất cả
+				</ButtonText>
 			</Bottom>
 		</Container>
 	);

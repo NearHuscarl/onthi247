@@ -26,12 +26,15 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 import ProfilePage from './pages/ProfilePage';
 import StandingPage from './pages/StandingPage';
+import NotificationPage from './pages/NotificationPage';
+import AnnouncementPage from './pages/AnnouncementPage';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
 const AppRouter = () => {
 	const {
 		home,
+		notification,
 		intro,
 		courses,
 		cart,
@@ -56,6 +59,16 @@ const AppRouter = () => {
 			/>
 			<Switch>
 				<Route path={home.path} component={HomePage} exact />
+				<Route
+					path={notification.path}
+					component={NotificationPage}
+					exact
+				/>
+				<Route
+					path={`${notification.path}/001`}
+					component={AnnouncementPage}
+					exact
+				/>
 				<Route path={intro.path} component={HomePage} exact />
 				<Route path={register.path} component={RegisterPage} exact />
 				<Route path={login.path} component={LoginPage} exact />

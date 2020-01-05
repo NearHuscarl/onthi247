@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types';
 
+const notificationProps = PropTypes.shape({
+	image: PropTypes.string.isRequired,
+	body: PropTypes.string.isRequired,
+	date: PropTypes.string.isRequired,
+});
+
 const examQuestionProps = PropTypes.shape({
 	question: PropTypes.string,
 	answers: PropTypes.arrayOf(
@@ -166,6 +172,7 @@ const questionProps = PropTypes.shape({
 });
 
 export {
+	notificationProps,
 	examQuestionProps,
 	examProps,
 	answerProps,

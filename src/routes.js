@@ -19,6 +19,10 @@ const routes = {
 		name: 'Tài khoản',
 		path: '/profile',
 	},
+	notification: {
+		name: 'Thông báo của bạn',
+		path: '/notifications',
+	},
 	home: {
 		name: 'Trang chủ',
 		path: '/',
