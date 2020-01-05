@@ -23,6 +23,10 @@ const routes = {
 		name: 'Trang chủ',
 		path: '/',
 	},
+	intro: {
+		name: 'Giới thiệu',
+		path: '/intro',
+	},
 	courses: {
 		name: 'Khóa học',
 		path: '/courses',

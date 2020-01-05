@@ -148,18 +148,22 @@ export default function Nav() {
 		<NavBackground>
 			<StyledNav>
 				<ul>
-					<StyledNavItem route='/' home setSelectedItem={setSelectedItem}>
+					<StyledNavItem
+						route={routes.home.path}
+						home
+						setSelectedItem={setSelectedItem}
+					>
 						<FontAwesomeIcon icon={faHome} />
 					</StyledNavItem>
 					<StyledNavItem
-						name='Khóa học'
+						name={navItems.khoaHoc}
 						route={routes.courses.path}
 						primary
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.gioiThieu}
-						route={routes.home.path}
+						route={routes.intro.path}
 						highlight={navItems.gioiThieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

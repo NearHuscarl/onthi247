@@ -4,6 +4,7 @@ import routes from './routes';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import HomePage from './pages/HomePage';
 import ExamResultPage from './pages/ExamResultPage';
 import ExamPage from './pages/ExamPage';
 import constants from './constants';
@@ -31,6 +32,7 @@ const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 const AppRouter = () => {
 	const {
 		home,
+		intro,
 		courses,
 		cart,
 		checkout,
@@ -53,7 +55,8 @@ const AppRouter = () => {
 				}}
 			/>
 			<Switch>
-				<Route path={home.path} component={CoursesPage} exact />
+				<Route path={home.path} component={HomePage} exact />
+				<Route path={intro.path} component={HomePage} exact />
 				<Route path={register.path} component={RegisterPage} exact />
 				<Route path={login.path} component={LoginPage} exact />
 				<Route
