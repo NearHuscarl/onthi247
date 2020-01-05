@@ -3,12 +3,15 @@ import styled, { appColors, theme } from '../styles';
 
 const Tooltip = styled(Tippy)`
 	/* https://atomiks.github.io/tippyjs/themes/#creating-a-theme */
-	padding: 1rem 1.5rem;
-	padding-bottom: 0;
+	padding: 0;
 
 	background-color: ${appColors.white};
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 	color: ${theme.fontColor};
+
+	.tippy-content {
+		padding: 0;
+	}
 
 	&[data-placement^='top'] .tippy-arrow {
 		border-top-color: ${appColors.white};

@@ -8,8 +8,11 @@ import styled, { appColors } from '../styles';
 import routes from '../routes';
 
 const Content = styled.div`
+	padding: 1.5rem 2.25rem;
+	padding-bottom: 1px;
+
 	li {
-		line-height: 1.8;
+		line-height: 2;
 	}
 `;
 const Divider = styled(Line)`

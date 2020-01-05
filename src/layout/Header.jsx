@@ -8,6 +8,7 @@ import profile from '../../public/images/profile.png';
 import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
 import ProfileTooltip from '../components/ProfileTooltip';
+import NotificationTooltip from '../components/NotificationTooltip';
 import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
 
@@ -36,7 +37,7 @@ const ButtonWithCounter = styled(ButtonText)`
 function NotificationButton() {
 	const [hasNotification, setHasNottification] = React.useState(true);
 	return (
-		<ProfileTooltip>
+		<NotificationTooltip>
 			<ButtonWithCounter
 				hasNotification={hasNotification}
 				onClick={() => {
@@ -45,7 +46,7 @@ function NotificationButton() {
 			>
 				<FontAwesomeIcon icon={faBell} />
 			</ButtonWithCounter>
-		</ProfileTooltip>
+		</NotificationTooltip>
 	);
 }
 
@@ -58,7 +59,6 @@ const TopBackground = styled.div`
 const Top = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 	padding: 0.7rem 0;
@@ -66,17 +66,17 @@ const Top = styled.div`
 
 const Support = styled.span`
 	color: ${appColors.greyDark1};
+	margin-right: auto;
 `;
-
-const Profile = styled.div`
+const Profile = styled(ButtonText)`
 	display: flex;
-	align-items: center;
 `;
 const ProfileImage = styled.img`
 	border-radius: 50%;
 	width: 2rem;
 	height: 2rem;
 	object-fit: cover;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 
 	margin-right: 0.7rem;
 	cursor: pointer;
@@ -84,6 +84,8 @@ const ProfileImage = styled.img`
 const ProfileName = styled.span`
 	margin-right: 2rem;
 	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
 `;
 const CartButtonText = styled(ButtonText)`
 	&:hover,
@@ -115,21 +117,18 @@ function Header() {
 
 	return (
 		<HeaderContainer>
+			<NotificationTooltip />
 			<TopBackground>
 				<Top>
-					<div>
-						Hotline: 1900-0000{' '}
-						<Support>(Thời gian hỗ trợ từ 7h - 22h)</Support>
-					</div>
-					<Profile>
-						<ProfileImage
-							src={profile}
-							alt='profile avatar'
-							className='profile__img'
-						/>
-						<ProfileName>Xin chào, bé dủng</ProfileName>
-						<NotificationButton />
-					</Profile>
+					Hotline: 1900-0000&nbsp;
+					<Support>(Thời gian hỗ trợ từ 7h - 22h)</Support>
+					<ProfileTooltip>
+						<Profile>
+							<ProfileImage src={profile} alt='profile avatar' />
+							<ProfileName>Xin chào, bé dủng</ProfileName>
+						</Profile>
+					</ProfileTooltip>
+					<NotificationButton />
 				</Top>
 			</TopBackground>
 			<Main>
