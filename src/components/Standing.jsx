@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Bold } from './Common';
 import { rankProps } from '../utilities/proptypes';
 import styled, { theme, appColors } from '../styles';
+import routes from '../routes';
 
 const List = styled.ul`
 	display: grid;
@@ -45,7 +46,7 @@ export function Rank({ info }) {
 			<div className='rank'>{info.rank}</div>
 			<div>
 				<img src={info.avatar} alt='user avatar' />
-				<Link to='/'>{info.id}</Link>
+				<Link to={`${routes.profile.path}/${info.id}`}>{info.id}</Link>
 			</div>
 			<div>{info.name}</div>
 			<div>{info.school}</div>

@@ -23,6 +23,7 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
+import ProfilePage from './pages/ProfilePage';
 import StandingPage from './pages/StandingPage';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
@@ -37,6 +38,7 @@ const AppRouter = () => {
 		login,
 		forgotPassword,
 		changePassword,
+		profile,
 		standing,
 		exercise,
 		document,
@@ -64,6 +66,7 @@ const AppRouter = () => {
 					component={ChangePasswordPage}
 					exact
 				/>
+				<Route path={`${profile.path}/:id`} component={ProfilePage} exact />
 				<Route path={courses.path} component={CoursesPage} exact />
 				<Route path={standing.path} component={StandingPage} exact />
 				<Route

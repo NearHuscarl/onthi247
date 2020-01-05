@@ -35,6 +35,10 @@ const Avatar = styled.img`
 	border-radius: 50%;
 	grid-row: 1 / -1;
 `;
+const Username = styled(ButtonText)`
+	font-weight: 600;
+	text-align: left;
+`;
 
 function TooltipContent() {
 	const history = useHistory();
@@ -43,7 +47,9 @@ function TooltipContent() {
 		<Content>
 			<UserInfo>
 				<Avatar src={user.avatar} alt='avatar' />
-				<Bold>{user.name}</Bold>
+				<Username onClick={() => history.push(`${routes.profile.path}/${user.id}`)}>
+					{user.name}
+				</Username>
 				<Small>{user.email}</Small>
 			</UserInfo>
 			<ul>

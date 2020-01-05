@@ -15,6 +15,10 @@ const routes = {
 		name: 'Thay đổi mật khẩu',
 		path: '/change-password',
 	},
+	profile: {
+		name: 'Tài khoản',
+		path: '/profile',
+	},
 	home: {
 		name: 'Trang chủ',
 		path: '/',

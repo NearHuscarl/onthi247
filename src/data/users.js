@@ -108,6 +108,12 @@ const users = [
 	},
 ];
 
+export const userDetail = (id) => ({
+	...users.find((u) => u.id === id),
+	birthday: '20/01/2002',
+	registerDate: '18/05/2019, 10:00',
+})
+
 export {
 	plain,
 	bitching,

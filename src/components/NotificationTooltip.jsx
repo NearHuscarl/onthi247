@@ -77,7 +77,7 @@ function TooltipContent() {
 			</Top>
 			<ul>
 				{notifications.map((n) => (
-					<ListItem onClick={() => {}}>
+					<ListItem key={n.body} onClick={() => {}}>
 						<UserInfo>
 							<Avatar src={n.image} alt='avatar' />
 							<Body>{n.body}</Body>
