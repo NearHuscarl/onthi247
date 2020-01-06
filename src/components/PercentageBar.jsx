@@ -17,12 +17,13 @@ const PercentageBar = styled.div`
 
 		z-index: 1;
 		content: '';
-		transition: width 0.25s ${curves.easeOutBack};
+		transition: all 0.25s ${curves.easeOutBack};
 	}
 
 	background-color: ${appColors.primaryLight};
 	border-radius: ${theme.borderRound};
 	padding: 0.3rem 1rem;
+	transition: all 0.25s ${curves.easeOutBack};
 `;
 
 export const PercentageBarText = styled.div`

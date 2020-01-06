@@ -15,6 +15,41 @@ import ContentContainer from '../layout/ContentContainer';
 import styled, { appColors, theme } from '../styles';
 import congratsImg from '../../public/images/congrats.jpg';
 
+const AnswerText = styled.span`
+	font-weight: 600;
+	color: ${(props) => {
+		if (props.answer !== 'Chưa trả lời') {
+			if (props.answer === 'Trả lời đúng') {
+				return appColors.green;
+			}
+			return appColors.red;
+		}
+		return 'inherit';
+	}};
+`;
+
+function QuestionCard({ answer }) {
+	const noAnswer = answer.userAnswer === -1;
+	const trueAnswer = answer.userAnswer === answer.answer;
+	let text = 'Chưa trả lời';
+	if (!noAnswer) {
+		if (trueAnswer) {
+			text = 'Trả lời đúng';
+		} else {
+			text = 'Trả lời sai';
+		}
+	}
+	return (
+		<Card>
+			<H4 className='mb-0'>Câu hỏi 01</H4>
+			<AnswerText className='mb-sm' answer={text}>
+				{text}
+			</AnswerText>
+			<WhiteButton type='button'>Lưu lại</WhiteButton>
+		</Card>
+	);
+}
+
 const ResultSummary = styled.div`
 	padding-top: 1.5rem;
 `;
@@ -110,17 +145,10 @@ const ExamResultPage = ({
 				<H2 className='mb-sm'>Đáp án và lời giải chi tiết</H2>
 				<DetailContent>
 					<DetailCol1>
-						<Card>
-							<H4 className='mb-0'>Câu hỏi 01</H4>
-							<span className='mb-sm'>Chưa trả lời</span>
-							<WhiteButton type='button'>Lưu lại</WhiteButton>
-						</Card>
+						<QuestionCard answer={questions[selectedQuestion]} />
 					</DetailCol1>
 					<DetailCol2>
-						<AnswerCard
-							question={questions[selectedQuestion].question}
-							answers={questions[selectedQuestion].answers}
-						/>
+						<AnswerCard answer={questions[selectedQuestion]} />
 						<Card>
 							<H3>Lời giải chi tiết</H3>
 							<div>

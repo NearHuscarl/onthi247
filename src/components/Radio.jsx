@@ -62,17 +62,25 @@ RadioGroup.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-export default function Radio({ value, label }) {
+export default function Radio({ className, value, label, checked }) {
 	return (
 		<FormControlLabel
+			className={className}
 			value={value}
-			control={<MaterialRadio color='primary' />}
+			control={<MaterialRadio checked={checked} color='primary' />}
 			label={label}
 		/>
 	);
 }
 
 Radio.propTypes = {
+	className: PropTypes.string,
+	checked: PropTypes.bool,
 	value: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
+};
+
+Radio.defaultProps = {
+	className: null,
+	checked: null,
 };

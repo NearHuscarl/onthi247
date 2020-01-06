@@ -1,4 +1,4 @@
-import { randomBetween } from '../utilities/random';
+import { randomBetween, randomBetweenInt } from '../utilities/random';
 
 const answersPerQuestion = 4;
 let currentAnswer = 1;
@@ -8,7 +8,9 @@ function clamp(n, min, max) {
 	return Math.min(Math.max(n, min), max);
 }
 
-function randomAnswerPercentage() {
+const randomAnswer = () => randomBetweenInt(0, 3);
+const randomUserAnswer = () => randomBetweenInt(-1, 3);
+const randomAnswerPercentage = () => {
 	if (currentAnswer % answersPerQuestion === 0) {
 		const answerPercentChance = percentChanceLeft;
 		percentChanceLeft = 1;
@@ -26,7 +28,8 @@ function randomAnswerPercentage() {
 const question = () => ({
 	question:
 		'Chất X có công thức phân tử C3H7O2N và làm mất màu dung dịch brom. Tên gọi của X là',
-	answer: 0,
+	answer: randomAnswer(),
+	userAnswer: randomUserAnswer(),
 	answers: [
 		{
 			text: 'axit β-aminopropionic',
