@@ -7,6 +7,7 @@ import { H4 } from './Headings';
 
 const borderColor = appColors.greyLight3;
 const Container = styled.div`
+	width: 21rem;
 	border: solid 0.1rem ${borderColor};
 	border-radius: ${theme.borderRound};
 

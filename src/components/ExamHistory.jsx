@@ -1,0 +1,74 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Bold } from './Common';
+import { examHistoryProps } from '../utilities/proptypes';
+import styled, { appColors } from '../styles';
+
+const List = styled.ul`
+	display: grid;
+	row-gap: 1rem;
+`;
+const ListItem = styled.li`
+	display: grid;
+	grid-template-columns: 4rem minmax(17rem, 1fr) minmax(9rem, .8fr) minmax(12rem, 1.2fr);
+	column-gap: 4.5rem;
+	align-items: center;
+	padding: 1rem 0.5rem;
+
+	:nth-child(odd) {
+		background-color: ${appColors.greyLight0};
+	}
+
+	& > :first-child {
+		text-align: center;
+	}
+`;
+const Header = styled(ListItem)`
+	margin-bottom: 1.3rem;
+
+	:nth-child(odd) {
+		background-color: ${appColors.white};
+	}
+`;
+
+export function Rank({ info, index }) {
+	return (
+		<ListItem>
+			<div>{index}</div>
+			<div>{info.timeTaken}</div>
+			<div>{info.score}</div>
+			<div>{info.time}</div>
+		</ListItem>
+	);
+}
+
+Rank.propTypes = {
+	info: examHistoryProps.isRequired,
+	index: PropTypes.number.isRequired,
+};
+
+export default function ExamHistory({ className, list }) {
+	return (
+		<>
+			<Header>
+				<Bold>STT</Bold>
+				<Bold>Thời gian</Bold>
+				<Bold>Số câu đúng</Bold>
+				<Bold>Thời gian làm bài</Bold>
+			</Header>
+			<List className={className}>
+				{list.map((u, index) => (
+					<Rank key={u.name} info={u} index={index} />
+				))}
+			</List>
+		</>
+	);
+}
+
+ExamHistory.propTypes = {
+	className: PropTypes.string,
+	list: PropTypes.arrayOf(examHistoryProps).isRequired,
+};
+ExamHistory.defaultProps = {
+	className: null,
+};

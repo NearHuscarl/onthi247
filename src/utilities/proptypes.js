@@ -111,8 +111,8 @@ const courseReviewProps = PropTypes.shape({
 	rating: PropTypes.number.isRequired,
 	totalReview: PropTypes.number.isRequired,
 	ratio: PropTypes.shape({
-		one:PropTypes.number.isRequired,
-		two:PropTypes.number.isRequired,
+		one: PropTypes.number.isRequired,
+		two: PropTypes.number.isRequired,
 		three: PropTypes.number.isRequired,
 		four: PropTypes.number.isRequired,
 		five: PropTypes.number.isRequired,
@@ -143,8 +143,15 @@ const rankProps = PropTypes.shape({
 });
 
 const examRankProps = PropTypes.shape({
+	rank: PropTypes.number.isRequired,
 	avatar: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	score: PropTypes.number.isRequired,
+	time: PropTypes.string.isRequired,
+});
+
+const examHistoryProps = PropTypes.shape({
+	timeTaken: PropTypes.string.isRequired,
 	score: PropTypes.number.isRequired,
 	time: PropTypes.string.isRequired,
 });
@@ -178,6 +185,7 @@ export {
 	answerProps,
 	commentProps,
 	rankProps,
+	examHistoryProps,
 	examRankProps,
 	userProps,
 	questionProps,

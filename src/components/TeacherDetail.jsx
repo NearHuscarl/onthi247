@@ -30,6 +30,7 @@ const Avatar = styled.img`
 	object-fit: cover;
 	border-radius: 50%;
 	margin-bottom: 1rem;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 `;
 const BioListItem = styled.li`
 	margin-bottom: 0.75rem;

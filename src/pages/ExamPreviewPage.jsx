@@ -4,19 +4,20 @@ import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
 import ExamCardList, { Recommend } from '../components/ExamCardList';
 import { examProps, examRankProps } from '../utilities/proptypes';
-import DocumentPreviewSection from '../components/ExamPreviewSection';
+import ExamPreviewSection from '../components/ExamPreviewSection';
 import ScoreCard from '../components/ScoreCard';
-import Ads from '../components/Ads';
-import { Line, SizedBox } from '../components/Common';
-import { H2, H4 } from '../components/Headings';
-import { ExamStandingSideBar, ExamRank } from '../components/StandingSideBar';
+import { SizedBox } from '../components/Common';
+import { H4 } from '../components/Headings';
 import TeacherDetail from '../components/TeacherDetail';
+import Breadcrumbs, { routes } from '../components/Breadcrumb';
 import ContentContainer from '../layout/ContentContainer';
+import ExamStanding from '../components/ExamStanding';
 import styled, { helperStyles } from '../styles';
 import { chemistryTeacher } from '../data/teachers';
+import ExamHistory from '../components/ExamHistory';
+import examHistory from '../data/examHistory';
 
 const Content = styled.div`
-	display: flex;
 	${helperStyles.marginTopLarge}
 
 	.tabs {
@@ -25,15 +26,12 @@ const Content = styled.div`
 
 	margin-bottom: 7rem;
 `;
-const ColumnLeft = styled.div`
-	margin-right: 4.5rem;
-	max-width: 67rem;
-`;
-const ColumnRight = styled.div`
-	flex: 0 1;
+const Top = styled.div`
+	display: flex;
 
-	& > :first-child {
-		${helperStyles.marginBottomMedium}
+	& > :last-child {
+		flex: 1 0 auto;
+		margin-left: 3.5rem;
 	}
 `;
 const SubHeader = styled(H4)`
@@ -47,62 +45,51 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 	}, []);
 
 	return (
-		<ContentContainer as='main'>
-			<Content>
-				<ColumnLeft>
-					<DocumentPreviewSection exam={exam} />
-					<SubHeader>Giới thiệu chung</SubHeader>
-					<div>{exam.description}</div>{' '}
+		<>
+			<Breadcrumbs path={[routes.home, routes.exercise, exam.title]} />
+			<ContentContainer as='main'>
+				<Content>
+					<Top>
+						<div>
+							<ExamPreviewSection exam={exam} />
+							<SubHeader>Giới thiệu chung</SubHeader>
+							<div>{exam.description}</div>
+						</div>
+						<ScoreCard />
+					</Top>
 					<Tabs className='tabs'>
 						<TabList>
 							<Tab>Bảng xếp hạng</Tab>
 							<Tab>Lịch sử làm bài</Tab>
 						</TabList>
 						<TabPanel>
-							{standing.slice(0, 2).map((u, index) => (
-								<React.Fragment key={u.name}>
-									<ExamRank info={u} />
-									{index !== 2 - 1 ? <Line small /> : null}
-								</React.Fragment>
-							))}
+							<ExamStanding list={standing.slice(0, 4)} />
 						</TabPanel>
 						<TabPanel>
-							<H2>The entire history of u</H2>
+							<ExamHistory list={examHistory} />
 						</TabPanel>
 					</Tabs>
 					<SizedBox height={3} />
 					<TeacherDetail teacher={chemistryTeacher} />
 					<Recommend>
 						<ExamCardList
-							slidesToShow={3}
 							exams={chemistryExams}
 							title='Các bài tập có liên quan'
 						/>
 						<div className='mb-md' />
 						<ExamCardList
-							slidesToShow={3}
 							exams={nationalExams}
 							title='Các bài tập nổi bật'
 						/>
 						<div className='mb-md' />
 						<ExamCardList
-							slidesToShow={3}
 							exams={nationalExams}
 							title='Các bài tập mới nhất'
 						/>
 					</Recommend>
-				</ColumnLeft>
-				<ColumnRight>
-					<ScoreCard />
-					<ExamStandingSideBar
-						className='mb-md'
-						standing={standing}
-						title='Bảng xếp hạng top 10'
-					/>
-					<Ads />
-				</ColumnRight>
-			</Content>
-		</ContentContainer>
+				</Content>
+			</ContentContainer>
+		</>
 	);
 }
 
