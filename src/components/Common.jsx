@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
 import MaterialCheckbox from '@material-ui/core/Checkbox';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonText } from './Buttons';
-import styled, { appColors } from '../styles';
+import styled, { appColors, mixins } from '../styles';
+
+export const Link = styled(RouterLink)`
+	font-weight: 600;
+	color: ${appColors.blue};
+	transition: color .25s ease;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: ${mixins.lighten(appColors.blue)};
+	}
+`;
 
 const SizedBoxContainer = styled.div`
 	display: ${(props) => props.display || 'block'};
@@ -94,7 +107,6 @@ FormattedText.propTypes = {
 	children: PropTypes.string.isRequired,
 	className: PropTypes.string,
 };
-
 
 FormattedText.defaultProps = {
 	className: '',

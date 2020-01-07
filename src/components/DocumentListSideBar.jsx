@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { documentProps } from '../utilities/proptypes';
 import routes from '../routes';
-import styled, { appColors, theme } from '../styles';
+import styled, { theme } from '../styles';
 import { H3 } from './Headings';
-import { SizedBox } from './Common';
+import { Link, SizedBox } from './Common';
 
 const List = styled.ul`
 	& > :not(:last-child) {
@@ -28,7 +27,6 @@ const Image = styled.img`
 `;
 const Title = styled.div`
 	font-size: 1.2rem;
-	color: ${appColors.lightBlue};
 `;
 const Small = styled.div`
 	font-size: 1rem;

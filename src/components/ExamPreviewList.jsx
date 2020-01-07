@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { examProps } from '../utilities/proptypes';
-import { Line, Bold, EllipsisButton } from './Common';
+import { Link, Line, Bold, EllipsisButton } from './Common';
 import { H4 } from './Headings';
-import styled, { appColors, theme } from '../styles';
+import styled, { theme } from '../styles';
 
 const List = styled.section`
 	& > :not(:last-child) {
@@ -26,14 +25,6 @@ const ListItem = styled.article`
 		border-radius: ${theme.borderRound};
 		grid-row: 1 / -1;
 	}
-
-	h4 {
-		transition: color 0.15s;
-
-		&:hover {
-			color: ${appColors.primary};
-		}
-	}
 `;
 const Description = styled.div`
 	font-size: 1.2rem;
@@ -54,9 +45,9 @@ export default function ExamPreviewList({ exams }) {
 				<React.Fragment key={e.id}>
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
-						<Link to={`/exams/${e.id}/preview`}>
-							<H4>{e.title}</H4>
-						</Link>
+						<H4>
+							<Link to={`/exams/${e.id}/preview`}>{e.title}</Link>
+						</H4>
 						<Bold>
 							{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
 						</Bold>

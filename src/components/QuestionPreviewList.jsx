@@ -1,27 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Tag, { TagGroup } from './Tag';
-import { Line, EllipsisButton } from './Common';
+import { Link, Line, EllipsisButton } from './Common';
 import QaProfile from './QaProfile';
 import { H3 } from './Headings';
 import { questionProps } from '../utilities/proptypes';
-import styled, { appColors, helperStyles, mixins } from '../styles';
+import styled, { helperStyles } from '../styles';
 
 const ListItem = styled.article`
 	display: flex;
 	position: relative;
-
-	h3 {
-		color: ${appColors.blue};
-		transition: color ease 0.25s;
-
-		&:hover,
-		&:active,
-		&:focus {
-			color: ${mixins.lighten(appColors.blue)};
-		}
-	}
 `;
 const Side = styled.div`
 	text-align: center;
@@ -79,9 +67,9 @@ function QuestionPreviewListItem({ question }) {
 				<SideSubtext>{`${views.toLocaleString()} lượt xem`}</SideSubtext>
 			</Side>
 			<div>
-				<Link to='/questions/001'>
-					<H3>{title}</H3>
-				</Link>
+				<H3>
+					<Link to='/questions/001'>{title}</Link>
+				</H3>
 				<Subject>{`Môn ${subject}`}</Subject>
 				<Description>{description}</Description>
 				<Bottom>

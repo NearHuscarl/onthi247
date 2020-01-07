@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { documentProps } from '../utilities/proptypes';
 import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
-import { Bold, Line, EllipsisButton } from './Common';
-import styled, { appColors, theme, mixins } from '../styles';
+import { Link, Bold, Line, EllipsisButton } from './Common';
+import styled, { theme } from '../styles';
 import routes from '../routes';
 
 const List = styled.section`
@@ -33,15 +32,6 @@ const ListItem = styled.article`
 		border-radius: ${theme.borderRound};
 		grid-row: 1 / -1;
 	}
-
-	h4 {
-		transition: color 0.15s;
-		color: ${appColors.blue};
-
-		&:hover {
-			color: ${mixins.lighten(appColors.blue)};
-		}
-	}
 `;
 const Description = styled.div`
 	font-size: 1.3rem;
@@ -62,9 +52,9 @@ export default function DocumentList({ list }) {
 				<React.Fragment key={e.id}>
 					<ListItem>
 						<img src={e.image} alt='exam preview' />
-						<Link to={`${routes.document.path}/001`}>
-							<H4>{e.title}</H4>
-						</Link>
+						<H4>
+							<Link to={`${routes.document.path}/001`}>{e.title}</Link>
+						</H4>
 						<Bold>{`Môn ${e.subject}`}</Bold>
 						<Description>{e.description}</Description>
 						<Stats>

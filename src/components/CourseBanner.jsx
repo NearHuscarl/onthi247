@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import Button, { PrimaryWhiteButton } from './Buttons';
-import { Bold, SizedBox } from './Common';
+import { Link, Bold, SizedBox } from './Common';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
 import { courseProps } from '../utilities/proptypes';

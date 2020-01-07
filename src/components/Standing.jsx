@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Bold } from './Common';
+import { Bold, Link } from './Common';
 import { rankProps } from '../utilities/proptypes';
-import styled, { theme, appColors } from '../styles';
+import styled, { theme } from '../styles';
 import routes from '../routes';
 
 const List = styled.ul`
@@ -21,11 +20,6 @@ const ListItem = styled.li`
 	.rank,
 	.level {
 		text-align: center;
-	}
-
-	a {
-		color: ${appColors.udemyBlue};
-		font-weight: 600;
 	}
 
 	img {

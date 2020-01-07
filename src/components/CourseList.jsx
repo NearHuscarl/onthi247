@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { courseProps } from '../utilities/proptypes';
 import Tag, { TagGroup } from './Tag';
 import { H4 } from './Headings';
-import { Bold, Line, SizedBox } from './Common';
+import { Link, Bold, Line, SizedBox } from './Common';
 import StarRating from './StarRating';
 import { WhiteButton } from './Buttons';
-import styled, { appColors, theme, mixins } from '../styles';
+import styled, { appColors, theme } from '../styles';
 
 const ListItem = styled.article`
 	display: grid;
@@ -25,12 +24,6 @@ const ListItem = styled.article`
 
 	h4 {
 		margin-bottom: 0;
-		transition: color 0.15s;
-		color: ${appColors.blue};
-
-		&:hover {
-			color: ${mixins.lighten(appColors.blue)};
-		}
 	}
 `;
 const Description = styled.div`
@@ -56,9 +49,9 @@ function CourseListItem({ course, alwaysShowPrice }) {
 	return (
 		<ListItem>
 			<img src={c.image} alt='course preview' />
-			<Link to='/course/001/preview'>
-				<H4>{c.title}</H4>
-			</Link>
+			<H4>
+				<Link to='/course/001/preview'>{c.title}</Link>
+			</H4>
 			<Bold>{`Môn ${c.subject}`}</Bold>
 			<Description>{c.description}</Description>
 			<Rating>
@@ -114,9 +107,9 @@ function CartCourseListItem({ course, actionButtons }) {
 	return (
 		<CartListItem>
 			<img src={c.image} alt='course preview' />
-			<Link to='/course/001/preview'>
-				<H4>{c.title}</H4>
-			</Link>
+			<H4>
+				<Link to='/course/001/preview'>{c.title}</Link>
+			</H4>
 			<Bold>{`Môn ${c.subject}`}</Bold>
 			<Description>{c.description}</Description>
 			<Stats>
