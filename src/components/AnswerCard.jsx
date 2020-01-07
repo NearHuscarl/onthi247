@@ -20,6 +20,7 @@ const AnswerBar = styled(PercentageBar)`
 			? mixins.opacity(appColors.lightGreen, 0.25)
 			: mixins.opacity(appColors.lightRed, 0.25)};
 `;
+
 const Checkbox = styled.div`
 	background-color: ${appColors.white};
 	width: 1.675rem;
@@ -39,12 +40,15 @@ const Checkbox = styled.div`
 		top: 0.225rem;
 		left: 0.225rem;
 		border-radius: 50%;
-		background-color: ${(props) =>
-			props.checked
-				? props.trueAnswer
-					? appColors.green
-					: appColors.red
-				: 'transparent'};
+		background-color: ${(props) => {
+			if (props.checked) {
+				if (props.trueAnswer) {
+					return appColors.green;
+				}
+				return appColors.red;
+			}
+			return 'transparent';
+		}};
 	}
 `;
 const AnswerText = styled.div`

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import { Standing } from '../components/StandingSideBar';
+import { StandingSideBar } from '../components/StandingSideBar';
 import ExamPreviewList from '../components/ExamPreviewList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
@@ -46,14 +46,20 @@ const ExamPage = ({
 					<ExamPreviewList exams={chemistryExams} />
 				</ColLeft>
 				<ColRight>
-					<Standing standing={standing} title='Bảng xếp hạng chung' />
+					<StandingSideBar
+						standing={standing}
+						title='Bảng xếp hạng chung'
+					/>
 					<SizedBox height={1} />
-					<Standing
+					<StandingSideBar
 						standing={monthlyStanding}
 						title='Bảng xếp hạng tháng'
 					/>
 					<SizedBox height={1} />
-					<Standing standing={weeklyStanding} title='Bảng xếp hạng tuần' />
+					<StandingSideBar
+						standing={weeklyStanding}
+						title='Bảng xếp hạng tuần'
+					/>
 					<SizedBox height={1} />
 					<Ads />
 				</ColRight>

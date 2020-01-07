@@ -63,33 +63,59 @@ ExamRank.propTypes = {
 	info: examRankProps.isRequired,
 };
 
-function createStanding(getRank) {
-	const Standing = ({ className, title, standing }) => (
-		<section className={className}>
-			<H3 className='mb-sm'>{title}</H3>
-			<List>
-				{standing.map((u, index) => (
-					<React.Fragment key={u.name}>
-						{getRank(u)}
-						{index !== standing.length - 1 ? <Line /> : null}
-					</React.Fragment>
-				))}
-			</List>
-		</section>
+const StandingBase = ({ className, title, standing, childBuilder }) => (
+	<section className={className}>
+		<H3 className='mb-sm'>{title}</H3>
+		<List>
+			{standing.map((u, index) => (
+				<React.Fragment key={u.name}>
+					{childBuilder(u)}
+					{index !== standing.length - 1 ? <Line /> : null}
+				</React.Fragment>
+			))}
+		</List>
+	</section>
+);
+const standingProps = {
+	className: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	standing: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+const standingDefaultProps = {
+	// eslint-disable-next-line react/default-props-match-prop-types
+	className: null,
+};
+
+StandingBase.propTypes = {
+	...standingProps,
+	childBuilder: PropTypes.func.isRequired,
+};
+StandingBase.defaultProps = standingDefaultProps;
+
+const StandingSideBar = ({ className, title, standing }) => {
+	return (
+		<StandingBase
+			className={className}
+			title={title}
+			standing={standing}
+			childBuilder={(u) => <Rank info={u} />}
+		/>
 	);
-	Standing.propTypes = {
-		className: PropTypes.string,
-		title: PropTypes.string.isRequired,
-		standing: PropTypes.arrayOf(PropTypes.object).isRequired,
-	};
-	Standing.defaultProps = {
-		className: '',
-	};
+};
+StandingSideBar.propTypes = standingProps;
+StandingSideBar.defaultProps = standingDefaultProps;
 
-	return Standing;
-}
+const ExamStandingSideBar = ({ className, title, standing }) => {
+	return (
+		<StandingBase
+			className={className}
+			title={title}
+			standing={standing}
+			childBuilder={(u) => <ExamRank info={u} />}
+		/>
+	);
+};
+ExamStandingSideBar.propTypes = standingProps;
+ExamStandingSideBar.defaultProps = standingDefaultProps;
 
-const StandingSideBar = createStanding((u) => <Rank info={u} />);
-const ExamStandingSideBar = createStanding((u) => <ExamRank info={u} />);
-
-export { StandingSideBar as Standing, ExamStandingSideBar as ExamStanding };
+export { StandingSideBar, ExamStandingSideBar };
