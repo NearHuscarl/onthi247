@@ -1,20 +1,20 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'; // eslint-disable-line import/no-extraneous-dependencies
-import examResultReducer from '../reducers/examResult';
-import examsReducer from '../reducers/exams';
-import examQuestionsReducer from '../reducers/examQuestions';
+import exerciseResultReducer from '../reducers/exerciseResult';
+import exercisesReducer from '../reducers/exercises';
+import exerciseQuestionsReducer from '../reducers/exerciseQuestions';
 import standingReducer from '../reducers/standing';
-import examStandingReducer from '../reducers/examStanding';
+import exerciseStandingReducer from '../reducers/exerciseStanding';
 import questionsReducer from '../reducers/questions';
 
 const store = createStore(
 	combineReducers({
-		examResult: examResultReducer,
-		exams: examsReducer,
-		examQuestions: examQuestionsReducer,
+		exerciseResult: exerciseResultReducer,
+		exercises: exercisesReducer,
+		exerciseQuestions: exerciseQuestionsReducer,
 		standings: standingReducer,
-		examStanding: examStandingReducer,
+		exerciseStanding: exerciseStandingReducer,
 		questions: questionsReducer,
 	}),
 	composeWithDevTools(applyMiddleware(thunk)),

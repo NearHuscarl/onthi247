@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { examProps } from '../utilities/proptypes';
+import { exerciseProps } from '../utilities/proptypes';
 import { Link, Line, Bold, EllipsisButton } from './Common';
 import { H4 } from './Headings';
 import styled, { theme } from '../styles';
+import routes from '../routes';
 
 const List = styled.section`
 	& > :not(:last-child) {
@@ -19,6 +20,10 @@ const ListItem = styled.article`
 
 	position: relative;
 
+	h4 {
+		margin-bottom: 0;
+	}
+
 	img {
 		width: 18.9rem;
 		height: 11rem;
@@ -27,7 +32,7 @@ const ListItem = styled.article`
 	}
 `;
 const Description = styled.div`
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 `;
 const Stats = styled.div`
 	font-size: 1.1rem;
@@ -38,19 +43,23 @@ const More = styled.div`
 	right: 0;
 `;
 
-export default function ExamPreviewList({ exams }) {
+export default function ExerciseList({ list }) {
 	return (
 		<List>
-			{exams.map((e, index) => (
+			{list.map((e, index) => (
 				<React.Fragment key={e.id}>
 					<ListItem>
-						<img src={e.image} alt='exam preview' />
+						<img src={e.image} alt='exercise preview' />
 						<H4>
-							<Link to={`/exams/${e.id}/preview`}>{e.title}</Link>
+							<Link to={`${routes.exercise.path}/${e.id}/preview`}>
+								{e.title}
+							</Link>
 						</H4>
-						<Bold>
-							{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
-						</Bold>
+						<Description>
+							<Bold>
+								{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
+							</Bold>
+						</Description>
 						<Description>{e.description}</Description>
 						<Stats>
 							{`Phát hành: ${
@@ -61,13 +70,13 @@ export default function ExamPreviewList({ exams }) {
 							<EllipsisButton />
 						</More>
 					</ListItem>
-					{index !== exams.length - 1 ? <Line /> : null}
+					{index !== list.length - 1 ? <Line /> : null}
 				</React.Fragment>
 			))}
 		</List>
 	);
 }
 
-ExamPreviewList.propTypes = {
-	exams: PropTypes.arrayOf(examProps).isRequired,
+ExerciseList.propTypes = {
+	list: PropTypes.arrayOf(exerciseProps).isRequired,
 };

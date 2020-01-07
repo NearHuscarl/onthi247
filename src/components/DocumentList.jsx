@@ -51,7 +51,7 @@ export default function DocumentList({ list }) {
 			{list.map((e, index) => (
 				<React.Fragment key={e.id}>
 					<ListItem>
-						<img src={e.image} alt='exam preview' />
+						<img src={e.image} alt='preview' />
 						<H4>
 							<Link to={`${routes.document.path}/001`}>{e.title}</Link>
 						</H4>

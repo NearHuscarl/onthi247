@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom';
 import Countdown, { zeroPad } from 'react-countdown-now';
 import Button, { PrimaryWhiteButton, WhiteButton } from './Buttons';
 import Card from './Card';
-import { setTimeTaken, startSetScore } from '../actions/examResult';
+import { setTimeTaken, startSetScore } from '../actions/exerciseResult';
 import styled, { appColors } from '../styles';
+import routes from '../routes';
 
 const gutter = '.4rem';
 const Container = styled(Card)`
@@ -87,9 +88,9 @@ const Counter = (
 );
 
 function QuestionProgress({
-	examId,
+	exerciseId,
 	questions,
-	resetExam,
+	resetExercise,
 	// eslint-disable-next-line no-shadow
 	startSetScore,
 	// eslint-disable-next-line no-shadow
@@ -124,15 +125,15 @@ function QuestionProgress({
 				);
 			})}
 			<Actions>
-				<WhiteButton type='button' onClick={resetExam}>
+				<WhiteButton type='button' onClick={resetExercise}>
 					Làm lại
 				</WhiteButton>
 				<Button
 					type='button'
 					onClick={() => {
-						startSetScore(examId);
+						startSetScore(exerciseId);
 						setTimeTaken(timeTaken);
-						history.push(`/exams/${examId}/result`);
+						history.push(`${routes.exercise.path}/${exerciseId}/result`);
 					}}
 				>
 					Nộp bài
@@ -149,14 +150,14 @@ QuestionProgress.propTypes = {
 			answer: PropTypes.number,
 		}),
 	).isRequired,
-	resetExam: PropTypes.func.isRequired,
-	examId: PropTypes.string.isRequired,
+	resetExercise: PropTypes.func.isRequired,
+	exerciseId: PropTypes.string.isRequired,
 	startSetScore: PropTypes.func.isRequired,
 	setTimeTaken: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	startSetScore: (examId) => dispatch(startSetScore(examId)),
+	startSetScore: (exerciseId) => dispatch(startSetScore(exerciseId)),
 	setTimeTaken: (time) => dispatch(setTimeTaken(time)),
 });
 

@@ -1,6 +1,5 @@
 import { hotQuestions, newQuestions, questions } from '../data/questions';
 
-// const examDefaultState = {};
 const questionsDefaultState = {
 	hotQuestions: { ...hotQuestions },
 	newQuestions: { ...newQuestions },

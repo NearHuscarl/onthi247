@@ -9,8 +9,8 @@ import QuestionFlagCard from '../components/QuestionFlagCard';
 import QuestionProgress from '../components/QuestionProgress';
 import { SizedBox, Line } from '../components/Common';
 import { H2 } from '../components/Headings';
-import { examProps } from '../utilities/proptypes';
-import { setExamQuestions } from '../actions/examQuestions';
+import { exerciseProps } from '../utilities/proptypes';
+import { setExerciseQuestions } from '../actions/exerciseQuestions';
 import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
 
@@ -38,11 +38,15 @@ const ColumnRight = styled.div`
 `;
 
 // eslint-disable-next-line no-shadow
-function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
-	const { id, title, questionCount, difficulty } = exam;
+function ExerciseQuestionsPage({ exercise, setExerciseQuestions, questions }) {
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
+	const { id, title, questionCount, difficulty } = exercise;
 
 	React.useEffect(() => {
-		setExamQuestions(exam.questions);
+		setExerciseQuestions(exercise.questions);
 	}, []);
 
 	return (
@@ -58,7 +62,7 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 			<Line />
 			<Content>
 				<ColumnLeft>
-					{exam.questions.slice(0, 10).map((q, index) => (
+					{exercise.questions.slice(0, 10).map((q, index) => (
 						<React.Fragment key={q.id}>
 							<QuestionFlagCard
 								id={q.id}
@@ -77,9 +81,9 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 				</ColumnLeft>
 				<ColumnRight>
 					<QuestionProgress
-						examId={id}
+						exerciseId={id}
 						questions={questions}
-						resetExam={() => setExamQuestions(exam.questions)}
+						resetExaercise={() => setExerciseQuestions(exercise.questions)}
 					/>
 					<Ads />
 				</ColumnRight>
@@ -90,24 +94,24 @@ function ExamQuestionsPage({ exam, setExamQuestions, questions }) {
 	);
 }
 
-ExamQuestionsPage.propTypes = {
-	exam: examProps.isRequired,
+ExerciseQuestionsPage.propTypes = {
+	exercise: exerciseProps.isRequired,
 	questions: PropTypes.objectOf(
 		PropTypes.shape({
 			flag: PropTypes.bool,
 			answer: PropTypes.number,
 		}),
 	).isRequired,
-	setExamQuestions: PropTypes.func.isRequired,
+	setExerciseQuestions: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-	exam: state.exams.chemistry[props.match.params.id],
-	questions: state.examQuestions.questions,
+	exercise: state.exercises.chemistry[props.match.params.id],
+	questions: state.exerciseQuestions.questions,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setExamQuestions: (questions) => dispatch(setExamQuestions(questions)),
+	setExerciseQuestions: (questions) => dispatch(setExerciseQuestions(questions)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExamQuestionsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ExerciseQuestionsPage);

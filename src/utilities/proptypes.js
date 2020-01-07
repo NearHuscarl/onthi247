@@ -6,7 +6,7 @@ const notificationProps = PropTypes.shape({
 	date: PropTypes.string.isRequired,
 });
 
-const examQuestionProps = PropTypes.shape({
+const exerciseQuestionProps = PropTypes.shape({
 	question: PropTypes.string,
 	answers: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -17,12 +17,12 @@ const examQuestionProps = PropTypes.shape({
 	answerDetail: PropTypes.string,
 });
 
-const examProps = PropTypes.shape({
+const exerciseProps = PropTypes.shape({
 	title: PropTypes.string.isRequired,
 	subject: PropTypes.string.isRequired,
 	questionCount: PropTypes.number.isRequired,
 	difficulty: PropTypes.string.isRequired,
-	questions: PropTypes.arrayOf(examQuestionProps),
+	questions: PropTypes.arrayOf(exerciseQuestionProps),
 });
 
 const documentProps = PropTypes.shape({
@@ -142,7 +142,7 @@ const rankProps = PropTypes.shape({
 	province: PropTypes.string.isRequired,
 });
 
-const examRankProps = PropTypes.shape({
+const exerciseRankProps = PropTypes.shape({
 	rank: PropTypes.number.isRequired,
 	avatar: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
@@ -150,7 +150,7 @@ const examRankProps = PropTypes.shape({
 	time: PropTypes.string.isRequired,
 });
 
-const examHistoryProps = PropTypes.shape({
+const exerciseHistoryProps = PropTypes.shape({
 	timeTaken: PropTypes.string.isRequired,
 	score: PropTypes.number.isRequired,
 	time: PropTypes.string.isRequired,
@@ -180,13 +180,13 @@ const questionProps = PropTypes.shape({
 
 export {
 	notificationProps,
-	examQuestionProps,
-	examProps,
+	exerciseQuestionProps,
+	exerciseProps,
 	answerProps,
 	commentProps,
 	rankProps,
-	examHistoryProps,
-	examRankProps,
+	exerciseHistoryProps,
+	exerciseRankProps,
 	userProps,
 	questionProps,
 	documentProps,

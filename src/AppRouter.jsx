@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import routes from './routes';
+import constants from './constants';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import HomePage from './pages/HomePage';
-import ExamResultPage from './pages/ExamResultPage';
-import ExamPage from './pages/ExamPage';
-import constants from './constants';
-import ExamPreviewPage from './pages/ExamPreviewPage';
-import ExamQuestionsPage from './pages/ExamQuestionsPage';
+import ExerciseResultPage from './pages/ExerciseResultPage';
+import ExercisePage from './pages/ExercisePage';
+import ExercisePreviewPage from './pages/ExercisePreviewPage';
+import ExerciseQuestionsPage from './pages/ExerciseQuestionsPage';
 import QuestionsPage from './pages/QuestionsPage';
 import AnswerPage from './pages/AnswerPage';
 import AskPage from './pages/AskPage';
@@ -93,18 +93,22 @@ const AppRouter = () => {
 				<Route path='/course/001' component={CourseDetailPage} exact />
 				<Route path={cart.path} component={CartPage} exact />
 				<Route path={checkout.path} component={CheckoutPage} exact />
-				<Route path='/exams' component={ExamPage} exact />
+				<Route path={exercise.path} component={ExercisePage} exact />
 				<Route
-					path='/exams/:id/preview'
-					component={ExamPreviewPage}
+					path={`${exercise.path}/:id/preview`}
+					component={ExercisePreviewPage}
 					exact
 				/>
 				<Route
-					path='/exams/:id/questions'
-					component={ExamQuestionsPage}
+					path={`${exercise.path}/:id/questions`}
+					component={ExerciseQuestionsPage}
 					exact
 				/>
-				<Route path='/exams/:id/result' component={ExamResultPage} exact />
+				<Route
+					path={`${exercise.path}/:id/result`}
+					component={ExerciseResultPage}
+					exact
+				/>
 				<Route path='/questions' component={QuestionsPage} exact />
 				<Route path='/questions/ask' component={AskPage} exact />
 				<Route path='/questions/001' component={AnswerPage} exact />

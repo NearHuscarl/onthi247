@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { examProps } from '../utilities/proptypes';
+import { exerciseProps } from '../utilities/proptypes';
 import Button, { WhiteButton } from './Buttons';
 import { H2 } from './Headings';
 import styled, { theme, helperStyles } from '../styles';
+import routes from '../routes';
 
 const Container = styled.div`
 	display: grid;
@@ -40,24 +41,22 @@ const Stats = styled.div`
 	margin-bottom: 0.5rem;
 `;
 
-export default function ExamPreviewSection({ exam }) {
+export default function ExercisePreviewSection({ exercise }) {
 	const history = useHistory();
+	const exercisePath = `${routes.exercise.path}/${exercise.id}/questions`;
 
 	return (
 		<Container>
-			<img src={exam.image} alt='exam preview' />
-			<H2>{exam.title}</H2>
-			<div>{`${exam.questionCount} câu hỏi - Trình độ ${exam.difficulty}`}</div>
+			<img src={exercise.image} alt='exercise preview' />
+			<H2>{exercise.title}</H2>
+			<div>{`${exercise.questionCount} câu hỏi - Trình độ ${exercise.difficulty}`}</div>
 			<Stats>
 				{`Phát hành: ${
-					exam.publish
-				} - Lượt xem: ${exam.views.toLocaleString()} - Lượt làm bài: ${exam.attempts.toLocaleString()}`}
+					exercise.publish
+				} - Lượt xem: ${exercise.views.toLocaleString()} - Lượt làm bài: ${exercise.attempts.toLocaleString()}`}
 			</Stats>
 			<div>
-				<Button
-					type='button'
-					onClick={() => history.push(`/exams/${exam.id}/questions`)}
-				>
+				<Button type='button' onClick={() => history.push(exercisePath)}>
 					<FontAwesomeIcon icon={faPlay} />
 					<span>Bắt đầu làm bài</span>
 				</Button>
@@ -70,6 +69,6 @@ export default function ExamPreviewSection({ exam }) {
 	);
 }
 
-ExamPreviewSection.propTypes = {
-	exam: examProps.isRequired,
+ExercisePreviewSection.propTypes = {
+	exercise: exerciseProps.isRequired,
 };

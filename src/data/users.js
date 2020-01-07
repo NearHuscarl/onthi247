@@ -19,7 +19,7 @@ const users = [
 	{
 		id: 'L',
 		name: 'L',
-		level: 0,
+		level: 199,
 		avatar: eo,
 		email: 'eo@gmail.com',
 		school: randomSchool(),

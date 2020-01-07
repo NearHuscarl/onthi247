@@ -1,7 +1,7 @@
 import users from './users';
 
-const examStanding = {
-	examId: '0001',
+const exerciseStanding = {
+	exerciseId: '0001',
 	standing: [
 		{
 			...users[0],
@@ -66,4 +66,4 @@ const examStanding = {
 	],
 };
 
-export default examStanding;
+export default exerciseStanding;

@@ -1,5 +1,5 @@
-const setExamStanding = (id, standing = []) => ({
-	type: 'SET_EXAM_STANDING',
+const setExerciseStanding = (id, standing = []) => ({
+	type: 'SET_EXERCISE_STANDING',
 	payload: {
 		id,
 		standing,
@@ -7,4 +7,4 @@ const setExamStanding = (id, standing = []) => ({
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export { setExamStanding };
+export { setExerciseStanding };

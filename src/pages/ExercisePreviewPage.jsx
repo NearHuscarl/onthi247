@@ -2,20 +2,20 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
-import ExamCardList, { Recommend } from '../components/ExamCardList';
-import { examProps, examRankProps } from '../utilities/proptypes';
-import ExamPreviewSection from '../components/ExamPreviewSection';
+import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
+import { exerciseProps, exerciseRankProps } from '../utilities/proptypes';
+import ExercisePreviewSection from '../components/ExercisePreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import { SizedBox } from '../components/Common';
 import { H4 } from '../components/Headings';
 import TeacherDetail from '../components/TeacherDetail';
 import Breadcrumbs, { routes } from '../components/Breadcrumb';
 import ContentContainer from '../layout/ContentContainer';
-import ExamStanding from '../components/ExamStanding';
+import ExerciseStanding from '../components/ExerciseStanding';
 import styled, { helperStyles } from '../styles';
 import { chemistryTeacher } from '../data/teachers';
-import ExamHistory from '../components/ExamHistory';
-import examHistory from '../data/examHistory';
+import ExerciseHistory from '../components/ExerciseHistory';
+import exerciseHistory from '../data/exerciseHistory';
 
 const Content = styled.div`
 	${helperStyles.marginTopLarge}
@@ -39,21 +39,21 @@ const SubHeader = styled(H4)`
 	margin-top: 1.6rem;
 `;
 
-function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
+function ExercisePreviewPage({ exercise, standing, chemistryExercises, nationalExams }) {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
 	return (
 		<>
-			<Breadcrumbs path={[routes.home, routes.exercise, exam.title]} />
+			<Breadcrumbs path={[routes.home, routes.exercise, exercise.title]} />
 			<ContentContainer as='main'>
 				<Content>
 					<Top>
 						<div>
-							<ExamPreviewSection exam={exam} />
+							<ExercisePreviewSection exercise={exercise} />
 							<SubHeader>Giới thiệu chung</SubHeader>
-							<div>{exam.description}</div>
+							<div>{exercise.description}</div>
 						</div>
 						<ScoreCard />
 					</Top>
@@ -63,27 +63,27 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 							<Tab>Lịch sử làm bài</Tab>
 						</TabList>
 						<TabPanel>
-							<ExamStanding list={standing.slice(0, 4)} />
+							<ExerciseStanding list={standing.slice(0, 4)} />
 						</TabPanel>
 						<TabPanel>
-							<ExamHistory list={examHistory} />
+							<ExerciseHistory list={exerciseHistory} />
 						</TabPanel>
 					</Tabs>
 					<SizedBox height={3} />
 					<TeacherDetail teacher={chemistryTeacher} />
 					<Recommend>
-						<ExamCardList
-							exams={chemistryExams}
+						<ExerciseCarousel
+							list={chemistryExercises}
 							title='Các bài tập có liên quan'
 						/>
 						<div className='mb-md' />
-						<ExamCardList
-							exams={nationalExams}
+						<ExerciseCarousel
+							list={nationalExams}
 							title='Các bài tập nổi bật'
 						/>
 						<div className='mb-md' />
-						<ExamCardList
-							exams={nationalExams}
+						<ExerciseCarousel
+							list={nationalExams}
 							title='Các bài tập mới nhất'
 						/>
 					</Recommend>
@@ -93,18 +93,18 @@ function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 	);
 }
 
-ExamPreviewPage.propTypes = {
-	exam: examProps.isRequired,
-	standing: PropTypes.arrayOf(examRankProps).isRequired,
-	chemistryExams: PropTypes.arrayOf(examProps).isRequired,
-	nationalExams: PropTypes.arrayOf(examProps).isRequired,
+ExercisePreviewPage.propTypes = {
+	exercise: exerciseProps.isRequired,
+	standing: PropTypes.arrayOf(exerciseRankProps).isRequired,
+	chemistryExercises: PropTypes.arrayOf(exerciseProps).isRequired,
+	nationalExams: PropTypes.arrayOf(exerciseProps).isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-	exam: state.exams.chemistry[props.match.params.id],
-	standing: state.examStanding['0001'],
-	chemistryExams: Object.values(state.exams.chemistry),
-	nationalExams: Object.values(state.exams.national),
+	exercise: state.exercises.chemistry[props.match.params.id],
+	standing: state.exerciseStanding['0001'],
+	chemistryExercises: Object.values(state.exercises.chemistry),
+	nationalExams: Object.values(state.exercises.national),
 });
 
-export default connect(mapStateToProps, null)(ExamPreviewPage);
+export default connect(mapStateToProps, null)(ExercisePreviewPage);

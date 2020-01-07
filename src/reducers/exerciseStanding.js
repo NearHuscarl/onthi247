@@ -1,7 +1,7 @@
-import standingData from '../data/examStanding';
+import standingData from '../data/exerciseStanding';
 
 // const standingDefaultState = {};
-const standingDefaultState = { [standingData.examId]: [...standingData.standing] };
+const standingDefaultState = { [standingData.exerciseId]: [...standingData.standing] };
 
 const standingReducer = (state = standingDefaultState, action) => {
 	switch (action.type) {

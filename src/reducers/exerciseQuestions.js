@@ -1,10 +1,10 @@
-const examQuestionsDefaultState = {
+const exerciseQuestionsDefaultState = {
 	questions: {},
 };
 
-const examQuestionsReducer = (state = examQuestionsDefaultState, action) => {
+const exerciseQuestionsReducer = (state = exerciseQuestionsDefaultState, action) => {
 	switch (action.type) {
-		case 'SET_EXAM_QUESTIONS': {
+		case 'SET_EXERCISE_QUESTIONS': {
 			const { questions } = action.payload;
 			return {
 				questions: questions.reduce((prev, q) => {
@@ -17,7 +17,7 @@ const examQuestionsReducer = (state = examQuestionsDefaultState, action) => {
 				}, {}),
 			};
 		}
-		case 'SET_EXAM_QUESTION_FLAG': {
+		case 'SET_EXERCISE_QUESTION_FLAG': {
 			const { id, flag } = action.payload;
 			return {
 				questions: {
@@ -29,7 +29,7 @@ const examQuestionsReducer = (state = examQuestionsDefaultState, action) => {
 				},
 			};
 		}
-		case 'SET_EXAM_QUESTION_ANSWER': {
+		case 'SET_EXERCISE_QUESTION_ANSWER': {
 			const { id, answer } = action.payload;
 			return {
 				questions: {
@@ -46,4 +46,4 @@ const examQuestionsReducer = (state = examQuestionsDefaultState, action) => {
 	}
 };
 
-export default examQuestionsReducer;
+export default exerciseQuestionsReducer;

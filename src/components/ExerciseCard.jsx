@@ -31,19 +31,17 @@ const Container = styled(Card)`
 		margin-bottom: 0;
 	}
 `;
-
 const Description = styled.p`
 	font-weight: 600;
 `;
-
 const Date = styled.p`
 	font-size: 1.1rem;
 `;
 
-export default function ExamCard({ image, title, description, date }) {
+export default function ExerciseCard({ image, title, description, date }) {
 	return (
 		<Container background='white' noPadding>
-			<img src={image} alt='exam preview' />
+			<img src={image} alt='exercise preview' />
 			<div>
 				{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 				<a href=''>
@@ -56,7 +54,7 @@ export default function ExamCard({ image, title, description, date }) {
 	);
 }
 
-ExamCard.propTypes = {
+ExerciseCard.propTypes = {
 	image: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,

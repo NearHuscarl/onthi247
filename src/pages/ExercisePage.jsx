@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Ads from '../components/Ads';
 import Filters from '../layout/Filters';
-import { StandingSideBar } from '../components/StandingSideBar';
-import ExamPreviewList from '../components/ExamPreviewList';
+import { StandingSideBar } from '../components/ExerciseStandingSideBar';
+import ExerciseList from '../components/ExerciseList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
-import ExamCardList, { Recommend } from '../components/ExamCardList';
-import { examProps, rankProps } from '../utilities/proptypes';
+import BreadCrumb, { routes } from '../components/Breadcrumb';
+import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
 import ContentContainer from '../layout/ContentContainer';
+import { exerciseProps, rankProps } from '../utilities/proptypes';
 import styled from '../styles';
 
 const Main = styled.main`
@@ -28,14 +29,15 @@ const ColRight = styled.div`
 	flex: 0 1;
 `;
 
-const ExamPage = ({
-	chemistryExams,
+const ExercisePage = ({
+	chemistryExercises,
 	nationalExams,
 	standing,
 	monthlyStanding,
 	weeklyStanding,
 }) => (
 	<Main>
+		<BreadCrumb path={[routes.home, routes.exercise]} />
 		<Filters
 			title='Danh sách bài tập'
 			subTitle='Có tất cả 300 bài tập trong danh sách'
@@ -43,7 +45,7 @@ const ExamPage = ({
 		<ContentContainer>
 			<Content>
 				<ColLeft>
-					<ExamPreviewList exams={chemistryExams} />
+					<ExerciseList list={chemistryExercises} />
 				</ColLeft>
 				<ColRight>
 					<StandingSideBar
@@ -66,28 +68,28 @@ const ExamPage = ({
 			</Content>
 			<Pagination />
 			<Recommend>
-				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' e />
+				<ExerciseCarousel list={nationalExams} title='Các bài tập nổi bật' e />
 				<div className='mb-md' />
-				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
+				<ExerciseCarousel list={nationalExams} title='Các bài tập mới nhất' />
 			</Recommend>
 		</ContentContainer>
 	</Main>
 );
 
-ExamPage.propTypes = {
+ExercisePage.propTypes = {
 	standing: PropTypes.arrayOf(rankProps).isRequired,
 	monthlyStanding: PropTypes.arrayOf(rankProps).isRequired,
 	weeklyStanding: PropTypes.arrayOf(rankProps).isRequired,
-	chemistryExams: PropTypes.arrayOf(examProps).isRequired,
-	nationalExams: PropTypes.arrayOf(examProps).isRequired,
+	chemistryExercises: PropTypes.arrayOf(exerciseProps).isRequired,
+	nationalExams: PropTypes.arrayOf(exerciseProps).isRequired,
 };
 
 const mapStateToProps = (state) => ({
 	standing: state.standings.standing.slice(0, 5),
 	monthlyStanding: state.standings.monthlyStanding.slice(0, 5),
 	weeklyStanding: state.standings.weeklyStanding.slice(0, 5),
-	chemistryExams: Object.values(state.exams.chemistry),
-	nationalExams: Object.values(state.exams.national),
+	chemistryExercises: Object.values(state.exercises.chemistry),
+	nationalExams: Object.values(state.exercises.national),
 });
 
-export default connect(mapStateToProps, null)(ExamPage);
+export default connect(mapStateToProps, null)(ExercisePage);

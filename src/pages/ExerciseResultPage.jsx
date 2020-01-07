@@ -6,11 +6,11 @@ import Card from '../components/Card';
 import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
-import ExamCardList, { Recommend } from '../components/ExamCardList';
+import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
 import { Line, SizedBox } from '../components/Common';
 import { H2, H3, H4 } from '../components/Headings';
 import { WhiteButton } from '../components/Buttons';
-import { examProps } from '../utilities/proptypes';
+import { exerciseProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { appColors, theme } from '../styles';
 import congratsImg from '../../public/images/congrats.jpg';
@@ -111,14 +111,14 @@ const DetailCol3 = styled(DetailCol)`
 	width: 21rem;
 `;
 
-const ExamResultPage = ({
-	exam,
+const ExerciseResultPage = ({
+	exercise,
 	nationalExams,
 	selectedQuestion,
 	timeTaken,
 	score,
 }) => {
-	const { id, title, questionCount, difficulty, questions } = exam;
+	const { id, title, questionCount, difficulty, questions } = exercise;
 
 	return (
 		<ContentContainer as='main'>
@@ -162,27 +162,27 @@ const ExamResultPage = ({
 						<CommentSection />
 					</DetailCol2>
 					<DetailCol3>
-						<QuestionGrid questionCount={questions.length} examId={id} />
+						<QuestionGrid questionCount={questions.length} exerciseId={id} />
 						<Ads />
 					</DetailCol3>
 				</DetailContent>
 			</Detail>
 			<Recommend>
-				<ExamCardList exams={nationalExams} title='Bạn có thể quan tâm' />
+				<ExerciseCarousel list={nationalExams} title='Bạn có thể quan tâm' />
 				<div className='mb-md' />
-				<ExamCardList exams={nationalExams} title='Các bài tập nổi bật' />
+				<ExerciseCarousel list={nationalExams} title='Các bài tập nổi bật' />
 				<div className='mb-md' />
-				<ExamCardList exams={nationalExams} title='Các bài tập mới nhất' />
+				<ExerciseCarousel list={nationalExams} title='Các bài tập mới nhất' />
 			</Recommend>
 			<SizedBox height={7} />
 		</ContentContainer>
 	);
 };
 
-ExamResultPage.propTypes = {
+ExerciseResultPage.propTypes = {
 	selectedQuestion: PropTypes.number.isRequired,
-	exam: examProps.isRequired,
-	nationalExams: PropTypes.arrayOf(examProps).isRequired,
+	exercise: exerciseProps.isRequired,
+	nationalExams: PropTypes.arrayOf(exerciseProps).isRequired,
 	timeTaken: PropTypes.shape({
 		minutes: PropTypes.number,
 		seconds: PropTypes.number,
@@ -191,11 +191,11 @@ ExamResultPage.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-	selectedQuestion: state.examResult.selectedQuestion,
-	exam: state.exams.chemistry[props.match.params.id],
-	nationalExams: Object.values(state.exams.national),
-	timeTaken: state.examResult.timeTaken,
-	score: state.examResult.score,
+	selectedQuestion: state.exerciseResult.selectedQuestion,
+	exercise: state.exercises.chemistry[props.match.params.id],
+	nationalExams: Object.values(state.exercises.national),
+	timeTaken: state.exerciseResult.timeTaken,
+	score: state.exerciseResult.score,
 });
 
-export default connect(mapStateToProps, null)(ExamResultPage);
+export default connect(mapStateToProps, null)(ExerciseResultPage);

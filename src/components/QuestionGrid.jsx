@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import range from 'lodash/range';
-import { setExamResultQuestion } from '../actions/examResult';
+import { setExerciseResultQuestion } from '../actions/exerciseResult';
 import Card from './Card';
 import Button, { PrimaryWhiteButton } from './Buttons';
 import styled, { helperStyles } from '../styles';
+import routes from '../routes';
 
 const Container = styled(Card)`
 	display: grid;
@@ -32,11 +33,12 @@ const SubmitButton = styled(Button)`
 
 function QuestionGrid({
 	questionCount,
-	examId,
+	exerciseId,
 	// eslint-disable-next-line no-shadow
-	setExamResultQuestion,
+	setExerciseResultQuestion,
 }) {
 	const history = useHistory();
+	const exercisePath = `${routes.exercise.path}/${exerciseId}/questions`;
 	return (
 		<Container>
 			{range(0, questionCount).map((i) => {
@@ -44,16 +46,13 @@ function QuestionGrid({
 					<QButton
 						key={i}
 						type='button'
-						onClick={() => setExamResultQuestion(i)}
+						onClick={() => setExerciseResultQuestion(i)}
 					>
 						{i + 1}
 					</QButton>
 				);
 			})}
-			<SubmitButton
-				type='button'
-				onClick={() => history.push(`/exams/${examId}/questions`)}
-			>
+			<SubmitButton type='button' onClick={() => history.push(exercisePath)}>
 				Làm lại bài tập
 			</SubmitButton>
 		</Container>
@@ -62,13 +61,13 @@ function QuestionGrid({
 
 QuestionGrid.propTypes = {
 	questionCount: PropTypes.number.isRequired,
-	examId: PropTypes.string.isRequired,
-	setExamResultQuestion: PropTypes.func.isRequired,
+	exerciseId: PropTypes.string.isRequired,
+	setExerciseResultQuestion: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	setExamResultQuestion: (question) =>
-		dispatch(setExamResultQuestion(question)),
+	setExerciseResultQuestion: (question) =>
+		dispatch(setExerciseResultQuestion(question)),
 });
 
 export default connect(null, mapDispatchToProps)(QuestionGrid);

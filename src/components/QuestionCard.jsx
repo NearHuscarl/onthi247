@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Radio, { RadioGroup } from './Radio';
 import Card from './Card';
 import { H4 } from './Headings';
-import { setExamQuestionAnswer } from '../actions/examQuestions';
+import { setExerciseQuestionAnswer } from '../actions/exerciseQuestions';
 import styled, { appColors } from '../styles';
 
 const OptionText = styled.div`
@@ -25,11 +25,11 @@ function QuestionCard({
 	answers,
 	answer,
 	// eslint-disable-next-line no-shadow
-	setExamQuestionAnswer,
+	setExerciseQuestionAnswer,
 }) {
 	const handleChange = (event) => {
 		const val = parseInt(event.target.value, 10);
-		setExamQuestionAnswer(id, val);
+		setExerciseQuestionAnswer(id, val);
 	};
 
 	return (
@@ -50,12 +50,12 @@ QuestionCard.propTypes = {
 	question: PropTypes.string.isRequired,
 	answers: PropTypes.arrayOf(PropTypes.string).isRequired,
 	answer: PropTypes.number.isRequired,
-	setExamQuestionAnswer: PropTypes.func.isRequired,
+	setExerciseQuestionAnswer: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	setExamQuestionAnswer: (id, answer) =>
-		dispatch(setExamQuestionAnswer(id, answer)),
+	setExerciseQuestionAnswer: (id, answer) =>
+		dispatch(setExerciseQuestionAnswer(id, answer)),
 });
 
 export default connect(null, mapDispatchToProps)(QuestionCard);

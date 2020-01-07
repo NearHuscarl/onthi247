@@ -181,13 +181,13 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.baiTap}
-						route={routes.home.path}
+						route={routes.exercise.path}
 						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<StyledNavItem
 						name={navItems.thiThu}
-						route='/exams'
+						route={routes.home.path}
 						highlight={navItems.thiThu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

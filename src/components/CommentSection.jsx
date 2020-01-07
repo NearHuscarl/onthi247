@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Card from './Card';
 import Selector from './Selector';
-import { setExamResultComment } from '../actions/examResult';
+import { setExerciseResultComment } from '../actions/exerciseResult';
 import { commentProps } from '../utilities/proptypes';
 import styled, { appColors, helperStyles } from '../styles';
 import { InputGroup } from './Input';
@@ -179,11 +179,11 @@ CommentSection.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-	comments: state.examResult.comments,
+	comments: state.exerciseResult.comments,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setExamResultComment: (comment) => dispatch(setExamResultComment(comment)),
+	setExerciseResultComment: (comment) => dispatch(setExerciseResultComment(comment)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

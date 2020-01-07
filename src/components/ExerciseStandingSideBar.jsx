@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { rankProps, examRankProps } from '../utilities/proptypes';
+import { rankProps, exerciseRankProps } from '../utilities/proptypes';
 import { Line, Link } from './Common';
 import { H3, H4 } from './Headings';
 import styled from '../styles';
@@ -50,7 +50,7 @@ Rank.propTypes = {
 	info: rankProps.isRequired,
 };
 
-export function ExamRank({ info }) {
+export function ExerciseRank({ info }) {
 	return (
 		<ListItem>
 			<img src={info.avatar} alt='user avatar' />
@@ -64,8 +64,8 @@ export function ExamRank({ info }) {
 	);
 }
 
-ExamRank.propTypes = {
-	info: examRankProps.isRequired,
+ExerciseRank.propTypes = {
+	info: exerciseRankProps.isRequired,
 };
 
 const StandingBase = ({ className, title, standing, childBuilder }) => (
@@ -110,17 +110,17 @@ const StandingSideBar = ({ className, title, standing }) => {
 StandingSideBar.propTypes = standingProps;
 StandingSideBar.defaultProps = standingDefaultProps;
 
-const ExamStandingSideBar = ({ className, title, standing }) => {
+const ExerciseStandingSideBar = ({ className, title, standing }) => {
 	return (
 		<StandingBase
 			className={className}
 			title={title}
 			standing={standing}
-			childBuilder={(u) => <ExamRank info={u} />}
+			childBuilder={(u) => <ExerciseRank info={u} />}
 		/>
 	);
 };
-ExamStandingSideBar.propTypes = standingProps;
-ExamStandingSideBar.defaultProps = standingDefaultProps;
+ExerciseStandingSideBar.propTypes = standingProps;
+ExerciseStandingSideBar.defaultProps = standingDefaultProps;
 
-export { StandingSideBar, ExamStandingSideBar };
+export { StandingSideBar, ExerciseStandingSideBar };

@@ -1,10 +1,10 @@
 import comments from '../data/comments';
 
-// const examResultDefaultState = {
+// const exerciseResultDefaultState = {
 // 	question: 0,
 // 	comments: [],
 // };
-const examResultDefaultState = {
+const exerciseResultDefaultState = {
 	selectedQuestion: 0,
 	timeTaken: {
 		minutes: 0,
@@ -14,21 +14,21 @@ const examResultDefaultState = {
 	comments: [...comments],
 };
 
-const examResultReducer = (state = examResultDefaultState, action) => {
+const exerciseResultReducer = (state = exerciseResultDefaultState, action) => {
 	switch (action.type) {
-		case 'SET_EXAM_RESULT_SELECTED_QUESTION': {
+		case 'SET_EXERCISE_RESULT_SELECTED_QUESTION': {
 			const { selectedQuestion } = action.payload;
 			return { ...state, selectedQuestion };
 		}
-		case 'SET_EXAM_RESULT_TIME_TAKEN': {
+		case 'SET_EXERCISE_RESULT_TIME_TAKEN': {
 			const { timeTaken } = action.payload;
 			return { ...state, timeTaken };
 		}
-		case 'FETCH_EXAM_RESULT_SCORE': {
+		case 'FETCH_EXERCISE_RESULT_SCORE': {
 			const { score } = action.payload;
 			return { ...state, score };
 		}
-		case 'SET_EXAM_RESULT_COMMENT': {
+		case 'SET_EXERCISE_RESULT_COMMENT': {
 			const { comment } = action.payload;
 			return { ...state, comments: [...state.comments, comment] };
 		}
@@ -37,4 +37,4 @@ const examResultReducer = (state = examResultDefaultState, action) => {
 	}
 };
 
-export default examResultReducer;
+export default exerciseResultReducer;

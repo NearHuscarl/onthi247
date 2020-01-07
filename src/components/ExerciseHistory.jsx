@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Bold } from './Common';
-import { examHistoryProps } from '../utilities/proptypes';
+import { exerciseHistoryProps } from '../utilities/proptypes';
 import styled, { appColors } from '../styles';
 
 const List = styled.ul`
@@ -43,11 +43,11 @@ export function Rank({ info, index }) {
 }
 
 Rank.propTypes = {
-	info: examHistoryProps.isRequired,
+	info: exerciseHistoryProps.isRequired,
 	index: PropTypes.number.isRequired,
 };
 
-export default function ExamHistory({ className, list }) {
+export default function ExerciseHistory({ className, list }) {
 	return (
 		<>
 			<Header>
@@ -65,10 +65,10 @@ export default function ExamHistory({ className, list }) {
 	);
 }
 
-ExamHistory.propTypes = {
+ExerciseHistory.propTypes = {
 	className: PropTypes.string,
-	list: PropTypes.arrayOf(examHistoryProps).isRequired,
+	list: PropTypes.arrayOf(exerciseHistoryProps).isRequired,
 };
-ExamHistory.defaultProps = {
+ExerciseHistory.defaultProps = {
 	className: null,
 };

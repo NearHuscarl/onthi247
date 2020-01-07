@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from './Card';
 import { WhiteButton } from './Buttons';
 import { H4 } from './Headings';
-import { setExamQuestionFlag } from '../actions/examQuestions';
+import { setExerciseQuestionFlag } from '../actions/exerciseQuestions';
 import styled, { appColors, curves, helperStyles } from '../styles';
 
 const Container = styled(Card)`
@@ -58,7 +58,7 @@ const Flag = styled.div`
 `;
 
 // eslint-disable-next-line no-shadow
-function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
+function QuestionFlagCard({ id, index, flag, answer, setExerciseQuestionFlag }) {
 	return (
 		<Container>
 			<H4>Câu hỏi {index + 1}</H4>
@@ -66,7 +66,7 @@ function QuestionFlagCard({ id, index, flag, answer, setExamQuestionFlag }) {
 			<WhiteButton
 				type='button'
 				onClick={() => {
-					setExamQuestionFlag(id, !flag);
+					setExerciseQuestionFlag(id, !flag);
 				}}
 			>
 				{flag ? 'Bỏ đặt cờ' : 'Đặt cờ'}
@@ -83,11 +83,11 @@ QuestionFlagCard.propTypes = {
 	index: PropTypes.number.isRequired,
 	flag: PropTypes.bool.isRequired,
 	answer: PropTypes.number.isRequired,
-	setExamQuestionFlag: PropTypes.func.isRequired,
+	setExerciseQuestionFlag: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	setExamQuestionFlag: (id, flag) => dispatch(setExamQuestionFlag(id, flag)),
+	setExerciseQuestionFlag: (id, flag) => dispatch(setExerciseQuestionFlag(id, flag)),
 });
 
 export default connect(null, mapDispatchToProps)(QuestionFlagCard);

@@ -78,7 +78,7 @@ Rank.propTypes = {
 	info: rankProps.isRequired,
 };
 
-export default function ExamStanding({ className, list }) {
+export default function ExerciseStanding({ className, list }) {
 	return (
 		<>
 			<Header>
@@ -99,10 +99,10 @@ export default function ExamStanding({ className, list }) {
 	);
 }
 
-ExamStanding.propTypes = {
+ExerciseStanding.propTypes = {
 	className: PropTypes.string,
 	list: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-ExamStanding.defaultProps = {
+ExerciseStanding.defaultProps = {
 	className: null,
 };

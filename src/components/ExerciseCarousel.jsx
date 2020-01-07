@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import ExamCard from './ExamCard';
-import { examProps } from '../utilities/proptypes';
+import ExerciseCard from './ExerciseCard';
+import { exerciseProps } from '../utilities/proptypes';
 import styled, { appColors } from '../styles';
 import { H3 } from './Headings';
 
@@ -86,7 +86,7 @@ const resonsiveSettings = [
 	},
 ];
 
-export default function ExamCardList({ title, exams, slidesToShow }) {
+export default function ExerciseCarousel({ title, list, slidesToShow }) {
 	return (
 		<section>
 			<H3 className='mb-0'>{title}</H3>
@@ -99,8 +99,8 @@ export default function ExamCardList({ title, exams, slidesToShow }) {
 				draggable={false}
 				responsive={resonsiveSettings}
 			>
-				{exams.map((e) => (
-					<ExamCard
+				{list.map((e) => (
+					<ExerciseCard
 						key={e.id}
 						image={e.image}
 						title={e.title}
@@ -113,12 +113,12 @@ export default function ExamCardList({ title, exams, slidesToShow }) {
 	);
 }
 
-ExamCardList.propTypes = {
+ExerciseCarousel.propTypes = {
 	title: PropTypes.string.isRequired,
-	exams: PropTypes.arrayOf(examProps).isRequired,
+	list: PropTypes.arrayOf(exerciseProps).isRequired,
 	slidesToShow: PropTypes.number,
 };
 
-ExamCardList.defaultProps = {
+ExerciseCarousel.defaultProps = {
 	slidesToShow: 4,
 };
