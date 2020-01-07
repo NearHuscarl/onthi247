@@ -41,13 +41,9 @@ const SubHeader = styled(H4)`
 	margin-top: 1.6rem;
 `;
 
-const init = () => {
-	window.scrollTo(0, 0);
-};
-
 function ExamPreviewPage({ exam, standing, chemistryExams, nationalExams }) {
 	useEffect(() => {
-		init();
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (

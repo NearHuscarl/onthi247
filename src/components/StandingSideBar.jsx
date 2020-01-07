@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { rankProps, examRankProps } from '../utilities/proptypes';
-import { Line } from './Common';
+import { Line, Link } from './Common';
 import { H3, H4 } from './Headings';
 import styled from '../styles';
+import routes from '../routes';
 
 const List = styled.ul`
 	& > :not(:last-child) {
@@ -26,7 +27,7 @@ const Content = styled.div`
 	justify-content: center;
 
 	> * {
-		// override bs
+		/* override bs */
 		margin-bottom: 0;
 	}
 `;
@@ -36,7 +37,9 @@ export function Rank({ info }) {
 		<ListItem>
 			<img src={info.avatar} alt='user avatar' />
 			<Content>
-				<H4>{info.name}</H4>
+				<H4>
+					<Link to={`${routes.profile.path}/${info.id}`}>{info.name}</Link>
+				</H4>
 				<p>{`Level: ${info.level}`}</p>
 			</Content>
 		</ListItem>
@@ -52,7 +55,9 @@ export function ExamRank({ info }) {
 		<ListItem>
 			<img src={info.avatar} alt='user avatar' />
 			<Content>
-				<H4>{info.name}</H4>
+				<H4>
+					<Link to={`${routes.profile.path}/${info.id}`}>{info.name}</Link>
+				</H4>
 				<p>{`${info.score}/30 - ${info.time}`}</p>
 			</Content>
 		</ListItem>

@@ -47,7 +47,10 @@ const Media = styled.div`
 `;
 
 const ProfilePage = ({ match }) => {
-    console.log(match);
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	const user = userDetail(match.params.id);
 	return (
 		<Main>
