@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import MaterialRadio from '@material-ui/core/Radio';
 import MaterialRadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
 import styled, { appColors } from '../styles';
 
-const RadioForm = styled(FormControl)`
+export const RadioGroup = styled(MaterialRadioGroup)`
 	/* yarn add @material-ui/core */
 
 	/* radio button group */
@@ -46,28 +45,12 @@ const RadioForm = styled(FormControl)`
 	}
 `;
 
-export function RadioGroup({ value, onChange, children }) {
-	return (
-		<RadioForm component='fieldset'>
-			<MaterialRadioGroup value={value} onChange={onChange}>
-				{children}
-			</MaterialRadioGroup>
-		</RadioForm>
-	);
-}
-
-RadioGroup.propTypes = {
-	value: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	children: PropTypes.node.isRequired,
-};
-
-export default function Radio({ className, value, label, checked }) {
+export default function Radio({ className, value, label }) {
 	return (
 		<FormControlLabel
 			className={className}
 			value={value}
-			control={<MaterialRadio checked={checked} color='primary' />}
+			control={<MaterialRadio color='primary' />}
 			label={label}
 		/>
 	);
@@ -75,12 +58,11 @@ export default function Radio({ className, value, label, checked }) {
 
 Radio.propTypes = {
 	className: PropTypes.string,
-	checked: PropTypes.bool,
-	value: PropTypes.string.isRequired,
+	// eslint-disable-next-line react/forbid-prop-types
+	value: PropTypes.any.isRequired,
 	label: PropTypes.string.isRequired,
 };
 
 Radio.defaultProps = {
 	className: null,
-	checked: null,
 };
