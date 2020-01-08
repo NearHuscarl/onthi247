@@ -83,7 +83,7 @@ function ExerciseQuestionsPage({ exercise, setExerciseQuestions, questions }) {
 					<QuestionProgress
 						exerciseId={id}
 						questions={questions}
-						resetExaercise={() => setExerciseQuestions(exercise.questions)}
+						resetExercise={() => setExerciseQuestions(exercise.questions)}
 					/>
 					<Ads />
 				</ColumnRight>

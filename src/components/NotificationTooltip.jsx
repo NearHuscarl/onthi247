@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { FormattedText, Bold } from './Common';
 import Tooltip from './Tooltip';
@@ -83,27 +84,30 @@ export function Notifications({ list }) {
 				<ButtonText className='top-button'>Cài đặt</ButtonText>
 			</Top>
 			<ul>
-				{list.map((n) => (
-					<ListItem
-						key={n.body}
-						onClick={() =>
-							history.push(`${routes.notification.path}/001`)
-						}
-					>
-						<UserInfo>
-							<Avatar src={n.image} alt='avatar' />
-							<Body>{n.body}</Body>
-							<Small>{n.date}</Small>
-						</UserInfo>
-					</ListItem>
-				))}
+				{list.map((n, i) => {
+					const key = i;
+					return (
+						<ListItem
+							key={key}
+							onClick={() =>
+								history.push(`${routes.notification.path}/001`)
+							}
+						>
+							<UserInfo>
+								<Avatar src={n.image} alt='avatar' />
+								<Body>{n.body}</Body>
+								<Small>{n.date}</Small>
+							</UserInfo>
+						</ListItem>
+					);
+				})}
 			</ul>
 		</>
 	);
 }
 
 Notifications.propTypes = {
-	list: notificationProps.isRequired,
+	list: PropTypes.arrayOf(notificationProps).isRequired,
 };
 
 function TooltipContent() {

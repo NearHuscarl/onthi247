@@ -152,7 +152,7 @@ const exerciseRankProps = PropTypes.shape({
 
 const exerciseHistoryProps = PropTypes.shape({
 	timeTaken: PropTypes.string.isRequired,
-	score: PropTypes.number.isRequired,
+	score: PropTypes.string.isRequired,
 	time: PropTypes.string.isRequired,
 });
 

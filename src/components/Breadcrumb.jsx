@@ -90,12 +90,12 @@ export default function Breadcrumb({ path }) {
 
 Breadcrumb.propTypes = {
 	path: PropTypes.arrayOf(
-		PropTypes.oneOfType(
+		PropTypes.oneOfType([
 			PropTypes.shape({
 				name: PropTypes.string,
 				path: PropTypes.string,
 			}),
 			PropTypes.string,
-		),
+		]),
 	).isRequired,
 };
