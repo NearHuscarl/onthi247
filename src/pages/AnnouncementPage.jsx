@@ -45,7 +45,7 @@ function Announcements() {
 					<li key={a.title}>
 						<Thumbnail src={a.image} alt='announcement thumbnail' />
 						<div>
-							<Title>{a.title}</Title>
+							<Title to='/'>{a.title}</Title>
 							<Date>{a.date}</Date>
 						</div>
 					</li>
@@ -119,7 +119,7 @@ export const AnnouncementPageBuilder = ({ path, title, image, body }) => (
 );
 
 AnnouncementPageBuilder.propTypes = {
-	path: PropTypes.arrayOf(PropTypes.string).isRequired,
+	path: PropTypes.arrayOf(PropTypes.object).isRequired,
 	title: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired,
 	body: PropTypes.string.isRequired,

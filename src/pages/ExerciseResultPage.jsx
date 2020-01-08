@@ -14,6 +14,7 @@ import { exerciseProps } from '../utilities/proptypes';
 import ContentContainer from '../layout/ContentContainer';
 import styled, { appColors, theme } from '../styles';
 import congratsImg from '../../public/images/congrats.jpg';
+import { getExercise } from '../store/storeHelper';
 
 const AnswerText = styled.span`
 	font-weight: 600;
@@ -192,8 +193,8 @@ ExerciseResultPage.propTypes = {
 
 const mapStateToProps = (state, props) => ({
 	selectedQuestion: state.exerciseResult.selectedQuestion,
-	exercise: state.exercises.chemistry[props.match.params.id],
-	nationalExams: Object.values(state.exercises.national),
+	exercise: getExercise(state, props.match.params.id),
+	nationalExams: Object.values(state.exercises.examGeography),
 	timeTaken: state.exerciseResult.timeTaken,
 	score: state.exerciseResult.score,
 });

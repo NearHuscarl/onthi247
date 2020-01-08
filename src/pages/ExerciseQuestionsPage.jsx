@@ -13,6 +13,7 @@ import { exerciseProps } from '../utilities/proptypes';
 import { setExerciseQuestions } from '../actions/exerciseQuestions';
 import ContentContainer from '../layout/ContentContainer';
 import styled from '../styles';
+import { getExercise } from '../store/storeHelper';
 
 const Content = styled.div`
 	display: flex;
@@ -106,7 +107,7 @@ ExerciseQuestionsPage.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-	exercise: state.exercises.chemistry[props.match.params.id],
+	exercise: getExercise(state, props.match.params.id),
 	questions: state.exerciseQuestions.questions,
 });
 

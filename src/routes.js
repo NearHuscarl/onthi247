@@ -51,6 +51,10 @@ const routes = {
 		name: 'Bài tập',
 		path: '/exercises',
 	},
+	exam: {
+		name: 'Đề thi thử',
+		path: '/exams',
+	},
 	document: {
 		name: 'Tài liệu',
 		path: '/documents',

@@ -1,10 +1,10 @@
-import { chemistryExercises } from '../data/exercises';
-import { exams } from '../data/exams';
+import exams, { chemistryExercises } from '../data/exercises';
 import arrayToObject from '../utilities/arrayToObject';
 
 // const examDefaultState = {};
 const exercisesDefaultState = {
-	national: arrayToObject(exams, 'id'),
+	examGeography: arrayToObject(exams.geography, 'id'),
+	examChemistry: arrayToObject(exams.chemistry, 'id'),
 	chemistry: arrayToObject(chemistryExercises, 'id'),
 };
 

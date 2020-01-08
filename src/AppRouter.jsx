@@ -10,6 +10,7 @@ import ExerciseResultPage from './pages/ExerciseResultPage';
 import ExercisePage from './pages/ExercisePage';
 import ExercisePreviewPage from './pages/ExercisePreviewPage';
 import ExerciseQuestionsPage from './pages/ExerciseQuestionsPage';
+import ExamPage from './pages/ExamPage';
 import QuestionsPage from './pages/QuestionsPage';
 import AnswerPage from './pages/AnswerPage';
 import AskPage from './pages/AskPage';
@@ -46,6 +47,7 @@ const AppRouter = () => {
 		profile,
 		standing,
 		exercise,
+		exam,
 		document,
 	} = routes;
 
@@ -109,6 +111,7 @@ const AppRouter = () => {
 					component={ExerciseResultPage}
 					exact
 				/>
+				<Route path={exam.path} component={ExamPage} exact />
 				<Route path='/questions' component={QuestionsPage} exact />
 				<Route path='/questions/ask' component={AskPage} exact />
 				<Route path='/questions/001' component={AnswerPage} exact />

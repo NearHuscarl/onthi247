@@ -1,3 +1,5 @@
+import { getExercise } from '../store/storeHelper';
+
 const setExerciseResultQuestion = (selectedQuestion = 0) => ({
 	type: 'SET_EXERCISE_RESULT_SELECTED_QUESTION',
 	payload: {
@@ -28,7 +30,7 @@ const setScore = (score) => ({
 
 const startSetScore = (exerciseId) => (dispatch, getState) => {
 	const { questions } = getState().exerciseQuestions;
-	const questionsWithAnswer = getState().exercises.chemistry[exerciseId].questions;
+	const questionsWithAnswer = getExercise(getState(), exerciseId).questions;
 	const score = questionsWithAnswer.reduce((prev, q) => {
 		if (questions[q.id].answer === q.answer) {
 			return prev + 1;

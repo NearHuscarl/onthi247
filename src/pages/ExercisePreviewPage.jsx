@@ -16,6 +16,7 @@ import styled, { helperStyles } from '../styles';
 import { chemistryTeacher } from '../data/teachers';
 import ExerciseHistory from '../components/ExerciseHistory';
 import exerciseHistory from '../data/exerciseHistory';
+import { getExercise } from '../store/storeHelper';
 
 const Content = styled.div`
 	${helperStyles.marginTopLarge}
@@ -39,7 +40,12 @@ const SubHeader = styled(H4)`
 	margin-top: 1.6rem;
 `;
 
-function ExercisePreviewPage({ exercise, standing, chemistryExercises, nationalExams }) {
+function ExercisePreviewPage({
+	exercise,
+	standing,
+	chemistryExercises,
+	nationalExams,
+}) {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -101,10 +107,10 @@ ExercisePreviewPage.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-	exercise: state.exercises.chemistry[props.match.params.id],
+	exercise: getExercise(state, props.match.params.id),
 	standing: state.exerciseStanding['0001'],
 	chemistryExercises: Object.values(state.exercises.chemistry),
-	nationalExams: Object.values(state.exercises.national),
+	nationalExams: Object.values(state.exercises.examGeography),
 });
 
 export default connect(mapStateToProps, null)(ExercisePreviewPage);

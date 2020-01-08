@@ -187,7 +187,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.thiThu}
-						route={routes.home.path}
+						route={routes.exam.path}
 						highlight={navItems.thiThu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
