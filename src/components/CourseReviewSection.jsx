@@ -86,6 +86,7 @@ export default function CourseReviewSection({ review }) {
 	return (
 		<>
 			<H2>Đánh giá của người học</H2>
+			<SizedBox height={1.5} />
 			<Summary>
 				<Score>
 					<ScoreNumber>{review.rating}</ScoreNumber>
@@ -124,6 +125,7 @@ export default function CourseReviewSection({ review }) {
 				<H2>Các ý kiến đánh giá</H2>
 				<SearchBar placeholder='Tìm ý kiến đánh giá...' width={35} />
 			</Search>
+			<SizedBox height={1.5} />
 			{review.reviews.map((r, i) => {
 				const key = i;
 				return (

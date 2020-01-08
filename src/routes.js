@@ -35,6 +35,10 @@ const routes = {
 		name: 'Khóa học',
 		path: '/courses',
 	},
+	teacher: {
+		name: 'Giáo viên',
+		path: '/teachers',
+	},
 	cart: {
 		name: 'Giỏ hàng của bạn',
 		path: '/cart',

@@ -169,7 +169,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.giaoVien}
-						route={routes.home.path}
+						route={routes.teacher.path}
 						highlight={navItems.giaoVien === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

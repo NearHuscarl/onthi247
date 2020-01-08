@@ -7,7 +7,7 @@ import { courseUserReviewProps } from '../utilities/proptypes';
 
 const Profile = styled.li`
 	display: grid;
-	grid-template-columns: min-content max-content 1fr;
+	grid-template-columns: min-content 9rem 1fr;
 	column-gap: 1.6rem;
 
 	img {

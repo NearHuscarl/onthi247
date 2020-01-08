@@ -96,7 +96,28 @@ const teacherProps = PropTypes.shape({
 	image: PropTypes.string.isRequired,
 	role: PropTypes.string.isRequired,
 	bio: PropTypes.arrayOf(PropTypes.string),
+	school: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	experience: PropTypes.number.isRequired, // in year
+	summary: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
+});
+
+const teacherDetailProps = PropTypes.shape({
+	name: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
+	role: PropTypes.string.isRequired,
+	bio: PropTypes.arrayOf(PropTypes.string),
+	school: PropTypes.string.isRequired,
+	subject: PropTypes.string.isRequired,
+	experience: PropTypes.number.isRequired,
+	summary: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	rating: PropTypes.string.isRequired,
+	ratings: PropTypes.number.isRequired,
+	students: PropTypes.number.isRequired,
+	courses: PropTypes.number.isRequired,
+	banner: PropTypes.string.isRequired,
 });
 
 const courseUserReviewProps = PropTypes.shape({
@@ -194,6 +215,7 @@ export {
 	courseDetailProps,
 	courseSummary,
 	teacherProps,
+	teacherDetailProps,
 	courseReviewProps,
 	courseUserReviewProps,
 };

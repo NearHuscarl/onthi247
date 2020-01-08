@@ -11,6 +11,8 @@ import ExercisePage from './pages/ExercisePage';
 import ExercisePreviewPage from './pages/ExercisePreviewPage';
 import ExerciseQuestionsPage from './pages/ExerciseQuestionsPage';
 import ExamPage from './pages/ExamPage';
+import TeacherPage from './pages/TeacherPage';
+import TeacherDetailPage from './pages/TeacherDetailPage';
 import QuestionsPage from './pages/QuestionsPage';
 import AnswerPage from './pages/AnswerPage';
 import AskPage from './pages/AskPage';
@@ -36,14 +38,15 @@ const AppRouter = () => {
 	const {
 		home,
 		notification,
-		intro,
-		courses,
-		cart,
-		checkout,
 		register,
 		login,
 		forgotPassword,
 		changePassword,
+		intro,
+		courses,
+		teacher,
+		cart,
+		checkout,
 		profile,
 		standing,
 		exercise,
@@ -95,6 +98,8 @@ const AppRouter = () => {
 				<Route path='/course/001' component={CourseDetailPage} exact />
 				<Route path={cart.path} component={CartPage} exact />
 				<Route path={checkout.path} component={CheckoutPage} exact />
+				<Route path={teacher.path} component={TeacherPage} exact />
+				<Route path={`${teacher.path}/001`} component={TeacherDetailPage} exact />
 				<Route path={exercise.path} component={ExercisePage} exact />
 				<Route
 					path={`${exercise.path}/:id/preview`}
