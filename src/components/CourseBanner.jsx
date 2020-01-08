@@ -1,10 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import Button, { PrimaryWhiteButton } from './Buttons';
 import { Link, Bold, SizedBox } from './Common';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
 import { courseProps } from '../utilities/proptypes';
+import routes from '../routes';
 
 const Video = styled(VideoPlayer)`
 	[alt='thumbnail'] {
@@ -43,6 +45,7 @@ const Price = styled.span`
 `;
 
 export default function CourseBanner({ course }) {
+	const history = useHistory();
 	return (
 		<Banner>
 			<Link to='/course/001'>
@@ -58,7 +61,12 @@ export default function CourseBanner({ course }) {
 					<Bold as='span'>3 ngày </Bold>
 					<span>nữa</span>
 				</div>
-				<Button type='button'>Thêm vào giỏ hàng</Button>
+				<Button
+					type='button'
+					onClick={() => history.push(routes.cart.path)}
+				>
+					Thêm vào giỏ hàng
+				</Button>
 				<PrimaryWhiteButton type='button'>Mua ngay</PrimaryWhiteButton>
 				<SizedBox height={1} />
 				<div>
