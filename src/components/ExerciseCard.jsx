@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import { H4 } from './Headings';
-import styled, { theme, mixins } from '../styles';
+import styled, { theme, mixins, appColors } from '../styles';
 
 const Container = styled(Card)`
 	display: inline-flex;
 	width: 21rem;
 	transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
 	text-align: left;
+	border: solid 1px ${appColors.greyLight3};
 
 	& > :not(img) {
 		padding: ${theme.cardPadding};
@@ -27,7 +28,7 @@ const Container = styled(Card)`
 	}
 
 	p {
-		// override bs reboot
+		/* override bs reboot */
 		margin-bottom: 0;
 	}
 `;
