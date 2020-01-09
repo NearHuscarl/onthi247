@@ -18,10 +18,18 @@ const exerciseQuestionProps = PropTypes.shape({
 });
 
 const exerciseProps = PropTypes.shape({
+	id: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
 	subject: PropTypes.string.isRequired,
 	questionCount: PropTypes.number.isRequired,
 	difficulty: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	teacher: PropTypes.string.isRequired,
+	publish: PropTypes.string.isRequired,
+	views: PropTypes.number.isRequired,
+	attempts: PropTypes.number.isRequired,
+	tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 	questions: PropTypes.arrayOf(exerciseQuestionProps),
 });
 

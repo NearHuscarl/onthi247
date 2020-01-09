@@ -63,6 +63,10 @@ const routes = {
 		name: 'Tài liệu',
 		path: '/documents',
 	},
+	question: {
+		name: 'Hỏi đáp',
+		path: '/questions',
+	},
 };
 
 export default routes;

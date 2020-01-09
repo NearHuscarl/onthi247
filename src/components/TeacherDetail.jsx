@@ -17,7 +17,7 @@ const Container = styled.div`
 	display: flex;
 `;
 const ColLeft = styled.div`
-	flex: 0 0 19rem;
+	flex: 0 0 20rem;
 	padding-right: 3rem;
 `;
 const ColRight = styled.div`

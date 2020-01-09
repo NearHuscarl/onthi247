@@ -5,12 +5,13 @@ import {
 	FacebookButton,
 	YoutubeButton,
 	TwitterButton,
-	ButtonLink,
 } from '../components/Buttons';
 import { H4 } from '../components/Headings';
 import googlePlay from '../../public/images/google-play.png';
 import appStore from '../../public/images/app-store.png';
 import styled, { appColors, theme, mixins } from '../styles';
+import routes from '../routes';
+import { Link } from '../components/Common';
 
 const FooterTop = styled.div`
 	margin: 0 auto;
@@ -33,9 +34,27 @@ const FooterTop = styled.div`
 const TopLogo = styled(Logo)`
 	grid-column: 1 / -1;
 `;
-const TopLink = styled(ButtonLink)`
+const TopLink = styled(Link)`
+	font-size: inherit;
+	font-weight: normal;
+	transition: all 0.2s;
+	${mixins.underlineExpandAnimation('0.2s')}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		color: ${appColors.primaryDark};
+		/* override bs hover */
+		text-decoration: none;
+	}
+
+	&:active {
+		transform: translateY(0.1rem);
+	}
+
 	/* fix ButtonLink underline span 100% block width */
 	display: inline-flex;
+	justify-content: center;
 	color: ${theme.fontColor};
 `;
 const TopAppImage = styled.img`
@@ -76,6 +95,8 @@ const BottomLicense = styled.div`
 `;
 
 export default function Footer() {
+	const { intro, teacher, exercise, exam, document, question } = routes;
+
 	return (
 		<footer>
 			<FooterTop>
@@ -84,34 +105,22 @@ export default function Footer() {
 					<H4>Về OnThi247</H4>
 					<ul>
 						<li>
-							<TopLink>
-								Giới thiệu
-							</TopLink>
+							<TopLink to={intro.path}>Giới thiệu</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Giáo viên nổi tiếng
-							</TopLink>
+							<TopLink to={teacher.path}>Giáo viên nổi tiếng</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Điều khoản sử dụng
-							</TopLink>
+							<TopLink>Điều khoản sử dụng</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Quy chế hoạt động
-							</TopLink>
+							<TopLink>Quy chế hoạt động</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Chính sách bảo mật
-							</TopLink>
+							<TopLink>Chính sách bảo mật</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Tuyển dụng
-							</TopLink>
+							<TopLink>Tuyển dụng</TopLink>
 						</li>
 					</ul>
 				</div>
@@ -119,24 +128,16 @@ export default function Footer() {
 					<H4>Dịch vụ</H4>
 					<ul>
 						<li>
-							<TopLink>
-								Kho bài tập
-							</TopLink>
+							<TopLink to={exercise.path}>Kho bài tập</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Kho đề thi thử
-							</TopLink>
+							<TopLink to={exam.path}>Kho đề thi thử</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Kho tài liệu
-							</TopLink>
+							<TopLink to={document.path}>Kho tài liệu</TopLink>
 						</li>
 						<li>
-							<TopLink>
-								Hỏi đáp
-							</TopLink>
+							<TopLink to={question.path}>Hỏi đáp</TopLink>
 						</li>
 					</ul>
 				</div>
@@ -146,10 +147,24 @@ export default function Footer() {
 						<ul>
 							<li>Trung tâm hỗ trợ</li>
 							<li>
-								<span className='bold'>Email</span>: hotro@onthi247.vn
+								<span className='bold'>Email: </span>
+								<TopLink
+									as='a'
+									href='mailto:near.huscarl@gmail.com'
+									rel='noreferrer noopener'
+								>
+									hotro@onthi247.vn
+								</TopLink>
 							</li>
 							<li>
-								<span className='bold'>Hotline</span>: 1900-0000
+								<span className='bold'>Hotline: </span>
+								<TopLink
+									as='a'
+									href='tel:1900-0000'
+									rel='noreferrer noopener'
+								>
+									1900-0000
+								</TopLink>
 							</li>
 						</ul>
 					</div>
@@ -157,13 +172,34 @@ export default function Footer() {
 						<H4>Dành cho đối tác</H4>
 						<ul>
 							<li>
-								<span className='bold'>Email</span>: info@onthi247.vn
+								<span className='bold'>Email: </span>
+								<TopLink
+									as='a'
+									href='mailto:near.huscarl@gmail.com'
+									rel='noreferrer noopener'
+								>
+									info@onthi247.vn
+								</TopLink>
 							</li>
 							<li>
-								<span className='bold'>Tel</span>: +84 (00) 0000-0000
+								<span className='bold'>Tel: </span>
+								<TopLink
+									as='a'
+									href='tel:+84 (00) 0000-0000'
+									rel='noreferrer noopener'
+								>
+									+84 (00) 0000-0000
+								</TopLink>
 							</li>
 							<li>
-								<span className='bold'>Fax</span>: +84 (00) 0000-0000
+								<span className='bold'>Fax: </span>
+								<TopLink
+									as='a'
+									href='#'
+									rel='noreferrer noopener'
+								>
+									+84 (00) 0000-0000
+								</TopLink>
 							</li>
 						</ul>
 					</div>

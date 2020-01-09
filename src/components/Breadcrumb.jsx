@@ -88,14 +88,16 @@ export default function Breadcrumb({ path }) {
 	);
 }
 
+export const breadCrumbPathProps = PropTypes.arrayOf(
+	PropTypes.oneOfType([
+		PropTypes.shape({
+			name: PropTypes.string,
+			path: PropTypes.string,
+		}),
+		PropTypes.string,
+	]),
+);
+
 Breadcrumb.propTypes = {
-	path: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.shape({
-				name: PropTypes.string,
-				path: PropTypes.string,
-			}),
-			PropTypes.string,
-		]),
-	).isRequired,
+	path: breadCrumbPathProps.isRequired,
 };

@@ -199,7 +199,7 @@ export default function Nav() {
 					/>
 					<StyledNavItem
 						name={navItems.hoiDap}
-						route='/questions'
+						route={routes.question.path}
 						highlight={navItems.hoiDap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>

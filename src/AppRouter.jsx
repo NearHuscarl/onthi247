@@ -53,6 +53,7 @@ const AppRouter = () => {
 		exercise,
 		exam,
 		document,
+		question,
 	} = routes;
 
 	return (
@@ -123,9 +124,9 @@ const AppRouter = () => {
 					exact
 				/>
 				<Route path={exam.path} component={ExamPage} exact />
-				<Route path='/questions' component={QuestionsPage} exact />
-				<Route path='/questions/ask' component={AskPage} exact />
-				<Route path='/questions/001' component={AnswerPage} exact />
+				<Route path={question.path} component={QuestionsPage} exact />
+				<Route path={`${question.path}/ask`} component={AskPage} exact />
+				<Route path={`${question.path}/001`} component={AnswerPage} exact />
 				<Route path={document.path} component={DocumentsPage} exact />
 				<Route
 					path={`${document.path}/001`}

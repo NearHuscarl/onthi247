@@ -4,6 +4,7 @@ import RichTextEditor from 'react-rte';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Ads from '../components/Ads';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import Pagination from '../components/Pagination';
 import QuestionListSideBar from '../components/QuestionListSideBar';
 import Tag, { TagGroup } from '../components/Tag';
@@ -141,128 +142,144 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 	const [filter, setFilter] = React.useState(options[0]);
 
 	return (
-		<ContentContainer as='main'>
-			<Header>
-				<H2 className='mt-md'>
-					Nhờ giúp đỡ dạng bài tìm giá trị của m để hàm số đạt cực trị
-					<H2 sub className='mt-tn'>
-						Môn Toán - Lượt xem: 30
+		<>
+			<Breadcrumb
+				path={[
+					routes.home,
+					routes.question,
+					'Nhờ giúp đỡ dạng bài tìm giá trị của m để hàm số đạt cực trị',
+				]}
+			/>
+			<ContentContainer as='main'>
+				<Header>
+					<H2 className='mt-md'>
+						Nhờ giúp đỡ dạng bài tìm giá trị của m để hàm số đạt cực trị
+						<H2 sub className='mt-tn'>
+							Môn Toán - Lượt xem: 30
+						</H2>
 					</H2>
-				</H2>
-				<Button
-					type='button'
-					onClick={() => history.push('/questions/ask')}
-				>
-					Đặt câu hỏi mới
-				</Button>
-			</Header>
-			<Line />
-			<Content>
-				<ColumnLeft>
-					<FlexContainer>
-						<Side>
-							<UpvoteScore score={question.votes} />
-						</Side>
-						<Main>
-							<Description>
-								<div>{question.description}</div>
-								<Tags>
-									{question.tags.map((t) => (
-										<Tag key={t}>{t}</Tag>
-									))}
-								</Tags>
-							</Description>
-							<Bottom>
-								<div>
-									<QaButtonText>
-										Chỉnh sửa lại nội dung của câu hỏi này
-									</QaButtonText>
-									<QaButtonText>Thêm bình luận mới</QaButtonText>
-								</div>
-								<QaProfile user={question.user} date={question.date} />
-							</Bottom>
-						</Main>
-					</FlexContainer>
-					<SizedBox height={3} />
-					<FilterGroup>
-						<H3>2 câu trả lời</H3>
-						<AnswerFilter
-							value={filter}
-							onChange={(selectedValue) =>
-								setFilter(() => selectedValue)
-							}
-							options={options}
-						/>
-					</FilterGroup>
-					{answers.map((a, index) => (
-						<>
-							<FlexContainer>
-								<Side>
-									<UpvoteScore score={a.votes} accepted={a.accepted} />
-								</Side>
-								<Main>
-									<Description>
-										<div>{a.description}</div>
-									</Description>
-									<Bottom>
+					<Button
+						type='button'
+						onClick={() => history.push('/questions/ask')}
+					>
+						Đặt câu hỏi mới
+					</Button>
+				</Header>
+				<Line />
+				<Content>
+					<ColumnLeft>
+						<FlexContainer>
+							<Side>
+								<UpvoteScore score={question.votes} />
+							</Side>
+							<Main>
+								<Description>
+									<div>{question.description}</div>
+									<Tags>
+										{question.tags.map((t) => (
+											<Tag key={t}>{t}</Tag>
+										))}
+									</Tags>
+								</Description>
+								<Bottom>
+									<div>
 										<QaButtonText>
-											Chỉnh sửa lại nội dung của câu trả lời này
+											Chỉnh sửa lại nội dung của câu hỏi này
 										</QaButtonText>
-										<QaProfile user={a.user} date={a.date} />
-									</Bottom>
-									{a.comments.length > 0 && (
-										<>
-											<SizedBox height={1} />
-											<Line />
-										</>
-									)}
-									{a.comments.map((c) => (
-										<>
-											<Comment>
-												<div>{c.content}</div>
-												<UserTag>{c.user.name}</UserTag>
-												<div className='date'>
-													{timeSince(new Date(c.date)) + ' trước'}
-												</div>
-											</Comment>
-											<Line />
-										</>
-									))}
-									<CommentButton>Thêm bình luận mới</CommentButton>
-								</Main>
-							</FlexContainer>
-							{index !== answers.length - 1 && <Line small />}
-						</>
-					))}
-					<SizedBox height={4} />
-					<Pagination />
-					<SizedBox height={5} />
-					<H3>Câu trả lời của bạn</H3>
-					<RichEditor
-						value={RichTextEditor.createEmptyValue()}
-						placeholder='Nhập nội dung câu trả lời'
-					/>
-				</ColumnLeft>
-				<ColumnRight>
-					<QuestionListSideBar
-						title='Bạn có thể quan tâm'
-						questions={hotQuestions}
-						className='mb-md'
-					/>
-					<QuestionListSideBar
-						title='Câu hỏi nổi bật'
-						questions={hotQuestions}
-						className='mb-md'
-					/>
-					<QuestionListSideBar
-						title='Câu hỏi mới nhất'
-						questions={newQuestions}
-						className='mb-md'
-					/>
-					<Ads />
-				</ColumnRight>
-			</Content>
-		</ContentContainer>
+										<QaButtonText>Thêm bình luận mới</QaButtonText>
+									</div>
+									<QaProfile
+										user={question.user}
+										date={question.date}
+									/>
+								</Bottom>
+							</Main>
+						</FlexContainer>
+						<SizedBox height={3} />
+						<FilterGroup>
+							<H3>2 câu trả lời</H3>
+							<AnswerFilter
+								value={filter}
+								onChange={(selectedValue) =>
+									setFilter(() => selectedValue)
+								}
+								options={options}
+							/>
+						</FilterGroup>
+						{answers.map((a, index) => (
+							<>
+								<FlexContainer>
+									<Side>
+										<UpvoteScore
+											score={a.votes}
+											accepted={a.accepted}
+										/>
+									</Side>
+									<Main>
+										<Description>
+											<div>{a.description}</div>
+										</Description>
+										<Bottom>
+											<QaButtonText>
+												Chỉnh sửa lại nội dung của câu trả lời này
+											</QaButtonText>
+											<QaProfile user={a.user} date={a.date} />
+										</Bottom>
+										{a.comments.length > 0 && (
+											<>
+												<SizedBox height={1} />
+												<Line />
+											</>
+										)}
+										{a.comments.map((c) => (
+											<>
+												<Comment>
+													<div>{c.content}</div>
+													<UserTag>{c.user.name}</UserTag>
+													<div className='date'>
+														{timeSince(new Date(c.date)) +
+															' trước'}
+													</div>
+												</Comment>
+												<Line />
+											</>
+										))}
+										<CommentButton>Thêm bình luận mới</CommentButton>
+									</Main>
+								</FlexContainer>
+								{index !== answers.length - 1 && <Line small />}
+							</>
+						))}
+						<SizedBox height={4} />
+						<Pagination />
+						<SizedBox height={5} />
+						<H3>Câu trả lời của bạn</H3>
+						<RichEditor
+							value={RichTextEditor.createEmptyValue()}
+							placeholder='Nhập nội dung câu trả lời'
+						/>
+					</ColumnLeft>
+					<ColumnRight>
+						<QuestionListSideBar
+							title='Bạn có thể quan tâm'
+							questions={hotQuestions}
+							className='mb-md'
+						/>
+						<QuestionListSideBar
+							title='Câu hỏi nổi bật'
+							questions={hotQuestions}
+							className='mb-md'
+						/>
+						<QuestionListSideBar
+							title='Câu hỏi mới nhất'
+							questions={newQuestions}
+							className='mb-md'
+						/>
+						<Ads />
+					</ColumnRight>
+				</Content>
+			</ContentContainer>
+		</>
 	);
 }
 

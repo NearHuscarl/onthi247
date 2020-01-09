@@ -3,12 +3,12 @@ import Preview2 from '../../public/images/notads-3.png';
 
 const body = `Với mong muốn tạo ra một chương trình ưu đãi dành riêng cho các em học sinh trong năm học mới. [OnThi247] chính thức tổ chức chương trình mua 1 tặng 1 khóa học duy nhất trong năm 2019 này.
 
-* [Chỉ có 1 lần duy nhất trong năm học này. Niềm vui nhân đôi.]
+[Chỉ có 1 lần duy nhất trong năm học này. Niềm vui nhân đôi.]
 - Mua 1 khóa học được tặng bất kỳ 1 khóa học nào tùy chọn, không giới hạn lớp và môn
 - Khóa học được tặng đảm bảo chất lượng và thời gian sử dụng y nguyên
 - Chương trình chỉ áp dụng khi mua từ ngày 5/9 -7/9
 
-* [Nội dung của các khóa học lần này có gì đáng chú ý?]
+[Nội dung của các khóa học lần này có gì đáng chú ý?]
 - Đầy đủ các khóa học cơ bản và nâng cao dành riêng lớp 12 bám SGK
 - Đầy đủ các khóa luyện thi, luyện đề thi THPT QG kiến thức 3 lớp 10, 11, 12
 - Có các khóa học vệ tinh: bài tập theo từng dạng, đề thi chính thức các năm, đề thi thử, Casio, sơ đồ tư duy, đề thi học kì

@@ -242,7 +242,7 @@ export const ButtonLink = styled.button`
 	&:hover,
 	&:focus {
 		outline: none;
-		color: ${appColors.primary};
+		color: ${appColors.primaryDark};
 		/* override bs hover */
 		text-decoration: none;
 	}

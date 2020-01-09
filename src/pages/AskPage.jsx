@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Content, ColumnLeft, ColumnRight } from './QuestionsPage';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import Ads from '../components/Ads';
 import QuestionListSideBar from '../components/QuestionListSideBar';
 import Selector from '../components/Selector';
@@ -39,64 +40,69 @@ function AskPage({ hotQuestions, newQuestions }) {
 	const [filter, setFilter] = React.useState(null);
 
 	return (
-		<ContentContainer as='main'>
-			<H2 className='mt-md'>
-				Đặt câu hỏi mới
-				<H2 sub className='mt-tn'>
-					Đặt câu hỏi để nhận được sự hỗ trợ từ cộng đồng học sinh của
-					OnThi247
+		<>
+			<Breadcrumb path={[routes.home, routes.question, 'Đặt câu hỏi mới']} />
+			<ContentContainer as='main'>
+				<H2 className='mt-md'>
+					Đặt câu hỏi mới
+					<H2 sub className='mt-tn'>
+						Đặt câu hỏi để nhận được sự hỗ trợ từ cộng đồng học sinh của
+						OnThi247
+					</H2>
 				</H2>
-			</H2>
-			<Line />
-			<Content>
-				<AskForm>
-					<div className='bold mb-sm'>Tiêu đề câu hỏi</div>
-					<InputGroup className='mb-sm'>
-						<Input
-							type='text'
-							placeholder={questionTitle}
-							aria-label={questionTitle}
+				<Line />
+				<Content>
+					<AskForm>
+						<div className='bold mb-sm'>Tiêu đề câu hỏi</div>
+						<InputGroup className='mb-sm'>
+							<Input
+								type='text'
+								placeholder={questionTitle}
+								aria-label={questionTitle}
+							/>
+						</InputGroup>
+						<div className='bold mb-sm'>Nội dung câu hỏi</div>
+						<InputGroup className='mb-sm'>
+							<textarea
+								type='text'
+								placeholder={questionBody}
+								aria-label={questionBody}
+								rows={10}
+							/>
+						</InputGroup>
+						<div className='bold mb-sm'>Môn học</div>
+						<Selector
+							placeholder='Chọn môn học từ danh sách'
+							value={filter}
+							onChange={(selectedValue) =>
+								setFilter(() => selectedValue)
+							}
+							options={options}
 						/>
-					</InputGroup>
-					<div className='bold mb-sm'>Nội dung câu hỏi</div>
-					<InputGroup className='mb-sm'>
-						<textarea
-							type='text'
-							placeholder={questionBody}
-							aria-label={questionBody}
-							rows={10}
+						<Button
+							type='button'
+							className='bold mt-md'
+							onClick={() => history.push('/questions')}
+						>
+							Đăng câu hỏi
+						</Button>
+					</AskForm>
+					<ColumnRight>
+						<QuestionListSideBar
+							title='Câu hỏi nổi bật'
+							questions={hotQuestions}
+							className='mb-md'
 						/>
-					</InputGroup>
-					<div className='bold mb-sm'>Môn học</div>
-					<Selector
-						placeholder='Chọn môn học từ danh sách'
-						value={filter}
-						onChange={(selectedValue) => setFilter(() => selectedValue)}
-						options={options}
-					/>
-					<Button
-						type='button'
-						className='bold mt-md'
-						onClick={() => history.push('/questions')}
-					>
-						Đăng câu hỏi
-					</Button>
-				</AskForm>
-				<ColumnRight>
-					<QuestionListSideBar
-						title='Câu hỏi nổi bật'
-						questions={hotQuestions}
-						className='mb-md'
-					/>
-					<QuestionListSideBar
-						title='Câu hỏi mới nhất'
-						questions={newQuestions}
-						className='mb-md'
-					/>
-					<Ads />
-				</ColumnRight>
-			</Content>
-		</ContentContainer>
+						<QuestionListSideBar
+							title='Câu hỏi mới nhất'
+							questions={newQuestions}
+							className='mb-md'
+						/>
+						<Ads />
+					</ColumnRight>
+				</Content>
+			</ContentContainer>
+		</>
 	);
 }
 

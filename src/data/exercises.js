@@ -12,7 +12,7 @@ const randomAttempts = () => randomBetweenInt(0, 10000);
 const getId = (index) => 'E' + index.toString().padStart(5, 0);
 let imageGeneration = 0;
 const getChemistryImage = () =>
-// eslint-disable-next-line no-plusplus
+	// eslint-disable-next-line no-plusplus
 	imageGeneration++ % 2 ? chemistry1 : chemistry2;
 
 const chemistryExercise = () => ({
@@ -24,9 +24,11 @@ const chemistryExercise = () => ({
 	difficulty: 'cơ bản',
 	description:
 		'Nội dung bài tập bao gồm 30 câu hỏi trắc nghiệm chuyên đề Amin - Amino Axit- Peptit - Protein kèm theo đáp án và lời giải chi tiết ở cuối bài tập.',
+	teacher: 'Thầy Lê Phạm Thành',
 	publish: '31/10/2019',
 	views: randomViews(),
 	attempts: randomAttempts(),
+	tags: ['Bài tập môn Hóa học', 'Ôn thi THPT QG môn Hóa học'],
 	questions,
 });
 
@@ -41,7 +43,8 @@ export { chemistryExercises };
 // eslint-disable-next-line no-plusplus
 const getNationalImage = () => (imageGeneration++ % 2 ? exam1 : exam2);
 // eslint-disable-next-line no-plusplus
-const getChemistryExamImage = () => (imageGeneration++ % 2 ? examChemistry1 : examChemistry2);
+const getChemistryExamImage = () =>
+	imageGeneration++ % 2 ? examChemistry1 : examChemistry2;
 
 const geographyExam = () => ({
 	id: 'EN00001',
@@ -51,9 +54,11 @@ const geographyExam = () => ({
 	questionCount: 30,
 	difficulty: 'cơ bản',
 	description: 'Joe mama',
+	teacher: 'Thầy nào dạy địa',
 	publish: '31/10/2019',
 	views: randomViews(),
 	attempts: randomAttempts(),
+	tags: ['Đề thi thử môn Địa lý', 'Ôn thi THPT QG môn Địa lý'],
 	questions,
 });
 const chemistryExam = () => ({
@@ -63,10 +68,13 @@ const chemistryExam = () => ({
 	subject: 'Hóa học',
 	questionCount: 30,
 	difficulty: 'cơ bản',
-	description: 'Nội dung đề thi bao gồm 30 câu hỏi trắc nghiệm theo chuẩn cấu trúc đề thi THPT QG môn Hóa học của Bộ Giáo dục và Đào tạo.',
+	description:
+		'Nội dung đề thi bao gồm 30 câu hỏi trắc nghiệm theo chuẩn cấu trúc đề thi THPT QG môn Hóa học của Bộ Giáo dục và Đào tạo.',
+	teacher: 'Thầy Lê Phạm Thành',
 	publish: '31/10/2019',
 	views: randomViews(),
 	attempts: randomAttempts(),
+	tags: ['Đề thi thử môn Hóa học', 'Ôn thi THPT QG môn Hóa học'],
 	questions,
 });
 

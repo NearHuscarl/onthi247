@@ -7,7 +7,7 @@ import { StandingSideBar } from '../components/ExerciseStandingSideBar';
 import ExerciseList from '../components/ExerciseList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
-import BreadCrumb, { routes } from '../components/Breadcrumb';
+import BreadCrumb, { routes, breadCrumbPathProps } from '../components/Breadcrumb';
 import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
 import ContentContainer from '../layout/ContentContainer';
 import { exerciseProps, rankProps } from '../utilities/proptypes';
@@ -82,7 +82,7 @@ export const ExercisePageBuilder = ({
 );
 
 ExercisePageBuilder.propTypes = {
-	path: PropTypes.arrayOf(PropTypes.object).isRequired,
+	path: breadCrumbPathProps.isRequired,
 	filter: PropTypes.node.isRequired,
 	standing: PropTypes.arrayOf(rankProps).isRequired,
 	monthlyStanding: PropTypes.arrayOf(rankProps).isRequired,

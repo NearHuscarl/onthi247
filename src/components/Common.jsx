@@ -88,7 +88,7 @@ export function EllipsisButton() {
 export function FormattedText({ className, children }) {
 	return (
 		<div className={className}>
-			{children.split(/(\[.*\])/).map((p, i) => {
+			{children.split(/(\[.+?\])/).map((p, i) => {
 				const key = i;
 				if (p.startsWith('[')) {
 					return (

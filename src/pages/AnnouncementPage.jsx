@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import Ads from '../components/Ads';
 import { SizedBox, FormattedText } from '../components/Common';
 import ContentContainer from '../layout/ContentContainer';
-import Breadcrumb, { routes } from '../components/Breadcrumb';
+import Breadcrumb, {
+	routes,
+	breadCrumbPathProps,
+} from '../components/Breadcrumb';
 import VideoPlayer from '../components/VideoPlayer';
 import { H1, H3 } from '../components/Headings';
 import styled, { appColors, theme } from '../styles';
@@ -12,6 +15,7 @@ import announcements from '../data/announcements';
 import VideoThumbnail from '../../public/images/notads-5.png';
 
 const Thumbnail = styled.img`
+	flex: 0 0 auto;
 	width: 6rem;
 	height: 6rem;
 	border-radius: ${theme.borderRound};
@@ -119,7 +123,7 @@ export const AnnouncementPageBuilder = ({ path, title, image, body }) => (
 );
 
 AnnouncementPageBuilder.propTypes = {
-	path: PropTypes.arrayOf(PropTypes.object).isRequired,
+	path: breadCrumbPathProps.isRequired,
 	title: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired,
 	body: PropTypes.string.isRequired,

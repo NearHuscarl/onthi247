@@ -34,7 +34,7 @@ const Header = styled(ListItem)`
 export function Rank({ info, index }) {
 	return (
 		<ListItem>
-			<div>{index}</div>
+			<div>{index + 1}</div>
 			<div>{info.timeTaken}</div>
 			<div>{info.score}</div>
 			<div>{info.time}</div>

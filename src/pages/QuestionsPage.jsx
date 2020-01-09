@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Filters from '../layout/Filters';
+import Breadcrumb, { routes } from '../components/Breadcrumb';
 import Ads from '../components/Ads';
 import Pagination from '../components/Pagination';
 import QuestionPreviewList from '../components/QuestionPreviewList';
@@ -57,6 +58,7 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 
 	return (
 		<QuestionPage>
+			<Breadcrumb path={[routes.home, routes.question]} />
 			<Filters
 				title='Danh sách câu hỏi'
 				subTitle='Có tất cả 300 câu hỏi trong danh sách'
