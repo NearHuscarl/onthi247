@@ -31,6 +31,7 @@ import ProfilePage from './pages/ProfilePage';
 import StandingPage from './pages/StandingPage';
 import NotificationPage from './pages/NotificationPage';
 import AnnouncementPage from './pages/AnnouncementPage';
+import ScrollToTop from './components/ScrollToTop';
 
 const isCourseDetail = (path) => /\/course\/\d+\/?$/.test(path);
 
@@ -56,6 +57,7 @@ const AppRouter = () => {
 
 	return (
 		<BrowserRouter basename={`/${constants.repoName}/`}>
+			<Route component={ScrollToTop} />
 			<Route
 				render={({ location }) => {
 					const path = location.pathname;
@@ -63,7 +65,7 @@ const AppRouter = () => {
 				}}
 			/>
 			<Switch>
-				<Route path={home.path} component={HomePage} exact />
+				<Route path={home.path} component={CoursesPage} exact />
 				<Route
 					path={notification.path}
 					component={NotificationPage}
@@ -99,7 +101,11 @@ const AppRouter = () => {
 				<Route path={cart.path} component={CartPage} exact />
 				<Route path={checkout.path} component={CheckoutPage} exact />
 				<Route path={teacher.path} component={TeacherPage} exact />
-				<Route path={`${teacher.path}/001`} component={TeacherDetailPage} exact />
+				<Route
+					path={`${teacher.path}/001`}
+					component={TeacherDetailPage}
+					exact
+				/>
 				<Route path={exercise.path} component={ExercisePage} exact />
 				<Route
 					path={`${exercise.path}/:id/preview`}

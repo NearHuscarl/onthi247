@@ -40,10 +40,6 @@ const ColumnRight = styled.div`
 
 // eslint-disable-next-line no-shadow
 function ExerciseQuestionsPage({ exercise, setExerciseQuestions, questions }) {
-	React.useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
 	const { id, title, questionCount, difficulty } = exercise;
 
 	React.useEffect(() => {

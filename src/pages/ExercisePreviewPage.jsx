@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
@@ -46,10 +46,6 @@ function ExercisePreviewPage({
 	chemistryExercises,
 	nationalExams,
 }) {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
 	return (
 		<>
 			<Breadcrumbs path={[routes.home, routes.exercise, exercise.title]} />

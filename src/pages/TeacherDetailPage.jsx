@@ -59,10 +59,6 @@ const Content = styled(ContentContainer)`
 `;
 
 const TeacherDetailPage = () => {
-	React.useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
 	return (
 		<main>
 			<Breadcrumb
