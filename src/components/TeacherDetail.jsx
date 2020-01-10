@@ -1,6 +1,6 @@
 import React from 'react';
-import { H2, H4 } from './Headings';
-import { Bold, FormattedText } from './Common';
+import { H2 } from './Headings';
+import { Bold, FormattedText, Link } from './Common';
 import {
 	FacebookButton,
 	TwitterButton,
@@ -8,7 +8,8 @@ import {
 	GoogleButton,
 } from './Buttons';
 import { teacherProps } from '../utilities/proptypes';
-import styled, { appColors } from '../styles';
+import styled from '../styles';
+import routes from '../routes';
 
 const Heading = styled(H2)`
 	margin-bottom: 1.5rem;
@@ -35,9 +36,8 @@ const Avatar = styled.img`
 const BioListItem = styled.li`
 	margin-bottom: 0.75rem;
 `;
-const Name = styled(H4)`
+const Name = styled(Link)`
 	font-size: 1.6rem;
-	color: ${appColors.blue};
 `;
 const Summary = styled.div`
 	display: flex;
@@ -75,7 +75,7 @@ export default function TeacherDetail({ teacher }) {
 				<ColRight>
 					<Summary>
 						<div>
-							<Name>{teacher.name}</Name>
+							<Name to={`${routes.teacher.path}/001`}>{teacher.name}</Name>
 							<Bold>{teacher.role}</Bold>
 						</div>
 						<Media>
