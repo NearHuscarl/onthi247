@@ -43,7 +43,7 @@ const Price = styled(Bold)`
 	margin-right: 1rem;
 `;
 
-function CourseListItem({ course, alwaysShowPrice }) {
+function CourseListItem({ course }) {
 	const c = course;
 
 	return (
@@ -59,17 +59,11 @@ function CourseListItem({ course, alwaysShowPrice }) {
 				<SizedBox width={1} />
 				<span>{`${c.rating}/5 (${c.ratingCount} lượt đánh giá)`}</span>
 			</Rating>
-			{c.hasBought && !alwaysShowPrice ? (
-				<Stats>
-					<Price>Khóa học đã được mua</Price>
-				</Stats>
-			) : (
-				<Stats>
-					<span>Học phí: </span>
-					<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
-					<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
-				</Stats>
-			)}
+			<Stats>
+				<span>Học phí: </span>
+				<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
+				<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
+			</Stats>
 			<Stats>
 				<span>Phát hành: </span>
 				<Bold as='span'>{c.publishDate}</Bold>
@@ -86,7 +80,6 @@ function CourseListItem({ course, alwaysShowPrice }) {
 }
 
 CourseListItem.propTypes = {
-	alwaysShowPrice: PropTypes.bool.isRequired,
 	course: courseProps.isRequired,
 };
 
@@ -161,24 +154,17 @@ CourseListBase.propTypes = {
 	childBuilder: PropTypes.func.isRequired,
 };
 
-export default function CourseList({ courses, alwaysShowPrice }) {
+export default function CourseList({ courses }) {
 	return (
 		<CourseListBase
 			courses={courses}
-			childBuilder={(c) => (
-				<CourseListItem course={c} alwaysShowPrice={alwaysShowPrice} />
-			)}
+			childBuilder={(c) => <CourseListItem course={c} />}
 		/>
 	);
 }
 
 CourseList.propTypes = {
-	alwaysShowPrice: PropTypes.bool,
 	courses: PropTypes.arrayOf(courseProps).isRequired,
-};
-
-CourseList.defaultProps = {
-	alwaysShowPrice: false,
 };
 
 export function CartCourseList({ courses, actionButtons }) {

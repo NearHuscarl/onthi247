@@ -18,7 +18,6 @@ const _courses = [
 		ratingCount: 620,
 		price: 1200000,
 		originalPrice: 1500000,
-		hasBought: true,
 		publishDate: '31/10/2019',
 		students: 1200,
 		tags: [
@@ -39,7 +38,6 @@ const _courses = [
 		ratingCount: 620,
 		price: 1450000,
 		originalPrice: 1650000,
-		hasBought: false,
 		publishDate: '31/10/2019',
 		students: 1020,
 		tags: [
@@ -60,7 +58,6 @@ const _courses = [
 		ratingCount: 720,
 		price: 1250000,
 		originalPrice: 1450000,
-		hasBought: false,
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
@@ -81,7 +78,6 @@ const _courses = [
 		ratingCount: 720,
 		price: 1250000,
 		originalPrice: 1450000,
-		hasBought: false,
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
@@ -102,7 +98,6 @@ const _courses = [
 		ratingCount: 720,
 		price: 1250000,
 		originalPrice: 1450000,
-		hasBought: false,
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
