@@ -1,9 +1,9 @@
 import sample from 'lodash/sample';
-import users from './users';
+import users, { activeUser } from './users';
 import logo from '../../public/images/logo.png';
 
-const usersWithoutDung = users.filter((u) => u.id !== 'dung');
-const randomUser = () => sample(usersWithoutDung);
+const usersWithoutActiveUser = users.filter((u) => u.id !== activeUser.name);
+const randomUser = () => sample(usersWithoutActiveUser);
 
 const user1 = randomUser();
 const user2 = randomUser();
@@ -21,7 +21,8 @@ const notifications = [
 	},
 	{
 		image: logo,
-		body: '[OnThi247] giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
+		body:
+			'[OnThi247] giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
 		date: '5 ngày trước',
 	},
 	{
@@ -31,12 +32,14 @@ const notifications = [
 	},
 	{
 		image: logo,
-		body: 'Mua 1 khóa học tặng 1 khóa học duy nhất trên [OnThi247] trong năm 2019',
+		body:
+			'Mua 1 khóa học tặng 1 khóa học duy nhất trên [OnThi247] trong năm 2019',
 		date: '4 tháng trước',
 	},
 	{
 		image: logo,
-		body: 'OnThi247 giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
+		body:
+			'OnThi247 giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
 		date: '4 tháng trước',
 	},
 ];

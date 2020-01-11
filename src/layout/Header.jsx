@@ -4,13 +4,13 @@ import { faBell, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
-import profile from '../../public/images/profile.png';
 import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
 import ProfileTooltip from '../components/ProfileTooltip';
 import NotificationTooltip from '../components/NotificationTooltip';
 import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
+import { activeUser } from '../data/users';
 
 const ButtonWithCounter = styled(ButtonText)`
 	position: relative;
@@ -124,8 +124,11 @@ function Header() {
 					<Support>(Thời gian hỗ trợ từ 7h - 22h)</Support>
 					<ProfileTooltip>
 						<Profile>
-							<ProfileImage src={profile} alt='profile avatar' />
-							<ProfileName>Xin chào, bé dủng</ProfileName>
+							<ProfileImage
+								src={activeUser.avatar}
+								alt='profile avatar'
+							/>
+							<ProfileName>{`Xin chào, ${activeUser.name}`}</ProfileName>
 						</Profile>
 					</ProfileTooltip>
 					<NotificationButton />

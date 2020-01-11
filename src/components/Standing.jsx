@@ -12,7 +12,7 @@ const List = styled.ul`
 const ListItem = styled.li`
 	display: grid;
 	grid-template-columns:
-		4rem minmax(10rem, 12.5rem) minmax(10rem, max-content)
+		4rem minmax(10rem, 12.5rem) minmax(14rem, max-content)
 		minmax(18rem, 22rem) minmax(7.5rem, 11rem) 1.5rem;
 	column-gap: 5rem;
 	align-items: center;

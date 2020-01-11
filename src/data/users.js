@@ -1,6 +1,6 @@
 import sample from 'lodash/sample';
-import plain from '../../public/images/profile.png';
-import bitching from '../../public/images/profile-bitchin.jpg';
+import chihuahua from '../../public/images/profile-chihuahua.jpg';
+import near from '../../public/images/profile-bitchin.jpg';
 import donaldTrump from '../../public/images/profile-donald-trump.png';
 import elon from '../../public/images/profile-elon-musk.png';
 import eo from '../../public/images/profile-l.png';
@@ -35,20 +35,20 @@ const users = [
 		province: randomProvince(),
 	},
 	{
-		id: 'bebi',
-		name: 'bé bi',
+		id: 'near',
+		name: 'near huscarl',
 		level: 100,
-		avatar: bitching,
-		email: 'bitching@gmail.com',
+		avatar: near,
+		email: 'near.huscarl@gmail.com',
 		school: randomSchool(),
 		province: randomProvince(),
 	},
 	{
-		id: 'dung',
-		name: 'bé dủng',
+		id: 'chihuahua',
+		name: 'snowflake chihuahua',
 		level: 69,
-		avatar: plain,
-		email: 'plain@gmail.com',
+		avatar: chihuahua,
+		email: 'chihuahua@gmail.com',
 		school: randomSchool(),
 		province: randomProvince(),
 	},
@@ -108,15 +108,19 @@ const users = [
 	},
 ];
 
+export const activeUser = users[2];
 export const userDetail = (id) => ({
 	...users.find((u) => u.id === id),
 	birthday: '20/01/2002',
 	registerDate: '18/05/2019, 10:00',
-})
+});
+export const user = (id) => ({
+	...users.find((u) => u.id === id),
+});
 
 export {
-	plain,
-	bitching,
+	chihuahua,
+	near,
 	donaldTrump,
 	elon,
 	eo,

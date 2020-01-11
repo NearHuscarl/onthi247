@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import users from '../data/users';
-import { Bold, Line } from './Common';
+import { activeUser as user } from '../data/users';
+import { Line } from './Common';
 import { ButtonText } from './Buttons';
 import Tooltip from './Tooltip';
 import styled, { appColors } from '../styles';
@@ -42,12 +42,13 @@ const Username = styled(ButtonText)`
 
 function TooltipContent() {
 	const history = useHistory();
-	const user = users[3];
 	return (
 		<Content>
 			<UserInfo>
 				<Avatar src={user.avatar} alt='avatar' />
-				<Username onClick={() => history.push(`${routes.profile.path}/${user.id}`)}>
+				<Username
+					onClick={() => history.push(`${routes.profile.path}/${user.id}`)}
+				>
 					{user.name}
 				</Username>
 				<Small>{user.email}</Small>
