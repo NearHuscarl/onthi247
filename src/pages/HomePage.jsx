@@ -7,7 +7,7 @@ import routes from '../routes';
 const HomePage = () => (
 	<AnnouncementPageBuilder
 		path={[routes.home, routes.intro]}
-		title='Giới thiệu về OnThi247'
+		title='Giới thiệu về NearAcademy'
 		image={Intro}
 		body={intro}
 	/>

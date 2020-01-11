@@ -12,7 +12,7 @@ import BiologyTeacher from '../../public/images/teacher-biology.jpg';
 
 const chemistryTeacher = {
 	name: 'Lê Phạm Thành',
-	role: 'Giáo viên môn Hóa học tại OnThi247',
+	role: 'Giáo viên môn Hóa học tại NearAcademy',
 	image: ChemistryTeacher,
 	school: '',
 	subject: '',
@@ -34,7 +34,7 @@ const chemistryTeacher = {
 
 const biologyTeacher = {
 	name: 'Thịnh Văn Nam',
-	role: 'Giáo viên phụ trách môn Sinh học tại OnThi247',
+	role: 'Giáo viên phụ trách môn Sinh học tại NearAcademy',
 	image: BiologyTeacher,
 	school: '',
 	subject: '',
@@ -67,7 +67,7 @@ const englishBabeDescription = `Vững về chuyên môn, dày dặn về kinh n
 const englishBabes = [
 	{
 		name: 'Văn Trịnh Quỳnh Anh',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe1,
 		school: 'THPT Gia Định, TP. HCM',
 		subject: 'Tiếng Anh',
@@ -84,7 +84,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Đặng Tú Anh',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe2,
 		school: 'THPT Chu Văn An, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -101,7 +101,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Trương Thị Ngọc Mai',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe3,
 		school: 'THPT Amsterdam, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -118,7 +118,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Đỗ Thị Anh Thư',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe4,
 		school: 'THPT Chuyên ĐHSP, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -135,7 +135,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Trương Hoàng Anh',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe5,
 		school: 'THPT Chu Văn An, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -152,7 +152,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Dương Thị Trang',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe6,
 		school: 'THPT H.A.S, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -169,7 +169,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Hàn Thị Hải Huyền',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe7,
 		school: 'THPT Đoàn Thị Điểm, Hà Nội',
 		subject: 'Tiếng Anh',
@@ -186,7 +186,7 @@ const englishBabes = [
 	},
 	{
 		name: 'Đào Thị Hồng Nhung',
-		role: 'Giáo viên môn Tiếng Anh tại OnThi247',
+		role: 'Giáo viên môn Tiếng Anh tại NearAcademy',
 		image: Babe8,
 		school: 'THPT Chuyên ĐHSP, Hà Nội',
 		subject: 'Tiếng Anh',

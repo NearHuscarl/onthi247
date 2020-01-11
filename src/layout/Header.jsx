@@ -107,7 +107,7 @@ const Main = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5rem 0;
+	padding: 2.5rem 0;
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 `;

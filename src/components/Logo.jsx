@@ -2,49 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import LogoImage from '../../public/images/logo.png';
-import { H1, H2 } from './Headings';
-import styled from '../styles';
+import { H1 } from './Headings';
+import styled, { appColors } from '../styles';
 
 const StyledLink = styled(Link)`
 	display: flex;
 	align-items: center;
 
+	h1 {
+		font-size: 2.25rem;
+
+		.orange {
+			color: ${appColors.primaryDark};
+		}
+	}
+
 	img {
-		width: ${(props) => props.small ? '2rem' : '3.4rem'};
-		margin-right: .9rem;
-		margin-top: -.5rem;
+		height: 2.25rem;
+		margin-right: 0.5rem;
+		margin-top: -0.5rem;
 	}
 `;
 
-export default function Logo({ small, className }) {
+export default function Logo({ className }) {
 	return (
-		<StyledLink to='/' className={className} small={small ? 1 : 0}>
+		<StyledLink to='/' className={className}>
 			<img src={LogoImage} alt='logo' />
-			{small ? (
-				<H2>
-					OnThi
-					<H2 as='span' primary>
-						247
-					</H2>
-				</H2>
-			) : (
-				<H1>
-					OnThi
-					<H1 as='span' primary>
-						247
-					</H1>
-				</H1>
-			)}
+			<H1>
+				<span>Near</span>
+				<span className='orange'>Academy</span>
+			</H1>
 		</StyledLink>
 	);
 }
 
 Logo.propTypes = {
-	small: PropTypes.bool,
 	className: PropTypes.string,
 };
 
 Logo.defaultProps = {
-	small: false,
-	className: '',
+	className: null,
 };

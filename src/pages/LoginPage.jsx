@@ -62,7 +62,7 @@ export default function LoginPage() {
 				<img src={authImage} alt='auth' />
 				<Heading>Đăng nhập tài khoản</Heading>
 				<SubHeading>
-					Để có thể sử dụng những chức năng chỉ có tại OnThi247
+					Để có thể sử dụng những chức năng chỉ có tại NearAcademy
 				</SubHeading>
 				<InputHint>Tên đăng nhập</InputHint>
 				<InputGroup>

@@ -35,7 +35,7 @@ export default function RegisterPage() {
 				<img src={authImage} alt='auth' />
 				<Heading>Đăng ký tài khoản</Heading>
 				<SubHeading>
-					Để có thể sử dụng những chức năng chỉ có tại OnThi247
+					Để có thể sử dụng những chức năng chỉ có tại NearAcademy
 				</SubHeading>
 				<InputHint>Tên đăng nhập</InputHint>
 				<InputGroup>

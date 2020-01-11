@@ -47,7 +47,7 @@ function AskPage({ hotQuestions, newQuestions }) {
 					Đặt câu hỏi mới
 					<H2 sub className='mt-tn'>
 						Đặt câu hỏi để nhận được sự hỗ trợ từ cộng đồng học sinh của
-						OnThi247
+						NearAcademy
 					</H2>
 				</H2>
 				<Line />

@@ -22,24 +22,24 @@ const notifications = [
 	{
 		image: logo,
 		body:
-			'[OnThi247] giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
+			'[NearAcademy] giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
 		date: '5 ngày trước',
 	},
 	{
 		image: logo,
-		body: '[OnThi247] giảm 30% tất cả các khóa học chỉ 2 ngày 22/10 và 23/10',
+		body: '[NearAcademy] giảm 30% tất cả các khóa học chỉ 2 ngày 22/10 và 23/10',
 		date: '1 tháng trước',
 	},
 	{
 		image: logo,
 		body:
-			'Mua 1 khóa học tặng 1 khóa học duy nhất trên [OnThi247] trong năm 2019',
+			'Mua 1 khóa học tặng 1 khóa học duy nhất trên [NearAcademy] trong năm 2019',
 		date: '4 tháng trước',
 	},
 	{
 		image: logo,
 		body:
-			'OnThi247 giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
+			'NearAcademy giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
 		date: '4 tháng trước',
 	},
 ];

@@ -1,11 +1,11 @@
 {
-	"name": "onthi247",
+	"name": "near-academy",
 	"version": "1.0.0",
-	"description": "OnThi247 - where you can learn online 24h/7",
+	"description": "NearAcademy - where you can learn online 24h/7",
 	"author": "NearHuscarl <near.huscarl@gmail.com>",
-	"homepage": "http://nearhuscarl.github.io/onthi247",
+	"homepage": "http://nearhuscarl.github.io/nearacademy",
 	"license": "MIT",
-	"repository": "git@github.com:NearHuscarl/onthi247.git",
+	"repository": "git@github.com:NearHuscarl/nearacademy.git",
 	"main": "index.js",
 	"scripts": {
 		"start": "yarn run build:dev && node server/server.js",

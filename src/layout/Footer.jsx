@@ -100,9 +100,9 @@ export default function Footer() {
 	return (
 		<footer>
 			<FooterTop>
-				<TopLogo small />
+				<TopLogo />
 				<div>
-					<H4>Về OnThi247</H4>
+					<H4>About</H4>
 					<ul>
 						<li>
 							<TopLink to={intro.path}>Giới thiệu</TopLink>
@@ -153,7 +153,7 @@ export default function Footer() {
 									href='mailto:near.huscarl@gmail.com'
 									rel='noreferrer noopener'
 								>
-									hotro@onthi247.vn
+									support@nearacademy.vn
 								</TopLink>
 							</li>
 							<li>
@@ -178,7 +178,7 @@ export default function Footer() {
 									href='mailto:near.huscarl@gmail.com'
 									rel='noreferrer noopener'
 								>
-									info@onthi247.vn
+									info@nearacademy.vn
 								</TopLink>
 							</li>
 							<li>
@@ -205,7 +205,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<div>
-					<H4>Tải ứng dụng OnThi247</H4>
+					<H4>Tải ứng dụng NearAcademy</H4>
 					<a href='#'>
 						<TopAppImage
 							className='mb-sm'
@@ -225,7 +225,7 @@ export default function Footer() {
 					<TwitterButton />
 				</BottomMedias>
 				<BottomCopyright>
-					© 2019 - Bản quyền website thuộc về OnThi247.vn
+					© 2019 - Bản quyền website thuộc về nearacademy.com
 				</BottomCopyright>
 				<BottomLicense>
 					<p>

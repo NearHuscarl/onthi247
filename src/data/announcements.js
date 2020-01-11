@@ -1,7 +1,7 @@
 import Preview1 from '../../public/images/notads-5.png';
 import Preview2 from '../../public/images/notads-3.png';
 
-const body = `Với mong muốn tạo ra một chương trình ưu đãi dành riêng cho các em học sinh trong năm học mới. [OnThi247] chính thức tổ chức chương trình mua 1 tặng 1 khóa học duy nhất trong năm 2019 này.
+const body = `Với mong muốn tạo ra một chương trình ưu đãi dành riêng cho các em học sinh trong năm học mới. [NearAcademy] chính thức tổ chức chương trình mua 1 tặng 1 khóa học duy nhất trong năm 2019 này.
 
 [Chỉ có 1 lần duy nhất trong năm học này. Niềm vui nhân đôi.]
 - Mua 1 khóa học được tặng bất kỳ 1 khóa học nào tùy chọn, không giới hạn lớp và môn
@@ -19,7 +19,7 @@ const announcements = [
 	{
 		image: Preview1,
 		title:
-			'OnThi247 giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
+			'NearAcademy giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
 		date: '31/10/2019',
 		body,
 	},
@@ -37,7 +37,7 @@ const announcements = [
 	},
 	{
 		image: Preview2,
-		title: 'Lợi ích và giải thưởng thi online trên OnThi247',
+		title: 'Lợi ích và giải thưởng thi online trên NearAcademy',
 		date: '29/10/2019',
 		body,
 	},

@@ -1,5 +1,5 @@
 const constants = {
-	repoName: 'onthi247',
+	repoName: 'nearacademy',
 };
 
 export default constants;
